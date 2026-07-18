@@ -1,886 +1,1104 @@
 /* =========================================================
    RANDY'S CLEANING PROS
-   COMPLETE WEBSITE STYLESHEET
-   ========================================================= */
-/* =========================================================
-   1. BRAND COLORS AND GLOBAL SETTINGS
-   ========================================================= */
-:root {
-  /* Main Navy Theme */
-  --navy-darkest: #010E38;
-  --navy-dark: #010E38;
-  --navy: #010E38;
-  --navy-light: #173B78;
+   COMPLETE STYLES.CSS
 
-  /* Gold Accent Colors */
-  --gold-dark: #A97812;
+   DESIGN:
+   95% Dark Navy
+   4% White
+   1% Gold
+   ========================================================= */
+
+
+/* =========================================================
+   1. WEBSITE COLORS AND SETTINGS
+   ========================================================= */
+
+:root {
+  /* Main background color */
+  --navy: #010E38;
+
+  /* Slightly lighter navy for cards and menu areas */
+  --navy-light: #07194D;
+  --navy-hover: #0B245F;
+
+  /* Main writing color */
+  --white: #FFFFFF;
+
+  /* Softer white for paragraphs */
+  --soft-white: #E8EDF7;
+
+  /* Gold should only be used for important details */
   --gold: #E4B63F;
   --gold-light: #F4D77B;
 
-  /* Text Colors */
-  --white: #FFFFFF;
-  --off-white: #F5F7FB;
-  --light-blue: #DCE5F2;
-  --text-soft: #C9D3E1;
-
-  /* Borders and Cards */
-  --border-light: rgba(255, 255, 255, 0.14);
-  --card-background: rgba(255, 255, 255, 0.07);
-  --card-background-hover: rgba(255, 255, 255, 0.11);
+  /* Transparent borders */
+  --white-border: rgba(255, 255, 255, 0.18);
+  --gold-border: rgba(228, 182, 63, 0.55);
 
   /* Shadows */
-  --shadow-small: 0 8px 20px rgba(0, 0, 0, 0.22);
-  --shadow-medium: 0 16px 40px rgba(0, 0, 0, 0.32);
-  --shadow-large: 0 25px 60px rgba(0, 0, 0, 0.42);
+  --small-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+  --large-shadow: 0 14px 35px rgba(0, 0, 0, 0.35);
 
-  /* Rounded Corners */
-  --radius-small: 10px;
-  --radius-medium: 18px;
-  --radius-large: 28px;
+  /* Rounded corners */
+  --small-radius: 8px;
+  --medium-radius: 14px;
+  --large-radius: 22px;
 
-  --max-width: 1200px;
+  /* Maximum website width */
+  --maximum-width: 1200px;
 }
+
+
 /* =========================================================
-   2. RESET AND BASIC PAGE STYLES
+   2. RESET BASIC BROWSER SETTINGS
    ========================================================= */
+
 * {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
+
 html {
   scroll-behavior: smooth;
 }
+
 body {
-  margin: 0;
   min-height: 100vh;
-  font-family: "Open Sans", Arial, sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--navy);
   color: var(--white);
-  background:
-    radial-gradient(
-      circle at top,
-      rgba(31, 166, 106, 0.16),
-      transparent 34%
-    ),
-    linear-gradient(
-      180deg,
-      var(--navy-dark) 0%,
-      var(--navy) 50%,
-      #071f39 100%
-    );
   line-height: 1.7;
+  overflow-x: hidden;
 }
+
 img {
   display: block;
   max-width: 100%;
+  height: auto;
 }
+
 a {
-  color: inherit;
+  color: var(--white);
   text-decoration: none;
 }
+
 button,
 input,
-select,
-textarea {
+textarea,
+select {
   font: inherit;
 }
-main {
-  overflow: hidden;
+
+
+/* =========================================================
+   3. MAIN WEBSITE CONTAINER
+   ========================================================= */
+
+.container {
+  width: min(92%, var(--maximum-width));
+  margin: 0 auto;
 }
+
+main {
+  background-color: var(--navy);
+}
+
+section {
+  padding: 70px 0;
+  background-color: var(--navy);
+}
+
+
+/* =========================================================
+   4. HEADINGS AND WRITING
+   ========================================================= */
+
 h1,
 h2,
 h3,
-h4 {
-  margin-top: 0;
-  font-family: "Montserrat", Arial, sans-serif;
+h4,
+h5,
+h6 {
+  color: var(--white);
   line-height: 1.2;
+  margin-bottom: 18px;
+  font-weight: 800;
 }
+
 h1 {
-  font-size: clamp(2.2rem, 6vw, 4.8rem);
+  font-size: clamp(2.2rem, 6vw, 4.5rem);
 }
+
 h2 {
-  font-size: clamp(1.7rem, 4vw, 2.8rem);
+  font-size: clamp(1.8rem, 4vw, 3rem);
 }
+
 h3 {
-  font-size: 1.25rem;
+  font-size: clamp(1.25rem, 3vw, 1.75rem);
 }
+
 p {
-  margin-top: 0;
+  color: var(--soft-white);
+  margin-bottom: 18px;
+  font-size: 1.05rem;
 }
+
 strong {
-  color: var(--gold-light);
+  color: var(--white);
 }
+
+small {
+  color: var(--soft-white);
+}
+
+
+/* Use this class only around the words Gold Standard */
+
+.gold-text {
+  color: var(--gold);
+}
+
+
+/* Example:
+
+<h2>
+  Our 10-Step
+  <span class="gold-text">Gold Standard</span>
+  Cleaning Procedure
+</h2>
+
+*/
+
+
 /* =========================================================
-   3. WEBSITE HEADER AND NAVIGATION
+   5. HEADER
    ========================================================= */
-.site-header {
-  position: sticky;
-  top: 0;
+
+.site-header,
+header {
+  width: 100%;
+  background-color: var(--navy);
+  border-bottom: 1px solid var(--white-border);
+  position: relative;
   z-index: 1000;
-  background: rgba(6, 27, 51, 0.96);
-  border-bottom: 1px solid var(--border-light);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
 }
-.nav-wrap {
-  width: min(94%, var(--max-width));
+
+.header-inner {
+  width: min(92%, var(--maximum-width));
   min-height: 82px;
   margin: 0 auto;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 24px;
+  gap: 25px;
 }
-.brand {
-  display: flex;
-  flex-direction: column;
-  min-width: 230px;
-}
-.brand-main {
+
+.site-name,
+.brand-name {
   color: var(--white);
-  font-family: "Montserrat", Arial, sans-serif;
-  font-size: clamp(1.05rem, 2.6vw, 1.4rem);
+  font-size: 1.35rem;
   font-weight: 800;
-  line-height: 1.2;
+  letter-spacing: 0.4px;
 }
-.brand-tagline {
-  margin-top: 4px;
-  color: var(--gold-light);
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 0.04em;
+
+.site-name:hover,
+.brand-name:hover {
+  color: var(--white);
 }
-.main-nav {
+
+
+/* =========================================================
+   6. LOGO AND MASCOT
+   ========================================================= */
+
+.logo {
+  width: 350px;
+  max-width: 90%;
+  margin: 0 auto 30px;
+}
+
+.page-logo {
+  width: 350px;
+  max-width: 90%;
+  margin: 0 auto 30px;
+}
+
+.mascot {
+  width: 550px;
+  max-width: 95%;
+  margin: 0 auto;
+  background-color: transparent;
+  object-fit: contain;
+}
+
+.hero-mascot {
+  width: 550px;
+  max-width: 95%;
+  margin: 0 auto;
+  object-fit: contain;
+}
+
+.logo-small {
+  width: 120px;
+  height: auto;
+}
+
+
+/* =========================================================
+   7. NAVIGATION MENU
+   ========================================================= */
+
+.navbar,
+.site-nav,
+nav {
+  background-color: var(--navy);
+}
+
+.nav-links {
   display: flex;
   align-items: center;
-  justify-content: flex-end;
-  flex-wrap: wrap;
-  gap: 8px;
+  justify-content: center;
+  gap: 10px;
+  list-style: none;
 }
-.main-nav a {
-  padding: 10px 12px;
-  color: var(--off-white);
-  border-radius: 8px;
-  font-family: "Montserrat", Arial, sans-serif;
-  font-size: 0.78rem;
+
+.nav-links a {
+  display: inline-block;
+  color: var(--white);
+  padding: 11px 15px;
+  border-radius: var(--small-radius);
   font-weight: 700;
   transition:
     background-color 0.25s ease,
     color 0.25s ease,
     transform 0.25s ease;
 }
-.main-nav a:hover {
+
+.nav-links a:hover,
+.nav-links a:focus {
+  background-color: var(--navy-light);
   color: var(--white);
-  background: rgba(31, 166, 106, 0.22);
   transform: translateY(-1px);
 }
-.main-nav a.active {
-  color: var(--navy-dark);
-  background: linear-gradient(
-    135deg,
-    var(--green-light),
-    var(--green)
-  );
-  box-shadow: 0 5px 15px rgba(31, 166, 106, 0.28);
+
+.nav-links a.active {
+  border-bottom: 2px solid var(--gold);
 }
+
+
 /* =========================================================
-   4. MOBILE MENU BUTTON
+   8. MOBILE MENU BUTTON
    ========================================================= */
+
+.menu-button,
 .menu-toggle {
   display: none;
-  align-items: center;
-  gap: 10px;
-  padding: 10px 14px;
+  width: 48px;
+  height: 44px;
+  padding: 8px;
+  background-color: var(--navy-light);
   color: var(--white);
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid var(--border-light);
-  border-radius: 10px;
+  border: 1px solid var(--white-border);
+  border-radius: var(--small-radius);
   cursor: pointer;
+  font-size: 1.5rem;
 }
-.menu-icon {
-  position: relative;
-  display: block;
-  width: 22px;
-  height: 2px;
-  background: var(--white);
+
+.menu-button:hover,
+.menu-toggle:hover {
+  background-color: var(--navy-hover);
 }
-.menu-icon::before,
-.menu-icon::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  width: 22px;
-  height: 2px;
-  background: var(--white);
-}
-.menu-icon::before {
-  top: -7px;
-}
-.menu-icon::after {
-  top: 7px;
-}
+
+
 /* =========================================================
-   5. BUTTONS
+   9. HERO SECTION
    ========================================================= */
-.btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 52px;
-  padding: 14px 24px;
-  border: 2px solid transparent;
-  border-radius: 999px;
-  font-family: "Montserrat", Arial, sans-serif;
-  font-size: 0.95rem;
-  font-weight: 800;
-  text-align: center;
-  cursor: pointer;
-  transition:
-    transform 0.25s ease,
-    box-shadow 0.25s ease,
-    background-color 0.25s ease;
-}
-.btn:hover {
-  transform: translateY(-3px);
-}
-.btn-gold {
-  color: #2b2107;
-  background: linear-gradient(
-    135deg,
-    var(--gold-light),
-    var(--gold)
-  );
-  box-shadow: 0 10px 24px rgba(228, 182, 63, 0.26);
-}
-.btn-gold:hover {
-  box-shadow: 0 14px 32px rgba(228, 182, 63, 0.38);
-}
-.btn-outline {
-  color: var(--white);
-  background: transparent;
-  border-color: rgba(255, 255, 255, 0.55);
-}
-.btn-outline:hover {
-  background: rgba(255, 255, 255, 0.11);
-}
-/* =========================================================
-   6. HOME PAGE HERO
-   ========================================================= */
+
 .hero {
-  position: relative;
-  min-height: 760px;
-  padding: 90px 22px 80px;
+  min-height: 75vh;
   display: flex;
   align-items: center;
-  justify-content: center;
-  flex-direction: column;
+  background-color: var(--navy);
+  padding: 60px 0 80px;
+}
+
+.hero-content {
+  width: min(92%, var(--maximum-width));
+  margin: 0 auto;
   text-align: center;
 }
-.hero-glow {
-  position: absolute;
-  top: 80px;
-  left: 50%;
-  width: 520px;
-  height: 520px;
-  max-width: 90vw;
-  transform: translateX(-50%);
-  background: radial-gradient(
-    circle,
-    rgba(31, 166, 106, 0.24),
-    transparent 68%
-  );
-  pointer-events: none;
-}
-.mascot {
-  position: relative;
-  z-index: 2;
-  width: min(500px, 92vw);
-  height: auto;
-  margin: 0 auto 20px;
-  object-fit: contain;
-  filter: drop-shadow(0 20px 35px rgba(0, 0, 0, 0.4));
-}
-.eyebrow {
-  margin-bottom: 14px;
-  color: var(--green-light);
-  font-family: "Montserrat", Arial, sans-serif;
-  font-size: 0.85rem;
-  font-weight: 800;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-}
+
 .hero h1 {
-  position: relative;
-  z-index: 2;
-  max-width: 950px;
-  margin-bottom: 28px;
+  max-width: 900px;
+  margin: 0 auto 22px;
   color: var(--white);
-  text-shadow: 0 8px 25px rgba(0, 0, 0, 0.28);
 }
-.hero-actions {
+
+.hero p {
+  max-width: 760px;
+  margin: 0 auto 28px;
+  color: var(--soft-white);
+  font-size: clamp(1rem, 2.5vw, 1.25rem);
+}
+
+.hero-image {
+  width: 550px;
+  max-width: 95%;
+  margin: 35px auto 0;
+}
+
+.hero-buttons {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
   gap: 14px;
+  margin-top: 28px;
 }
+
+
 /* =========================================================
-   7. INNER PAGE HERO
+   10. BUTTONS
    ========================================================= */
-.page-hero {
-  padding: 88px 22px 74px;
-  text-align: center;
-  background:
-    radial-gradient(
-      circle at top center,
-      rgba(31, 166, 106, 0.2),
-      transparent 48%
-    ),
-    linear-gradient(
-      180deg,
-      rgba(11, 47, 84, 0.94),
-      rgba(6, 27, 51, 0.92)
-    );
-  border-bottom: 1px solid var(--border-light);
-}
-.page-hero h1 {
-  max-width: 950px;
-  margin: 0 auto 22px;
-}
-.page-hero > p:not(.eyebrow) {
-  max-width: 760px;
-  margin: 0 auto 30px;
-  color: var(--text-soft);
-  font-size: 1.08rem;
-}
-.page-logo {
-  display: block;
-  width: 350px;
-  max-width: 90%;
-  height: auto;
-  margin: 0 auto 30px;
-  object-fit: contain;
-  filter: drop-shadow(0 14px 28px rgba(0, 0, 0, 0.38));
-}
-/* =========================================================
-   8. GENERAL CONTENT SECTIONS
-   ========================================================= */
-.content-section,
-.page-section,
-.showcase-section,
-.promise-section {
-  width: min(94%, var(--max-width));
-  margin: 0 auto;
-  padding: 78px 0;
-}
-.narrow-section {
-  width: min(92%, 850px);
-}
-.section-heading {
-  max-width: 760px;
-  margin: 0 auto 42px;
-  text-align: center;
-}
-.section-label {
-  margin-bottom: 10px;
-  color: var(--green-light);
-  font-family: "Montserrat", Arial, sans-serif;
-  font-size: 0.8rem;
-  font-weight: 800;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-}
-.two-column {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 28px;
-}
-/* =========================================================
-   9. INFORMATION CARDS
-   ========================================================= */
-.info-card,
-.service-card,
-.contact-card,
-.charity-card,
-.promise-card,
-.step-card {
-  position: relative;
-  padding: 34px;
-  background:
-    linear-gradient(
-      145deg,
-      rgba(255, 255, 255, 0.09),
-      rgba(255, 255, 255, 0.045)
-    );
-  border: 1px solid var(--border-light);
-  border-radius: var(--radius-medium);
-  box-shadow: var(--shadow-medium);
-  overflow: hidden;
-  transition:
-    transform 0.28s ease,
-    border-color 0.28s ease,
-    background-color 0.28s ease;
-}
-.info-card::before,
-.service-card::before,
-.contact-card::before,
-.charity-card::before,
-.promise-card::before,
-.step-card::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 4px;
-  background: linear-gradient(
-    90deg,
-    var(--green),
-    var(--gold)
-  );
-}
-.info-card:hover,
-.service-card:hover,
-.contact-card:hover,
-.step-card:hover {
-  transform: translateY(-6px);
-  border-color: rgba(66, 201, 137, 0.42);
-  background: var(--card-background-hover);
-}
-.info-card h2,
-.service-card h2,
-.contact-card h2,
-.charity-card h2,
-.promise-card h2,
-.step-card h2 {
-  color: var(--white);
-}
-.info-card p,
-.service-card p,
-.contact-card p,
-.charity-card p,
-.promise-card p,
-.step-card p {
-  color: var(--text-soft);
-}
-.signature-line {
-  margin-top: 26px;
-  color: var(--gold-light) !important;
-  font-family: "Montserrat", Arial, sans-serif;
-  font-weight: 800;
-}
-/* =========================================================
-   10. PRICE GUARANTEE BOX
-   ========================================================= */
-.guarantee-box {
-  margin-top: 30px;
-  padding: 28px;
-  background:
-    linear-gradient(
-      135deg,
-      rgba(228, 182, 63, 0.14),
-      rgba(31, 166, 106, 0.12)
-    );
-  border: 1px solid rgba(228, 182, 63, 0.38);
-  border-radius: 16px;
-  box-shadow: inset 0 0 30px rgba(255, 255, 255, 0.03);
-}
-.guarantee-kicker {
-  display: block;
-  margin-bottom: 10px;
-  color: var(--gold-light);
-  font-family: "Montserrat", Arial, sans-serif;
-  font-size: 0.78rem;
-  font-weight: 800;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-}
-.guarantee-box h3 {
-  color: var(--white);
-}
-/* =========================================================
-   11. SERVICE PAGE GRID
-   ========================================================= */
-.service-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 24px;
-}
-.service-card {
-  display: flex;
-  flex-direction: column;
-}
-.service-card h2 {
-  font-size: 1.35rem;
-}
-.service-card p {
-  flex-grow: 1;
-}
-.service-link {
+
+.button,
+.btn,
+button[type="submit"] {
   display: inline-block;
-  margin-top: 18px;
-  color: var(--gold-light);
-  font-family: "Montserrat", Arial, sans-serif;
+  padding: 13px 23px;
+  border-radius: var(--small-radius);
+  border: 1px solid var(--white-border);
+  background-color: var(--white);
+  color: var(--navy);
   font-weight: 800;
-}
-.service-link:hover {
-  color: var(--green-light);
-}
-/* =========================================================
-   12. GOLD STANDARD STEPS
-   ========================================================= */
-.steps-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 24px;
-}
-.step-card span {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 48px;
-  height: 48px;
-  margin-bottom: 18px;
-  color: var(--navy-dark);
-  background: linear-gradient(
-    135deg,
-    var(--gold-light),
-    var(--gold)
-  );
-  border-radius: 50%;
-  font-family: "Montserrat", Arial, sans-serif;
-  font-size: 1.1rem;
-  font-weight: 800;
-  box-shadow: 0 8px 20px rgba(228, 182, 63, 0.24);
-}
-/* =========================================================
-   13. PHOTO SHOWCASE
-   ========================================================= */
-.photo-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 24px;
-}
-.photo-card {
-  position: relative;
-  background: rgba(255, 255, 255, 0.07);
-  border: 1px solid var(--border-light);
-  border-radius: var(--radius-medium);
-  overflow: hidden;
-  box-shadow: var(--shadow-medium);
+  text-align: center;
+  cursor: pointer;
+  box-shadow: var(--small-shadow);
   transition:
-    transform 0.28s ease,
-    box-shadow 0.28s ease;
+    transform 0.25s ease,
+    background-color 0.25s ease,
+    color 0.25s ease,
+    border-color 0.25s ease;
 }
-.photo-card:hover {
-  transform: translateY(-7px);
-  box-shadow: var(--shadow-large);
+
+.button:hover,
+.btn:hover,
+button[type="submit"]:hover {
+  background-color: var(--soft-white);
+  color: var(--navy);
+  transform: translateY(-2px);
 }
-.photo-card img {
-  width: 100%;
-  height: 260px;
-  object-fit: cover;
-}
-.photo-copy {
-  padding: 26px;
-}
-.photo-copy h3 {
+
+.button-secondary,
+.btn-secondary {
+  background-color: transparent;
   color: var(--white);
+  border: 1px solid var(--white);
 }
-.photo-copy p {
-  color: var(--text-soft);
+
+.button-secondary:hover,
+.btn-secondary:hover {
+  background-color: var(--white);
+  color: var(--navy);
 }
-.badge {
-  position: absolute;
-  top: 14px;
-  left: 14px;
-  z-index: 2;
-  padding: 9px 13px;
-  color: #2b2107;
-  background: linear-gradient(
-    135deg,
-    var(--gold-light),
-    var(--gold)
-  );
-  border-radius: 10px;
-  font-family: "Montserrat", Arial, sans-serif;
-  font-size: 0.82rem;
-  font-weight: 800;
-  box-shadow: var(--shadow-small);
+
+
+/* Use gold buttons only for the most important action */
+
+.button-gold,
+.btn-gold,
+.quote-button {
+  background-color: var(--gold);
+  color: var(--navy);
+  border-color: var(--gold);
 }
-.badge span {
-  font-size: 0.65rem;
+
+.button-gold:hover,
+.btn-gold:hover,
+.quote-button:hover {
+  background-color: var(--gold-light);
+  color: var(--navy);
 }
+
+
 /* =========================================================
-   14. PROMISE AND CHARITY SECTIONS
+   11. PAGE BANNER
    ========================================================= */
-.promise-card,
-.charity-card {
-  max-width: 900px;
+
+.page-banner,
+.page-header {
+  padding: 60px 20px 45px;
+  text-align: center;
+  background-color: var(--navy);
+  border-bottom: 1px solid var(--white-border);
+}
+
+.page-banner h1,
+.page-header h1 {
+  margin-bottom: 14px;
+}
+
+.page-banner p,
+.page-header p {
+  max-width: 720px;
   margin: 0 auto;
+}
+
+
+/* =========================================================
+   12. CONTENT SECTIONS
+   ========================================================= */
+
+.content-section {
+  padding: 70px 0;
+  background-color: var(--navy);
+}
+
+.section-heading {
+  max-width: 800px;
+  margin: 0 auto 40px;
   text-align: center;
 }
-.charity-card blockquote {
-  margin: 30px 0 0;
-  padding: 24px;
-  color: var(--gold-light);
-  background: rgba(228, 182, 63, 0.08);
-  border-left: 4px solid var(--gold);
-  border-radius: 10px;
-  font-family: "Montserrat", Arial, sans-serif;
-  font-size: 1.15rem;
-  font-weight: 700;
+
+.section-heading h2 {
+  color: var(--white);
 }
+
+.section-heading p {
+  color: var(--soft-white);
+}
+
+
 /* =========================================================
-   15. CONTACT PAGE
+   13. CARDS
    ========================================================= */
-.contact-grid {
+
+.card-grid,
+.services-grid,
+.features-grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 24px;
-}
-.contact-link {
-  color: var(--gold-light);
-  font-weight: 700;
-  overflow-wrap: anywhere;
-}
-.contact-link:hover {
-  color: var(--green-light);
-}
-/* =========================================================
-   16. QUOTE AND CONTACT FORMS
-   ========================================================= */
-.quote-form {
-  padding: 36px;
-  background:
-    linear-gradient(
-      145deg,
-      rgba(255, 255, 255, 0.1),
-      rgba(255, 255, 255, 0.05)
-    );
-  border: 1px solid var(--border-light);
-  border-radius: var(--radius-medium);
-  box-shadow: var(--shadow-large);
-}
-.form-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: 22px;
 }
-.quote-form label {
-  display: block;
-  margin-bottom: 20px;
+
+.card,
+.service-card,
+.feature-card {
+  background-color: var(--navy-light);
   color: var(--white);
-  font-family: "Montserrat", Arial, sans-serif;
-  font-size: 0.9rem;
-  font-weight: 700;
-}
-.quote-form input,
-.quote-form select,
-.quote-form textarea {
-  width: 100%;
-  margin-top: 9px;
-  padding: 14px 15px;
-  color: #10263a;
-  background: var(--white);
-  border: 2px solid transparent;
-  border-radius: 10px;
-  outline: none;
+  padding: 30px;
+  border: 1px solid var(--white-border);
+  border-radius: var(--medium-radius);
+  box-shadow: var(--small-shadow);
   transition:
-    border-color 0.2s ease,
-    box-shadow 0.2s ease;
+    transform 0.25s ease,
+    border-color 0.25s ease,
+    background-color 0.25s ease;
 }
-.quote-form input:focus,
-.quote-form select:focus,
-.quote-form textarea:focus {
-  border-color: var(--green);
-  box-shadow: 0 0 0 4px rgba(31, 166, 106, 0.18);
+
+.card:hover,
+.service-card:hover,
+.feature-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(255, 255, 255, 0.32);
+  background-color: var(--navy-hover);
 }
-.quote-form textarea {
-  resize: vertical;
+
+.card h3,
+.service-card h3,
+.feature-card h3 {
+  color: var(--white);
 }
-.checkbox-line {
-  display: flex !important;
-  align-items: flex-start;
-  gap: 12px;
-}
-.checkbox-line input {
-  width: auto;
-  margin-top: 5px;
-}
-.form-button {
-  width: 100%;
-  margin-top: 8px;
-  border: 0;
-}
-.form-note {
-  margin-top: 20px;
-  color: var(--text-soft);
-  font-size: 0.88rem;
-  text-align: center;
-}
-/* =========================================================
-   17. FINAL CALL TO ACTION
-   ========================================================= */
-.final-cta {
-  width: min(94%, var(--max-width));
-  margin: 20px auto 80px;
-  padding: 42px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 30px;
-  background:
-    linear-gradient(
-      135deg,
-      rgba(31, 166, 106, 0.22),
-      rgba(228, 182, 63, 0.13)
-    );
-  border: 1px solid rgba(66, 201, 137, 0.34);
-  border-radius: var(--radius-large);
-  box-shadow: var(--shadow-medium);
-}
-.final-cta h2 {
+
+.card p,
+.service-card p,
+.feature-card p {
+  color: var(--soft-white);
   margin-bottom: 0;
 }
-/* =========================================================
-   18. WEBSITE FOOTER
-   ========================================================= */
-.site-footer {
-  padding: 38px 20px;
-  color: var(--text-soft);
-  background: #041426;
-  border-top: 1px solid var(--border-light);
-  text-align: center;
-}
-.site-footer p {
-  margin: 5px 0;
-}
-.site-footer strong {
+
+.card-icon {
+  font-size: 2rem;
+  margin-bottom: 15px;
   color: var(--white);
 }
-/* =========================================================
-   19. TABLET RESPONSIVE STYLES
-   ========================================================= */
-@media (max-width: 1050px) {
-  .nav-wrap {
-    min-height: 76px;
-  }
-  .menu-toggle {
-    display: inline-flex;
-  }
-  .main-nav {
-    position: absolute;
-    top: 76px;
-    left: 3%;
-    right: 3%;
-    display: none;
-    flex-direction: column;
-    align-items: stretch;
-    padding: 14px;
-    background: rgba(6, 27, 51, 0.99);
-    border: 1px solid var(--border-light);
-    border-radius: 14px;
-    box-shadow: var(--shadow-large);
-  }
-  .main-nav.open {
-    display: flex;
-  }
-  .main-nav a {
-    width: 100%;
-    padding: 13px 15px;
-    font-size: 0.88rem;
-  }
-  .service-grid,
-  .photo-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
+
+
+/* Only special Gold Standard cards should use this */
+
+.gold-standard-card {
+  border: 1px solid var(--gold-border);
 }
+
+.gold-standard-card h3 {
+  color: var(--gold);
+}
+
+
 /* =========================================================
-   20. PHONE RESPONSIVE STYLES
+   14. ABOUT SECTION
    ========================================================= */
-@media (max-width: 760px) {
-  .nav-wrap {
-    width: 92%;
+
+.about-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 50px;
+}
+
+.about-text h2 {
+  color: var(--white);
+}
+
+.about-image img {
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+  border-radius: var(--large-radius);
+}
+
+
+/* =========================================================
+   15. SERVICE LISTS AND CHECKMARKS
+   ========================================================= */
+
+.check-list,
+.service-list {
+  list-style: none;
+  margin: 25px 0;
+}
+
+.check-list li,
+.service-list li {
+  position: relative;
+  padding-left: 30px;
+  margin-bottom: 14px;
+  color: var(--soft-white);
+}
+
+.check-list li::before,
+.service-list li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: var(--white);
+  font-weight: 900;
+}
+
+
+/* =========================================================
+   16. GOLD STANDARD SECTION
+   ========================================================= */
+
+.gold-standard-section {
+  background-color: var(--navy);
+  padding: 75px 0;
+  text-align: center;
+}
+
+.gold-standard-section h2 {
+  color: var(--white);
+}
+
+.gold-standard-section .gold-text {
+  color: var(--gold);
+}
+
+.gold-line {
+  width: 70px;
+  height: 3px;
+  margin: 18px auto 28px;
+  background-color: var(--gold);
+  border-radius: 999px;
+}
+
+
+/* =========================================================
+   17. FORMS
+   ========================================================= */
+
+.form-container,
+.contact-form,
+.quote-form {
+  width: min(100%, 760px);
+  margin: 0 auto;
+  padding: 32px;
+  background-color: var(--navy-light);
+  border: 1px solid var(--white-border);
+  border-radius: var(--medium-radius);
+  box-shadow: var(--large-shadow);
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--white);
+  font-weight: 700;
+}
+
+input,
+textarea,
+select {
+  width: 100%;
+  padding: 13px 14px;
+  background-color: var(--navy);
+  color: var(--white);
+  border: 1px solid var(--white-border);
+  border-radius: var(--small-radius);
+  outline: none;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  border-color: var(--white);
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.1);
+}
+
+textarea {
+  min-height: 150px;
+  resize: vertical;
+}
+
+select option {
+  color: var(--navy);
+  background-color: var(--white);
+}
+
+
+/* =========================================================
+   18. TABLES
+   ========================================================= */
+
+.table-container {
+  width: 100%;
+  overflow-x: auto;
+  border-radius: var(--medium-radius);
+  border: 1px solid var(--white-border);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: var(--navy-light);
+  color: var(--white);
+}
+
+th,
+td {
+  padding: 15px;
+  text-align: left;
+  border-bottom: 1px solid var(--white-border);
+}
+
+th {
+  background-color: var(--navy-hover);
+  color: var(--white);
+}
+
+td {
+  color: var(--soft-white);
+}
+
+tr:last-child td {
+  border-bottom: none;
+}
+
+
+/* =========================================================
+   19. TESTIMONIALS
+   ========================================================= */
+
+.testimonial {
+  padding: 30px;
+  background-color: var(--navy-light);
+  border: 1px solid var(--white-border);
+  border-radius: var(--medium-radius);
+}
+
+.testimonial p {
+  font-style: italic;
+}
+
+.testimonial-name {
+  color: var(--white);
+  font-weight: 800;
+  margin-top: 15px;
+}
+
+
+/* =========================================================
+   20. CALL-TO-ACTION SECTION
+   ========================================================= */
+
+.call-to-action,
+.cta-section {
+  padding: 65px 20px;
+  text-align: center;
+  background-color: var(--navy-light);
+  border-top: 1px solid var(--white-border);
+  border-bottom: 1px solid var(--white-border);
+}
+
+.call-to-action h2,
+.cta-section h2 {
+  color: var(--white);
+}
+
+.call-to-action p,
+.cta-section p {
+  max-width: 700px;
+  margin: 0 auto 25px;
+}
+
+
+/* =========================================================
+   21. CONTACT INFORMATION
+   ========================================================= */
+
+.contact-info {
+  display: grid;
+  gap: 18px;
+}
+
+.contact-item {
+  padding: 22px;
+  background-color: var(--navy-light);
+  border: 1px solid var(--white-border);
+  border-radius: var(--medium-radius);
+}
+
+.contact-item h3 {
+  margin-bottom: 8px;
+}
+
+.contact-item a {
+  color: var(--white);
+  font-weight: 700;
+}
+
+.contact-item a:hover {
+  text-decoration: underline;
+}
+
+
+/* =========================================================
+   22. CHARITY PAGE
+   ========================================================= */
+
+.charity-story {
+  max-width: 850px;
+  margin: 0 auto;
+}
+
+.charity-highlight {
+  margin: 35px 0;
+  padding: 28px;
+  background-color: var(--navy-light);
+  border-left: 4px solid var(--gold);
+  border-radius: var(--small-radius);
+}
+
+.charity-highlight strong {
+  color: var(--gold);
+}
+
+
+/* =========================================================
+   23. FOOTER
+   ========================================================= */
+
+.site-footer,
+footer {
+  padding: 45px 20px 25px;
+  background-color: var(--navy);
+  color: var(--white);
+  text-align: center;
+  border-top: 1px solid var(--white-border);
+}
+
+.footer-content {
+  width: min(92%, var(--maximum-width));
+  margin: 0 auto;
+}
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 18px;
+  margin: 20px 0;
+}
+
+.footer-links a {
+  color: var(--soft-white);
+}
+
+.footer-links a:hover {
+  color: var(--white);
+  text-decoration: underline;
+}
+
+.copyright {
+  margin-top: 25px;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.92rem;
+}
+
+
+/* =========================================================
+   24. HELPFUL LAYOUT CLASSES
+   ========================================================= */
+
+.text-center {
+  text-align: center;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.center {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.hidden {
+  display: none;
+}
+
+.no-margin {
+  margin: 0;
+}
+
+.spacer-small {
+  height: 20px;
+}
+
+.spacer-medium {
+  height: 40px;
+}
+
+.spacer-large {
+  height: 70px;
+}
+
+
+/* =========================================================
+   25. ACCESSIBILITY
+   ========================================================= */
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 3px solid var(--gold);
+  outline-offset: 3px;
+}
+
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 15px;
+  background-color: var(--white);
+  color: var(--navy);
+  padding: 10px 15px;
+  z-index: 9999;
+}
+
+.skip-link:focus {
+  top: 15px;
+}
+
+
+/* =========================================================
+   26. TABLET SETTINGS
+   ========================================================= */
+
+@media screen and (max-width: 900px) {
+  .card-grid,
+  .services-grid,
+  .features-grid {
+    grid-template-columns: repeat(2, 1fr);
   }
-  .brand {
-    min-width: 0;
+
+  .about-layout {
+    grid-template-columns: 1fr;
+    text-align: center;
   }
-  .brand-tagline {
-    display: none;
+
+  .about-image {
+    order: -1;
   }
-  .hero {
-    min-height: auto;
-    padding: 60px 18px;
-  }
-  .page-hero {
-    padding: 60px 18px 54px;
-  }
-  .content-section,
-  .page-section,
-  .showcase-section,
-  .promise-section {
-    width: 92%;
+
+  section {
     padding: 55px 0;
   }
-  .two-column,
-  .service-grid,
-  .photo-grid,
-  .steps-grid,
-  .contact-grid,
-  .form-grid {
+}
+
+
+/* =========================================================
+   27. PHONE SETTINGS
+   ========================================================= */
+
+@media screen and (max-width: 700px) {
+  .header-inner {
+    min-height: 72px;
+  }
+
+  .menu-button,
+  .menu-toggle {
+    display: block;
+  }
+
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 72px;
+    left: 0;
+    width: 100%;
+    padding: 18px;
+    flex-direction: column;
+    align-items: stretch;
+    background-color: var(--navy);
+    border-top: 1px solid var(--white-border);
+    border-bottom: 1px solid var(--white-border);
+    box-shadow: var(--large-shadow);
+  }
+
+  .nav-links.open,
+  .nav-links.active,
+  .nav-links.show {
+    display: flex;
+  }
+
+  .nav-links a {
+    width: 100%;
+    padding: 14px;
+    text-align: center;
+    background-color: var(--navy-light);
+    border: 1px solid var(--white-border);
+  }
+
+  .hero {
+    min-height: auto;
+    padding: 45px 0 65px;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .hero-buttons .button,
+  .hero-buttons .btn {
+    width: 100%;
+  }
+
+  .card-grid,
+  .services-grid,
+  .features-grid {
     grid-template-columns: 1fr;
   }
-  .info-card,
+
+  .card,
   .service-card,
-  .contact-card,
-  .charity-card,
-  .promise-card,
-  .step-card,
+  .feature-card {
+    padding: 24px;
+  }
+
+  .form-container,
+  .contact-form,
   .quote-form {
-    padding: 25px;
+    padding: 23px 18px;
   }
-  .photo-card img {
-    height: 230px;
-  }
-  .final-cta {
-    width: 92%;
-    padding: 30px 24px;
-    flex-direction: column;
-    align-items: flex-start;
-  }
-  .final-cta .btn {
+
+  .mascot,
+  .hero-mascot,
+  .hero-image {
     width: 100%;
+    max-width: 500px;
   }
-  .hero-actions {
-    width: 100%;
-    flex-direction: column;
+
+  .page-logo,
+  .logo {
+    width: 300px;
   }
-  .hero-actions .btn {
-    width: min(100%, 360px);
-    margin: 0 auto;
+
+  section {
+    padding: 48px 0;
   }
 }
+
+
 /* =========================================================
-   21. SMALL PHONE STYLES
+   28. SMALL PHONE SETTINGS
    ========================================================= */
-@media (max-width: 430px) {
-  .brand-main {
-    font-size: 0.96rem;
+
+@media screen and (max-width: 430px) {
+  .container {
+    width: 90%;
   }
-  .menu-toggle {
-    padding: 9px 11px;
-    font-size: 0.85rem;
+
+  h1 {
+    font-size: 2.1rem;
   }
-  .hero h1,
-  .page-hero h1 {
-    font-size: 2.15rem;
+
+  h2 {
+    font-size: 1.7rem;
   }
-  .page-logo {
-    width: 290px;
+
+  p {
+    font-size: 1rem;
   }
-  .btn {
+
+  .button,
+  .btn,
+  button[type="submit"] {
     width: 100%;
   }
-  .photo-card img {
-    height: 205px;
+
+  .card,
+  .service-card,
+  .feature-card {
+    padding: 21px;
+  }
+
+  .page-banner,
+  .page-header {
+    padding: 45px 15px 35px;
+  }
+}
+
+
+/* =========================================================
+   29. REDUCE ANIMATION FOR ACCESSIBILITY
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    transition: none !important;
+    animation: none !important;
   }
 }
