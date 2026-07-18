@@ -1,19 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
-  >
-
-  <title>Randy's Cleaning Pros</title>
+  <title>Randy's Cleaning Pros | Home</title>
 
   <meta
     name="description"
-    content="Professional residential, Airbnb, office, and move-out cleaning services in Southern Maine."
+    content="Randy's Cleaning Pros provides organized, detailed, Gold Standard cleaning services throughout Southern Maine."
   >
 
   <style>
@@ -23,361 +18,240 @@
       padding: 0;
     }
 
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-      background: #f5fbff;
-      color: #17324d;
-      line-height: 1.6;
+    html {
+      scroll-behavior: smooth;
     }
 
-    img {
-      max-width: 100%;
-      height: auto;
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #061b33;
+      color: #ffffff;
+      line-height: 1.6;
     }
 
     a {
       text-decoration: none;
     }
 
-    .container {
-      width: min(1100px, 92%);
-      margin: auto;
-    }
-
-    .top-bar {
-      background: #073b66;
-      color: white;
-      text-align: center;
-      padding: 8px 15px;
-      font-size: 14px;
-      font-weight: bold;
-    }
-
     header {
-      background: white;
-      border-bottom: 4px solid #28a745;
+      background: #031426;
+      border-bottom: 3px solid #2bb673;
       position: sticky;
       top: 0;
       z-index: 1000;
-      box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
+      box-shadow: 0 4px 18px rgba(0, 0, 0, 0.35);
     }
 
-    .header-inner {
-      width: min(1100px, 94%);
+    .nav-wrap {
+      width: min(1180px, 92%);
       margin: auto;
-      min-height: 78px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 20px;
+      padding: 18px 0;
     }
 
-    .brand {
-      color: #073b66;
-      font-size: 24px;
+    .business-name {
+      text-align: center;
+      font-size: clamp(1.5rem, 4vw, 2.3rem);
       font-weight: 800;
+      color: #ffffff;
+      margin-bottom: 16px;
     }
 
-    .brand span {
-      color: #28a745;
-    }
-
-    .menu-button {
-      display: none;
-      background: #073b66;
-      color: white;
-      border: none;
-      border-radius: 8px;
-      padding: 11px 16px;
-      font-size: 16px;
-      font-weight: bold;
-      cursor: pointer;
-    }
-
-    nav ul {
-      list-style: none;
+    nav {
       display: flex;
-      align-items: center;
-      gap: 7px;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
     }
 
     nav a {
-      display: block;
-      color: #17324d;
-      font-weight: bold;
-      padding: 10px 9px;
-      border-radius: 7px;
+      display: inline-block;
+      background: #0c2d4e;
+      color: #ffffff;
+      border: 2px solid #2bb673;
+      padding: 11px 16px;
+      border-radius: 10px;
+      font-weight: 700;
+      transition: 0.2s ease;
     }
 
-    nav a:hover {
-      background: #eaf7ee;
-      color: #16843a;
+    nav a:hover,
+    nav a:focus {
+      background: #2bb673;
+      color: #031426;
+      transform: translateY(-2px);
     }
 
     .hero {
-      min-height: 650px;
+      min-height: 620px;
       display: flex;
       align-items: center;
-      background: linear-gradient(
-        135deg,
-        rgba(235, 248, 255, 0.96),
-        rgba(233, 255, 239, 0.96)
-      );
-      padding: 65px 0;
-    }
-
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      align-items: center;
-      gap: 50px;
-    }
-
-    .mascot-area {
+      justify-content: center;
+      padding: 55px 20px 45px;
+      background:
+        radial-gradient(
+          circle at center,
+          rgba(43, 182, 115, 0.14),
+          transparent 42%
+        ),
+        linear-gradient(
+          180deg,
+          #061b33 0%,
+          #082746 100%
+        );
       text-align: center;
+      overflow: hidden;
+    }
+
+    .hero-inner {
+      width: min(1000px, 100%);
     }
 
     .mascot {
-      width: 420px;
-      max-width: 100%;
       display: block;
-      margin: auto;
+      width: min(550px, 95%);
+      height: auto;
+      margin: 0 auto 18px;
       filter: drop-shadow(
-        0 15px 18px rgba(0, 0, 0, 0.15)
+        0 18px 30px rgba(0, 0, 0, 0.35)
       );
     }
 
-    .hero-text h1 {
-      color: #073b66;
-      font-size: clamp(38px, 6vw, 64px);
+    .hero h1 {
+      font-size: clamp(2rem, 6vw, 4.2rem);
       line-height: 1.08;
-      margin-bottom: 20px;
+      margin-bottom: 15px;
     }
 
-    .hero-text h1 span {
-      color: #28a745;
+    .hero h1 span {
+      color: #39d98a;
     }
 
-    .hero-text p {
-      font-size: 19px;
-      margin-bottom: 26px;
-      max-width: 650px;
+    .tagline {
+      max-width: 760px;
+      margin: 0 auto 26px;
+      font-size: clamp(1.05rem, 2.5vw, 1.35rem);
+      color: #dcecf8;
     }
 
-    .hero-buttons {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-    }
-
-    .button {
+    .quote-button {
       display: inline-block;
-      border-radius: 8px;
-      padding: 14px 22px;
-      font-size: 17px;
-      font-weight: bold;
-      text-align: center;
-      border: 2px solid transparent;
+      background: #2bb673;
+      color: #031426;
+      padding: 16px 28px;
+      border-radius: 12px;
+      font-size: 1.1rem;
+      font-weight: 800;
+      box-shadow: 0 8px 20px rgba(43, 182, 115, 0.28);
+      transition: 0.2s ease;
     }
 
-    .button-primary {
-      background: #28a745;
-      color: white;
+    .quote-button:hover,
+    .quote-button:focus {
+      background: #4fe09d;
+      transform: translateY(-2px);
     }
 
-    .button-blue {
-      background: #073b66;
-      color: white;
+    .statement {
+      background: #f7fbff;
+      color: #102b45;
+      padding: 65px 20px;
     }
 
-    .button-outline {
-      background: white;
-      border-color: #073b66;
-      color: #073b66;
-    }
-
-    .offer {
-      background: #d9ae32;
-      color: #1b2f43;
-      padding: 24px 15px;
-      text-align: center;
-    }
-
-    .offer h2 {
-      font-size: clamp(25px, 4vw, 38px);
-    }
-
-    .offer p {
-      font-size: 17px;
-      font-weight: bold;
-    }
-
-    .section {
-      padding: 75px 0;
-    }
-
-    .section-title {
-      text-align: center;
-      margin-bottom: 40px;
-    }
-
-    .section-title h2 {
-      color: #073b66;
-      font-size: clamp(30px, 5vw, 45px);
-      margin-bottom: 10px;
-    }
-
-    .section-title p {
-      max-width: 750px;
+    .statement-inner {
+      width: min(920px, 100%);
       margin: auto;
-      font-size: 17px;
-    }
-
-    .trust-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 20px;
-    }
-
-    .trust-card {
-      background: white;
-      border: 2px solid #dcebf4;
-      border-radius: 14px;
-      padding: 25px 18px;
       text-align: center;
-      box-shadow: 0 8px 24px rgba(7, 59, 102, 0.08);
     }
 
-    .trust-icon {
-      font-size: 42px;
-      margin-bottom: 10px;
+    .statement h2 {
+      color: #082746;
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      margin-bottom: 24px;
     }
 
-    .trust-card h3 {
-      color: #073b66;
-      margin-bottom: 6px;
+    .statement h2 span {
+      color: #198d58;
     }
 
-    .home-links {
-      background: white;
-    }
-
-    .page-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
-    }
-
-    .page-card {
-      background: white;
-      border-top: 5px solid #28a745;
-      border-radius: 14px;
-      padding: 28px;
-      box-shadow: 0 8px 25px rgba(7, 59, 102, 0.1);
-    }
-
-    .page-card h3 {
-      color: #073b66;
-      font-size: 22px;
-      margin-bottom: 10px;
-    }
-
-    .page-card p {
+    .statement p {
+      font-size: 1.08rem;
       margin-bottom: 18px;
     }
 
-    footer {
-      background: #052c4d;
-      color: white;
+    .gold-standard-box {
+      margin-top: 34px;
+      background: #082746;
+      color: #ffffff;
+      border-left: 7px solid #2bb673;
+      border-radius: 14px;
+      padding: 28px;
+      text-align: left;
+      box-shadow: 0 12px 30px rgba(6, 27, 51, 0.18);
+    }
+
+    .gold-standard-box h3 {
+      color: #48dc99;
+      font-size: 1.55rem;
+      margin-bottom: 12px;
+    }
+
+    .selling-pitch {
+      background: #0b3155;
+      padding: 58px 20px;
       text-align: center;
-      padding: 28px 15px;
     }
 
-    footer p {
-      margin: 4px 0;
+    .selling-pitch-inner {
+      width: min(900px, 100%);
+      margin: auto;
     }
 
-    @media (max-width: 900px) {
-      .hero-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .hero-text {
-        text-align: center;
-      }
-
-      .hero-buttons {
-        justify-content: center;
-      }
-
-      .mascot {
-        width: 350px;
-      }
-
-      .trust-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .page-grid {
-        grid-template-columns: 1fr 1fr;
-      }
+    .selling-pitch h2 {
+      font-size: clamp(1.7rem, 4vw, 2.6rem);
+      margin-bottom: 18px;
     }
 
-    @media (max-width: 760px) {
-      .header-inner {
-        flex-wrap: wrap;
-        min-height: 72px;
-        padding: 12px 0;
-      }
+    .selling-pitch p {
+      color: #d9eaf5;
+      font-size: 1.08rem;
+      margin-bottom: 26px;
+    }
 
-      .brand {
-        font-size: 20px;
-      }
+    footer {
+      background: #031426;
+      color: #cfe0eb;
+      text-align: center;
+      padding: 25px 15px;
+      border-top: 3px solid #2bb673;
+    }
 
-      .menu-button {
-        display: block;
+    @media (max-width: 720px) {
+      .nav-wrap {
+        padding: 14px 0;
       }
 
       nav {
-        display: none;
-        width: 100%;
-      }
-
-      nav.open {
-        display: block;
-      }
-
-      nav ul {
-        flex-direction: column;
-        align-items: stretch;
-        padding: 10px 0;
+        display: grid;
+        grid-template-columns: repeat(
+          2,
+          minmax(0, 1fr)
+        );
       }
 
       nav a {
-        background: #f1f8fc;
-        padding: 13px;
         text-align: center;
+        padding: 10px 8px;
+        font-size: 0.9rem;
       }
 
       .hero {
-        padding: 45px 0;
+        min-height: auto;
+        padding-top: 40px;
       }
 
-      .hero-grid {
-        gap: 25px;
-      }
-
-      .mascot {
-        width: 330px;
-      }
-
-      .trust-grid,
-      .page-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .button {
-        width: 100%;
+      .statement,
+      .selling-pitch {
+        padding: 48px 18px;
       }
     }
   </style>
@@ -385,57 +259,25 @@
 
 <body>
 
-  <div class="top-bar">
-    Serving Southern Maine • Pet Friendly • Non-Smoking Business
-  </div>
-
   <header>
-    <div class="header-inner">
+    <div class="nav-wrap">
 
-      <a class="brand" href="index.html">
-        Randy's <span>Cleaning Pros</span>
-      </a>
+      <div class="business-name">
+        Randy's Cleaning Pros
+      </div>
 
-      <button
-        class="menu-button"
-        id="menuButton"
-        type="button"
-        aria-label="Open navigation menu"
-        aria-expanded="false"
-      >
-        ☰ Menu
-      </button>
+      <nav aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <a href="services.html">Services</a>
 
-      <nav id="navigationMenu">
-        <ul>
-          <li>
-            <a href="index.html">Home</a>
-          </li>
+        <a href="gold-standard.html">
+          Gold Standard
+        </a>
 
-          <li>
-            <a href="services.html">Services</a>
-          </li>
-
-          <li>
-            <a href="gold-standard.html">Gold Standard</a>
-          </li>
-
-          <li>
-            <a href="about.html">About</a>
-          </li>
-
-          <li>
-            <a href="reviews.html">Reviews</a>
-          </li>
-
-          <li>
-            <a href="quote.html">Free Quote</a>
-          </li>
-
-          <li>
-            <a href="contact.html">Contact</a>
-          </li>
-        </ul>
+        <a href="about.html">About</a>
+        <a href="reviews.html">Reviews</a>
+        <a href="quote.html">Free Quote</a>
+        <a href="contact.html">Contact</a>
       </nav>
 
     </div>
@@ -444,295 +286,137 @@
   <main>
 
     <section class="hero">
-      <div class="container hero-grid">
+      <div class="hero-inner">
 
-        <div class="mascot-area">
-          <img
-            class="mascot"
-            src="Mascot.PNG"
-            alt="Randy's Cleaning Pros mascot and logo"
-          >
-        </div>
+        <img
+          class="mascot"
+          src="Mascot.PNG"
+          alt="Randy's Cleaning Pros mascot"
+        >
 
-        <div class="hero-text">
+        <h1>
+          Cleaning Homes. Earning Trust.
+          <span>Building Hope.</span>
+        </h1>
 
-          <h1>
-            Cleaning Homes.<br>
-            Earning Trust.<br>
-            <span>Building Hope.</span>
-          </h1>
+        <p class="tagline">
+          Organized, detailed, and dependable
+          cleaning with the same careful Gold
+          Standard process in every home,
+          every time.
+        </p>
 
-          <p>
-            Randy's Cleaning Pros provides dependable,
-            detailed, and professional cleaning services
-            with a personal touch. We treat every home with
-            care and work hard to set the Gold Standard in
-            cleaning.
-          </p>
-
-          <div class="hero-buttons">
-
-            <a
-              class="button button-primary"
-              href="quote.html"
-            >
-              Get a Free Quote
-            </a>
-
-            <a
-              class="button button-blue"
-              href="tel:+12070000000"
-            >
-              Call Now
-            </a>
-
-            <a
-              class="button button-outline"
-              href="sms:+12070000000"
-            >
-              Text Us
-            </a>
-
-          </div>
-        </div>
+        <a
+          class="quote-button"
+          href="quote.html"
+        >
+          Get a Free Quote
+        </a>
 
       </div>
     </section>
 
-    <section class="offer">
+    <section class="statement">
+      <div class="statement-inner">
 
-      <h2>
-        50% Off Your First Cleaning
-      </h2>
+        <h2>
+          Why Randy's Cleaning Pros Is
+          <span>Different</span>
+        </h2>
 
-      <p>
-        Available to new customers who schedule
-        recurring cleaning service.
-      </p>
+        <p>
+          Randy's Cleaning Pros was created to
+          give customers more than a quick
+          surface cleaning. We believe a clean
+          home should feel peaceful, healthy,
+          organized, and cared for. Our goal is
+          to earn your trust by arriving prepared,
+          respecting your space, and following a
+          precise system that produces dependable
+          results.
+        </p>
 
-    </section>
+        <p>
+          We do not rush from room to room or
+          clean without a plan. We use an organized
+          10-Step Gold Standard Cleaning Procedure
+          designed to make sure important details
+          are not missed. We dust from top to
+          bottom, work in a consistent order,
+          carefully clean high-touch surfaces,
+          and finish each room with a final
+          inspection.
+        </p>
 
-    <section class="section">
-      <div class="container">
+        <p>
+          This structured process helps every
+          customer receive the same level of care
+          each time we visit. Whether we are
+          cleaning a family home, an Airbnb,
+          an office, or preparing a property for
+          move-in or move-out, we bring precision,
+          pride, and respect to the job.
+        </p>
 
-        <div class="section-title">
+        <div class="gold-standard-box">
 
-          <h2>
-            Cleaning You Can Trust
-          </h2>
+          <h3>
+            Our 10-Step Gold Standard Promise
+          </h3>
 
           <p>
-            Professional service built around quality,
-            respect, reliability, and customer satisfaction.
+            Our cleaning procedure is built around
+            preparation, organization, top-to-bottom
+            dusting, detailed surface cleaning,
+            kitchen care, bathroom sanitation,
+            floor care, finishing touches, quality
+            checks, and a final walkthrough. This
+            repeatable method is designed to provide
+            satisfying, dependable results—not just
+            once, but every time we clean your space.
           </p>
-
-        </div>
-
-        <div class="trust-grid">
-
-          <article class="trust-card">
-
-            <div class="trust-icon">
-              ✅
-            </div>
-
-            <h3>
-              100% Satisfaction
-            </h3>
-
-            <p>
-              We stand behind our work and will work
-              to make things right.
-            </p>
-
-          </article>
-
-          <article class="trust-card">
-
-            <div class="trust-icon">
-              🐾
-            </div>
-
-            <h3>
-              Pet Friendly
-            </h3>
-
-            <p>
-              We treat your pets and your home with
-              kindness and respect.
-            </p>
-
-          </article>
-
-          <article class="trust-card">
-
-            <div class="trust-icon">
-              🚭
-            </div>
-
-            <h3>
-              Non-Smoking Business
-            </h3>
-
-            <p>
-              Our cleaning professionals maintain a clean
-              and professional environment.
-            </p>
-
-          </article>
-
-          <article class="trust-card">
-
-            <div class="trust-icon">
-              ⭐
-            </div>
-
-            <h3>
-              Gold Standard Cleaning
-            </h3>
-
-            <p>
-              Every visit follows our detailed quality
-              and professionalism standards.
-            </p>
-
-          </article>
 
         </div>
       </div>
     </section>
 
-    <section class="section home-links">
-      <div class="container">
+    <section class="selling-pitch">
+      <div class="selling-pitch-inner">
 
-        <div class="section-title">
+        <h2>
+          A Better Kind of Cleaning Service
+        </h2>
 
-          <h2>
-            Explore Randy's Cleaning Pros
-          </h2>
+        <p>
+          Your home deserves more than someone
+          simply checking chores off a list. It
+          deserves a cleaning professional who
+          notices the details, follows a proven
+          system, and treats your property with
+          care. Choose Randy's Cleaning Pros for a
+          cleaner home, a more dependable
+          experience, and service built around
+          trust.
+        </p>
 
-          <p>
-            Each choice below opens a separate page.
-          </p>
+        <a
+          class="quote-button"
+          href="quote.html"
+        >
+          Request Your Free Quote
+        </a>
 
-        </div>
-
-        <div class="page-grid">
-
-          <article class="page-card">
-
-            <h3>
-              Our Services
-            </h3>
-
-            <p>
-              Explore residential, Airbnb, office,
-              deep-cleaning, and move-out services.
-            </p>
-
-            <a
-              class="button button-primary"
-              href="services.html"
-            >
-              View Services
-            </a>
-
-          </article>
-
-          <article class="page-card">
-
-            <h3>
-              Gold Standard
-            </h3>
-
-            <p>
-              Learn about our seven Gold Standard rules
-              and satisfaction guarantee.
-            </p>
-
-            <a
-              class="button button-primary"
-              href="gold-standard.html"
-            >
-              Read Our Standards
-            </a>
-
-          </article>
-
-          <article class="page-card">
-
-            <h3>
-              Request a Quote
-            </h3>
-
-            <p>
-              Tell us about your home and the cleaning
-              service you need.
-            </p>
-
-            <a
-              class="button button-primary"
-              href="quote.html"
-            >
-              Free Quote
-            </a>
-
-          </article>
-
-        </div>
       </div>
     </section>
 
   </main>
 
   <footer>
-
-    <p>
-      <strong>
-        Randy's Cleaning Pros
-      </strong>
-    </p>
-
-    <p>
-      Cleaning Homes. Earning Trust. Building Hope.
-    </p>
-
     <p>
       &copy; 2026 Randy's Cleaning Pros.
-      All rights reserved.
+      Serving Southern Maine.
     </p>
-
   </footer>
-
-  <script>
-    const menuButton =
-      document.getElementById("menuButton");
-
-    const navigationMenu =
-      document.getElementById("navigationMenu");
-
-    menuButton.addEventListener(
-      "click",
-      function () {
-
-        navigationMenu.classList.toggle("open");
-
-        const menuIsOpen =
-          navigationMenu.classList.contains("open");
-
-        menuButton.setAttribute(
-          "aria-expanded",
-          menuIsOpen
-        );
-
-        if (menuIsOpen) {
-          menuButton.textContent = "✕ Close";
-        } else {
-          menuButton.textContent = "☰ Menu";
-        }
-      }
-    );
-  </script>
 
 </body>
 </html>
