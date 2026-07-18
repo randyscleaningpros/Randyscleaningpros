@@ -1,81 +1,959 @@
 <!DOCTYPE html>
-
 <html lang="en">
 
 <head>
-
   <meta charset="UTF-8">
 
   <meta
-
     name="viewport"
-
     content="width=device-width, initial-scale=1.0"
-
   >
 
   <meta
-
     name="description"
-
-    content="Randy's Cleaning Pros provides professional, detailed, and dependable cleaning services."
-
+    content="Randy's Cleaning Pros provides dependable residential, move-out, Airbnb, and office cleaning services."
   >
 
   <title>Randy's Cleaning Pros</title>
 
   <link
-
     rel="icon"
-
     type="image/png"
-
     href="Smalllogo.PNG"
-
   >
 
   <link
-
     rel="preconnect"
-
     href="https://fonts.googleapis.com"
-
   >
 
   <link
-
     rel="preconnect"
-
     href="https://fonts.gstatic.com"
-
     crossorigin
-
   >
 
   <link
-
-    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Open+Sans:wght@400;600;700&display=swap"
-
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800;900&family=Open+Sans:wght@400;600;700&display=swap"
     rel="stylesheet"
-
   >
 
-  <link
+  <style>
+    /* =====================================================
+       BRAND COLORS
+       ===================================================== */
 
-    rel="stylesheet"
+    :root {
+      --navy: #071f45;
+      --navy-dark: #04142f;
+      --blue: #1474d4;
+      --green: #35a853;
+      --green-dark: #23843d;
+      --gold: #d7a72c;
+      --white: #ffffff;
+      --light-blue: #eef7ff;
+      --light-gray: #f5f7fa;
+      --gray-text: #566273;
+      --dark-text: #172033;
+      --border: #dce4ec;
+      --shadow: 0 12px 35px rgba(7, 31, 69, 0.12);
+    }
 
-    href="styles.css"
 
-  >
+    /* =====================================================
+       RESET
+       ===================================================== */
 
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Open Sans", Arial, sans-serif;
+      background: var(--white);
+      color: var(--dark-text);
+      line-height: 1.6;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    h1,
+    h2,
+    h3,
+    .brand-name,
+    .button {
+      font-family: "Montserrat", Arial, sans-serif;
+    }
+
+    .container {
+      width: min(1120px, 90%);
+      margin: 0 auto;
+    }
+
+
+    /* =====================================================
+       HEADER
+       ===================================================== */
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(255, 255, 255, 0.97);
+      border-bottom: 1px solid var(--border);
+      box-shadow: 0 4px 18px rgba(7, 31, 69, 0.07);
+    }
+
+    .header-inner {
+      width: min(1180px, 92%);
+      min-height: 82px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 25px;
+    }
+
+    .brand-name {
+      display: flex;
+      flex-direction: column;
+      color: var(--navy);
+      text-decoration: none;
+      font-size: 1.22rem;
+      font-weight: 900;
+      line-height: 1.15;
+    }
+
+    .brand-name small {
+      margin-top: 5px;
+      color: var(--green-dark);
+      font-family: "Open Sans", Arial, sans-serif;
+      font-size: 0.69rem;
+      font-weight: 700;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+    }
+
+    .menu-button {
+      display: none;
+      padding: 11px 16px;
+      background: var(--navy);
+      color: var(--white);
+      border: 0;
+      border-radius: 8px;
+      font-family: "Montserrat", Arial, sans-serif;
+      font-size: 0.95rem;
+      font-weight: 800;
+      cursor: pointer;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      display: block;
+      padding: 10px 12px;
+      color: var(--navy);
+      border-radius: 7px;
+      text-decoration: none;
+      font-family: "Montserrat", Arial, sans-serif;
+      font-size: 0.84rem;
+      font-weight: 800;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      background: var(--light-blue);
+      color: var(--blue);
+    }
+
+    .nav-links .quote-nav {
+      background: var(--green);
+      color: var(--white);
+    }
+
+    .nav-links .quote-nav:hover {
+      background: var(--green-dark);
+      color: var(--white);
+    }
+
+
+    /* =====================================================
+       HERO
+       ===================================================== */
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      padding: 50px 0 30px;
+      background:
+        radial-gradient(
+          circle at 85% 30%,
+          rgba(20, 116, 212, 0.12),
+          transparent 31%
+        ),
+        linear-gradient(
+          135deg,
+          #ffffff 0%,
+          #f4faff 65%,
+          #eaf6ff 100%
+        );
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: -110px;
+      right: -110px;
+      width: 360px;
+      height: 360px;
+      border: 50px solid rgba(53, 168, 83, 0.08);
+      border-radius: 50%;
+    }
+
+    .hero-layout {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      grid-template-columns: 1fr 0.9fr;
+      align-items: center;
+      gap: 45px;
+      min-height: 570px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 17px;
+      padding: 8px 13px;
+      background: #e6f6eb;
+      color: var(--green-dark);
+      border-radius: 50px;
+      font-family: "Montserrat", Arial, sans-serif;
+      font-size: 0.78rem;
+      font-weight: 900;
+      letter-spacing: 0.7px;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      content: "✓";
+      display: grid;
+      place-items: center;
+      width: 21px;
+      height: 21px;
+      background: var(--green);
+      color: var(--white);
+      border-radius: 50%;
+      font-size: 0.76rem;
+    }
+
+    .hero h1 {
+      max-width: 700px;
+      margin-bottom: 20px;
+      color: var(--navy);
+      font-size: clamp(2.7rem, 6vw, 5.2rem);
+      font-weight: 900;
+      line-height: 0.98;
+      letter-spacing: -2.5px;
+    }
+
+    .hero h1 span {
+      display: block;
+      color: var(--blue);
+    }
+
+    .hero-description {
+      max-width: 600px;
+      margin-bottom: 28px;
+      color: var(--gray-text);
+      font-size: 1.12rem;
+    }
+
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 13px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 52px;
+      padding: 14px 24px;
+      border: 2px solid transparent;
+      border-radius: 9px;
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 900;
+      transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        background 0.2s ease;
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+    }
+
+    .button-primary {
+      background: var(--green);
+      color: var(--white);
+      box-shadow: 0 10px 22px rgba(53, 168, 83, 0.25);
+    }
+
+    .button-primary:hover {
+      background: var(--green-dark);
+    }
+
+    .button-secondary {
+      background: var(--white);
+      color: var(--navy);
+      border-color: var(--navy);
+    }
+
+    .button-secondary:hover {
+      background: var(--navy);
+      color: var(--white);
+    }
+
+    .hero-trust {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 11px 20px;
+      margin-top: 26px;
+    }
+
+    .hero-trust span {
+      color: var(--navy);
+      font-size: 0.88rem;
+      font-weight: 700;
+    }
+
+    .hero-trust span::before {
+      content: "✓";
+      margin-right: 7px;
+      color: var(--green);
+      font-weight: 900;
+    }
+
+    .mascot-area {
+      position: relative;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      min-height: 500px;
+    }
+
+    .mascot-circle {
+      position: absolute;
+      width: 440px;
+      height: 440px;
+      max-width: 90vw;
+      max-height: 90vw;
+      background: var(--white);
+      border: 16px solid rgba(20, 116, 212, 0.09);
+      border-radius: 50%;
+      box-shadow: var(--shadow);
+    }
+
+    .hero-mascot {
+      position: relative;
+      z-index: 2;
+      width: 500px;
+      max-height: 520px;
+      object-fit: contain;
+    }
+
+    .sparkle {
+      position: absolute;
+      z-index: 3;
+      color: var(--blue);
+      font-size: 2.2rem;
+      font-weight: 900;
+    }
+
+    .sparkle-one {
+      top: 55px;
+      right: 35px;
+    }
+
+    .sparkle-two {
+      top: 135px;
+      left: 25px;
+      color: var(--green);
+      font-size: 1.5rem;
+    }
+
+
+    /* =====================================================
+       TRUST STRIP
+       ===================================================== */
+
+    .trust-strip {
+      background: var(--navy);
+      color: var(--white);
+    }
+
+    .trust-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .trust-item {
+      padding: 25px 20px;
+      text-align: center;
+      border-right: 1px solid rgba(255, 255, 255, 0.16);
+    }
+
+    .trust-item:last-child {
+      border-right: 0;
+    }
+
+    .trust-icon {
+      display: block;
+      margin-bottom: 5px;
+      color: #67d785;
+      font-size: 1.4rem;
+      font-weight: 900;
+    }
+
+    .trust-item strong {
+      display: block;
+      font-family: "Montserrat", Arial, sans-serif;
+      font-size: 0.95rem;
+    }
+
+    .trust-item small {
+      color: #cfd9e6;
+      font-size: 0.78rem;
+    }
+
+
+    /* =====================================================
+       SECTION HEADINGS
+       ===================================================== */
+
+    .section {
+      padding: 75px 0;
+    }
+
+    .section-light {
+      background: var(--light-gray);
+    }
+
+    .section-heading {
+      max-width: 700px;
+      margin: 0 auto 40px;
+      text-align: center;
+    }
+
+    .section-label {
+      margin-bottom: 8px;
+      color: var(--green-dark);
+      font-family: "Montserrat", Arial, sans-serif;
+      font-size: 0.78rem;
+      font-weight: 900;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+    }
+
+    .section-heading h2,
+    .split-copy h2 {
+      margin-bottom: 13px;
+      color: var(--navy);
+      font-size: clamp(2rem, 4vw, 3.1rem);
+      font-weight: 900;
+      line-height: 1.1;
+    }
+
+    .section-heading p,
+    .split-copy p {
+      color: var(--gray-text);
+      font-size: 1rem;
+    }
+
+
+    /* =====================================================
+       SERVICES
+       ===================================================== */
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .service-card {
+      position: relative;
+      overflow: hidden;
+      padding: 32px 27px;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 15px;
+      box-shadow: 0 8px 25px rgba(7, 31, 69, 0.07);
+      transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+    }
+
+    .service-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow);
+    }
+
+    .service-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 5px;
+      background: var(--blue);
+    }
+
+    .service-card:nth-child(2)::before {
+      background: var(--green);
+    }
+
+    .service-card:nth-child(3)::before {
+      background: var(--gold);
+    }
+
+    .service-number {
+      display: grid;
+      place-items: center;
+      width: 46px;
+      height: 46px;
+      margin-bottom: 20px;
+      background: var(--light-blue);
+      color: var(--blue);
+      border-radius: 12px;
+      font-family: "Montserrat", Arial, sans-serif;
+      font-size: 1rem;
+      font-weight: 900;
+    }
+
+    .service-card h3 {
+      margin-bottom: 9px;
+      color: var(--navy);
+      font-size: 1.2rem;
+      font-weight: 900;
+    }
+
+    .service-card p {
+      color: var(--gray-text);
+      font-size: 0.92rem;
+    }
+
+    .services-button {
+      margin-top: 34px;
+      text-align: center;
+    }
+
+
+    /* =====================================================
+       GOLD STANDARD
+       ===================================================== */
+
+    .gold-standard {
+      overflow: hidden;
+      background:
+        linear-gradient(
+          120deg,
+          rgba(7, 31, 69, 0.97),
+          rgba(8, 49, 92, 0.96)
+        );
+      color: var(--white);
+    }
+
+    .split-layout {
+      display: grid;
+      grid-template-columns: 1fr 0.75fr;
+      align-items: center;
+      gap: 60px;
+    }
+
+    .gold-standard .section-label {
+      color: #f1ce6d;
+    }
+
+    .gold-standard .split-copy h2 {
+      color: var(--white);
+    }
+
+    .gold-standard .split-copy p {
+      max-width: 640px;
+      margin-bottom: 25px;
+      color: #d5deea;
+    }
+
+    .gold-standard .button-secondary {
+      border-color: var(--white);
+      color: var(--navy);
+    }
+
+    .gold-badge {
+      width: 290px;
+      height: 290px;
+      margin: 0 auto;
+      display: grid;
+      place-items: center;
+      padding: 30px;
+      background:
+        radial-gradient(
+          circle,
+          #f4d77b 0%,
+          #d7a72c 66%,
+          #a97812 100%
+        );
+      color: var(--navy-dark);
+      border: 12px solid rgba(255, 255, 255, 0.12);
+      border-radius: 50%;
+      text-align: center;
+      box-shadow: 0 18px 45px rgba(0, 0, 0, 0.25);
+    }
+
+    .gold-badge strong {
+      display: block;
+      font-family: "Montserrat", Arial, sans-serif;
+      font-size: 2.3rem;
+      font-weight: 900;
+      line-height: 1;
+    }
+
+    .gold-badge span {
+      display: block;
+      margin-top: 8px;
+      font-family: "Montserrat", Arial, sans-serif;
+      font-size: 1rem;
+      font-weight: 900;
+      text-transform: uppercase;
+    }
+
+
+    /* =====================================================
+       CHARITY
+       ===================================================== */
+
+    .charity-box {
+      display: grid;
+      grid-template-columns: 0.7fr 1fr;
+      align-items: center;
+      gap: 45px;
+      padding: 45px;
+      background: var(--light-blue);
+      border: 1px solid #d6e8f8;
+      border-radius: 22px;
+    }
+
+    .charity-percent {
+      text-align: center;
+    }
+
+    .charity-percent strong {
+      display: block;
+      color: var(--green);
+      font-family: "Montserrat", Arial, sans-serif;
+      font-size: 6rem;
+      font-weight: 900;
+      line-height: 0.9;
+    }
+
+    .charity-percent span {
+      color: var(--navy);
+      font-family: "Montserrat", Arial, sans-serif;
+      font-size: 1rem;
+      font-weight: 900;
+      text-transform: uppercase;
+    }
+
+    .charity-copy h2 {
+      margin-bottom: 12px;
+      color: var(--navy);
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 900;
+      line-height: 1.1;
+    }
+
+    .charity-copy p {
+      margin-bottom: 23px;
+      color: var(--gray-text);
+    }
+
+
+    /* =====================================================
+       FINAL CTA
+       ===================================================== */
+
+    .final-cta {
+      padding: 65px 0;
+      background: var(--green);
+      color: var(--white);
+      text-align: center;
+    }
+
+    .final-cta h2 {
+      margin-bottom: 10px;
+      font-size: clamp(2rem, 5vw, 3.6rem);
+      font-weight: 900;
+      line-height: 1.08;
+    }
+
+    .final-cta p {
+      margin-bottom: 25px;
+      font-size: 1.05rem;
+    }
+
+    .final-cta .button {
+      background: var(--white);
+      color: var(--navy);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    }
+
+
+    /* =====================================================
+       FOOTER
+       ===================================================== */
+
+    .site-footer {
+      padding: 42px 0 30px;
+      background: var(--navy-dark);
+      color: #d4deeb;
+      text-align: center;
+    }
+
+    .footer-brand {
+      margin-bottom: 7px;
+      color: var(--white);
+      font-family: "Montserrat", Arial, sans-serif;
+      font-size: 1.25rem;
+      font-weight: 900;
+    }
+
+    .footer-tagline {
+      margin-bottom: 20px;
+      color: #f0ca64;
+      font-size: 0.9rem;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px 22px;
+      margin-bottom: 22px;
+    }
+
+    .footer-links a {
+      color: #d4deeb;
+      text-decoration: none;
+      font-size: 0.86rem;
+      font-weight: 700;
+    }
+
+    .footer-links a:hover {
+      color: var(--white);
+    }
+
+    .copyright {
+      color: #9caabd;
+      font-size: 0.78rem;
+    }
+
+
+    /* =====================================================
+       MOBILE
+       ===================================================== */
+
+    @media (max-width: 900px) {
+      .menu-button {
+        display: block;
+      }
+
+      .site-nav {
+        position: absolute;
+        top: 82px;
+        left: 0;
+        width: 100%;
+      }
+
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 4px;
+        padding: 15px 5%;
+        background: var(--white);
+        border-top: 1px solid var(--border);
+        box-shadow: 0 12px 25px rgba(7, 31, 69, 0.13);
+      }
+
+      .nav-links.open {
+        display: flex;
+      }
+
+      .nav-links a {
+        padding: 13px;
+      }
+
+      .hero-layout {
+        grid-template-columns: 1fr;
+        gap: 10px;
+        padding-top: 20px;
+        text-align: center;
+      }
+
+      .hero-description {
+        margin-right: auto;
+        margin-left: auto;
+      }
+
+      .hero-buttons,
+      .hero-trust {
+        justify-content: center;
+      }
+
+      .mascot-area {
+        min-height: 390px;
+        order: -1;
+      }
+
+      .hero-mascot {
+        width: 390px;
+        max-height: 400px;
+      }
+
+      .mascot-circle {
+        width: 330px;
+        height: 330px;
+      }
+
+      .services-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .split-layout {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      .charity-box {
+        grid-template-columns: 1fr;
+        padding: 35px 25px;
+        text-align: center;
+      }
+    }
+
+    @media (max-width: 650px) {
+      .header-inner {
+        min-height: 74px;
+      }
+
+      .brand-name {
+        font-size: 1rem;
+      }
+
+      .brand-name small {
+        font-size: 0.58rem;
+      }
+
+      .site-nav {
+        top: 74px;
+      }
+
+      .hero {
+        padding-top: 24px;
+      }
+
+      .hero-layout {
+        min-height: auto;
+      }
+
+      .hero h1 {
+        font-size: 2.7rem;
+        letter-spacing: -1.5px;
+      }
+
+      .mascot-area {
+        min-height: 330px;
+      }
+
+      .hero-mascot {
+        width: 325px;
+        max-height: 335px;
+      }
+
+      .mascot-circle {
+        width: 275px;
+        height: 275px;
+      }
+
+      .trust-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .trust-item {
+        border-right: 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+      }
+
+      .trust-item:last-child {
+        border-bottom: 0;
+      }
+
+      .section {
+        padding: 58px 0;
+      }
+
+      .hero-buttons {
+        flex-direction: column;
+      }
+
+      .button {
+        width: 100%;
+      }
+
+      .gold-badge {
+        width: 240px;
+        height: 240px;
+      }
+
+      .gold-badge strong {
+        font-size: 1.9rem;
+      }
+
+      .charity-percent strong {
+        font-size: 5rem;
+      }
+    }
+  </style>
 </head>
+
 
 <body>
 
   <!-- =====================================================
-
-       HEADER AND MOBILE MENU
-
+       HEADER
        ===================================================== -->
 
   <header class="site-header">
@@ -83,127 +961,82 @@
     <div class="header-inner">
 
       <a
-
         class="brand-name"
-
         href="index.html"
-
-        aria-label="Randy's Cleaning Pros home page"
-
+        aria-label="Randy's Cleaning Pros home"
       >
-
         Randy's Cleaning Pros
 
+        <small>
+          We Clean With Pride
+        </small>
       </a>
 
+
       <button
-
         id="menuButton"
-
         class="menu-button"
-
         type="button"
-
         aria-expanded="false"
-
         aria-controls="menuList"
-
       >
-
         ☰ Menu
-
       </button>
 
+
       <nav
-
         class="site-nav"
-
         aria-label="Main navigation"
-
       >
 
         <ul
-
           id="menuList"
-
           class="nav-links"
-
         >
 
           <li>
-
-            <a
-
-              class="active"
-
-              href="index.html"
-
-            >
-
+            <a class="active" href="index.html">
               Home
-
             </a>
-
           </li>
 
           <li>
-
             <a href="services.html">
-
               Services
-
             </a>
-
           </li>
 
           <li>
-
-            <a href="quote.html">
-
-              Free Quote
-
-            </a>
-
-          </li>
-
-          <li>
-
             <a href="gold-standard.html">
-
               Gold Standard
-
             </a>
-
           </li>
 
           <li>
-
             <a href="about.html">
-
-              About Us
-
+              About
             </a>
-
           </li>
 
           <li>
-
             <a href="charity.html">
-
               Charity
-
             </a>
-
           </li>
 
           <li>
-
             <a href="contact.html">
-
               Contact
-
             </a>
+          </li>
 
+          <li>
+            <a
+              class="quote-nav"
+              href="quote.html"
+            >
+              Free Quote
+            </a>
           </li>
 
         </ul>
@@ -214,181 +1047,91 @@
 
   </header>
 
-  <!-- =====================================================
-
-       MAIN PAGE
-
-       ===================================================== -->
 
   <main>
 
-    <!-- HERO SECTION -->
+    <!-- ===================================================
+         HERO
+         =================================================== -->
 
     <section class="hero">
 
-      <div class="hero-content">
+      <div class="container hero-layout">
 
-        <img
+        <div class="hero-copy">
 
-          class="hero-mascot"
-
-          src="Mascot12.jpg"
-
-          alt="Randy's Cleaning Pros mascot"
-
-        >
-
-        <p>
-
-          Professional • Detailed • Trusted
-
-        </p>
-
-        <h1>
-
-          Cleaning Homes. Earning Trust. Building Hope.
-
-        </h1>
-
-        <p>
-
-          Randy's Cleaning Pros provides dependable,
-
-          top-to-bottom cleaning with careful attention
-
-          to detail on every visit.
-
-        </p>
-
-        <div class="hero-buttons">
-
-          <a
-
-            class="button button-gold quote-button"
-
-            href="quote.html"
-
-          >
-
-            Get a Free Quote
-
-          </a>
-
-          <a
-
-            class="button button-secondary"
-
-            href="contact.html"
-
-          >
-
-            Contact Us
-
-          </a>
-
-        </div>
-
-      </div>
-
-    </section>
-
-    <!-- ABOUT SECTION -->
-
-    <section class="content-section">
-
-      <div class="container">
-
-        <div class="section-heading">
-
-          <h2>
-
-            More Than a Cleaning Company
-
-          </h2>
-
-          <p>
-
-            We are working to raise the standard of what
-
-            customers should expect from a professional
-
-            cleaning service.
-
+          <p class="eyebrow">
+            Detailed Cleaning You Can Trust
           </p>
 
-        </div>
+          <h1>
+            A Powerful Clean.
+            <span>Done With Pride.</span>
+          </h1>
 
-        <div class="about-layout">
+          <p class="hero-description">
+            Professional home cleaning backed by dependable
+            service, no-surprise pricing, and our
+            10-Step Gold Standard.
+          </p>
 
-          <div class="about-text">
-
-            <h2>
-
-              Detailed Cleaning You Can Depend On
-
-            </h2>
-
-            <p>
-
-              At Randy's Cleaning Pros, we do not believe
-
-              in rushing through your home. Every cleaning
-
-              is completed with care, consistency, and pride.
-
-            </p>
-
-            <p>
-
-              Our team follows a structured
-
-              <span class="gold-text">
-
-                Gold Standard
-
-              </span>
-
-              cleaning procedure designed to create dependable
-
-              results from one visit to the next.
-
-            </p>
-
-            <p>
-
-              We use professional equipment, quality products,
-
-              and detailed methods because your home deserves
-
-              more than a quick surface cleaning.
-
-            </p>
+          <div class="hero-buttons">
 
             <a
-
-              class="button button-secondary"
-
-              href="about.html"
-
+              class="button button-primary"
+              href="quote.html"
             >
+              Get a Free Quote
+            </a>
 
-              Learn More About Us
-
+            <a
+              class="button button-secondary"
+              href="sms:2075581298"
+            >
+              Text Us
             </a>
 
           </div>
 
-          <div class="about-image">
+          <div class="hero-trust">
 
-            <img
+            <span>Pet Friendly</span>
 
-              src="Logo.png.PNG"
+            <span>No-Surprise Pricing</span>
 
-              alt="Randy's Cleaning Pros logo"
-
-            >
+            <span>Satisfaction Promise</span>
 
           </div>
+
+        </div>
+
+
+        <div class="mascot-area">
+
+          <div
+            class="mascot-circle"
+            aria-hidden="true"
+          ></div>
+
+          <span
+            class="sparkle sparkle-one"
+            aria-hidden="true"
+          >
+            ✦
+          </span>
+
+          <span
+            class="sparkle sparkle-two"
+            aria-hidden="true"
+          >
+            ✦
+          </span>
+
+          <img
+            class="hero-mascot"
+            src="Mascot12.jpg"
+            alt="Randy's Cleaning Pros mascot"
+          >
 
         </div>
 
@@ -396,139 +1139,159 @@
 
     </section>
 
-    <!-- SERVICE CARDS -->
 
-    <section class="content-section">
+    <!-- ===================================================
+         TRUST STRIP
+         =================================================== -->
+
+    <section
+      class="trust-strip"
+      aria-label="Our service promises"
+    >
+
+      <div class="container trust-grid">
+
+        <div class="trust-item">
+
+          <span class="trust-icon">✓</span>
+
+          <strong>
+            Detailed Service
+          </strong>
+
+          <small>
+            Careful attention on every visit
+          </small>
+
+        </div>
+
+
+        <div class="trust-item">
+
+          <span class="trust-icon">✓</span>
+
+          <strong>
+            Fixed Quotes
+          </strong>
+
+          <small>
+            No unexpected price increases
+          </small>
+
+        </div>
+
+
+        <div class="trust-item">
+
+          <span class="trust-icon">✓</span>
+
+          <strong>
+            Professional Care
+          </strong>
+
+          <small>
+            Respect for your home and belongings
+          </small>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ===================================================
+         SERVICES
+         =================================================== -->
+
+    <section class="section section-light">
 
       <div class="container">
 
         <div class="section-heading">
 
+          <p class="section-label">
+            Cleaning Services
+          </p>
+
           <h2>
-
-            Professional Cleaning Services
-
+            A Cleaner Home Without the Stress
           </h2>
 
           <p>
-
-            Cleaning options for homes, rentals,
-
-            offices, landlords, and property owners.
-
+            Choose the service that fits your home,
+            schedule, or property.
           </p>
 
         </div>
+
 
         <div class="services-grid">
 
           <article class="service-card">
 
+            <div class="service-number">
+              01
+            </div>
+
             <h3>
-
-              Residential Cleaning
-
+              Home Cleaning
             </h3>
 
             <p>
-
-              Detailed cleaning for houses, apartments,
-
-              condos, and everyday living spaces.
-
+              Detailed one-time, weekly, biweekly,
+              and monthly cleaning.
             </p>
 
           </article>
 
+
           <article class="service-card">
 
+            <div class="service-number">
+              02
+            </div>
+
             <h3>
-
-              Recurring Cleaning
-
+              Move-Out Cleaning
             </h3>
 
             <p>
-
-              Weekly, biweekly, and monthly cleaning
-
-              plans designed to keep your home maintained.
-
+              Thorough cleaning for renters,
+              homeowners, and landlords.
             </p>
 
           </article>
 
-          <article class="service-card">
-
-            <h3>
-
-              Move-In and Move-Out
-
-            </h3>
-
-            <p>
-
-              Thorough cleaning for tenants, homeowners,
-
-              landlords, and property managers.
-
-            </p>
-
-          </article>
 
           <article class="service-card">
 
-            <h3>
+            <div class="service-number">
+              03
+            </div>
 
+            <h3>
               Airbnb Cleaning
-
             </h3>
 
             <p>
-
-              Dependable turnover cleaning for short-term
-
-              rentals and guest-ready properties.
-
+              Dependable turnovers that help keep
+              your property guest-ready.
             </p>
 
           </article>
 
-          <article class="service-card">
+        </div>
 
-            <h3>
 
-              Office Cleaning
+        <div class="services-button">
 
-            </h3>
-
-            <p>
-
-              Professional cleaning for offices,
-
-              workspaces, and small businesses.
-
-            </p>
-
-          </article>
-
-          <article class="service-card">
-
-            <h3>
-
-              Pet-Friendly Cleaning
-
-            </h3>
-
-            <p>
-
-              Careful cleaning methods and equipment
-
-              designed for homes with pets.
-
-            </p>
-
-          </article>
+          <a
+            class="button button-secondary"
+            href="services.html"
+          >
+            View All Services
+          </a>
 
         </div>
 
@@ -536,113 +1299,57 @@
 
     </section>
 
-    <!-- GOLD STANDARD SECTION -->
 
-    <section class="gold-standard-section">
+    <!-- ===================================================
+         GOLD STANDARD
+         =================================================== -->
 
-      <div class="container">
+    <section class="section gold-standard">
 
-        <h2>
+      <div class="container split-layout">
 
-          Our 10-Step
+        <div class="split-copy">
 
-          <span class="gold-text">
+          <p class="section-label">
+            The Randy's Difference
+          </p>
 
-            Gold Standard
+          <h2>
+            Our 10-Step Gold Standard
+          </h2>
 
-          </span>
+          <p>
+            A structured top-to-bottom cleaning procedure
+            created to give your home detailed and
+            consistent results.
+          </p>
 
-          Cleaning Procedure
+          <a
+            class="button button-secondary"
+            href="gold-standard.html"
+          >
+            Discover Our Standard
+          </a>
 
-        </h2>
+        </div>
 
-        <div class="gold-line"></div>
 
-        <p>
-
-          Our structured procedure helps make every
-
-          cleaning consistent, detailed, and dependable.
-
-        </p>
-
-        <a
-
-          class="button button-secondary"
-
-          href="gold-standard.html"
-
+        <div
+          class="gold-badge"
+          aria-label="10-Step Gold Standard"
         >
 
-          Learn About Our Procedure
+          <div>
 
-        </a>
+            <strong>
+              10-Step
+            </strong>
 
-      </div>
+            <span>
+              Gold Standard
+            </span>
 
-    </section>
-
-    <!-- GUARANTEE SECTION -->
-
-    <section class="content-section">
-
-      <div class="container">
-
-        <div class="card-grid">
-
-          <article class="card">
-
-            <h3>
-
-              No-Surprise Pricing
-
-            </h3>
-
-            <p>
-
-              The quote you approve is the price you pay.
-
-              We do not add unexpected charges after the job.
-
-            </p>
-
-          </article>
-
-          <article class="card">
-
-            <h3>
-
-              Satisfaction Promise
-
-            </h3>
-
-            <p>
-
-              Let us know within 24 hours if something is
-
-              not right, and we will return to make it right.
-
-            </p>
-
-          </article>
-
-          <article class="card">
-
-            <h3>
-
-              Professional Care
-
-            </h3>
-
-            <p>
-
-              We arrive prepared, respect your home,
-
-              and complete a final quality check.
-
-            </p>
-
-          </article>
+          </div>
 
         </div>
 
@@ -650,74 +1357,83 @@
 
     </section>
 
-    <!-- CHARITY SECTION -->
 
-    <section class="call-to-action">
+    <!-- ===================================================
+         CHARITY
+         =================================================== -->
+
+    <section class="section">
 
       <div class="container">
 
-        <h2>
+        <div class="charity-box">
 
-          Cleaning Homes and Giving Back
+          <div class="charity-percent">
 
-        </h2>
+            <strong>
+              5%
+            </strong>
 
-        <p>
+            <span>
+              From Every Cleaning
+            </span>
 
-          Five percent of earnings from every cleaning
+          </div>
 
-          will be added to our charity efforts to help
 
-          people facing hardship and instability.
+          <div class="charity-copy">
 
-        </p>
+            <p class="section-label">
+              Cleaning With a Purpose
+            </p>
 
-        <a
+            <h2>
+              Every Cleaning Helps Build Hope
+            </h2>
 
-          class="button button-secondary"
+            <p>
+              Five percent of our earnings will support
+              our efforts to help people facing hardship
+              and housing instability.
+            </p>
 
-          href="charity.html"
+            <a
+              class="button button-secondary"
+              href="charity.html"
+            >
+              Read Our Story
+            </a>
 
-        >
+          </div>
 
-          Read Our Charity Story
-
-        </a>
+        </div>
 
       </div>
 
     </section>
 
-    <!-- FINAL CALL TO ACTION -->
 
-    <section class="content-section">
+    <!-- ===================================================
+         FINAL CALL TO ACTION
+         =================================================== -->
 
-      <div class="container text-center">
+    <section class="final-cta">
+
+      <div class="container">
 
         <h2>
-
-          Ready for a Cleaner, More Comfortable Space?
-
+          Ready to Come Home to Clean?
         </h2>
 
         <p>
-
-          Request a free quote and tell us what type
-
-          of cleaning service you need.
-
+          Tell us about your space and receive a free quote.
         </p>
 
         <a
-
-          class="button button-gold quote-button"
-
+          class="button"
           href="quote.html"
-
         >
-
           Request Your Free Quote
-
         </a>
 
       </div>
@@ -726,106 +1442,97 @@
 
   </main>
 
+
   <!-- =====================================================
-
        FOOTER
-
        ===================================================== -->
 
   <footer class="site-footer">
 
-    <div class="footer-content">
+    <div class="container">
 
-      <p>
-
-        <strong>
-
-          Randy's Cleaning Pros
-
-        </strong>
-
+      <p class="footer-brand">
+        Randy's Cleaning Pros
       </p>
 
-      <p>
-
-        Setting the
-
-        <span class="gold-text">
-
-          Gold Standard
-
-        </span>
-
-        in Cleaning.
-
+      <p class="footer-tagline">
+        Setting the Gold Standard in Cleaning
       </p>
 
       <div class="footer-links">
 
         <a href="index.html">
-
           Home
-
         </a>
 
         <a href="services.html">
-
           Services
-
         </a>
 
         <a href="quote.html">
-
           Free Quote
-
         </a>
 
         <a href="about.html">
-
           About Us
-
         </a>
 
         <a href="charity.html">
-
           Charity
-
         </a>
 
         <a href="contact.html">
-
           Contact
-
         </a>
 
       </div>
 
       <p class="copyright">
-
         &copy;
-
         <span id="year"></span>
-
         Randy's Cleaning Pros. All rights reserved.
-
       </p>
 
     </div>
 
   </footer>
 
-  <script src="script.js"></script>
+
+  <!-- =====================================================
+       MENU AND YEAR SCRIPT
+       ===================================================== -->
 
   <script>
-
+    const menuButton = document.getElementById("menuButton");
+    const menuList = document.getElementById("menuList");
     const year = document.getElementById("year");
 
-    if (year) {
+    if (menuButton && menuList) {
+      menuButton.addEventListener("click", function () {
+        const menuIsOpen = menuList.classList.toggle("open");
 
-      year.textContent = new Date().getFullYear();
+        menuButton.setAttribute(
+          "aria-expanded",
+          menuIsOpen.toString()
+        );
 
+        menuButton.textContent = menuIsOpen
+          ? "✕ Close"
+          : "☰ Menu";
+      });
+
+      menuList.querySelectorAll("a").forEach(function (link) {
+        link.addEventListener("click", function () {
+          menuList.classList.remove("open");
+          menuButton.setAttribute("aria-expanded", "false");
+          menuButton.textContent = "☰ Menu";
+        });
+      });
     }
 
+    if (year) {
+      year.textContent = new Date().getFullYear();
+    }
   </script>
 
 </body>
