@@ -6,28 +6,38 @@
    1. BRAND COLORS AND GLOBAL SETTINGS
    ========================================================= */
 :root {
-  --navy-dark: #061b33;
-  --navy: #0b2f54;
-  --navy-light: #124b78;
-  --green-dark: #13704a;
-  --green: #1fa66a;
-  --green-light: #42c989;
-  --gold-dark: #b98714;
-  --gold: #e4b63f;
-  --gold-light: #f4d77b;
-  --white: #ffffff;
-  --off-white: #f4f8fb;
-  --light-blue: #dceaf4;
-  --text-soft: #cbd9e5;
+  /* Main Navy Theme */
+  --navy-darkest: #010E38;
+  --navy-dark: #010E38;
+  --navy: #010E38;
+  --navy-light: #173B78;
+
+  /* Gold Accent Colors */
+  --gold-dark: #A97812;
+  --gold: #E4B63F;
+  --gold-light: #F4D77B;
+
+  /* Text Colors */
+  --white: #FFFFFF;
+  --off-white: #F5F7FB;
+  --light-blue: #DCE5F2;
+  --text-soft: #C9D3E1;
+
+  /* Borders and Cards */
   --border-light: rgba(255, 255, 255, 0.14);
   --card-background: rgba(255, 255, 255, 0.07);
   --card-background-hover: rgba(255, 255, 255, 0.11);
-  --shadow-small: 0 8px 20px rgba(0, 0, 0, 0.18);
-  --shadow-medium: 0 16px 40px rgba(0, 0, 0, 0.28);
-  --shadow-large: 0 25px 60px rgba(0, 0, 0, 0.38);
+
+  /* Shadows */
+  --shadow-small: 0 8px 20px rgba(0, 0, 0, 0.22);
+  --shadow-medium: 0 16px 40px rgba(0, 0, 0, 0.32);
+  --shadow-large: 0 25px 60px rgba(0, 0, 0, 0.42);
+
+  /* Rounded Corners */
   --radius-small: 10px;
   --radius-medium: 18px;
   --radius-large: 28px;
+
   --max-width: 1200px;
 }
 /* =========================================================
