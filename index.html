@@ -1,98 +1,212 @@
 <!DOCTYPE html>
+
 <html lang="en">
+
 <head>
-  <link rel="icon" type="image/png" href="Smalllogo.PNG">
+
   <meta charset="UTF-8">
-<link rel="icon" type="image/png" href="Smalllogo.PNG">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <meta
+
+    name="viewport"
+
+    content="width=device-width, initial-scale=1.0"
+
+  >
+
+  <meta
+
     name="description"
-    content="Randy's Cleaning Pros — premium, family-safe cleaning backed by our Gold Standard."
+
+    content="Randy's Cleaning Pros provides professional, detailed, and dependable cleaning services."
+
   >
 
   <title>Randy's Cleaning Pros</title>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
   <link
-    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Open+Sans:wght@400;600;700&display=swap"
-    rel="stylesheet"
+
+    rel="icon"
+
+    type="image/png"
+
+    href="Smalllogo.PNG"
+
   >
 
-  <link rel="stylesheet" href="styles.css">
+  <link
+
+    rel="preconnect"
+
+    href="https://fonts.googleapis.com"
+
+  >
+
+  <link
+
+    rel="preconnect"
+
+    href="https://fonts.gstatic.com"
+
+    crossorigin
+
+  >
+
+  <link
+
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Open+Sans:wght@400;600;700&display=swap"
+
+    rel="stylesheet"
+
+  >
+
+  <link
+
+    rel="stylesheet"
+
+    href="styles.css"
+
+  >
+
 </head>
 
 <body>
 
+  <!-- =====================================================
+
+       HEADER AND MOBILE MENU
+
+       ===================================================== -->
+
   <header class="site-header">
 
-    <div class="nav-wrap">
+    <div class="header-inner">
 
       <a
-        class="brand"
+
+        class="brand-name"
+
         href="index.html"
-        aria-label="Randy's Cleaning Pros home"
+
+        aria-label="Randy's Cleaning Pros home page"
+
       >
 
-        <span class="brand-main">
-          Randy's Cleaning Pros
-        </span>
-
-        <span class="brand-tagline">
-          Setting the Gold Standard in Cleaning
-        </span>
+        Randy's Cleaning Pros
 
       </a>
 
       <button
-        class="menu-toggle"
+
+        id="menuButton"
+
+        class="menu-button"
+
         type="button"
+
         aria-expanded="false"
-        aria-controls="main-menu"
+
+        aria-controls="menuList"
+
       >
 
-        <span class="menu-icon" aria-hidden="true"></span>
-
-        <span>Menu</span>
+        ☰ Menu
 
       </button>
 
       <nav
-        id="main-menu"
-        class="main-nav"
+
+        class="site-nav"
+
         aria-label="Main navigation"
+
       >
 
-        <a class="active" href="index.html">
-          Home
-        </a>
+        <ul
 
-        <a href="services.html">
-          Services
-        </a>
+          id="menuList"
 
-        <a href="quote.html">
-          Free Quote
-        </a>
+          class="nav-links"
 
-        <a href="gold-standard.html">
-          Our Gold Standard Procedures
-        </a>
+        >
 
-        <a href="about.html">
-          About Us / Mission Statement
-        </a>
+          <li>
 
-        <a href="charity.html">
-          Charity
-        </a>
+            <a
 
-        <a href="contact.html">
-          Contact Us
-        </a>
+              class="active"
+
+              href="index.html"
+
+            >
+
+              Home
+
+            </a>
+
+          </li>
+
+          <li>
+
+            <a href="services.html">
+
+              Services
+
+            </a>
+
+          </li>
+
+          <li>
+
+            <a href="quote.html">
+
+              Free Quote
+
+            </a>
+
+          </li>
+
+          <li>
+
+            <a href="gold-standard.html">
+
+              Gold Standard
+
+            </a>
+
+          </li>
+
+          <li>
+
+            <a href="about.html">
+
+              About Us
+
+            </a>
+
+          </li>
+
+          <li>
+
+            <a href="charity.html">
+
+              Charity
+
+            </a>
+
+          </li>
+
+          <li>
+
+            <a href="contact.html">
+
+              Contact
+
+            </a>
+
+          </li>
+
+        </ul>
 
       </nav>
 
@@ -100,6 +214,11 @@
 
   </header>
 
+  <!-- =====================================================
+
+       MAIN PAGE
+
+       ===================================================== -->
 
   <main>
 
@@ -107,346 +226,608 @@
 
     <section class="hero">
 
-      <div class="hero-glow"></div>
+      <div class="hero-content">
 
-      <img
-        class="mascot"
-        src="Mascot12.jpg"
-        alt="Randy's Cleaning Pros mascot"
-        width="500"
-        height="500"
-      >
+        <img
 
-      <p class="eyebrow">
-        Professional • Detailed • Trusted
-      </p>
+          class="hero-mascot"
 
-      <h1>
-        Cleaning Homes. Earning Trust. Building Hope.
-      </h1>
+          src="Mascot12.jpg"
 
-      <div class="hero-actions">
+          alt="Randy's Cleaning Pros mascot"
 
-        <a class="btn btn-gold" href="quote.html">
-          Get a Free Quote
-        </a>
+        >
 
-        <a class="btn btn-outline" href="contact.html">
-          Contact Us
-        </a>
+        <p>
+
+          Professional • Detailed • Trusted
+
+        </p>
+
+        <h1>
+
+          Cleaning Homes. Earning Trust. Building Hope.
+
+        </h1>
+
+        <p>
+
+          Randy's Cleaning Pros provides dependable,
+
+          top-to-bottom cleaning with careful attention
+
+          to detail on every visit.
+
+        </p>
+
+        <div class="hero-buttons">
+
+          <a
+
+            class="button button-gold quote-button"
+
+            href="quote.html"
+
+          >
+
+            Get a Free Quote
+
+          </a>
+
+          <a
+
+            class="button button-secondary"
+
+            href="contact.html"
+
+          >
+
+            Contact Us
+
+          </a>
+
+        </div>
 
       </div>
 
     </section>
 
+    <!-- ABOUT SECTION -->
 
-    <!-- TWO-COLUMN INFORMATION SECTION -->
+    <section class="content-section">
 
-    <section
-      class="content-section"
-      aria-label="Why choose Randy's Cleaning Pros"
-    >
+      <div class="container">
 
-      <div class="two-column">
-
-
-        <!-- LEFT COLUMN -->
-
-        <article class="info-card">
-
-          <p class="section-label">
-            Welcome to Randy's Cleaning Pros
-          </p>
+        <div class="section-heading">
 
           <h2>
+
             More Than a Cleaning Company
+
           </h2>
 
           <p>
-            At Randy's Cleaning Pros, we don't believe in rushing
-            through your home. We follow our exclusive
-            <strong>10-Step Gold Standard Cleaning System</strong>,
-            a proven process designed to deliver the same exceptional
-            results every visit.
+
+            We are working to raise the standard of what
+
+            customers should expect from a professional
+
+            cleaning service.
+
           </p>
 
-          <p>
-            From top-to-bottom dusting to the final finishing touches,
-            every detail is completed with care, consistency, and pride.
-          </p>
+        </div>
 
-          <p>
-            We use premium-quality, family-safe products,
-            environmentally responsible cleaners, and professional
-            pet-hair equipment that removes stubborn pet hair while
-            remaining safe for your home.
-          </p>
+        <div class="about-layout">
 
-          <p>
-            Our goal isn't just to leave your house looking clean—it's
-            to leave you feeling confident that it was cleaned the
-            right way.
-          </p>
+          <div class="about-text">
 
+            <h2>
 
-          <!-- PRICE GUARANTEE -->
+              Detailed Cleaning You Can Depend On
 
-          <div class="guarantee-box">
-
-            <span class="guarantee-kicker">
-              Our No-Surprise Price Guarantee
-            </span>
-
-            <h3>
-              The Quote You Receive Is the Price You Pay.
-            </h3>
+            </h2>
 
             <p>
-              When we provide you with a quote, that's exactly what
-              you'll pay. Even if the job takes us longer than expected,
-              we'll never increase your price.
+
+              At Randy's Cleaning Pros, we do not believe
+
+              in rushing through your home. Every cleaning
+
+              is completed with care, consistency, and pride.
+
             </p>
 
             <p>
-              We believe in earning your trust through honesty, not
-              hidden fees. You can relax knowing your investment is
-              protected before we even begin cleaning.
+
+              Our team follows a structured
+
+              <span class="gold-text">
+
+                Gold Standard
+
+              </span>
+
+              cleaning procedure designed to create dependable
+
+              results from one visit to the next.
+
             </p>
 
-            <strong>
-              The quote you receive is the price that
-              stands—guaranteed.
-            </strong>
+            <p>
+
+              We use professional equipment, quality products,
+
+              and detailed methods because your home deserves
+
+              more than a quick surface cleaning.
+
+            </p>
+
+            <a
+
+              class="button button-secondary"
+
+              href="about.html"
+
+            >
+
+              Learn More About Us
+
+            </a>
 
           </div>
 
-        </article>
+          <div class="about-image">
 
+            <img
 
-        <!-- RIGHT COLUMN -->
+              src="Logo.png.PNG"
 
-        <article class="info-card">
+              alt="Randy's Cleaning Pros logo"
 
-          <p class="section-label">
-            Professional Service From Start to Finish
-          </p>
+            >
 
-          <h2>
-            What You Can Expect When We Arrive
-          </h2>
+          </div>
 
-          <p>
-            From the moment we arrive, you'll be greeted by friendly,
-            uniformed professionals who treat your home with the same
-            respect they would their own.
-          </p>
-
-          <p>
-            We arrive on time, wear clean uniforms and blue gloves,
-            bring all of our own professional equipment and supplies,
-            and are ready to work.
-          </p>
-
-          <p>
-            Every cleaning follows our proven
-            <strong>10-Step Gold Standard Cleaning System</strong>,
-            ensuring your home receives the same detailed, high-quality
-            service every visit.
-          </p>
-
-          <p>
-            We clean from top to bottom, paying close attention to the
-            details that many companies overlook.
-          </p>
-
-          <p>
-            We use premium products, HEPA-filter pet vacuums, and
-            eco-friendly cleaners that are tough on dirt but gentle on
-            your family, pets, and home.
-          </p>
-
-          <p>
-            Before we leave, we perform a final quality inspection to
-            make sure everything meets our Gold Standard.
-          </p>
-
-          <p>
-            If something isn't right, let us know within 24 hours—we'll
-            return to make it right because your satisfaction is our
-            priority.
-          </p>
-
-          <p class="signature-line">
-            Consistent. Detailed. Trusted. Every Home. Every Visit.
-          </p>
-
-        </article>
+        </div>
 
       </div>
 
     </section>
 
+    <!-- SERVICE CARDS -->
 
-    <!-- THREE PHOTO SECTION -->
+    <section class="content-section">
 
-    <section class="showcase-section">
+      <div class="container">
 
-      <div class="section-heading">
+        <div class="section-heading">
 
-        <p class="section-label">
-          The Randy's Cleaning Pros Difference
-        </p>
+          <h2>
 
-        <h2>
-          Professional Care You Can See and Feel
-        </h2>
+            Professional Cleaning Services
+
+          </h2>
+
+          <p>
+
+            Cleaning options for homes, rentals,
+
+            offices, landlords, and property owners.
+
+          </p>
+
+        </div>
+
+        <div class="services-grid">
+
+          <article class="service-card">
+
+            <h3>
+
+              Residential Cleaning
+
+            </h3>
+
+            <p>
+
+              Detailed cleaning for houses, apartments,
+
+              condos, and everyday living spaces.
+
+            </p>
+
+          </article>
+
+          <article class="service-card">
+
+            <h3>
+
+              Recurring Cleaning
+
+            </h3>
+
+            <p>
+
+              Weekly, biweekly, and monthly cleaning
+
+              plans designed to keep your home maintained.
+
+            </p>
+
+          </article>
+
+          <article class="service-card">
+
+            <h3>
+
+              Move-In and Move-Out
+
+            </h3>
+
+            <p>
+
+              Thorough cleaning for tenants, homeowners,
+
+              landlords, and property managers.
+
+            </p>
+
+          </article>
+
+          <article class="service-card">
+
+            <h3>
+
+              Airbnb Cleaning
+
+            </h3>
+
+            <p>
+
+              Dependable turnover cleaning for short-term
+
+              rentals and guest-ready properties.
+
+            </p>
+
+          </article>
+
+          <article class="service-card">
+
+            <h3>
+
+              Office Cleaning
+
+            </h3>
+
+            <p>
+
+              Professional cleaning for offices,
+
+              workspaces, and small businesses.
+
+            </p>
+
+          </article>
+
+          <article class="service-card">
+
+            <h3>
+
+              Pet-Friendly Cleaning
+
+            </h3>
+
+            <p>
+
+              Careful cleaning methods and equipment
+
+              designed for homes with pets.
+
+            </p>
+
+          </article>
+
+        </div>
 
       </div>
 
+    </section>
 
-      <div class="photo-grid">
+    <!-- GOLD STANDARD SECTION -->
 
+    <section class="gold-standard-section">
 
-        <!-- GOLD STANDARD PHOTO -->
+      <div class="container">
 
-        <article class="photo-card gold-card">
+        <h2>
 
-          <div class="badge">
+          Our 10-Step
+
+          <span class="gold-text">
 
             Gold Standard
 
-            <br>
+          </span>
 
-            <span>
-              Satisfaction Guaranteed
-            </span>
+          Cleaning Procedure
 
-          </div>
+        </h2>
 
-          <img
-            src="Goldstandard.PNG"
-            alt="Gold Standard satisfaction guarantee"
-          >
+        <div class="gold-line"></div>
 
-          <div class="photo-copy">
+        <p>
 
-            <h3>
-              Gold Standard Results
-            </h3>
+          Our structured procedure helps make every
 
-            <p>
-              Detailed procedures, consistent quality, and a final
-              inspection on every visit.
-            </p>
+          cleaning consistent, detailed, and dependable.
 
-          </div>
+        </p>
 
-        </article>
+        <a
 
+          class="button button-secondary"
 
-        <!-- PET PHOTO -->
+          href="gold-standard.html"
 
-        <article class="photo-card">
+        >
 
-          <img
-            src="Pet.PNG"
-            alt="Pet-friendly professional cleaning"
-          >
+          Learn About Our Procedure
 
-          <div class="photo-copy">
-
-            <h3>
-              Pet-Friendly Cleaning
-            </h3>
-
-            <p>
-              We understand life with pets and use professional
-              equipment designed to remove stubborn pet hair.
-            </p>
-
-          </div>
-
-        </article>
-
-
-        <!-- GREEN CLEANING PHOTO -->
-
-        <article class="photo-card">
-
-          <img
-            src="Green.PNG"
-            alt="Eco-friendly cleaning products"
-          >
-
-          <div class="photo-copy">
-
-            <h3>
-              Safer, Premium Products
-            </h3>
-
-            <p>
-              High-quality, environmentally responsible products that
-              are tough on dirt and gentler on your home.
-            </p>
-
-          </div>
-
-        </article>
+        </a>
 
       </div>
 
     </section>
 
+    <!-- GUARANTEE SECTION -->
 
-    <!-- FINAL CALL TO ACTION -->
+    <section class="content-section">
 
-    <section class="final-cta">
+      <div class="container">
 
-      <div>
+        <div class="card-grid">
 
-        <p class="section-label">
-          Ready for the Gold Standard?
-        </p>
+          <article class="card">
 
-        <h2>
-          Let Us Make Your Home Feel Its Best.
-        </h2>
+            <h3>
+
+              No-Surprise Pricing
+
+            </h3>
+
+            <p>
+
+              The quote you approve is the price you pay.
+
+              We do not add unexpected charges after the job.
+
+            </p>
+
+          </article>
+
+          <article class="card">
+
+            <h3>
+
+              Satisfaction Promise
+
+            </h3>
+
+            <p>
+
+              Let us know within 24 hours if something is
+
+              not right, and we will return to make it right.
+
+            </p>
+
+          </article>
+
+          <article class="card">
+
+            <h3>
+
+              Professional Care
+
+            </h3>
+
+            <p>
+
+              We arrive prepared, respect your home,
+
+              and complete a final quality check.
+
+            </p>
+
+          </article>
+
+        </div>
 
       </div>
 
-      <a class="btn btn-gold" href="quote.html">
-        Request Your Free Quote
-      </a>
+    </section>
+
+    <!-- CHARITY SECTION -->
+
+    <section class="call-to-action">
+
+      <div class="container">
+
+        <h2>
+
+          Cleaning Homes and Giving Back
+
+        </h2>
+
+        <p>
+
+          Five percent of earnings from every cleaning
+
+          will be added to our charity efforts to help
+
+          people facing hardship and instability.
+
+        </p>
+
+        <a
+
+          class="button button-secondary"
+
+          href="charity.html"
+
+        >
+
+          Read Our Charity Story
+
+        </a>
+
+      </div>
+
+    </section>
+
+    <!-- FINAL CALL TO ACTION -->
+
+    <section class="content-section">
+
+      <div class="container text-center">
+
+        <h2>
+
+          Ready for a Cleaner, More Comfortable Space?
+
+        </h2>
+
+        <p>
+
+          Request a free quote and tell us what type
+
+          of cleaning service you need.
+
+        </p>
+
+        <a
+
+          class="button button-gold quote-button"
+
+          href="quote.html"
+
+        >
+
+          Request Your Free Quote
+
+        </a>
+
+      </div>
 
     </section>
 
   </main>
 
+  <!-- =====================================================
 
-  <!-- FOOTER -->
+       FOOTER
+
+       ===================================================== -->
 
   <footer class="site-footer">
 
-    <p>
-      <strong>
-        Randy's Cleaning Pros
-      </strong>
-    </p>
+    <div class="footer-content">
 
-    <p>
-      Setting the Gold Standard in Cleaning.
-    </p>
+      <p>
 
-    <p>
-      &copy;
-      <span id="year"></span>
-      Randy's Cleaning Pros. All rights reserved.
-    </p>
+        <strong>
+
+          Randy's Cleaning Pros
+
+        </strong>
+
+      </p>
+
+      <p>
+
+        Setting the
+
+        <span class="gold-text">
+
+          Gold Standard
+
+        </span>
+
+        in Cleaning.
+
+      </p>
+
+      <div class="footer-links">
+
+        <a href="index.html">
+
+          Home
+
+        </a>
+
+        <a href="services.html">
+
+          Services
+
+        </a>
+
+        <a href="quote.html">
+
+          Free Quote
+
+        </a>
+
+        <a href="about.html">
+
+          About Us
+
+        </a>
+
+        <a href="charity.html">
+
+          Charity
+
+        </a>
+
+        <a href="contact.html">
+
+          Contact
+
+        </a>
+
+      </div>
+
+      <p class="copyright">
+
+        &copy;
+
+        <span id="year"></span>
+
+        Randy's Cleaning Pros. All rights reserved.
+
+      </p>
+
+    </div>
 
   </footer>
 
-
   <script src="script.js"></script>
 
+  <script>
+
+    const year = document.getElementById("year");
+
+    if (year) {
+
+      year.textContent = new Date().getFullYear();
+
+    }
+
+  </script>
+
 </body>
+
 </html>
