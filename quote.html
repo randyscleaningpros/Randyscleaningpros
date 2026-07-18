@@ -1,0 +1,1617 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="description"
+    content="Get a free cleaning estimate from Randy's Cleaning Pros."
+  >
+
+  <title>Free Quote | Randy's Cleaning Pros</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --navy: #062f4f;
+      --dark-navy: #041f35;
+      --green: #35b85a;
+      --light-green: #eaf8ee;
+      --gold: #d4af37;
+      --white: #ffffff;
+      --light-gray: #f4f7f9;
+      --text: #17324d;
+      --border: #d3dfe8;
+      --red: #b93434;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--navy);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    header {
+      background: var(--dark-navy);
+      text-align: center;
+      padding: 25px 15px;
+      border-bottom: 4px solid var(--green);
+    }
+
+    .logo {
+      display: block;
+      width: 350px;
+      max-width: 90%;
+      height: auto;
+      margin: 0 auto 15px;
+    }
+
+    header h1 {
+      color: var(--white);
+      font-size: clamp(2rem, 6vw, 3rem);
+    }
+
+    .gold {
+      color: var(--gold);
+    }
+
+    header p {
+      color: #d9e8f2;
+      margin-top: 8px;
+    }
+
+    nav {
+      background: #082943;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 8px;
+      padding: 14px;
+    }
+
+    nav a {
+      color: var(--white);
+      text-decoration: none;
+      border: 2px solid var(--green);
+      border-radius: 8px;
+      padding: 9px 13px;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      background: var(--green);
+      color: var(--dark-navy);
+    }
+
+    main {
+      width: min(950px, 94%);
+      margin: 30px auto;
+    }
+
+    .intro,
+    .quote-form {
+      background: var(--white);
+      border-radius: 16px;
+      padding: 28px;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+    }
+
+    .intro {
+      text-align: center;
+      margin-bottom: 24px;
+    }
+
+    .intro h2 {
+      color: var(--navy);
+      font-size: clamp(1.6rem, 5vw, 2.4rem);
+      margin-bottom: 10px;
+    }
+
+    .intro p {
+      max-width: 720px;
+      margin: 0 auto;
+    }
+
+    .promotion {
+      background: var(--light-green);
+      border: 2px solid var(--green);
+      border-radius: 10px;
+      padding: 14px;
+      margin-top: 18px;
+      font-weight: bold;
+      color: var(--navy);
+    }
+
+    .question {
+      padding: 24px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .question:last-of-type {
+      border-bottom: none;
+    }
+
+    .question h3 {
+      color: var(--navy);
+      margin-bottom: 6px;
+      font-size: 1.35rem;
+    }
+
+    .help-text {
+      color: #586f80;
+      margin-bottom: 15px;
+      font-size: 0.95rem;
+    }
+
+    .option-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 12px;
+    }
+
+    .option {
+      position: relative;
+    }
+
+    .option input {
+      position: absolute;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .option label {
+      display: block;
+      height: 100%;
+      background: var(--light-gray);
+      border: 2px solid var(--border);
+      border-radius: 12px;
+      padding: 16px;
+      text-align: center;
+      cursor: pointer;
+      font-weight: bold;
+      transition: 0.2s;
+    }
+
+    .option label small {
+      display: block;
+      font-weight: normal;
+      color: #5b7180;
+      margin-top: 5px;
+    }
+
+    .option input:checked + label {
+      background: var(--light-green);
+      border-color: var(--green);
+      box-shadow: 0 0 0 3px rgba(53, 184, 90, 0.17);
+    }
+
+    .option label:hover {
+      border-color: var(--green);
+    }
+
+    .field-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+      gap: 15px;
+    }
+
+    .field {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .field label {
+      color: var(--navy);
+      font-weight: bold;
+      margin-bottom: 6px;
+    }
+
+    select,
+    input[type="text"],
+    input[type="tel"],
+    input[type="email"],
+    textarea {
+      width: 100%;
+      padding: 12px;
+      border: 2px solid var(--border);
+      border-radius: 8px;
+      font-size: 1rem;
+      background: var(--white);
+    }
+
+    select:focus,
+    input:focus,
+    textarea:focus {
+      outline: none;
+      border-color: var(--green);
+      box-shadow: 0 0 0 3px rgba(53, 184, 90, 0.15);
+    }
+
+    textarea {
+      min-height: 105px;
+      resize: vertical;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .addon-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 10px;
+    }
+
+    .addon {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--light-gray);
+      border: 1px solid var(--border);
+      border-radius: 9px;
+      padding: 12px;
+      cursor: pointer;
+    }
+
+    .addon input {
+      width: 20px;
+      height: 20px;
+      accent-color: var(--green);
+    }
+
+    .calculate-button {
+      width: 100%;
+      background: var(--green);
+      color: var(--dark-navy);
+      border: none;
+      border-radius: 10px;
+      padding: 17px;
+      margin-top: 25px;
+      font-size: 1.15rem;
+      font-weight: 800;
+      cursor: pointer;
+    }
+
+    .calculate-button:hover {
+      filter: brightness(1.05);
+    }
+
+    .error {
+      display: none;
+      background: #fff0f0;
+      border: 2px solid #e5aaaa;
+      color: var(--red);
+      border-radius: 9px;
+      padding: 13px;
+      margin-bottom: 18px;
+      font-weight: bold;
+    }
+
+    .results {
+      display: none;
+      background: var(--light-green);
+      border: 3px solid var(--green);
+      border-radius: 15px;
+      padding: 25px;
+      margin-top: 28px;
+    }
+
+    .results h2 {
+      color: var(--navy);
+      text-align: center;
+      margin-bottom: 18px;
+    }
+
+    .result-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(175px, 1fr));
+      gap: 12px;
+    }
+
+    .result-box {
+      background: var(--white);
+      border-radius: 10px;
+      padding: 16px;
+      text-align: center;
+      border: 1px solid #bdd9c5;
+    }
+
+    .result-box span {
+      display: block;
+      font-size: 0.9rem;
+      color: #5b7162;
+    }
+
+    .result-box strong {
+      display: block;
+      color: var(--navy);
+      font-size: 1.45rem;
+      margin-top: 5px;
+    }
+
+    .discount-message {
+      text-align: center;
+      color: var(--navy);
+      font-weight: bold;
+      margin: 18px 0 10px;
+    }
+
+    .final-price {
+      background: var(--navy);
+      color: var(--white);
+      text-align: center;
+      border-radius: 12px;
+      padding: 20px;
+    }
+
+    .final-price span {
+      display: block;
+    }
+
+    .final-price strong {
+      display: block;
+      color: #6ce18a;
+      font-size: 2.3rem;
+    }
+
+    .disclaimer {
+      background: var(--white);
+      border-radius: 9px;
+      padding: 14px;
+      margin-top: 15px;
+      font-size: 0.9rem;
+    }
+
+    .contact-buttons {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .contact-buttons a {
+      display: block;
+      text-align: center;
+      text-decoration: none;
+      padding: 14px;
+      border-radius: 9px;
+      font-weight: bold;
+    }
+
+    .text-button {
+      background: var(--green);
+      color: var(--dark-navy);
+    }
+
+    .call-button {
+      background: var(--navy);
+      color: var(--white);
+    }
+
+    footer {
+      background: var(--dark-navy);
+      color: var(--white);
+      text-align: center;
+      padding: 25px 15px;
+      margin-top: 35px;
+    }
+
+    @media (max-width: 600px) {
+      .intro,
+      .quote-form {
+        padding: 20px 16px;
+      }
+
+      nav a {
+        font-size: 0.9rem;
+        padding: 8px 10px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <img
+      src="Logo12.jpg"
+      alt="Randy's Cleaning Pros logo"
+      class="logo"
+    >
+
+    <h1>
+      Get Your <span class="gold">Free Quote</span>
+    </h1>
+
+    <p>
+      Simple questions. Quick estimate. No pressure.
+    </p>
+  </header>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About Us</a>
+    <a href="service.html">Services</a>
+    <a href="pricing.html">Pricing</a>
+    <a href="gold-standard.html">Gold Standard</a>
+    <a href="quote.html">Free Quote</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+
+  <main>
+
+    <section class="intro">
+      <h2>Let's Build Your Cleaning Estimate</h2>
+
+      <p>
+        Choose the answers that best describe your home, office,
+        or Airbnb. Our automatic estimator will calculate the
+        approximate labor time and cost.
+      </p>
+
+      <div class="promotion">
+        First recurring cleaning: 50% off.<br>
+        First one-time cleaning: 20% off.<br>
+        One introductory discount per customer.
+      </div>
+    </section>
+
+    <form class="quote-form" id="quoteForm">
+
+      <div class="error" id="errorMessage">
+        Please choose a property type, cleaning frequency,
+        and current condition.
+      </div>
+
+      <section class="question">
+        <h3>1. What type of place needs cleaning?</h3>
+
+        <p class="help-text">
+          Tap the option that best describes your property.
+        </p>
+
+        <div class="option-grid">
+
+          <div class="option">
+            <input
+              type="radio"
+              name="propertyType"
+              id="home"
+              value="home"
+            >
+
+            <label for="home">
+              🏠 Home or Apartment
+              <small>Residential cleaning</small>
+            </label>
+          </div>
+
+          <div class="option">
+            <input
+              type="radio"
+              name="propertyType"
+              id="office"
+              value="office"
+            >
+
+            <label for="office">
+              🏢 Office
+              <small>Professional workspace</small>
+            </label>
+          </div>
+
+          <div class="option">
+            <input
+              type="radio"
+              name="propertyType"
+              id="airbnb"
+              value="airbnb"
+            >
+
+            <label for="airbnb">
+              🧳 Airbnb
+              <small>Guest turnover cleaning</small>
+            </label>
+          </div>
+
+        </div>
+      </section>
+
+      <section class="question">
+        <h3>2. How often would you like cleaning?</h3>
+
+        <p class="help-text">
+          Choose the schedule that best fits your needs.
+        </p>
+
+        <div class="option-grid">
+
+          <div class="option">
+            <input
+              type="radio"
+              name="frequency"
+              id="oneTime"
+              value="one-time"
+            >
+
+            <label for="oneTime">
+              One Time
+              <small>20% off first visit</small>
+            </label>
+          </div>
+
+          <div class="option">
+            <input
+              type="radio"
+              name="frequency"
+              id="weekly"
+              value="weekly"
+            >
+
+            <label for="weekly">
+              Weekly
+              <small>50% off first cleaning</small>
+            </label>
+          </div>
+
+          <div class="option">
+            <input
+              type="radio"
+              name="frequency"
+              id="biweekly"
+              value="biweekly"
+            >
+
+            <label for="biweekly">
+              Every Two Weeks
+              <small>50% off first cleaning</small>
+            </label>
+          </div>
+
+          <div class="option">
+            <input
+              type="radio"
+              name="frequency"
+              id="monthly"
+              value="monthly"
+            >
+
+            <label for="monthly">
+              Monthly
+              <small>50% off first cleaning</small>
+            </label>
+          </div>
+
+        </div>
+      </section>
+
+      <section
+        class="question hidden"
+        id="homeFields"
+      >
+        <h3>3. Tell us about the home or Airbnb</h3>
+
+        <p class="help-text">
+          Choose the number of rooms and the approximate size.
+        </p>
+
+        <div class="field-grid">
+
+          <div class="field">
+            <label for="smallBedrooms">
+              Small Bedrooms
+            </label>
+
+            <select id="smallBedrooms">
+              <option value="0">0</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5+</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="mediumBedrooms">
+              Medium Bedrooms
+            </label>
+
+            <select id="mediumBedrooms">
+              <option value="0">0</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5+</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="largeBedrooms">
+              Large Bedrooms
+            </label>
+
+            <select id="largeBedrooms">
+              <option value="0">0</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5+</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="halfBathrooms">
+              Half Bathrooms
+            </label>
+
+            <select id="halfBathrooms">
+              <option value="0">0</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3+</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="fullBathrooms">
+              Full Bathrooms
+            </label>
+
+            <select id="fullBathrooms">
+              <option value="0">0</option>
+              <option value="1" selected>1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4+</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="largeBathrooms">
+              Large Primary Bathrooms
+            </label>
+
+            <select id="largeBathrooms">
+              <option value="0">0</option>
+              <option value="1">1</option>
+              <option value="2">2+</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="kitchenSize">
+              Kitchen Size
+            </label>
+
+            <select id="kitchenSize">
+              <option value="25">
+                Small or Apartment
+              </option>
+
+              <option value="35" selected>
+                Average
+              </option>
+
+              <option value="45">
+                Large
+              </option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="livingRooms">
+              Living or Family Rooms
+            </label>
+
+            <select id="livingRooms">
+              <option value="0">0</option>
+              <option value="1" selected>1</option>
+              <option value="2">2</option>
+              <option value="3">3+</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="diningRooms">
+              Dining Rooms
+            </label>
+
+            <select id="diningRooms">
+              <option value="0">0</option>
+              <option value="1" selected>1</option>
+              <option value="2">2</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="homeOffices">
+              Home Offices
+            </label>
+
+            <select id="homeOffices">
+              <option value="0" selected>0</option>
+              <option value="1">1</option>
+              <option value="2">2+</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="laundryRooms">
+              Laundry Rooms
+            </label>
+
+            <select id="laundryRooms">
+              <option value="0">0</option>
+              <option value="1" selected>1</option>
+              <option value="2">2+</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="staircases">
+              Flights of Stairs
+            </label>
+
+            <select id="staircases">
+              <option value="0" selected>0</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3+</option>
+            </select>
+          </div>
+
+        </div>
+      </section>
+
+      <section
+        class="question hidden"
+        id="officeFields"
+      >
+        <h3>3. Tell us about the office</h3>
+
+        <div class="field-grid">
+
+          <div class="field">
+            <label for="officeSize">
+              Approximate Office Size
+            </label>
+
+            <select id="officeSize">
+              <option value="45">
+                Under 750 sq ft
+              </option>
+
+              <option value="75">
+                750–1,500 sq ft
+              </option>
+
+              <option value="120">
+                1,501–2,500 sq ft
+              </option>
+
+              <option value="180">
+                2,501–4,000 sq ft
+              </option>
+
+              <option value="240">
+                Over 4,000 sq ft
+              </option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="officeBathrooms">
+              Bathrooms
+            </label>
+
+            <select id="officeBathrooms">
+              <option value="0">0</option>
+              <option value="1" selected>1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4+</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="breakRooms">
+              Break Rooms or Kitchens
+            </label>
+
+            <select id="breakRooms">
+              <option value="0">0</option>
+              <option value="1" selected>1</option>
+              <option value="2">2</option>
+              <option value="3">3+</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="conferenceRooms">
+              Conference Rooms
+            </label>
+
+            <select id="conferenceRooms">
+              <option value="0">0</option>
+              <option value="1" selected>1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4+</option>
+            </select>
+          </div>
+
+        </div>
+      </section>
+
+      <section class="question">
+        <h3>4. Which best describes the current condition?</h3>
+
+        <p class="help-text">
+          Choose the closest answer.
+        </p>
+
+        <div class="option-grid">
+
+          <div class="option">
+            <input
+              type="radio"
+              name="condition"
+              id="excellent"
+              value="0.85"
+              data-name="Excellent"
+            >
+
+            <label for="excellent">
+              🟢 Excellent
+              <small>
+                Very tidy or professionally cleaned recently
+              </small>
+            </label>
+          </div>
+
+          <div class="option">
+            <input
+              type="radio"
+              name="condition"
+              id="good"
+              value="1"
+              data-name="Good"
+            >
+
+            <label for="good">
+              🔵 Good
+              <small>
+                Regularly cleaned and maintained
+              </small>
+            </label>
+          </div>
+
+          <div class="option">
+            <input
+              type="radio"
+              name="condition"
+              id="attention"
+              value="1.2"
+              data-name="Needs Attention"
+            >
+
+            <label for="attention">
+              🟡 Needs Attention
+              <small>
+                Dust, fingerprints, or buildup in some areas
+              </small>
+            </label>
+          </div>
+
+          <div class="option">
+            <input
+              type="radio"
+              name="condition"
+              id="heavy"
+              value="1.4"
+              data-name="Heavy Cleaning Needed"
+            >
+
+            <label for="heavy">
+              🟠 Heavy Cleaning
+              <small>
+                Significant buildup, pet hair, or long time since cleaning
+              </small>
+            </label>
+          </div>
+
+          <div class="option">
+            <input
+              type="radio"
+              name="condition"
+              id="moveOut"
+              value="1.7"
+              data-name="Move-Out or Initial Deep Clean"
+            >
+
+            <label for="moveOut">
+              🔴 Move-Out or Deep Clean
+              <small>
+                Extensive cleaning is required
+              </small>
+            </label>
+          </div>
+
+        </div>
+      </section>
+
+      <section class="question">
+        <h3>5. Would you like any extras?</h3>
+
+        <p class="help-text">
+          Leave these unchecked if you only need standard cleaning.
+        </p>
+
+        <div class="addon-grid">
+
+          <label class="addon">
+            <input
+              type="checkbox"
+              class="addon-item"
+              value="20"
+            >
+            Inside refrigerator
+          </label>
+
+          <label class="addon">
+            <input
+              type="checkbox"
+              class="addon-item"
+              value="25"
+            >
+            Inside oven
+          </label>
+
+          <label class="addon">
+            <input
+              type="checkbox"
+              class="addon-item"
+              value="40"
+            >
+            Whole-home baseboards
+          </label>
+
+          <label class="addon">
+            <input
+              type="checkbox"
+              class="addon-item"
+              value="30"
+            >
+            Inside cabinets
+          </label>
+
+          <label class="addon">
+            <input
+              type="checkbox"
+              class="addon-item"
+              value="15"
+            >
+            Dishes
+          </label>
+
+          <label class="addon">
+            <input
+              type="checkbox"
+              class="addon-item"
+              value="20"
+            >
+            One load of laundry
+          </label>
+
+          <label class="addon">
+            <input
+              type="checkbox"
+              class="addon-item"
+              value="10"
+            >
+            Extra cobweb removal
+          </label>
+
+        </div>
+
+        <div
+          class="field-grid"
+          style="margin-top: 15px;"
+        >
+
+          <div class="field">
+            <label for="windows">
+              Interior Windows
+            </label>
+
+            <select id="windows">
+              <option value="0">None</option>
+              <option value="1">1 window</option>
+              <option value="2">2 windows</option>
+              <option value="3">3 windows</option>
+              <option value="4">4 windows</option>
+              <option value="5">5 windows</option>
+              <option value="10">6–10 windows</option>
+              <option value="15">11–15 windows</option>
+              <option value="20">16–20 windows</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="ceilingFans">
+              Ceiling Fans
+            </label>
+
+            <select id="ceilingFans">
+              <option value="0">None</option>
+              <option value="1">1 fan</option>
+              <option value="2">2 fans</option>
+              <option value="3">3 fans</option>
+              <option value="4">4 fans</option>
+              <option value="5">5 fans</option>
+            </select>
+          </div>
+
+        </div>
+      </section>
+
+      <section class="question">
+        <h3>6. Your contact information</h3>
+
+        <div class="field-grid">
+
+          <div class="field">
+            <label for="customerName">
+              Name
+            </label>
+
+            <input
+              type="text"
+              id="customerName"
+              placeholder="Your name"
+            >
+          </div>
+
+          <div class="field">
+            <label for="customerPhone">
+              Phone Number
+            </label>
+
+            <input
+              type="tel"
+              id="customerPhone"
+              placeholder="Your phone number"
+            >
+          </div>
+
+          <div class="field">
+            <label for="customerEmail">
+              Email Address
+            </label>
+
+            <input
+              type="email"
+              id="customerEmail"
+              placeholder="Optional"
+            >
+          </div>
+
+          <div class="field">
+            <label for="zipCode">
+              Property ZIP Code
+            </label>
+
+            <input
+              type="text"
+              id="zipCode"
+              inputmode="numeric"
+              placeholder="ZIP code"
+            >
+          </div>
+
+        </div>
+
+        <div
+          class="field"
+          style="margin-top: 15px;"
+        >
+          <label for="specialRequests">
+            Anything special we should know?
+          </label>
+
+          <textarea
+            id="specialRequests"
+            placeholder="Tell us about pets, parking, special requests, or areas that need extra attention."
+          ></textarea>
+        </div>
+      </section>
+
+      <button
+        type="submit"
+        class="calculate-button"
+      >
+        Calculate My Free Estimate
+      </button>
+
+      <section
+        class="results"
+        id="results"
+      >
+
+        <h2>Your Gold Standard Estimate</h2>
+
+        <div class="result-grid">
+
+          <div class="result-box">
+            <span>Property Type</span>
+            <strong id="resultProperty">—</strong>
+          </div>
+
+          <div class="result-box">
+            <span>Estimated Labor Time</span>
+            <strong id="resultTime">—</strong>
+          </div>
+
+          <div class="result-box">
+            <span>Regular Estimate</span>
+            <strong id="regularPrice">—</strong>
+          </div>
+
+        </div>
+
+        <div
+          class="discount-message"
+          id="discountMessage"
+        ></div>
+
+        <div class="final-price">
+          <span>
+            Estimated First Cleaning Price
+          </span>
+
+          <strong id="finalPrice">—</strong>
+        </div>
+
+        <div class="disclaimer">
+          <strong>Please note:</strong>
+          This is a preliminary automatic estimate based on the
+          information provided and a labor rate of $60 per labor hour.
+          Final pricing may change after Randy's Cleaning Pros reviews
+          the property's actual size, condition, accessibility, and
+          cleaning needs. Discounts cannot be combined.
+        </div>
+
+        <div class="contact-buttons">
+
+          <a
+            href="#"
+            class="text-button"
+            id="textQuoteButton"
+          >
+            Text This Quote
+          </a>
+
+          <a
+            href="tel:2075581298"
+            class="call-button"
+          >
+            Call Randy's Cleaning Pros
+          </a>
+
+        </div>
+
+      </section>
+
+    </form>
+
+  </main>
+
+  <footer>
+    <p>
+      © 2026 Randy's Cleaning Pros
+    </p>
+
+    <p>
+      Setting the Gold Standard in Cleaning
+    </p>
+  </footer>
+
+  <script>
+    const HOURLY_RATE = 60;
+    const BUSINESS_PHONE = "2075581298";
+
+    const propertyButtons =
+      document.querySelectorAll(
+        'input[name="propertyType"]'
+      );
+
+    const homeFields =
+      document.getElementById("homeFields");
+
+    const officeFields =
+      document.getElementById("officeFields");
+
+    propertyButtons.forEach(function(button) {
+      button.addEventListener("change", function() {
+
+        if (
+          button.value === "home" ||
+          button.value === "airbnb"
+        ) {
+          homeFields.classList.remove("hidden");
+          officeFields.classList.add("hidden");
+        }
+
+        if (button.value === "office") {
+          officeFields.classList.remove("hidden");
+          homeFields.classList.add("hidden");
+        }
+      });
+    });
+
+    function getNumber(id) {
+      return Number(
+        document.getElementById(id).value
+      ) || 0;
+    }
+
+    function getCheckedValue(name) {
+      const selected =
+        document.querySelector(
+          'input[name="' + name + '"]:checked'
+        );
+
+      return selected ? selected.value : null;
+    }
+
+    function formatMoney(amount) {
+      return new Intl.NumberFormat(
+        "en-US",
+        {
+          style: "currency",
+          currency: "USD"
+        }
+      ).format(amount);
+    }
+
+    function roundToNearestFive(amount) {
+      return Math.round(amount / 5) * 5;
+    }
+
+    function formatMinutes(totalMinutes) {
+      const roundedMinutes =
+        Math.ceil(totalMinutes / 5) * 5;
+
+      const hours =
+        Math.floor(roundedMinutes / 60);
+
+      const minutes =
+        roundedMinutes % 60;
+
+      if (hours === 0) {
+        return minutes + " minutes";
+      }
+
+      if (minutes === 0) {
+        return hours +
+          (hours === 1 ? " hour" : " hours");
+      }
+
+      return hours +
+        (hours === 1 ? " hour " : " hours ") +
+        minutes +
+        " minutes";
+    }
+
+    function calculateHomeMinutes() {
+      let minutes = 0;
+
+      minutes += getNumber("smallBedrooms") * 15;
+      minutes += getNumber("mediumBedrooms") * 20;
+      minutes += getNumber("largeBedrooms") * 25;
+
+      minutes += getNumber("halfBathrooms") * 10;
+      minutes += getNumber("fullBathrooms") * 20;
+      minutes += getNumber("largeBathrooms") * 30;
+
+      minutes += getNumber("kitchenSize");
+
+      minutes += getNumber("livingRooms") * 25;
+      minutes += getNumber("diningRooms") * 15;
+      minutes += getNumber("homeOffices") * 15;
+      minutes += getNumber("laundryRooms") * 10;
+      minutes += getNumber("staircases") * 10;
+
+      /*
+        Adds time for the entryway, hallways,
+        equipment setup, and final inspection.
+      */
+      minutes += 15;
+
+      return minutes;
+    }
+
+    function calculateOfficeMinutes() {
+      let minutes = 0;
+
+      minutes += getNumber("officeSize");
+
+      minutes +=
+        getNumber("officeBathrooms") * 15;
+
+      minutes +=
+        getNumber("breakRooms") * 25;
+
+      minutes +=
+        getNumber("conferenceRooms") * 12;
+
+      /*
+        Adds time for hallways, the entrance,
+        equipment setup, and final inspection.
+      */
+      minutes += 15;
+
+      return minutes;
+    }
+
+    function calculateAddOnMinutes() {
+      let minutes = 0;
+
+      const selectedAddOns =
+        document.querySelectorAll(
+          ".addon-item:checked"
+        );
+
+      selectedAddOns.forEach(function(addOn) {
+        minutes += Number(addOn.value);
+      });
+
+      minutes += getNumber("windows") * 3;
+      minutes += getNumber("ceilingFans") * 2;
+
+      return minutes;
+    }
+
+    document
+      .getElementById("quoteForm")
+      .addEventListener(
+        "submit",
+        function(event) {
+          event.preventDefault();
+
+          const propertyType =
+            getCheckedValue("propertyType");
+
+          const frequency =
+            getCheckedValue("frequency");
+
+          const condition =
+            document.querySelector(
+              'input[name="condition"]:checked'
+            );
+
+          const errorMessage =
+            document.getElementById(
+              "errorMessage"
+            );
+
+          if (
+            !propertyType ||
+            !frequency ||
+            !condition
+          ) {
+            errorMessage.style.display =
+              "block";
+
+            errorMessage.scrollIntoView({
+              behavior: "smooth",
+              block: "center"
+            });
+
+            return;
+          }
+
+          errorMessage.style.display =
+            "none";
+
+          let baseMinutes = 0;
+          let propertyName = "";
+
+          if (propertyType === "office") {
+            baseMinutes =
+              calculateOfficeMinutes();
+
+            propertyName = "Office";
+          } else {
+            baseMinutes =
+              calculateHomeMinutes();
+
+            propertyName =
+              propertyType === "airbnb"
+                ? "Airbnb"
+                : "Home";
+          }
+
+          const addOnMinutes =
+            calculateAddOnMinutes();
+
+          const conditionMultiplier =
+            Number(condition.value);
+
+          let adjustedMinutes =
+            (baseMinutes + addOnMinutes) *
+            conditionMultiplier;
+
+          /*
+            Airbnb turnovers receive additional
+            time for presentation and guest-ready
+            inspection.
+          */
+          if (propertyType === "airbnb") {
+            adjustedMinutes += 15;
+          }
+
+          /*
+            Minimum labor-time estimates:
+            Home or Airbnb: 90 minutes
+            Office: 120 minutes
+          */
+          const minimumMinutes =
+            propertyType === "office"
+              ? 120
+              : 90;
+
+          adjustedMinutes =
+            Math.max(
+              adjustedMinutes,
+              minimumMinutes
+            );
+
+          const regularPrice =
+            roundToNearestFive(
+              adjustedMinutes / 60 *
+              HOURLY_RATE
+            );
+
+          let discountRate = 0;
+          let discountText = "";
+
+          if (frequency === "one-time") {
+            discountRate = 0.20;
+
+            discountText =
+              "20% first-time one-time cleaning discount applied.";
+          } else {
+            discountRate = 0.50;
+
+            discountText =
+              "50% first recurring cleaning discount applied.";
+          }
+
+          const firstCleaningPrice =
+            roundToNearestFive(
+              regularPrice *
+              (1 - discountRate)
+            );
+
+          document.getElementById(
+            "resultProperty"
+          ).textContent = propertyName;
+
+          document.getElementById(
+            "resultTime"
+          ).textContent =
+            formatMinutes(adjustedMinutes);
+
+          document.getElementById(
+            "regularPrice"
+          ).textContent =
+            formatMoney(regularPrice);
+
+          document.getElementById(
+            "discountMessage"
+          ).textContent =
+            "🎉 " + discountText;
+
+          document.getElementById(
+            "finalPrice"
+          ).textContent =
+            formatMoney(firstCleaningPrice);
+
+          const customerName =
+            document.getElementById(
+              "customerName"
+            ).value.trim();
+
+          const customerPhone =
+            document.getElementById(
+              "customerPhone"
+            ).value.trim();
+
+          const customerEmail =
+            document.getElementById(
+              "customerEmail"
+            ).value.trim();
+
+          const zipCode =
+            document.getElementById(
+              "zipCode"
+            ).value.trim();
+
+          const specialRequests =
+            document.getElementById(
+              "specialRequests"
+            ).value.trim();
+
+          const conditionName =
+            condition.dataset.name;
+
+          const textMessage =
+            "Hello Randy's Cleaning Pros! " +
+            "My name is " +
+            (customerName || "a new customer") +
+            ". I completed the online quote. " +
+            "Property type: " +
+            propertyName +
+            ". Condition: " +
+            conditionName +
+            ". Estimated labor time: " +
+            formatMinutes(adjustedMinutes) +
+            ". Regular estimate: " +
+            formatMoney(regularPrice) +
+            ". First cleaning estimate: " +
+            formatMoney(firstCleaningPrice) +
+            ". My phone number is " +
+            (customerPhone || "not entered") +
+            ". My email is " +
+            (customerEmail || "not entered") +
+            ". ZIP code: " +
+            (zipCode || "not entered") +
+            ". Special requests: " +
+            (specialRequests || "none") +
+            ".";
+
+          const textButton =
+            document.getElementById(
+              "textQuoteButton"
+            );
+
+          textButton.href =
+            "sms:" +
+            BUSINESS_PHONE +
+            "?&body=" +
+            encodeURIComponent(textMessage);
+
+          const results =
+            document.getElementById(
+              "results"
+            );
+
+          results.style.display =
+            "block";
+
+          results.scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+          });
+        }
+      );
+  </script>
+
+</body>
+</html>
