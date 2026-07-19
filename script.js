@@ -8,81 +8,64 @@ document.addEventListener("DOMContentLoaded", function () {
   const menuList = document.getElementById("menuList");
 
   if (menuButton && menuList) {
-    menuButton.addEventListener("click", function () {
-      const menuIsOpen = menuList.classList.toggle("show");
+    const closeMenu = function () {
+      menuList.classList.remove("show");
+      menuButton.setAttribute("aria-expanded", "false");
+    };
 
-      menuButton.setAttribute(
-        "aria-expanded",
-        menuIsOpen ? "true" : "false"
-      );
+    menuButton.addEventListener("click", function (event) {
+      event.stopPropagation();
+      const menuIsOpen = menuList.classList.toggle("show");
+      menuButton.setAttribute("aria-expanded", menuIsOpen ? "true" : "false");
     });
 
-    const menuLinks = menuList.querySelectorAll("a");
-
-    menuLinks.forEach(function (link) {
-      link.addEventListener("click", function () {
-        menuList.classList.remove("show");
-        menuButton.setAttribute("aria-expanded", "false");
-      });
+    menuList.addEventListener("click", function (event) {
+      if (event.target.closest("a")) closeMenu();
     });
 
     document.addEventListener("click", function (event) {
-      const clickedMenuButton = menuButton.contains(event.target);
-      const clickedInsideMenu = menuList.contains(event.target);
-
-      if (!clickedMenuButton && !clickedInsideMenu) {
-        menuList.classList.remove("show");
-        menuButton.setAttribute("aria-expanded", "false");
+      if (!menuButton.contains(event.target) && !menuList.contains(event.target)) {
+        closeMenu();
       }
     });
 
     document.addEventListener("keydown", function (event) {
-      if (event.key === "Escape") {
-        menuList.classList.remove("show");
-        menuButton.setAttribute("aria-expanded", "false");
+      if (event.key === "Escape" && menuList.classList.contains("show")) {
+        closeMenu();
         menuButton.focus();
       }
     });
   }
 
-  const sectionLinks = document.querySelectorAll('a[href^="#"]');
+  const prefersReducedMotion = window.matchMedia(
+    "(prefers-reduced-motion: reduce)"
+  ).matches;
 
-  sectionLinks.forEach(function (link) {
+  document.querySelectorAll('a[href^="#"]').forEach(function (link) {
     link.addEventListener("click", function (event) {
       const sectionId = link.getAttribute("href");
-
-      if (!sectionId || sectionId === "#") {
-        return;
-      }
+      if (!sectionId || sectionId === "#") return;
 
       const section = document.querySelector(sectionId);
-
       if (section) {
         event.preventDefault();
-
         section.scrollIntoView({
-          behavior: "smooth",
+          behavior: prefersReducedMotion ? "auto" : "smooth",
           block: "start"
         });
       }
     });
   });
 
-  const buttons = document.querySelectorAll(
-    ".quote-button, .menu-button"
-  );
+  document.addEventListener("pointerdown", function (event) {
+    const button = event.target.closest(".quote-button, .menu-button");
+    if (button) button.classList.add("is-pressed");
+  });
 
-  buttons.forEach(function (button) {
-    button.addEventListener("pointerdown", function () {
-      button.style.transform = "scale(0.97)";
-    });
-
-    button.addEventListener("pointerup", function () {
-      button.style.transform = "";
-    });
-
-    button.addEventListener("pointerleave", function () {
-      button.style.transform = "";
+  ["pointerup", "pointerleave", "pointercancel"].forEach(function (type) {
+    document.addEventListener(type, function (event) {
+      const button = event.target.closest(".quote-button, .menu-button");
+      if (button) button.classList.remove("is-pressed");
     });
   });
-}); 
+});
