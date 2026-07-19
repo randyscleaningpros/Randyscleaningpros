@@ -2,7 +2,6 @@
 <html lang="en">
 
 <head>
-    <link rel="icon" type="image/png" href="Smalllogo.PNG">
     <meta charset="UTF-8">
 
     <meta
@@ -12,668 +11,624 @@
 
     <meta
         name="description"
-        content="Learn about Randy's Cleaning Pros, our mission, our Gold Standard cleaning procedure, and our commitment to quality."
+        content="Learn about Randy's Cleaning Pros, our mission, our Gold Standard cleaning procedure, and our commitment to professional cleaning throughout Southern Maine."
     >
 
     <title>About Us | Randy's Cleaning Pros</title>
 
-    <link rel="stylesheet" href="styles.css">
-
-    <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: Arial, Helvetica, sans-serif;
-            background: #031a33;
-            color: #ffffff;
-            line-height: 1.7;
-        }
-
-        /* Header */
-
-        .site-header {
-            background: #02152a;
-            border-bottom: 4px solid #62b32e;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 4px 18px rgba(0, 0, 0, 0.35);
-        }
-
-        .header-inner {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 14px 20px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 20px;
-        }
-
-        .header-logo {
-            width: 180px;
-            max-width: 52%;
-            height: auto;
-            display: block;
-            border-radius: 8px;
-        }
-
-        .menu-button {
-            background: #62b32e;
-            color: #031a33;
-            border: none;
-            border-radius: 8px;
-            padding: 12px 20px;
-            font-size: 17px;
-            font-weight: 800;
-            cursor: pointer;
-        }
-
-        .menu-button:hover {
-            background: #d4af37;
-        }
-
-        .site-nav {
-            display: none;
-            background: #061f3c;
-            border-top: 1px solid rgba(255, 255, 255, 0.12);
-        }
-
-        .site-nav.open {
-            display: block;
-        }
-
-        .site-nav ul {
-            list-style: none;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 14px 20px;
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-
-        .site-nav a {
-            display: block;
-            color: #ffffff;
-            text-decoration: none;
-            font-weight: 700;
-            padding: 10px 16px;
-            border-radius: 7px;
-        }
-
-        .site-nav a:hover,
-        .site-nav a.active {
-            background: #62b32e;
-            color: #031a33;
-        }
-
-        /* Hero */
-
-        .about-hero {
-            padding: 70px 20px 55px;
-            text-align: center;
-            background:
-                radial-gradient(
-                    circle at top center,
-                    rgba(38, 87, 137, 0.65),
-                    transparent 55%
-                ),
-                #031a33;
-        }
-
-        .about-mascot {
-            width: 350px;
-            max-width: 90%;
-            height: auto;
-            display: block;
-            margin: 0 auto 28px;
-            border-radius: 16px;
-            box-shadow: 0 14px 36px rgba(0, 0, 0, 0.35);
-        }
-
-        .about-hero h1 {
-            font-size: clamp(44px, 7vw, 72px);
-            line-height: 1.05;
-            text-transform: uppercase;
-        }
-
-        .gold-text {
-            color: #d4af37;
-        }
-
-        .hero-slogan {
-            margin-top: 15px;
-            color: #7cc043;
-            font-size: clamp(20px, 3vw, 28px);
-            font-weight: 800;
-        }
-
-        .hero-intro {
-            max-width: 760px;
-            margin: 20px auto 0;
-            color: #dce8f2;
-            font-size: 19px;
-        }
-
-        /* Main content */
-
-        .about-section {
-            max-width: 1050px;
-            margin: 0 auto;
-            padding: 35px 20px 75px;
-        }
-
-        .about-card {
-            background: #082746;
-            border: 1px solid rgba(98, 179, 46, 0.55);
-            border-radius: 18px;
-            padding: 42px;
-            box-shadow: 0 14px 36px rgba(0, 0, 0, 0.28);
-        }
-
-        .about-card h2 {
-            color: #d4af37;
-            font-size: clamp(30px, 5vw, 44px);
-            margin-bottom: 22px;
-        }
-
-        .about-card p {
-            color: #edf4fa;
-            font-size: 19px;
-            margin-bottom: 24px;
-        }
-
-        .about-card p:last-child {
-            margin-bottom: 0;
-        }
-
-        .highlight {
-            color: #d4af37;
-            font-weight: 800;
-        }
-
-        .strong-line {
-            color: #ffffff;
-            font-size: 22px;
-            font-weight: 800;
-        }
-
-        /* Mission */
-
-        .mission-section {
-            max-width: 1050px;
-            margin: 0 auto;
-            padding: 0 20px 70px;
-        }
-
-        .mission-box {
-            background:
-                linear-gradient(
-                    145deg,
-                    rgba(212, 175, 55, 0.12),
-                    rgba(98, 179, 46, 0.10)
-                ),
-                #061f3c;
-            border: 2px solid #d4af37;
-            border-radius: 18px;
-            padding: 42px;
-            text-align: center;
-            box-shadow: 0 14px 36px rgba(0, 0, 0, 0.28);
-        }
-
-        .mission-box h2 {
-            color: #d4af37;
-            font-size: clamp(34px, 5vw, 50px);
-            margin-bottom: 18px;
-        }
-
-        .mission-box p {
-            max-width: 850px;
-            margin: 0 auto;
-            color: #ffffff;
-            font-size: 20px;
-        }
-
-        /* Brand promise */
-
-        .promise-section {
-            background: #061f3c;
-            padding: 70px 20px;
-        }
-
-        .promise-inner {
-            max-width: 1050px;
-            margin: 0 auto;
-        }
-
-        .promise-heading {
-            text-align: center;
-            margin-bottom: 35px;
-        }
-
-        .promise-heading h2 {
-            color: #d4af37;
-            font-size: clamp(34px, 5vw, 50px);
-        }
-
-        .promise-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
-        }
-
-        .promise-card {
-            background: #082746;
-            border-radius: 15px;
-            padding: 28px;
-            border-top: 5px solid #62b32e;
-            text-align: center;
-        }
-
-        .promise-card h3 {
-            color: #7cc043;
-            margin-bottom: 10px;
-            font-size: 23px;
-        }
-
-        .promise-card p {
-            color: #dfeaf3;
-            font-size: 17px;
-        }
-
-        /* Buttons */
-
-        .action-section {
-            text-align: center;
-            padding: 60px 20px 75px;
-        }
-
-        .action-section h2 {
-            color: #ffffff;
-            font-size: clamp(31px, 5vw, 46px);
-            margin-bottom: 12px;
-        }
-
-        .action-section p {
-            color: #dce8f2;
-            font-size: 19px;
-            margin-bottom: 27px;
-        }
-
-        .button-row {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 15px;
-        }
-
-        .button {
-            display: inline-block;
-            padding: 15px 27px;
-            border-radius: 9px;
-            text-decoration: none;
-            font-weight: 900;
-            transition: transform 0.2s ease;
-        }
-
-        .button:hover {
-            transform: translateY(-2px);
-        }
-
-        .button-green {
-            background: #62b32e;
-            color: #031a33;
-        }
-
-        .button-gold {
-            background: #d4af37;
-            color: #031a33;
-        }
-
-        /* Footer */
-
-        footer {
-            background: #020f1e;
-            border-top: 4px solid #62b32e;
-            text-align: center;
-            padding: 34px 20px;
-        }
-
-        footer p {
-            color: #dce8f2;
-        }
-
-        .footer-slogan {
-            margin-top: 8px;
-            color: #d4af37;
-            font-weight: 800;
-        }
-
-        /* Mobile */
-
-        @media (max-width: 800px) {
-            .promise-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .about-card,
-            .mission-box {
-                padding: 30px 24px;
-            }
-        }
-
-        @media (max-width: 520px) {
-            .header-inner {
-                padding: 12px 15px;
-            }
-
-            .header-logo {
-                width: 150px;
-            }
-
-            .menu-button {
-                padding: 10px 14px;
-                font-size: 15px;
-            }
-
-            .site-nav ul {
-                display: block;
-                text-align: center;
-            }
-
-            .site-nav a {
-                margin: 5px 0;
-            }
-
-            .about-hero {
-                padding-top: 45px;
-            }
-
-            .about-mascot {
-                width: 350px;
-            }
-
-            .about-card p,
-            .mission-box p {
-                font-size: 18px;
-            }
-        }
-    </style>
+    <link
+        rel="icon"
+        type="image/png"
+        href="Smalllogo.PNG"
+    >
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Open+Sans:wght@400;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <link
+        rel="stylesheet"
+        href="styles.css"
+    >
 </head>
 
 <body>
 
+    <!-- ==========================================
+         HEADER
+         ========================================== -->
+
     <header class="site-header">
 
-        <div class="header-inner">
+        <div class="about-header-brand">
 
-            <a href="index.html">
+            <a
+                href="index.html"
+                class="about-header-logo-link"
+                aria-label="Randy's Cleaning Pros home page"
+            >
+
                 <img
-                    src="Logo12.jpg"
-                    alt="Randy's Cleaning Pros Logo"
-                    class="header-logo"
+                    src="Photoroomlogo11.png"
+                    alt="Randy's Cleaning Pros logo"
+                    class="about-header-logo"
                 >
+
             </a>
 
-            <button
-                class="menu-button"
-                id="menuButton"
-                type="button"
-                aria-label="Open website menu"
-                aria-expanded="false"
-            >
-                ☰ Menu
-            </button>
+            <h1 class="about-header-name">
+                Randy's Cleaning Pros
+            </h1>
+
+            <p class="about-header-slogan">
+                Setting the Gold Standard in Cleaning
+            </p>
 
         </div>
 
-        <nav class="site-nav" id="siteNav">
 
-            <ul>
-                <li>
-                    <a href="index.html">Home</a>
-                </li>
+        <div class="about-navigation-bar">
 
-                <li>
-                    <a href="about.html" class="active">About Us</a>
-                </li>
+            <button
+                id="menuButton"
+                class="menu-button"
+                type="button"
+                aria-expanded="false"
+                aria-controls="mainMenu"
+                aria-label="Open website menu"
+            >
+                <span class="menu-icon">☰</span>
+                <span class="menu-text">Menu</span>
+            </button>
 
-                <li>
-                    <a href="service.html">Services</a>
-                </li>
 
-                <li>
-                    <a href="gold-standard.html">Gold Standard</a>
-                </li>
-
-                <li>
-                    <a href="pricing.html">Pricing</a>
-                </li>
-
-                <li>
-                    <a href="contact.html">Contact</a>
-                </li>
-            </ul>
-
-        </nav>
-
-    </header>
-
-    <main>
-
-        <section class="about-hero">
-
-            <img
-                src="Mascot12.jpg"
-                alt="Randy's Cleaning Pros mascot"
-                class="about-mascot"
+            <nav
+                id="mainMenu"
+                class="dropdown-menu"
+                aria-label="Main navigation"
             >
 
-            <h1>
-                About <span class="gold-text">Us</span>
-            </h1>
+                <a href="index.html">
+                    Home
+                </a>
 
-            <p class="hero-slogan">
-                Cleaning Homes. Earning Trust. Building Hope.
-            </p>
+                <a href="service.html">
+                    Services
+                </a>
 
-            <p class="hero-intro">
-                We are building a cleaning company centered on
-                dependable service, exceptional quality and genuine
-                care for the people and properties we serve.
-            </p>
-
-        </section>
-
-        <section class="about-section">
-
-            <div class="about-card">
-
-                <h2>
-                    Raising the Standard in Cleaning
-                </h2>
-
-                <p class="strong-line">
-                    Randy's Cleaning Pros was built to raise the
-                    standard of what customers should expect from a
-                    cleaning company.
-                </p>
-
-                <p>
-                    We believe cleaning is not just about wiping
-                    surfaces or making a room look better. It is about
-                    creating a space that feels comfortable, cared for
-                    and truly refreshed. It is about giving people more
-                    time, less stress and the confidence of knowing
-                    their home or business has been cleaned with care.
-                </p>
-
-                <p>
-                    We are not trying to be the cheapest cleaning
-                    company. We are working to be one of the most
-                    dependable, detailed and trusted.
-                </p>
-
-                <p>
-                    Our team follows a structured
-                    <span class="highlight">
-                        10-Step Gold Standard Cleaning Procedure
-                    </span>
-                    designed to create consistent, top-to-bottom
-                    results. We use high-quality products, professional
-                    methods and careful attention to detail because
-                    our customers deserve more than a rushed, basic
-                    cleaning.
-                </p>
-
-                <p>
-                    We also believe the quality of a cleaning service
-                    depends on the people doing the work. That is why
-                    we are committed to treating our cleaning
-                    professionals with respect, paying them fairly and
-                    building a team that takes pride in every home and
-                    business we serve.
-                </p>
-
-                <p>
-                    Every property is different, and every customer has
-                    different needs. We take the time to understand
-                    those needs and create a personalized cleaning plan
-                    instead of using a one-size-fits-all approach.
-                </p>
-
-                <p>
-                    Most importantly, we stand behind our work. If
-                    something does not meet your expectations, we will
-                    return and make it right. If you are still not
-                    completely satisfied after we have had the
-                    opportunity to correct the concern, we will refund
-                    <strong>
-                        20% of that cleaning service—every time, with
-                        no hassle.
-                    </strong>
-                </p>
-
-                <p>
-                    At Randy's Cleaning Pros, we are not just cleaning
-                    spaces. We are earning trust, building lasting
-                    relationships and setting a higher standard—one
-                    cleaning at a time.
-                </p>
-
-            </div>
-
-        </section>
-
-        <section class="mission-section">
-
-            <div class="mission-box">
-
-                <h2>Our Mission</h2>
-
-                <p>
-                    Our mission is to set a higher standard in cleaning
-                    by providing dependable service, exceptional
-                    quality and genuine care. We are committed to
-                    creating cleaner, healthier and more comfortable
-                    spaces while treating every customer, employee,
-                    home and business with respect. Every visit is an
-                    opportunity to earn your trust and show why Randy's
-                    Cleaning Pros is setting the Gold Standard in
-                    Cleaning.
-                </p>
-
-            </div>
-
-        </section>
-
-        <section class="promise-section">
-
-            <div class="promise-inner">
-
-                <div class="promise-heading">
-                    <h2>Our Promise to You</h2>
-                </div>
-
-                <div class="promise-grid">
-
-                    <article class="promise-card">
-
-                        <h3>Quality First</h3>
-
-                        <p>
-                            We focus on careful, detailed cleaning—not
-                            rushed service or cutting corners.
-                        </p>
-
-                    </article>
-
-                    <article class="promise-card">
-
-                        <h3>People Matter</h3>
-
-                        <p>
-                            We value our customers and our cleaning
-                            professionals because great service begins
-                            with respected people.
-                        </p>
-
-                    </article>
-
-                    <article class="promise-card">
-
-                        <h3>We Stand Behind It</h3>
-
-                        <p>
-                            We will return to correct a cleaning concern
-                            and provide a 20% refund if you are still
-                            not completely satisfied.
-                        </p>
-
-                    </article>
-
-                </div>
-
-            </div>
-
-        </section>
-
-        <section class="action-section">
-
-            <h2>
-                Experience the Gold Standard
-            </h2>
-
-            <p>
-                Let us create a personalized cleaning plan for your
-                home or business.
-            </p>
-
-            <div class="button-row">
+                <a href="gold-standard.html">
+                    Gold Standard
+                </a>
 
                 <a
-                    href="contact.html"
-                    class="button button-green"
+                    href="about.html"
+                    class="active"
+                    aria-current="page"
+                >
+                    About Us
+                </a>
+
+                <a href="charity.html">
+                    Our Purpose
+                </a>
+
+                <a href="pricing.html">
+                    Pricing
+                </a>
+
+                <a href="contact.html">
+                    Contact
+                </a>
+
+                <a
+                    href="quote.html"
+                    class="menu-quote-button"
                 >
                     Get a Free Quote
                 </a>
 
-                <a
-                    href="service.html"
-                    class="button button-gold"
+            </nav>
+
+        </div>
+
+    </header>
+
+
+    <!-- ==========================================
+         MAIN CONTENT
+         ========================================== -->
+
+    <main>
+
+
+        <!-- ======================================
+             ABOUT HERO
+             ====================================== -->
+
+        <section class="new-about-hero">
+
+            <div class="container new-about-hero-grid">
+
+                <div class="new-about-hero-content">
+
+                    <p class="about-eyebrow">
+                        Professional Cleaning in Southern Maine
+                    </p>
+
+                    <h2>
+                        More Than Cleaning.
+                        <span>We Are Earning Trust.</span>
+                    </h2>
+
+                    <p class="new-about-hero-slogan">
+                        Cleaning Homes. Earning Trust. Building Hope.
+                    </p>
+
+                    <p class="new-about-hero-description">
+                        Randy's Cleaning Pros was created to provide
+                        dependable service, detailed results and genuine
+                        care for every customer and property we serve.
+                    </p>
+
+                    <div class="about-hero-buttons">
+
+                        <a
+                            href="quote.html"
+                            class="button button-primary"
+                        >
+                            Get a Free Quote
+                        </a>
+
+                        <a
+                            href="sms:2075581298"
+                            class="button button-light"
+                        >
+                            Text Randy
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <div class="new-about-hero-image">
+
+                    <!--
+                    Replace AboutCleaner.jpg with your advertising photo.
+
+                    The photo should show:
+                    - A professional cleaner
+                    - Navy Randy's Cleaning Pros polo
+                    - Matching navy hat or visor
+                    - Company logo on the uniform
+                    - Premium cordless stick vacuum
+                    -->
+
+                    <img
+                        src="AboutCleaner.jpg"
+                        alt="Professional cleaner wearing a navy Randy's Cleaning Pros uniform and matching visor"
+                    >
+
+                    <div class="about-photo-label">
+
+                        <strong>
+                            Randy's Cleaning Pros
+                        </strong>
+
+                        <span>
+                            Professional. Dependable. Detailed.
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ======================================
+             OUR STORY
+             ====================================== -->
+
+        <section class="about-story-section">
+
+            <div class="container about-story-grid">
+
+                <div class="about-story-image">
+
+                    <img
+                        src="Mascot12.jpg"
+                        alt="Randy's Cleaning Pros mascot"
+                    >
+
+                </div>
+
+
+                <div class="about-story-content">
+
+                    <p class="section-eyebrow">
+                        About Randy's Cleaning Pros
+                    </p>
+
+                    <h2>
+                        Raising the Standard in Cleaning
+                    </h2>
+
+                    <p class="about-strong-text">
+                        Randy's Cleaning Pros was built to raise the
+                        standard of what customers should expect from a
+                        cleaning company.
+                    </p>
+
+                    <p>
+                        We believe cleaning is not just about wiping
+                        surfaces or making a room look better. It is
+                        about creating a space that feels comfortable,
+                        cared for and truly refreshed.
+                    </p>
+
+                    <p>
+                        It is about giving people more time, less stress
+                        and the confidence of knowing their home or
+                        business has been cleaned with care.
+                    </p>
+
+                    <p>
+                        We are not trying to be the cheapest cleaning
+                        company. We are working to become one of the
+                        most dependable, detailed and trusted cleaning
+                        companies in Southern Maine.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ======================================
+             GOLD STANDARD SECTION
+             ====================================== -->
+
+        <section class="about-gold-section">
+
+            <div class="container about-gold-grid">
+
+                <div class="about-gold-content">
+
+                    <p class="about-eyebrow">
+                        A Consistent Professional System
+                    </p>
+
+                    <h2>
+                        Our 10-Step
+                        <span>Gold Standard</span>
+                    </h2>
+
+                    <p>
+                        Our team follows a structured 10-Step Gold
+                        Standard Cleaning Procedure designed to create
+                        dependable, top-to-bottom results.
+                    </p>
+
+                    <p>
+                        We use quality products, professional methods and
+                        careful attention to detail because our customers
+                        deserve more than a rushed, basic cleaning.
+                    </p>
+
+                    <a
+                        href="gold-standard.html"
+                        class="button button-primary"
+                    >
+                        See Our Gold Standard
+                    </a>
+
+                </div>
+
+
+                <div class="about-gold-badge">
+
+                    <span class="about-badge-number">
+                        10
+                    </span>
+
+                    <span class="about-badge-step">
+                        Step
+                    </span>
+
+                    <span class="about-badge-title">
+                        Gold Standard
+                    </span>
+
+                    <span class="about-badge-subtitle">
+                        Cleaning Procedure
+                    </span>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ======================================
+             PEOPLE AND PERSONALIZED CARE
+             ====================================== -->
+
+        <section class="about-values-section">
+
+            <div class="container">
+
+                <div class="about-section-heading">
+
+                    <p class="section-eyebrow">
+                        What Makes Us Different
+                    </p>
+
+                    <h2>
+                        Professional Service With Genuine Care
+                    </h2>
+
+                    <p>
+                        Great cleaning depends on dependable people,
+                        clear communication and a commitment to quality.
+                    </p>
+
+                </div>
+
+
+                <div class="about-values-grid">
+
+                    <article class="about-value-card">
+
+                        <div class="about-value-icon">
+                            ★
+                        </div>
+
+                        <h3>
+                            Quality First
+                        </h3>
+
+                        <p>
+                            We focus on detailed cleaning and consistent
+                            results instead of rushing through your home
+                            or cutting corners.
+                        </p>
+
+                    </article>
+
+
+                    <article class="about-value-card">
+
+                        <div class="about-value-icon">
+                            ♥
+                        </div>
+
+                        <h3>
+                            People Matter
+                        </h3>
+
+                        <p>
+                            We treat our customers and cleaning
+                            professionals with respect because excellent
+                            service begins with respected people.
+                        </p>
+
+                    </article>
+
+
+                    <article class="about-value-card">
+
+                        <div class="about-value-icon">
+                            ✓
+                        </div>
+
+                        <h3>
+                            Personalized Care
+                        </h3>
+
+                        <p>
+                            Every property is different. We listen to
+                            your needs and create a cleaning plan that
+                            fits your space and priorities.
+                        </p>
+
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ======================================
+             MISSION
+             ====================================== -->
+
+        <section class="new-mission-section">
+
+            <div class="container">
+
+                <div class="new-mission-box">
+
+                    <p class="about-eyebrow">
+                        Our Mission
+                    </p>
+
+                    <h2>
+                        Cleaner Spaces. Stronger Trust.
+                    </h2>
+
+                    <p>
+                        Our mission is to set a higher standard in
+                        cleaning by providing dependable service,
+                        exceptional quality and genuine care.
+                    </p>
+
+                    <p>
+                        We are committed to creating cleaner, healthier
+                        and more comfortable spaces while treating every
+                        customer, employee, home and business with
+                        respect.
+                    </p>
+
+                    <p>
+                        Every visit is an opportunity to earn your trust
+                        and show why Randy's Cleaning Pros is setting the
+                        Gold Standard in Cleaning.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ======================================
+             SATISFACTION PROMISE
+             ====================================== -->
+
+        <section class="about-promise-section">
+
+            <div class="container about-promise-grid">
+
+                <div class="about-promise-badge">
+
+                    <span class="promise-percent">
+                        20%
+                    </span>
+
+                    <span class="promise-refund">
+                        Satisfaction
+                    </span>
+
+                    <span class="promise-label">
+                        Promise
+                    </span>
+
+                </div>
+
+
+                <div class="about-promise-content">
+
+                    <p class="about-eyebrow">
+                        We Stand Behind Our Work
+                    </p>
+
+                    <h2>
+                        Your Satisfaction Matters
+                    </h2>
+
+                    <p>
+                        If something does not meet your expectations,
+                        please contact us so we have the opportunity to
+                        return and make it right.
+                    </p>
+
+                    <p>
+                        If you are still not completely satisfied after
+                        we have corrected the concern, we will refund
+                        20% of that cleaning service.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ======================================
+             CLOSING STORY
+             ====================================== -->
+
+        <section class="about-closing-section">
+
+            <div class="container about-closing-content">
+
+                <img
+                    src="Photoroomlogo11.png"
+                    alt="Randy's Cleaning Pros"
+                    class="about-closing-logo"
                 >
-                    View Our Services
-                </a>
+
+                <h2>
+                    Setting a Higher Standard,
+                    One Cleaning at a Time
+                </h2>
+
+                <p>
+                    At Randy's Cleaning Pros, we are not just cleaning
+                    spaces. We are earning trust, building lasting
+                    relationships and working to make every home and
+                    business feel properly cared for.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- ======================================
+             CALL TO ACTION
+             ====================================== -->
+
+        <section class="about-action-section">
+
+            <div class="container about-action-content">
+
+                <p class="about-eyebrow">
+                    Experience the Difference
+                </p>
+
+                <h2>
+                    Ready for a Gold Standard Cleaning?
+                </h2>
+
+                <p>
+                    Tell us about your home or business and receive a
+                    personalized cleaning estimate.
+                </p>
+
+                <div class="about-action-buttons">
+
+                    <a
+                        href="quote.html"
+                        class="button button-primary"
+                    >
+                        Get My Free Quote
+                    </a>
+
+                    <a
+                        href="service.html"
+                        class="button button-outline-light"
+                    >
+                        View Our Services
+                    </a>
+
+                </div>
+
+                <p class="about-text-number">
+                    Prefer texting?
+                    <a href="sms:2075581298">
+                        Text 207-558-1298
+                    </a>
+                </p>
 
             </div>
 
@@ -681,39 +636,109 @@
 
     </main>
 
-    <footer>
 
-        <p>
-            © 2026 Randy's Cleaning Pros
-        </p>
+    <!-- ==========================================
+         FOOTER
+         ========================================== -->
 
-        <p class="footer-slogan">
-            Setting the Gold Standard in Cleaning
-        </p>
+    <footer class="site-footer">
+
+        <div class="container about-footer-grid">
+
+            <div class="about-footer-brand">
+
+                <img
+                    src="Photoroomlogo11.png"
+                    alt="Randy's Cleaning Pros logo"
+                    class="about-footer-logo"
+                >
+
+                <h2>
+                    Randy's Cleaning Pros
+                </h2>
+
+                <p class="about-footer-slogan">
+                    Setting the Gold Standard in Cleaning
+                </p>
+
+                <p>
+                    Professional residential, rental, move and office
+                    cleaning throughout Southern Maine.
+                </p>
+
+            </div>
+
+
+            <div class="about-footer-links">
+
+                <h3>
+                    Quick Links
+                </h3>
+
+                <a href="index.html">
+                    Home
+                </a>
+
+                <a href="service.html">
+                    Services
+                </a>
+
+                <a href="gold-standard.html">
+                    Gold Standard
+                </a>
+
+                <a href="about.html">
+                    About Us
+                </a>
+
+                <a href="contact.html">
+                    Contact
+                </a>
+
+                <a href="quote.html">
+                    Free Quote
+                </a>
+
+            </div>
+
+
+            <div class="about-footer-contact">
+
+                <h3>
+                    Contact
+                </h3>
+
+                <p>
+                    Serving Southern Maine
+                </p>
+
+                <a href="sms:2075581298">
+                    Text: 207-558-1298
+                </a>
+
+                <p>
+                    Texting is preferred for faster communication.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="about-footer-bottom">
+
+            <p>
+                &copy;
+                <span id="year">2026</span>
+                Randy's Cleaning Pros. All rights reserved.
+            </p>
+
+        </div>
 
     </footer>
 
-    <script>
-        const menuButton = document.getElementById("menuButton");
-        const siteNav = document.getElementById("siteNav");
 
-        menuButton.addEventListener("click", function () {
-            siteNav.classList.toggle("open");
-
-            const menuIsOpen = siteNav.classList.contains("open");
-
-            menuButton.setAttribute(
-                "aria-expanded",
-                menuIsOpen
-            );
-
-            if (menuIsOpen) {
-                menuButton.textContent = "✕ Close";
-            } else {
-                menuButton.textContent = "☰ Menu";
-            }
-        });
-    </script>
+    <script src="script.js"></script>
 
 </body>
 
