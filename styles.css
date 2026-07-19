@@ -1525,5 +1525,67 @@ select:focus-visible {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
+
+     /* =========================================================
+        21. JAVASCRIPT EFFECTS
+   ========================================================= */
+
+.site-header {
+  transition:
+    box-shadow 0.25s ease,
+    background 0.25s ease;
+}
+
+.site-header.scrolled {
+  background: rgba(1, 14, 56, 0.99);
+  box-shadow:
+    0 8px 25px rgba(0, 0, 0, 0.22);
+}
+
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(24px);
+
+  transition:
+    opacity 0.65s ease,
+    transform 0.65s ease;
+}
+
+.reveal-on-scroll.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.button-clicked {
+  transform: scale(0.97);
+}
+
+body:not(.page-loaded) {
+  opacity: 0;
+}
+
+body.page-loaded {
+  opacity: 1;
+  transition: opacity 0.35s ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+  html {
+    scroll-behavior: auto;
+  }
+
+  .reveal-on-scroll,
+  .reveal-on-scroll.is-visible {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  body.page-loaded {
+    transition: none;
+  }
+
+}
   }
 }
