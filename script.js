@@ -1,182 +1,159 @@
-/* =========================================================
+/* ==========================================================
    RANDY'S CLEANING PROS
-   MAIN JAVASCRIPT
-   File name: script.js
-   Matches: index.html and styles.css
-   ========================================================= */
+   script.js
+   ========================================================== */
 
-document.addEventListener("DOMContentLoaded", function () {
-  const menuButton =
-    document.getElementById("menuButton");
+document.addEventListener("DOMContentLoaded", () => {
 
-  const mainMenu =
-    document.getElementById("mainMenu");
+    /* ===============================
+       Highlight Current Page
+    =============================== */
 
-  const menuIcon =
-    document.querySelector(".menu-icon");
+    const currentPage = window.location.pathname.split("/").pop();
 
-  const menuText =
-    document.querySelector(".menu-text");
+    document.querySelectorAll(".nav-button").forEach(button => {
 
-  const year =
-    document.getElementById("year");
+        const link = button.getAttribute("href");
 
-
-  /* =======================================================
-     1. OPEN THE DROP-DOWN MENU
-     ======================================================= */
-
-  function openMenu() {
-    if (!menuButton || !mainMenu) {
-      return;
-    }
-
-    mainMenu.classList.add("open");
-
-    menuButton.setAttribute(
-      "aria-expanded",
-      "true"
-    );
-
-    menuButton.setAttribute(
-      "aria-label",
-      "Close navigation menu"
-    );
-
-    if (menuIcon) {
-      menuIcon.textContent = "✕";
-    }
-
-    if (menuText) {
-      menuText.textContent = "Close";
-    }
-  }
-
-
-  /* =======================================================
-     2. CLOSE THE DROP-DOWN MENU
-     ======================================================= */
-
-  function closeMenu() {
-    if (!menuButton || !mainMenu) {
-      return;
-    }
-
-    mainMenu.classList.remove("open");
-
-    menuButton.setAttribute(
-      "aria-expanded",
-      "false"
-    );
-
-    menuButton.setAttribute(
-      "aria-label",
-      "Open navigation menu"
-    );
-
-    if (menuIcon) {
-      menuIcon.textContent = "☰";
-    }
-
-    if (menuText) {
-      menuText.textContent = "Menu";
-    }
-  }
-
-
-  /* =======================================================
-     3. TOGGLE THE MENU BUTTON
-     ======================================================= */
-
-  function toggleMenu() {
-    if (!mainMenu) {
-      return;
-    }
-
-    const menuIsOpen =
-      mainMenu.classList.contains("open");
-
-    if (menuIsOpen) {
-      closeMenu();
-    } else {
-      openMenu();
-    }
-  }
-
-
-  if (menuButton && mainMenu) {
-    menuButton.addEventListener(
-      "click",
-      function (event) {
-        event.stopPropagation();
-        toggleMenu();
-      }
-    );
-
-
-    /* Keep clicks inside the menu from closing it too soon */
-
-    mainMenu.addEventListener(
-      "click",
-      function (event) {
-        event.stopPropagation();
-      }
-    );
-
-
-    /* Close the menu after a menu link is selected */
-
-    mainMenu
-      .querySelectorAll("a")
-      .forEach(function (link) {
-        link.addEventListener(
-          "click",
-          closeMenu
-        );
-      });
-
-
-    /* Close when clicking anywhere outside the menu */
-
-    document.addEventListener(
-      "click",
-      function () {
-        closeMenu();
-      }
-    );
-
-
-    /* Close when the Escape key is pressed */
-
-    document.addEventListener(
-      "keydown",
-      function (event) {
         if (
-          event.key === "Escape" &&
-          mainMenu.classList.contains("open")
+            link === currentPage ||
+            (currentPage === "" && link === "index.html")
         ) {
-          closeMenu();
-          menuButton.focus();
+            button.classList.add("active");
         }
-      }
-    );
+
+    });
 
 
-    /* Close the menu if the screen size changes */
+    /* ===============================
+       Button Click Animation
+    =============================== */
 
-    window.addEventListener(
-      "resize",
-      closeMenu
-    );
-  }
+    document.querySelectorAll(".primary-button, .secondary-button, .nav-button, .promotion-button, .large-quote-button")
+        .forEach(button => {
+
+            button.addEventListener("click", function () {
+
+                this.style.transform = "scale(.96)";
+
+                setTimeout(() => {
+
+                    this.style.transform = "";
+
+                }, 150);
+
+            });
+
+        });
 
 
-  /* =======================================================
-     4. AUTOMATIC COPYRIGHT YEAR
-     ======================================================= */
+    /* ===============================
+       Fade In Animation
+    =============================== */
 
-  if (year) {
-    year.textContent =
-      new Date().getFullYear();
-  }
+    const observer = new IntersectionObserver(entries => {
+
+        entries.forEach(entry => {
+
+            if (entry.isIntersecting) {
+
+                entry.target.classList.add("show");
+
+            }
+
+        });
+
+    }, {
+
+        threshold: .15
+
+    });
+
+    document.querySelectorAll(
+        ".trust-card, .service-card, .procedure-card, .promotion-card, .gold-standard-content, .gold-badge"
+    ).forEach(item => {
+
+        item.classList.add("hidden");
+
+        observer.observe(item);
+
+    });
+
+
+    /* ===============================
+       Ripple Effect
+    =============================== */
+
+    document.querySelectorAll("a").forEach(button => {
+
+        button.addEventListener("click", function (e) {
+
+            const circle = document.createElement("span");
+
+            const rect = this.getBoundingClientRect();
+
+            const size = Math.max(rect.width, rect.height);
+
+            circle.style.width = size + "px";
+            circle.style.height = size + "px";
+
+            circle.style.left =
+                e.clientX - rect.left - size / 2 + "px";
+
+            circle.style.top =
+                e.clientY - rect.top - size / 2 + "px";
+
+            circle.classList.add("ripple");
+
+            this.appendChild(circle);
+
+            setTimeout(() => {
+
+                circle.remove();
+
+            }, 600);
+
+        });
+
+    });
+
+
+    /* ===============================
+       Back To Top Button
+    =============================== */
+
+    const topButton = document.createElement("button");
+
+    topButton.innerHTML = "↑";
+
+    topButton.className = "back-to-top";
+
+    document.body.appendChild(topButton);
+
+    window.addEventListener("scroll", () => {
+
+        if (window.scrollY > 400) {
+
+            topButton.classList.add("show");
+
+        } else {
+
+            topButton.classList.remove("show");
+
+        }
+
+    });
+
+    topButton.addEventListener("click", () => {
+
+        window.scrollTo({
+
+            top: 0,
+
+            behavior: "smooth"
+
+        });
+
+    });
+
 });
