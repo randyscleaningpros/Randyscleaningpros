@@ -1,8 +1,12 @@
 /* =========================================================
    RANDY'S CLEANING PROS
-   COMPLETE HOME PAGE STYLESHEET
-   File name: styles.css
-   Matches the new index.html
+   HOME PAGE STYLESHEET
+
+   COLOR BALANCE:
+   50% Dark Navy
+   30% White
+   15% Uniform Green
+   5% Gold
    ========================================================= */
 
 
@@ -11,54 +15,39 @@
    ========================================================= */
 
 :root {
-  /* Dark navy from the uniform and branding */
   --navy-darkest: #010b2d;
   --navy-dark: #010e38;
-  --navy: #08245c;
+  --navy-medium: #08245c;
   --navy-light: #173b78;
 
-  /* Gold branding accents */
+  --uniform-green: #579b12;
+  --green-dark: #3f7609;
+  --green-light: #72b929;
+
   --gold-dark: #a97812;
   --gold: #e4b63f;
   --gold-light: #f4d77b;
-  --gold-pale: #fff5d6;
 
-  /* Supporting colors */
-  --green: #2ea86b;
-
-  /* Main page colors */
   --white: #ffffff;
-  --off-white: #f6f8fc;
-  --soft-blue: #edf2f9;
-  --light-gray: #dfe5ee;
-  --gray: #647080;
-  --dark-text: #172033;
+  --off-white: #f5f7f2;
+  --light-gray: #e5e9e1;
+  --medium-gray: #6c7469;
+  --dark-text: #152031;
 
-  /* Shadows */
-  --small-shadow:
-    0 8px 22px rgba(1, 14, 56, 0.09);
+  --navy-shadow: 0 18px 45px rgba(1, 14, 56, 0.22);
+  --green-shadow: 0 12px 30px rgba(87, 155, 18, 0.28);
+  --gold-shadow: 0 10px 28px rgba(228, 182, 63, 0.3);
 
-  --medium-shadow:
-    0 18px 42px rgba(1, 14, 56, 0.14);
+  --border-radius-small: 10px;
+  --border-radius-medium: 18px;
+  --border-radius-large: 28px;
 
-  --large-shadow:
-    0 25px 60px rgba(1, 14, 56, 0.2);
-
-  --gold-shadow:
-    0 13px 30px rgba(228, 182, 63, 0.3);
-
-  /* Rounded corners */
-  --small-radius: 10px;
-  --medium-radius: 18px;
-  --large-radius: 28px;
-
-  /* Animation speed */
-  --transition: 0.25s ease;
+  --content-width: 1200px;
 }
 
 
 /* =========================================================
-   2. RESET
+   2. RESET AND GLOBAL SETTINGS
    ========================================================= */
 
 * {
@@ -74,20 +63,15 @@ html {
 body {
   min-height: 100vh;
   overflow-x: hidden;
+  font-family: "Open Sans", Arial, Helvetica, sans-serif;
+  background: var(--navy-dark);
   color: var(--dark-text);
-  background: var(--white);
-  font-family:
-    "Open Sans",
-    Arial,
-    Helvetica,
-    sans-serif;
-  line-height: 1.65;
+  line-height: 1.7;
 }
 
 img {
   display: block;
   max-width: 100%;
-  height: auto;
 }
 
 a {
@@ -96,1427 +80,993 @@ a {
 }
 
 button,
-input,
-textarea,
-select {
-  font: inherit;
-}
-
-button {
-  cursor: pointer;
+a {
+  -webkit-tap-highlight-color: transparent;
 }
 
 
 /* =========================================================
-   3. TYPOGRAPHY
+   3. HEADER
+   Header is not fixed or sticky.
    ========================================================= */
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  color: var(--navy-dark);
-  font-family:
-    "Montserrat",
-    Arial,
-    Helvetica,
-    sans-serif;
-  line-height: 1.15;
-}
-
-h1 {
-  font-size: clamp(2.75rem, 6vw, 5rem);
-  font-weight: 900;
-  letter-spacing: -0.045em;
-}
-
-h2 {
-  font-size: clamp(2rem, 4vw, 3.45rem);
-  font-weight: 900;
-  letter-spacing: -0.03em;
-}
-
-h3 {
-  font-size: 1.28rem;
-  font-weight: 800;
-}
-
-p {
-  margin-bottom: 1rem;
-}
-
-
-/* =========================================================
-   4. COMMON LAYOUT
-   ========================================================= */
-
-.container {
-  width: min(1180px, calc(100% - 40px));
-  margin-inline: auto;
-}
-
-.section {
-  padding: 95px 0;
-}
-
-.section-white {
-  background: var(--white);
-}
-
-.section-soft {
+.site-header {
+  position: relative;
+  width: 100%;
+  padding: 28px 24px 26px;
   background:
     radial-gradient(
-      circle at top right,
-      rgba(228, 182, 63, 0.08),
-      transparent 34%
+      circle at top center,
+      rgba(23, 59, 120, 0.65),
+      transparent 48%
     ),
-    var(--off-white);
+    linear-gradient(
+      145deg,
+      var(--navy-darkest),
+      var(--navy-dark)
+    );
+  border-bottom: 5px solid var(--uniform-green);
 }
 
+.logo-area {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: min(100%, var(--content-width));
+  margin: 0 auto;
+  text-align: center;
+}
+
+.logo-link {
+  display: inline-block;
+}
+
+.main-logo {
+  width: 290px;
+  max-width: 78vw;
+  height: auto;
+  margin: 0 auto 10px;
+  object-fit: contain;
+  filter: drop-shadow(0 12px 18px rgba(0, 0, 0, 0.32));
+}
+
+.business-name {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0 12px;
+  margin-top: 2px;
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-style: italic;
+  font-weight: 600;
+  line-height: 1.1;
+  letter-spacing: -1.5px;
+}
+
+.randy-name {
+  color: var(--white);
+}
+
+.cleaning-name {
+  color: var(--uniform-green);
+}
+
+.main-slogan {
+  margin-top: 12px;
+  color: var(--white);
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: clamp(0.95rem, 2vw, 1.2rem);
+  font-weight: 600;
+  letter-spacing: 0.6px;
+}
+
+.main-slogan span {
+  color: var(--gold);
+  font-style: italic;
+}
+
+
+/* =========================================================
+   4. NAVIGATION
+   ========================================================= */
+
+.main-navigation {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  width: min(100%, var(--content-width));
+  margin: 28px auto 0;
+}
+
+.nav-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 120px;
+  min-height: 48px;
+  padding: 12px 22px;
+  color: var(--white);
+  background: var(--uniform-green);
+  border: 2px solid var(--uniform-green);
+  border-radius: 999px;
+  box-shadow: 0 7px 18px rgba(0, 0, 0, 0.2);
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: 0.9rem;
+  font-weight: 700;
+  transition:
+    transform 0.2s ease,
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.nav-button:hover,
+.nav-button:focus-visible,
+.nav-button.active {
+  background: var(--green-dark);
+  border-color: var(--gold);
+  box-shadow: var(--green-shadow);
+  transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   5. GENERAL BUTTONS
+   ========================================================= */
+
+.primary-button,
+.secondary-button,
+.promotion-button,
+.large-quote-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 54px;
+  padding: 14px 28px;
+  color: var(--white);
+  background: var(--uniform-green);
+  border: 2px solid var(--uniform-green);
+  border-radius: 999px;
+  box-shadow: var(--green-shadow);
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: 0.96rem;
+  font-weight: 700;
+  text-align: center;
+  transition:
+    transform 0.2s ease,
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.primary-button:hover,
+.secondary-button:hover,
+.promotion-button:hover,
+.large-quote-button:hover,
+.primary-button:focus-visible,
+.secondary-button:focus-visible,
+.promotion-button:focus-visible,
+.large-quote-button:focus-visible {
+  background: var(--green-dark);
+  border-color: var(--gold);
+  box-shadow: 0 15px 32px rgba(87, 155, 18, 0.38);
+  transform: translateY(-3px);
+}
+
+.secondary-button {
+  color: var(--white);
+  background: transparent;
+  border-color: var(--uniform-green);
+}
+
+.secondary-button:hover,
+.secondary-button:focus-visible {
+  background: var(--uniform-green);
+}
+
+
+/* =========================================================
+   6. HERO SECTION
+   Major navy portion of the page.
+   ========================================================= */
+
+.hero-section {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(300px, 0.75fr);
+  align-items: center;
+  gap: 50px;
+  width: 100%;
+  min-height: 630px;
+  padding: 80px max(24px, calc((100% - var(--content-width)) / 2));
+  background:
+    linear-gradient(
+      90deg,
+      rgba(1, 11, 45, 0.98),
+      rgba(1, 14, 56, 0.93)
+    );
+  color: var(--white);
+}
+
+.hero-content {
+  max-width: 760px;
+}
+
+.promotion-label,
 .section-label {
-  margin-bottom: 12px;
-  color: var(--gold-dark);
-  font-family:
-    "Montserrat",
-    Arial,
-    Helvetica,
-    sans-serif;
-  font-size: 0.8rem;
-  font-weight: 900;
-  letter-spacing: 0.17em;
+  display: inline-block;
+  margin-bottom: 15px;
+  color: var(--uniform-green);
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 1.8px;
   text-transform: uppercase;
 }
 
-.section-label-light {
-  color: var(--gold-light);
+.promotion-label {
+  padding: 8px 16px;
+  color: var(--white);
+  background: var(--uniform-green);
+  border-left: 5px solid var(--gold);
+  border-radius: 6px;
+}
+
+.hero-section h2 {
+  max-width: 760px;
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: clamp(2.5rem, 6vw, 5.2rem);
+  font-weight: 800;
+  line-height: 1.04;
+  letter-spacing: -2.5px;
+}
+
+.hero-section h2 span {
+  display: block;
+  margin-top: 12px;
+  color: var(--uniform-green);
+}
+
+.hero-description {
+  max-width: 700px;
+  margin-top: 25px;
+  color: rgba(255, 255, 255, 0.88);
+  font-size: clamp(1rem, 2vw, 1.16rem);
+}
+
+.hero-promise {
+  margin-top: 22px;
+  color: var(--gold);
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: 1.08rem;
+  font-style: italic;
+  font-weight: 700;
+}
+
+.hero-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 32px;
+}
+
+
+/* =========================================================
+   7. PROMOTION CARD
+   ========================================================= */
+
+.promotion-card {
+  position: relative;
+  overflow: hidden;
+  padding: 38px 32px;
+  color: var(--dark-text);
+  background: var(--white);
+  border: 4px solid var(--gold);
+  border-radius: var(--border-radius-large);
+  box-shadow: var(--navy-shadow);
+  text-align: center;
+}
+
+.promotion-card::before {
+  content: "";
+  position: absolute;
+  top: -85px;
+  right: -85px;
+  width: 190px;
+  height: 190px;
+  background: rgba(87, 155, 18, 0.12);
+  border-radius: 50%;
+}
+
+.promotion-circle {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 165px;
+  height: 165px;
+  margin: 0 auto 22px;
+  color: var(--white);
+  background:
+    radial-gradient(
+      circle,
+      var(--green-light),
+      var(--uniform-green) 65%,
+      var(--green-dark)
+    );
+  border: 8px double var(--gold);
+  border-radius: 50%;
+  box-shadow: var(--green-shadow);
+}
+
+.promotion-number {
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: 3.1rem;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.promotion-word {
+  margin-top: 3px;
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: 1.2rem;
+  font-weight: 800;
+  letter-spacing: 3px;
+}
+
+.promotion-card h3 {
+  color: var(--navy-dark);
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: 1.7rem;
+  font-weight: 800;
+}
+
+.promotion-card p {
+  margin: 15px 0 24px;
+  color: #4d5749;
+}
+
+.promotion-card small {
+  display: block;
+  margin-top: 18px;
+  color: var(--medium-gray);
+  font-size: 0.75rem;
+  line-height: 1.5;
+}
+
+
+/* =========================================================
+   8. TRUST SECTION
+   White portion of the color balance.
+   ========================================================= */
+
+.trust-section {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 22px;
+  width: 100%;
+  padding: 65px max(24px, calc((100% - var(--content-width)) / 2));
+  background: var(--white);
+}
+
+.trust-card {
+  padding: 30px 24px;
+  background: var(--off-white);
+  border: 1px solid var(--light-gray);
+  border-top: 5px solid var(--uniform-green);
+  border-radius: var(--border-radius-medium);
+  box-shadow: 0 10px 28px rgba(1, 14, 56, 0.08);
+  text-align: center;
+}
+
+.trust-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 54px;
+  height: 54px;
+  margin: 0 auto 16px;
+  color: var(--navy-dark);
+  background: var(--gold);
+  border-radius: 50%;
+  font-size: 1.4rem;
+  font-weight: 800;
+}
+
+.trust-card h3 {
+  color: var(--navy-dark);
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: 1.06rem;
+  font-weight: 800;
+}
+
+.trust-card p {
+  margin-top: 12px;
+  color: #596255;
+  font-size: 0.9rem;
+}
+
+
+/* =========================================================
+   9. GOLD STANDARD SECTION
+   ========================================================= */
+
+.gold-standard-section {
+  display: grid;
+  grid-template-columns: minmax(280px, 0.75fr) minmax(0, 1.25fr);
+  align-items: center;
+  gap: 70px;
+  padding: 90px max(24px, calc((100% - var(--content-width)) / 2));
+  color: var(--white);
+  background:
+    linear-gradient(
+      135deg,
+      var(--navy-darkest),
+      var(--navy-medium)
+    );
+}
+
+.gold-badge {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: min(380px, 85vw);
+  aspect-ratio: 1;
+  margin: 0 auto;
+  padding: 30px;
+  color: var(--navy-dark);
+  background:
+    radial-gradient(
+      circle,
+      var(--gold-light) 0%,
+      var(--gold) 58%,
+      var(--gold-dark) 100%
+    );
+  border: 14px double var(--white);
+  border-radius: 50%;
+  box-shadow:
+    0 0 0 9px var(--gold-dark),
+    0 22px 55px rgba(0, 0, 0, 0.35);
+  text-align: center;
+}
+
+.badge-stars {
+  margin-bottom: 8px;
+  color: var(--navy-dark);
+  font-size: 1.3rem;
+  letter-spacing: 5px;
+}
+
+.badge-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.badge-small-text {
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: 1.1rem;
+  font-style: italic;
+  font-weight: 700;
+}
+
+.badge-center strong {
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: clamp(2.8rem, 8vw, 4.4rem);
+  font-weight: 800;
+  line-height: 1;
+}
+
+.badge-center > span:not(.badge-small-text) {
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: clamp(1.25rem, 4vw, 2rem);
+  font-weight: 800;
+  letter-spacing: 3px;
+}
+
+.badge-center small {
+  margin-top: 8px;
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.badge-ribbon {
+  margin-top: 19px;
+  padding: 8px 16px;
+  color: var(--white);
+  background: var(--navy-dark);
+  border-radius: 999px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.7px;
+}
+
+.gold-standard-content h2,
+.procedure-section h2,
+.services-preview h2,
+.final-quote-section h2 {
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: clamp(2.1rem, 5vw, 3.7rem);
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -1.5px;
+}
+
+.gold-standard-content h2 span {
+  color: var(--gold);
+}
+
+.gold-standard-content > p:not(.section-label) {
+  max-width: 690px;
+  margin: 23px 0 30px;
+  color: rgba(255, 255, 255, 0.84);
+  font-size: 1.05rem;
+}
+
+
+/* =========================================================
+   10. PROCEDURE SECTION
+   White portion.
+   ========================================================= */
+
+.procedure-section {
+  padding: 90px max(24px, calc((100% - var(--content-width)) / 2));
+  background: var(--white);
 }
 
 .section-heading {
-  max-width: 760px;
-  margin: 0 auto 48px;
+  max-width: 800px;
+  margin: 0 auto 50px;
   text-align: center;
 }
 
 .section-heading h2 {
-  margin-bottom: 18px;
-}
-
-.section-heading > p:last-child {
-  max-width: 650px;
-  margin: 0 auto;
-  color: var(--gray);
-  font-size: 1.06rem;
-  line-height: 1.75;
-}
-
-
-/* =========================================================
-   5. HEADER
-   ========================================================= */
-
-.site-header {
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  width: 100%;
-  background: rgba(1, 14, 56, 0.98);
-  border-bottom:
-    1px solid rgba(255, 255, 255, 0.11);
-  box-shadow:
-    0 8px 26px rgba(0, 0, 0, 0.16);
-  backdrop-filter: blur(12px);
-}
-
-.header-inner {
-  position: relative;
-  width: min(1240px, calc(100% - 36px));
-  min-height: 84px;
-  margin-inline: auto;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 25px;
-}
-
-.header-brand {
-  display: inline-flex;
-  flex-direction: column;
-  flex-shrink: 1;
-  transition:
-    transform var(--transition),
-    opacity var(--transition);
-}
-
-.header-brand:hover {
-  transform: translateY(-1px);
-  opacity: 0.95;
-}
-
-.header-brand-name {
-  color: var(--white);
-  font-family:
-    "Montserrat",
-    Arial,
-    Helvetica,
-    sans-serif;
-  font-size: 1.15rem;
-  font-weight: 900;
-  letter-spacing: -0.02em;
-  line-height: 1.2;
-}
-
-.header-brand-slogan {
-  margin-top: 5px;
-  color: var(--gold);
-  font-size: 0.68rem;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  line-height: 1.3;
-  text-transform: uppercase;
-}
-
-
-/* =========================================================
-   6. MENU BUTTON
-   ========================================================= */
-
-.menu-button {
-  min-height: 47px;
-  padding: 10px 16px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  flex-shrink: 0;
-  border:
-    1px solid rgba(255, 255, 255, 0.28);
-  border-radius: var(--small-radius);
-  color: var(--white);
-  background: rgba(255, 255, 255, 0.09);
-  font-family:
-    "Montserrat",
-    Arial,
-    Helvetica,
-    sans-serif;
-  font-size: 0.86rem;
-  font-weight: 800;
-  transition:
-    background-color var(--transition),
-    border-color var(--transition),
-    transform var(--transition);
-}
-
-.menu-button:hover {
-  transform: translateY(-1px);
-  border-color: rgba(255, 255, 255, 0.45);
-  background: rgba(255, 255, 255, 0.16);
-}
-
-.menu-icon {
-  font-size: 1.08rem;
-  line-height: 1;
-}
-
-
-/* =========================================================
-   7. DROP-DOWN MENU
-   ========================================================= */
-
-.dropdown-menu {
-  position: absolute;
-  top: calc(100% + 10px);
-  right: 0;
-  width: min(310px, calc(100vw - 32px));
-  padding: 14px;
-  display: none;
-  flex-direction: column;
-  gap: 7px;
-  border:
-    1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 15px;
-  background: var(--navy-darkest);
-  box-shadow:
-    0 22px 45px rgba(0, 0, 0, 0.32);
-}
-
-.dropdown-menu.open {
-  display: flex;
-}
-
-.dropdown-menu a {
-  min-height: 47px;
-  padding: 11px 15px;
-  display: flex;
-  align-items: center;
-  border-radius: 9px;
-  color: rgba(255, 255, 255, 0.86);
-  font-family:
-    "Montserrat",
-    Arial,
-    Helvetica,
-    sans-serif;
-  font-size: 0.9rem;
-  font-weight: 700;
-  transition:
-    color var(--transition),
-    background-color var(--transition),
-    transform var(--transition);
-}
-
-.dropdown-menu a:hover,
-.dropdown-menu a.active {
-  color: var(--white);
-  background: rgba(255, 255, 255, 0.11);
-}
-
-.dropdown-menu a:hover {
-  transform: translateX(3px);
-}
-
-.dropdown-menu .menu-quote-button {
-  justify-content: center;
-  margin-top: 5px;
-  color: var(--navy-darkest);
-  background:
-    linear-gradient(
-      135deg,
-      var(--gold-light),
-      var(--gold)
-    );
-  box-shadow:
-    0 9px 23px rgba(228, 182, 63, 0.24);
-}
-
-.dropdown-menu .menu-quote-button:hover {
-  color: var(--navy-darkest);
-  background:
-    linear-gradient(
-      135deg,
-      #ffedb0,
-      var(--gold-light)
-    );
-}
-
-
-/* =========================================================
-   8. HERO SECTION
-   ========================================================= */
-
-.hero {
-  position: relative;
-  overflow: hidden;
-  min-height: 730px;
-  padding: 55px 0 75px;
-  display: flex;
-  align-items: center;
-  background:
-    radial-gradient(
-      circle at 82% 14%,
-      rgba(228, 182, 63, 0.13),
-      transparent 30%
-    ),
-    linear-gradient(
-      110deg,
-      var(--white) 0%,
-      var(--white) 56%,
-      var(--soft-blue) 100%
-    );
-}
-
-.hero::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  right: -15%;
-  width: 48%;
-  height: 100%;
-  transform: skewX(-12deg);
-  background:
-    linear-gradient(
-      145deg,
-      var(--navy-darkest),
-      var(--navy-dark) 58%,
-      var(--navy)
-    );
-  opacity: 0.98;
-}
-
-.hero::after {
-  content: "";
-  position: absolute;
-  right: 2%;
-  bottom: -180px;
-  width: 520px;
-  height: 520px;
-  border:
-    2px solid rgba(228, 182, 63, 0.21);
-  border-radius: 50%;
-}
-
-.hero-inner {
-  position: relative;
-  z-index: 2;
-  display: grid;
-  grid-template-columns:
-    minmax(360px, 1fr)
-    minmax(0, 0.95fr);
-  align-items: center;
-  gap: 60px;
-}
-
-.hero-logo-wrap {
-  position: relative;
-  min-height: 590px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.hero-logo-wrap::before {
-  content: "";
-  position: absolute;
-  width: 540px;
-  max-width: 100%;
-  aspect-ratio: 1;
-  border-radius: 50%;
-  background:
-    radial-gradient(
-      circle,
-      rgba(228, 182, 63, 0.13),
-      rgba(255, 255, 255, 0.02) 60%,
-      transparent 72%
-    );
-}
-
-.hero-logo-wrap::after {
-  content: "";
-  position: absolute;
-  bottom: 35px;
-  width: 78%;
-  height: 33px;
-  border-radius: 50%;
-  background: rgba(1, 14, 56, 0.17);
-  filter: blur(16px);
-}
-
-.hero-logo {
-  position: relative;
-  z-index: 2;
-  width: 570px;
-  max-width: 100%;
-  max-height: 620px;
-  object-fit: contain;
-  filter:
-    drop-shadow(
-      0 24px 24px rgba(1, 14, 56, 0.17)
-    )
-    drop-shadow(
-      0 0 20px rgba(228, 182, 63, 0.11)
-    );
-}
-
-.hero-message {
-  max-width: 620px;
-  padding: 45px;
-  border-radius: var(--large-radius);
-  background: rgba(255, 255, 255, 0.94);
-  box-shadow: var(--large-shadow);
-  backdrop-filter: blur(10px);
-}
-
-.hero-location {
-  margin-bottom: 15px;
-  color: var(--gold-dark);
-  font-family:
-    "Montserrat",
-    Arial,
-    Helvetica,
-    sans-serif;
-  font-size: 0.82rem;
-  font-weight: 900;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-}
-
-.hero h1 {
   color: var(--navy-dark);
 }
 
-.hero h1 span {
-  display: block;
-  color: var(--gold-dark);
+.section-heading > p:not(.section-label) {
+  margin-top: 18px;
+  color: #596255;
+  font-size: 1.03rem;
 }
 
-.hero-slogan {
-  margin: 20px 0 15px;
-  color: var(--navy);
-  font-family:
-    "Montserrat",
-    Arial,
-    Helvetica,
-    sans-serif;
-  font-size: 1rem;
-  font-weight: 800;
-}
-
-.hero-description {
-  max-width: 580px;
-  margin-bottom: 28px;
-  color: var(--gray);
-  font-size: 1.08rem;
-  line-height: 1.75;
-}
-
-.hero-actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 14px;
-}
-
-
-/* =========================================================
-   9. BUTTONS
-   ========================================================= */
-
-.button {
-  min-height: 52px;
-  padding: 13px 24px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  border: 2px solid transparent;
-  border-radius: 11px;
-  font-family:
-    "Montserrat",
-    Arial,
-    Helvetica,
-    sans-serif;
-  font-size: 0.92rem;
-  font-weight: 800;
-  text-align: center;
-  transition:
-    transform var(--transition),
-    box-shadow var(--transition),
-    background-color var(--transition),
-    color var(--transition),
-    border-color var(--transition);
-}
-
-.button:hover {
-  transform: translateY(-3px);
-}
-
-.button-gold {
-  color: var(--navy-darkest);
-  background:
-    linear-gradient(
-      135deg,
-      var(--gold-light),
-      var(--gold)
-    );
-  box-shadow: var(--gold-shadow);
-}
-
-.button-gold:hover {
-  color: var(--navy-darkest);
-  background:
-    linear-gradient(
-      135deg,
-      #ffedb2,
-      var(--gold-light)
-    );
-  box-shadow:
-    0 17px 35px rgba(228, 182, 63, 0.38);
-}
-
-.button-outline {
-  color: var(--navy-dark);
-  border-color: var(--navy-dark);
-  background: transparent;
-}
-
-.button-outline:hover {
-  color: var(--white);
-  background: var(--navy-dark);
-}
-
-.button-navy {
-  color: var(--white);
-  background: var(--navy-dark);
-  box-shadow: var(--small-shadow);
-}
-
-.button-navy:hover {
-  color: var(--white);
-  background: var(--navy-light);
-  box-shadow: var(--medium-shadow);
-}
-
-
-/* =========================================================
-   10. SIMPLE INTRODUCTION
-   ========================================================= */
-
-.simple-intro {
-  max-width: 830px;
-  text-align: center;
-}
-
-.simple-intro h2 {
-  margin-bottom: 22px;
-}
-
-.intro-statement {
-  max-width: 760px;
-  margin: 0 auto;
-  color: var(--gray);
-  font-size: clamp(1.05rem, 2vw, 1.18rem);
-  line-height: 1.82;
-}
-
-
-/* =========================================================
-   11. BENEFIT CARDS
-   ========================================================= */
-
-.benefit-grid {
+.procedure-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 25px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px;
 }
 
-.benefit-card {
+.procedure-card {
   position: relative;
-  overflow: hidden;
-  min-height: 275px;
-  padding: 34px;
-  border:
-    1px solid rgba(1, 14, 56, 0.09);
-  border-radius: var(--medium-radius);
-  background: var(--white);
-  box-shadow: var(--small-shadow);
-  transition:
-    transform var(--transition),
-    border-color var(--transition),
-    box-shadow var(--transition);
-}
-
-.benefit-card::after {
-  content: "";
-  position: absolute;
-  right: -55px;
-  bottom: -65px;
-  width: 160px;
-  height: 160px;
-  border-radius: 50%;
-  background: rgba(228, 182, 63, 0.1);
-}
-
-.benefit-card:hover {
-  transform: translateY(-7px);
-  border-color:
-    rgba(228, 182, 63, 0.42);
-  box-shadow: var(--medium-shadow);
-}
-
-.benefit-icon {
-  position: relative;
-  z-index: 2;
-  width: 50px;
-  height: 50px;
-  margin-bottom: 35px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-  color: var(--navy-dark);
-  background:
-    linear-gradient(
-      135deg,
-      var(--gold-light),
-      var(--gold)
-    );
-  font-size: 1.25rem;
-  font-weight: 900;
-  box-shadow:
-    0 9px 22px rgba(228, 182, 63, 0.25);
-}
-
-.benefit-card h3 {
-  position: relative;
-  z-index: 2;
-  margin-bottom: 13px;
-}
-
-.benefit-card p {
-  position: relative;
-  z-index: 2;
-  margin-bottom: 0;
-  color: var(--gray);
-}
-
-
-/* =========================================================
-   12. SERVICE PREVIEW
-   ========================================================= */
-
-.service-preview-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 25px;
-}
-
-.service-preview-card {
-  position: relative;
-  overflow: hidden;
-  min-height: 205px;
-  padding: 34px 34px 34px 42px;
-  border:
-    1px solid rgba(1, 14, 56, 0.09);
-  border-radius: var(--medium-radius);
-  background:
-    linear-gradient(
-      145deg,
-      var(--white),
-      #fbfcff
-    );
-  box-shadow: var(--small-shadow);
-  transition:
-    transform var(--transition),
-    box-shadow var(--transition),
-    border-color var(--transition);
-}
-
-.service-preview-card::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 7px;
-  height: 100%;
-  background:
-    linear-gradient(
-      to bottom,
-      var(--gold-light),
-      var(--gold-dark)
-    );
-}
-
-.service-preview-card::after {
-  content: "";
-  position: absolute;
-  right: -50px;
-  bottom: -60px;
-  width: 145px;
-  height: 145px;
-  border-radius: 50%;
-  background: rgba(8, 36, 92, 0.05);
-}
-
-.service-preview-card:hover {
-  transform: translateY(-7px);
-  border-color:
-    rgba(228, 182, 63, 0.42);
-  box-shadow: var(--medium-shadow);
-}
-
-.service-preview-card h3 {
-  position: relative;
-  z-index: 2;
-  margin-bottom: 14px;
-}
-
-.service-preview-card p {
-  position: relative;
-  z-index: 2;
-  max-width: 470px;
-  margin-bottom: 0;
-  color: var(--gray);
-}
-
-.center-action {
-  margin-top: 42px;
-  text-align: center;
-}
-
-
-/* =========================================================
-   13. GOLD STANDARD SECTION
-   ========================================================= */
-
-.gold-standard-section {
-  position: relative;
-  overflow: hidden;
-  padding: 100px 0;
-  color: var(--white);
-  background:
-    radial-gradient(
-      circle at 82% 25%,
-      rgba(228, 182, 63, 0.22),
-      transparent 32%
-    ),
-    linear-gradient(
-      135deg,
-      var(--navy-darkest),
-      var(--navy-dark) 58%,
-      var(--navy)
-    );
-}
-
-.gold-standard-section::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  opacity: 0.12;
-  background-image:
-    linear-gradient(
-      45deg,
-      transparent 48%,
-      rgba(255, 255, 255, 0.08) 50%,
-      transparent 52%
-    );
-  background-size: 36px 36px;
-}
-
-.gold-standard-inner {
-  position: relative;
-  z-index: 2;
-  display: grid;
-  grid-template-columns: 1fr 0.75fr;
-  align-items: center;
-  gap: 75px;
-}
-
-.gold-standard-content {
-  max-width: 650px;
-}
-
-.gold-standard-content h2 {
-  color: var(--white);
-}
-
-.gold-standard-content > p:not(.section-label) {
-  max-width: 610px;
-  margin: 22px 0 30px;
-  color: rgba(255, 255, 255, 0.84);
-  font-size: 1.08rem;
-  line-height: 1.78;
-}
-
-.gold-standard-badge {
-  position: relative;
-  width: min(350px, 90vw);
-  aspect-ratio: 1;
-  margin-inline: auto;
-  padding: 50px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  border: 5px solid var(--gold);
-  border-radius: 50%;
-  text-align: center;
-  background:
-    radial-gradient(
-      circle,
-      rgba(228, 182, 63, 0.22),
-      rgba(1, 14, 56, 0.92) 65%
-    );
-  box-shadow:
-    0 0 0 14px rgba(228, 182, 63, 0.1),
-    0 0 0 27px rgba(228, 182, 63, 0.05),
-    0 22px 50px rgba(0, 0, 0, 0.3);
-}
-
-.gold-standard-badge::before,
-.gold-standard-badge::after {
-  position: absolute;
-  color: var(--gold-light);
-  font-size: 1.7rem;
-}
-
-.gold-standard-badge::before {
-  content: "★";
-  top: 32px;
-}
-
-.gold-standard-badge::after {
-  content: "★";
-  bottom: 32px;
-}
-
-.badge-number {
-  color: var(--gold-light);
-  font-family:
-    "Montserrat",
-    Arial,
-    Helvetica,
-    sans-serif;
-  font-size: clamp(4rem, 8vw, 6rem);
-  font-weight: 900;
-  line-height: 0.9;
-}
-
-.badge-title {
-  margin-top: 13px;
-  color: var(--white);
-  font-family:
-    "Montserrat",
-    Arial,
-    Helvetica,
-    sans-serif;
-  font-size: 1rem;
-  font-weight: 800;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-}
-
-.badge-text {
-  margin-top: 5px;
-  color: var(--gold-light);
-  font-family:
-    "Montserrat",
-    Arial,
-    Helvetica,
-    sans-serif;
-  font-size: 1.2rem;
-  font-weight: 900;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-}
-
-
-/* =========================================================
-   14. TRUST SECTION
-   ========================================================= */
-
-.trust-section {
-  padding: 55px 0;
+  min-height: 190px;
+  padding: 31px 28px 28px 92px;
   background: var(--off-white);
-  border-top:
-    1px solid rgba(1, 14, 56, 0.07);
-  border-bottom:
-    1px solid rgba(1, 14, 56, 0.07);
+  border: 1px solid var(--light-gray);
+  border-left: 6px solid var(--uniform-green);
+  border-radius: var(--border-radius-medium);
+  box-shadow: 0 10px 25px rgba(1, 14, 56, 0.08);
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
-.trust-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 25px;
+.procedure-card:hover {
+  box-shadow: var(--navy-shadow);
+  transform: translateY(-4px);
 }
 
-.trust-item {
-  padding: 10px 25px;
-  text-align: center;
+.step-number {
+  position: absolute;
+  top: 28px;
+  left: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 51px;
+  height: 51px;
+  color: var(--white);
+  background: var(--uniform-green);
+  border: 3px solid var(--gold);
+  border-radius: 50%;
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: 0.9rem;
+  font-weight: 800;
 }
 
-.trust-item:not(:last-child) {
-  border-right:
-    1px solid rgba(1, 14, 56, 0.12);
-}
-
-.trust-item strong {
-  display: block;
-  margin-bottom: 7px;
+.procedure-card h3 {
   color: var(--navy-dark);
-  font-family:
-    "Montserrat",
-    Arial,
-    Helvetica,
-    sans-serif;
-  font-size: 1.02rem;
-  font-weight: 900;
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: 1.13rem;
+  font-weight: 800;
 }
 
-.trust-item span {
-  color: var(--gray);
-  font-size: 0.91rem;
+.procedure-card p {
+  margin-top: 10px;
+  color: #5e675a;
+  font-size: 0.93rem;
 }
 
 
 /* =========================================================
-   15. BOTTOM FREE QUOTE
+   11. SERVICES PREVIEW
+   Light/white section with green accents.
    ========================================================= */
 
-.bottom-quote-section {
+.services-preview {
+  padding: 90px max(24px, calc((100% - var(--content-width)) / 2));
+  background:
+    linear-gradient(
+      180deg,
+      var(--off-white),
+      var(--white)
+    );
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.service-card {
+  min-height: 220px;
+  padding: 34px 28px;
+  background: var(--white);
+  border: 2px solid rgba(87, 155, 18, 0.22);
+  border-bottom: 7px solid var(--uniform-green);
+  border-radius: var(--border-radius-medium);
+  box-shadow: 0 12px 30px rgba(1, 14, 56, 0.09);
+}
+
+.service-card h3 {
+  color: var(--navy-dark);
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: 1.25rem;
+  font-weight: 800;
+}
+
+.service-card h3::after {
+  content: "";
+  display: block;
+  width: 50px;
+  height: 4px;
+  margin-top: 13px;
+  background: var(--gold);
+  border-radius: 999px;
+}
+
+.service-card p {
+  margin-top: 17px;
+  color: #596255;
+}
+
+.center-button {
+  margin-top: 45px;
+  text-align: center;
+}
+
+
+/* =========================================================
+   12. FINAL QUOTE SECTION
+   Green and navy call-to-action.
+   ========================================================= */
+
+.final-quote-section {
   position: relative;
   overflow: hidden;
-  padding: 105px 0;
-  text-align: center;
+  padding: 100px 24px;
+  color: var(--white);
   background:
-    radial-gradient(
-      circle at 18% 18%,
-      rgba(228, 182, 63, 0.2),
-      transparent 30%
-    ),
     linear-gradient(
       135deg,
-      var(--navy-darkest),
-      var(--navy-dark) 58%,
-      var(--navy)
+      rgba(63, 118, 9, 0.95),
+      rgba(87, 155, 18, 0.96)
     );
+  text-align: center;
 }
 
-.bottom-quote-section::before {
+.final-quote-section::before,
+.final-quote-section::after {
   content: "";
   position: absolute;
-  inset: 0;
-  opacity: 0.14;
-  background-image:
-    radial-gradient(
-      circle,
-      rgba(255, 255, 255, 0.6) 1px,
-      transparent 1px
-    );
-  background-size: 26px 26px;
+  border: 3px solid rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
 }
 
-.bottom-quote-inner {
+.final-quote-section::before {
+  top: -160px;
+  left: -120px;
+  width: 380px;
+  height: 380px;
+}
+
+.final-quote-section::after {
+  right: -130px;
+  bottom: -170px;
+  width: 420px;
+  height: 420px;
+}
+
+.final-quote-content {
   position: relative;
-  z-index: 2;
-  max-width: 820px;
+  z-index: 1;
+  max-width: 850px;
+  margin: 0 auto;
 }
 
-.bottom-quote-inner h2 {
+.gold-label {
+  color: var(--gold-light);
+}
+
+.final-quote-section h2 {
   color: var(--white);
 }
 
-.bottom-quote-inner > p:not(.section-label) {
-  max-width: 640px;
-  margin: 20px auto 32px;
-  color: rgba(255, 255, 255, 0.83);
+.final-quote-content > p:not(.section-label):not(.contact-note) {
+  max-width: 760px;
+  margin: 23px auto 32px;
+  color: rgba(255, 255, 255, 0.9);
   font-size: 1.08rem;
-  line-height: 1.75;
 }
 
-.bottom-quote-button {
-  min-width: 250px;
-  color: var(--navy-darkest);
-  background:
-    linear-gradient(
-      135deg,
-      var(--gold-light),
-      var(--gold)
-    );
-  box-shadow:
-    0 17px 38px rgba(228, 182, 63, 0.34);
+.large-quote-button {
+  min-width: 260px;
+  min-height: 62px;
+  color: var(--white);
+  background: var(--navy-dark);
+  border-color: var(--gold);
+  font-size: 1.08rem;
 }
 
-.bottom-quote-button:hover {
-  color: var(--navy-darkest);
-  background:
-    linear-gradient(
-      135deg,
-      #ffedb0,
-      var(--gold-light)
-    );
+.large-quote-button:hover,
+.large-quote-button:focus-visible {
+  color: var(--navy-dark);
+  background: var(--gold);
+  border-color: var(--white);
 }
 
-.bottom-text-link {
-  width: fit-content;
-  margin: 22px auto 0;
-  display: block;
-  color: rgba(255, 255, 255, 0.88);
-  font-size: 0.92rem;
-  font-weight: 700;
-  border-bottom:
-    1px solid rgba(255, 255, 255, 0.45);
-  transition:
-    color var(--transition),
-    border-color var(--transition);
-}
-
-.bottom-text-link:hover {
-  color: var(--gold-light);
-  border-color: var(--gold-light);
+.contact-note {
+  margin-top: 22px;
+  color: rgba(255, 255, 255, 0.82);
+  font-size: 0.9rem;
 }
 
 
 /* =========================================================
-   16. FOOTER
+   13. FOOTER
    ========================================================= */
 
 .site-footer {
-  padding: 62px 0 34px;
-  color: rgba(255, 255, 255, 0.72);
-  text-align: center;
-  background: var(--navy-darkest);
-}
-
-.footer-inner {
-  max-width: 1000px;
-}
-
-.footer-brand {
-  margin-bottom: 6px;
+  padding: 55px 24px 30px;
   color: var(--white);
-  font-family:
-    "Montserrat",
-    Arial,
-    Helvetica,
-    sans-serif;
-  font-size: 1.55rem;
-  font-weight: 900;
+  background: var(--navy-darkest);
+  border-top: 5px solid var(--gold);
+  text-align: center;
 }
 
-.footer-slogan {
-  margin-bottom: 28px;
+.footer-brand h2 {
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: clamp(1.7rem, 4vw, 2.5rem);
+  font-style: italic;
+  font-weight: 600;
+}
+
+.footer-brand h2 span {
+  color: var(--white);
+}
+
+.footer-brand h2 {
+  color: var(--uniform-green);
+}
+
+.footer-brand p {
+  margin-top: 7px;
   color: var(--gold);
-  font-size: 0.86rem;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: 0.9rem;
+  font-weight: 600;
 }
 
 .footer-links {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 10px 22px;
-  margin-bottom: 28px;
+  gap: 13px 24px;
+  margin: 30px auto;
 }
 
 .footer-links a {
-  font-size: 0.88rem;
+  color: rgba(255, 255, 255, 0.83);
+  font-size: 0.9rem;
   font-weight: 700;
-  transition: color var(--transition);
+  transition: color 0.2s ease;
 }
 
-.footer-links a:hover {
-  color: var(--gold-light);
-}
-
-.footer-service-area {
-  margin-bottom: 10px;
-  color: rgba(255, 255, 255, 0.8);
-  font-weight: 700;
+.footer-links a:hover,
+.footer-links a:focus-visible {
+  color: var(--uniform-green);
 }
 
 .copyright {
-  margin-bottom: 0;
   padding-top: 24px;
-  border-top:
-    1px solid rgba(255, 255, 255, 0.1);
-  font-size: 0.82rem;
+  color: rgba(255, 255, 255, 0.55);
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  font-size: 0.78rem;
 }
 
 
 /* =========================================================
-   17. TABLET
+   14. TABLET RESPONSIVE DESIGN
    ========================================================= */
 
 @media (max-width: 980px) {
-  .hero {
-    min-height: auto;
-    padding: 45px 0 75px;
-  }
-
-  .hero::before {
-    right: -25%;
-    width: 60%;
-  }
-
-  .hero-inner {
+  .hero-section {
     grid-template-columns: 1fr;
-    gap: 20px;
   }
 
-  .hero-logo-wrap {
-    min-height: 540px;
-  }
-
-  .hero-logo {
-    width: 540px;
-  }
-
-  .hero-message {
-    max-width: 720px;
-    margin-inline: auto;
+  .hero-content {
+    margin: 0 auto;
     text-align: center;
   }
 
   .hero-description {
-    margin-inline: auto;
+    margin-right: auto;
+    margin-left: auto;
   }
 
-  .hero-actions {
+  .hero-buttons {
     justify-content: center;
   }
 
-  .benefit-grid {
-    grid-template-columns: 1fr;
+  .promotion-card {
+    width: min(100%, 520px);
+    margin: 0 auto;
   }
 
-  .benefit-card {
-    min-height: auto;
-  }
-
-  .gold-standard-inner {
-    grid-template-columns: 1fr;
-    gap: 60px;
-    text-align: center;
-  }
-
-  .gold-standard-content {
-    margin-inline: auto;
-  }
-
-  .gold-standard-content > p:not(.section-label) {
-    margin-inline: auto;
-  }
-}
-
-
-/* =========================================================
-   18. SMALL TABLET
-   ========================================================= */
-
-@media (max-width: 760px) {
-  .section {
-    padding: 75px 0;
-  }
-
-  .service-preview-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .trust-grid {
-    grid-template-columns: 1fr;
-    gap: 0;
-  }
-
-  .trust-item {
-    padding: 22px 15px;
-  }
-
-  .trust-item:not(:last-child) {
-    border-right: none;
-    border-bottom:
-      1px solid rgba(1, 14, 56, 0.12);
+  .trust-section {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .gold-standard-section {
-    padding: 80px 0;
+    grid-template-columns: 1fr;
+    text-align: center;
   }
 
-  .bottom-quote-section {
-    padding: 80px 0;
+  .gold-standard-content > p:not(.section-label) {
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .services-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
 
 /* =========================================================
-   19. MOBILE
+   15. MOBILE RESPONSIVE DESIGN
    ========================================================= */
 
-@media (max-width: 600px) {
-  .container {
-    width: min(100% - 28px, 1180px);
+@media (max-width: 680px) {
+  .site-header {
+    padding: 24px 16px;
   }
 
-  .header-inner {
-    width: min(100% - 24px, 1240px);
-    min-height: 73px;
-    gap: 12px;
+  .main-logo {
+    width: 230px;
   }
 
-  .header-brand {
-    max-width: 205px;
-  }
-
-  .header-brand-name {
-    font-size: 0.94rem;
-  }
-
-  .header-brand-slogan {
-    font-size: 0.53rem;
-    letter-spacing: 0.06em;
-  }
-
-  .menu-button {
-    padding: 9px 11px;
-    font-size: 0.78rem;
-  }
-
-  .dropdown-menu {
-    top: calc(100% + 6px);
-    right: 0;
-  }
-
-  .hero {
-    padding: 25px 0 60px;
-  }
-
-  .hero::before {
-    top: auto;
-    right: -25%;
-    bottom: -80px;
-    width: 85%;
-    height: 42%;
-    transform: skewX(-12deg);
-  }
-
-  .hero::after {
-    right: -180px;
-    bottom: -230px;
-  }
-
-  .hero-logo-wrap {
-    min-height: 410px;
-  }
-
-  .hero-logo-wrap::before {
-    width: 360px;
-  }
-
-  .hero-logo-wrap::after {
-    bottom: 20px;
-  }
-
-  .hero-logo {
-    width: 420px;
-    max-height: 450px;
-  }
-
-  .hero-message {
-    padding: 33px 23px;
-    border-radius: 20px;
-  }
-
-  .hero h1 {
-    font-size: clamp(2.3rem, 12vw, 3.35rem);
-  }
-
-  .hero-location {
-    font-size: 0.7rem;
-    letter-spacing: 0.1em;
-  }
-
-  .hero-slogan {
-    font-size: 0.91rem;
-  }
-
-  .hero-description {
-    font-size: 1rem;
-  }
-
-  .hero-actions {
+  .business-name {
     flex-direction: column;
+    gap: 3px;
+    letter-spacing: -0.8px;
   }
 
-  .hero-actions .button {
-    width: 100%;
+  .main-navigation {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
   }
 
-  .section {
-    padding: 62px 0;
-  }
-
-  .section-heading {
-    margin-bottom: 36px;
-  }
-
-  .benefit-card,
-  .service-preview-card {
-    padding: 28px 24px;
-  }
-
-  .service-preview-card {
-    padding-left: 31px;
-  }
-
-  .gold-standard-badge {
-    width: min(295px, 84vw);
-  }
-
-  .badge-number {
-    font-size: 4.4rem;
-  }
-
-  .badge-text {
-    font-size: 1rem;
-  }
-
-  .bottom-quote-button {
-    width: 100%;
+  .nav-button {
     min-width: 0;
-  }
-
-  .footer-links {
-    gap: 10px 16px;
-  }
-}
-
-
-/* =========================================================
-   20. VERY SMALL PHONES
-   ========================================================= */
-
-@media (max-width: 390px) {
-  .header-brand {
-    max-width: 170px;
-  }
-
-  .header-brand-name {
+    padding: 11px 12px;
     font-size: 0.82rem;
   }
 
-  .header-brand-slogan {
-    font-size: 0.47rem;
+  .hero-section {
+    min-height: auto;
+    padding-top: 65px;
+    padding-bottom: 65px;
   }
 
-  .menu-text {
-    display: none;
+  .hero-section h2 {
+    letter-spacing: -1.4px;
   }
 
-  .menu-button {
-    width: 45px;
-    padding-inline: 10px;
+  .hero-buttons {
+    flex-direction: column;
   }
 
-  .hero-logo-wrap {
-    min-height: 350px;
+  .hero-buttons a {
+    width: 100%;
   }
 
-  .hero-logo-wrap::before {
-    width: 300px;
+  .promotion-card {
+    padding: 32px 22px;
   }
 
-  .hero-logo {
-    width: 350px;
+  .trust-section {
+    grid-template-columns: 1fr;
   }
 
-  .hero-message {
-    padding: 29px 19px;
+  .gold-standard-section,
+  .procedure-section,
+  .services-preview {
+    padding-top: 70px;
+    padding-bottom: 70px;
+  }
+
+  .gold-badge {
+    width: min(310px, 82vw);
+    border-width: 10px;
+  }
+
+  .procedure-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .procedure-card {
+    padding: 85px 23px 27px;
+    text-align: center;
+  }
+
+  .step-number {
+    top: 22px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .final-quote-section {
+    padding-top: 75px;
+    padding-bottom: 75px;
+  }
+
+  .large-quote-button {
+    width: 100%;
+    min-width: 0;
   }
 }
 
 
 /* =========================================================
-   21. ACCESSIBILITY
+   16. VERY SMALL PHONE SCREENS
    ========================================================= */
 
-a:focus-visible,
-button:focus-visible,
-input:focus-visible,
-textarea:focus-visible,
-select:focus-visible {
-  outline: 3px solid var(--gold-light);
-  outline-offset: 3px;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
+@media (max-width: 390px) {
+  .main-navigation {
+    grid-template-columns: 1fr;
   }
 
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
+  .nav-button {
+    width: 100%;
+  }
+
+  .promotion-circle {
+    width: 145px;
+    height: 145px;
+  }
+
+  .promotion-number {
+    font-size: 2.6rem;
   }
 }
