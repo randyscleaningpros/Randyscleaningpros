@@ -1,45 +1,37 @@
 /* =========================================================
    RANDY'S CLEANING PROS
-   COMPLETE JAVASCRIPT
+   MAIN JAVASCRIPT
    File name: script.js
+   Matches: index.html and styles.css
    ========================================================= */
 
 document.addEventListener("DOMContentLoaded", function () {
-  const menuButton = document.getElementById("menuButton");
-  const navLinks = document.getElementById("navLinks");
-  const year = document.getElementById("year");
-  const header = document.querySelector(".site-header");
+  const menuButton =
+    document.getElementById("menuButton");
+
+  const mainMenu =
+    document.getElementById("mainMenu");
+
+  const menuIcon =
+    document.querySelector(".menu-icon");
+
+  const menuText =
+    document.querySelector(".menu-text");
+
+  const year =
+    document.getElementById("year");
+
 
   /* =======================================================
-     1. MOBILE MENU
+     1. OPEN THE DROP-DOWN MENU
      ======================================================= */
 
-  function closeMenu() {
-    if (!menuButton || !navLinks) {
-      return;
-    }
-
-    navLinks.classList.remove("open");
-
-    menuButton.setAttribute(
-      "aria-expanded",
-      "false"
-    );
-
-    menuButton.setAttribute(
-      "aria-label",
-      "Open navigation menu"
-    );
-
-    menuButton.textContent = "☰ Menu";
-  }
-
   function openMenu() {
-    if (!menuButton || !navLinks) {
+    if (!menuButton || !mainMenu) {
       return;
     }
 
-    navLinks.classList.add("open");
+    mainMenu.classList.add("open");
 
     menuButton.setAttribute(
       "aria-expanded",
@@ -51,16 +43,58 @@ document.addEventListener("DOMContentLoaded", function () {
       "Close navigation menu"
     );
 
-    menuButton.textContent = "✕ Close";
+    if (menuIcon) {
+      menuIcon.textContent = "✕";
+    }
+
+    if (menuText) {
+      menuText.textContent = "Close";
+    }
   }
 
+
+  /* =======================================================
+     2. CLOSE THE DROP-DOWN MENU
+     ======================================================= */
+
+  function closeMenu() {
+    if (!menuButton || !mainMenu) {
+      return;
+    }
+
+    mainMenu.classList.remove("open");
+
+    menuButton.setAttribute(
+      "aria-expanded",
+      "false"
+    );
+
+    menuButton.setAttribute(
+      "aria-label",
+      "Open navigation menu"
+    );
+
+    if (menuIcon) {
+      menuIcon.textContent = "☰";
+    }
+
+    if (menuText) {
+      menuText.textContent = "Menu";
+    }
+  }
+
+
+  /* =======================================================
+     3. TOGGLE THE MENU BUTTON
+     ======================================================= */
+
   function toggleMenu() {
-    if (!menuButton || !navLinks) {
+    if (!mainMenu) {
       return;
     }
 
     const menuIsOpen =
-      navLinks.classList.contains("open");
+      mainMenu.classList.contains("open");
 
     if (menuIsOpen) {
       closeMenu();
@@ -69,7 +103,8 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
-  if (menuButton && navLinks) {
+
+  if (menuButton && mainMenu) {
     menuButton.addEventListener(
       "click",
       function (event) {
@@ -78,14 +113,20 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     );
 
-    navLinks.addEventListener(
+
+    /* Keep clicks inside the menu from closing it too soon */
+
+    mainMenu.addEventListener(
       "click",
       function (event) {
         event.stopPropagation();
       }
     );
 
-    navLinks
+
+    /* Close the menu after a menu link is selected */
+
+    mainMenu
       .querySelectorAll("a")
       .forEach(function (link) {
         link.addEventListener(
@@ -94,6 +135,9 @@ document.addEventListener("DOMContentLoaded", function () {
         );
       });
 
+
+    /* Close when clicking anywhere outside the menu */
+
     document.addEventListener(
       "click",
       function () {
@@ -101,206 +145,38 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     );
 
+
+    /* Close when the Escape key is pressed */
+
     document.addEventListener(
       "keydown",
       function (event) {
-        if (event.key === "Escape") {
+        if (
+          event.key === "Escape" &&
+          mainMenu.classList.contains("open")
+        ) {
           closeMenu();
           menuButton.focus();
         }
       }
     );
 
+
+    /* Close the menu if the screen size changes */
+
     window.addEventListener(
       "resize",
-      function () {
-        if (window.innerWidth > 1080) {
-          closeMenu();
-        }
-      }
+      closeMenu
     );
   }
 
+
   /* =======================================================
-     2. AUTOMATIC COPYRIGHT YEAR
+     4. AUTOMATIC COPYRIGHT YEAR
      ======================================================= */
 
   if (year) {
     year.textContent =
       new Date().getFullYear();
   }
-
-  /* =======================================================
-     3. HEADER SHADOW WHILE SCROLLING
-     ======================================================= */
-
-  function updateHeader() {
-    if (!header) {
-      return;
-    }
-
-    if (window.scrollY > 20) {
-      header.classList.add("scrolled");
-    } else {
-      header.classList.remove("scrolled");
-    }
-  }
-
-  updateHeader();
-
-  window.addEventListener(
-    "scroll",
-    updateHeader,
-    {
-      passive: true
-    }
-  );
-
-  /* =======================================================
-     4. SMOOTH SCROLL FOR SAME-PAGE LINKS
-     ======================================================= */
-
-  document
-    .querySelectorAll('a[href^="#"]')
-    .forEach(function (link) {
-      link.addEventListener(
-        "click",
-        function (event) {
-          const targetId =
-            link.getAttribute("href");
-
-          if (
-            !targetId ||
-            targetId === "#"
-          ) {
-            return;
-          }
-
-          const target =
-            document.querySelector(targetId);
-
-          if (!target) {
-            return;
-          }
-
-          event.preventDefault();
-
-          target.scrollIntoView({
-            behavior: "smooth",
-            block: "start"
-          });
-
-          closeMenu();
-        }
-      );
-    });
-
-  /* =======================================================
-     5. BUTTON CLICK EFFECT
-     ======================================================= */
-
-  document
-    .querySelectorAll(".button")
-    .forEach(function (button) {
-      button.addEventListener(
-        "pointerdown",
-        function () {
-          button.classList.add(
-            "button-clicked"
-          );
-        }
-      );
-
-      button.addEventListener(
-        "pointerup",
-        function () {
-          button.classList.remove(
-            "button-clicked"
-          );
-        }
-      );
-
-      button.addEventListener(
-        "pointerleave",
-        function () {
-          button.classList.remove(
-            "button-clicked"
-          );
-        }
-      );
-
-      button.addEventListener(
-        "pointercancel",
-        function () {
-          button.classList.remove(
-            "button-clicked"
-          );
-        }
-      );
-    });
-
-  /* =======================================================
-     6. SCROLL REVEAL EFFECT
-     ======================================================= */
-
-  const revealItems =
-    document.querySelectorAll(
-      ".promise-card, " +
-      ".service-card, " +
-      ".purpose-box, " +
-      ".gold-copy, " +
-      ".gold-emblem, " +
-      ".section-heading, " +
-      ".narrow-container"
-    );
-
-  revealItems.forEach(function (item) {
-    item.classList.add(
-      "reveal-on-scroll"
-    );
-  });
-
-  if (
-    "IntersectionObserver" in window
-  ) {
-    const observer =
-      new IntersectionObserver(
-        function (entries, observerInstance) {
-          entries.forEach(function (entry) {
-            if (entry.isIntersecting) {
-              entry.target.classList.add(
-                "is-visible"
-              );
-
-              observerInstance.unobserve(
-                entry.target
-              );
-            }
-          });
-        },
-        {
-          threshold: 0.12,
-          rootMargin:
-            "0px 0px -40px 0px"
-        }
-      );
-
-    revealItems.forEach(function (item) {
-      observer.observe(item);
-    });
-  } else {
-    revealItems.forEach(function (item) {
-      item.classList.add(
-        "is-visible"
-      );
-    });
-  }
-
-  /* =======================================================
-     7. PAGE FADE-IN
-     ======================================================= */
-
-  document.body.classList.add(
-    "page-loaded"
-  );
 });
