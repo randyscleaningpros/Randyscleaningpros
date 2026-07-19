@@ -1,65 +1,50 @@
 /* =========================================================
    RANDY'S CLEANING PROS
-   HOME PAGE STYLESHEET
-
+   COMPLETE WEBSITE STYLESHEET
    COLOR BALANCE:
    50% Dark Navy
    30% White
    15% Uniform Green
    5% Gold
    ========================================================= */
-
-
 /* =========================================================
    1. BRAND COLORS
    ========================================================= */
-
 :root {
   --navy-darkest: #010b2d;
   --navy-dark: #010e38;
   --navy-medium: #08245c;
   --navy-light: #173b78;
-
   --uniform-green: #579b12;
   --green-dark: #3f7609;
   --green-light: #72b929;
-
   --gold-dark: #a97812;
   --gold: #e4b63f;
   --gold-light: #f4d77b;
-
   --white: #ffffff;
   --off-white: #f5f7f2;
   --light-gray: #e5e9e1;
   --medium-gray: #6c7469;
   --dark-text: #152031;
-
   --navy-shadow: 0 18px 45px rgba(1, 14, 56, 0.22);
   --green-shadow: 0 12px 30px rgba(87, 155, 18, 0.28);
   --gold-shadow: 0 10px 28px rgba(228, 182, 63, 0.3);
-
   --border-radius-small: 10px;
   --border-radius-medium: 18px;
   --border-radius-large: 28px;
-
   --content-width: 1200px;
 }
-
-
 /* =========================================================
    2. RESET AND GLOBAL SETTINGS
    ========================================================= */
-
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
-
 html {
   scroll-behavior: smooth;
 }
-
 body {
   min-height: 100vh;
   overflow-x: hidden;
@@ -68,28 +53,24 @@ body {
   color: var(--dark-text);
   line-height: 1.7;
 }
-
 img {
   display: block;
   max-width: 100%;
 }
-
 a {
+  position: relative;
+  overflow: hidden;
   color: inherit;
   text-decoration: none;
 }
-
 button,
 a {
   -webkit-tap-highlight-color: transparent;
 }
-
-
 /* =========================================================
    3. HEADER
-   Header is not fixed or sticky.
+   The header scrolls normally and is not fixed.
    ========================================================= */
-
 .site-header {
   position: relative;
   width: 100%;
@@ -107,7 +88,6 @@ a {
     );
   border-bottom: 5px solid var(--uniform-green);
 }
-
 .logo-area {
   display: flex;
   flex-direction: column;
@@ -116,11 +96,9 @@ a {
   margin: 0 auto;
   text-align: center;
 }
-
 .logo-link {
   display: inline-block;
 }
-
 .main-logo {
   width: 290px;
   max-width: 78vw;
@@ -129,7 +107,6 @@ a {
   object-fit: contain;
   filter: drop-shadow(0 12px 18px rgba(0, 0, 0, 0.32));
 }
-
 .business-name {
   display: flex;
   flex-wrap: wrap;
@@ -143,15 +120,12 @@ a {
   line-height: 1.1;
   letter-spacing: -1.5px;
 }
-
 .randy-name {
   color: var(--white);
 }
-
 .cleaning-name {
   color: var(--uniform-green);
 }
-
 .main-slogan {
   margin-top: 12px;
   color: var(--white);
@@ -160,17 +134,13 @@ a {
   font-weight: 600;
   letter-spacing: 0.6px;
 }
-
 .main-slogan span {
   color: var(--gold);
   font-style: italic;
 }
-
-
 /* =========================================================
    4. NAVIGATION
    ========================================================= */
-
 .main-navigation {
   display: flex;
   flex-wrap: wrap;
@@ -179,7 +149,6 @@ a {
   width: min(100%, var(--content-width));
   margin: 28px auto 0;
 }
-
 .nav-button {
   display: inline-flex;
   align-items: center;
@@ -201,7 +170,6 @@ a {
     border-color 0.2s ease,
     box-shadow 0.2s ease;
 }
-
 .nav-button:hover,
 .nav-button:focus-visible,
 .nav-button.active {
@@ -210,12 +178,9 @@ a {
   box-shadow: var(--green-shadow);
   transform: translateY(-2px);
 }
-
-
 /* =========================================================
    5. GENERAL BUTTONS
    ========================================================= */
-
 .primary-button,
 .secondary-button,
 .promotion-button,
@@ -240,7 +205,6 @@ a {
     border-color 0.2s ease,
     box-shadow 0.2s ease;
 }
-
 .primary-button:hover,
 .secondary-button:hover,
 .promotion-button:hover,
@@ -254,24 +218,18 @@ a {
   box-shadow: 0 15px 32px rgba(87, 155, 18, 0.38);
   transform: translateY(-3px);
 }
-
 .secondary-button {
   color: var(--white);
   background: transparent;
   border-color: var(--uniform-green);
 }
-
 .secondary-button:hover,
 .secondary-button:focus-visible {
   background: var(--uniform-green);
 }
-
-
 /* =========================================================
    6. HERO SECTION
-   Major navy portion of the page.
    ========================================================= */
-
 .hero-section {
   display: grid;
   grid-template-columns: minmax(0, 1.4fr) minmax(300px, 0.75fr);
@@ -280,19 +238,17 @@ a {
   width: 100%;
   min-height: 630px;
   padding: 80px max(24px, calc((100% - var(--content-width)) / 2));
+  color: var(--white);
   background:
     linear-gradient(
       90deg,
       rgba(1, 11, 45, 0.98),
       rgba(1, 14, 56, 0.93)
     );
-  color: var(--white);
 }
-
 .hero-content {
   max-width: 760px;
 }
-
 .promotion-label,
 .section-label {
   display: inline-block;
@@ -304,7 +260,6 @@ a {
   letter-spacing: 1.8px;
   text-transform: uppercase;
 }
-
 .promotion-label {
   padding: 8px 16px;
   color: var(--white);
@@ -312,7 +267,6 @@ a {
   border-left: 5px solid var(--gold);
   border-radius: 6px;
 }
-
 .hero-section h2 {
   max-width: 760px;
   font-family: "Montserrat", Arial, sans-serif;
@@ -321,20 +275,17 @@ a {
   line-height: 1.04;
   letter-spacing: -2.5px;
 }
-
 .hero-section h2 span {
   display: block;
   margin-top: 12px;
   color: var(--uniform-green);
 }
-
 .hero-description {
   max-width: 700px;
   margin-top: 25px;
   color: rgba(255, 255, 255, 0.88);
   font-size: clamp(1rem, 2vw, 1.16rem);
 }
-
 .hero-promise {
   margin-top: 22px;
   color: var(--gold);
@@ -343,19 +294,15 @@ a {
   font-style: italic;
   font-weight: 700;
 }
-
 .hero-buttons {
   display: flex;
   flex-wrap: wrap;
   gap: 14px;
   margin-top: 32px;
 }
-
-
 /* =========================================================
    7. PROMOTION CARD
    ========================================================= */
-
 .promotion-card {
   position: relative;
   overflow: hidden;
@@ -367,7 +314,6 @@ a {
   box-shadow: var(--navy-shadow);
   text-align: center;
 }
-
 .promotion-card::before {
   content: "";
   position: absolute;
@@ -378,7 +324,6 @@ a {
   background: rgba(87, 155, 18, 0.12);
   border-radius: 50%;
 }
-
 .promotion-circle {
   position: relative;
   display: flex;
@@ -400,14 +345,12 @@ a {
   border-radius: 50%;
   box-shadow: var(--green-shadow);
 }
-
 .promotion-number {
   font-family: "Montserrat", Arial, sans-serif;
   font-size: 3.1rem;
   font-weight: 800;
   line-height: 1;
 }
-
 .promotion-word {
   margin-top: 3px;
   font-family: "Montserrat", Arial, sans-serif;
@@ -415,19 +358,16 @@ a {
   font-weight: 800;
   letter-spacing: 3px;
 }
-
 .promotion-card h3 {
   color: var(--navy-dark);
   font-family: "Montserrat", Arial, sans-serif;
   font-size: 1.7rem;
   font-weight: 800;
 }
-
 .promotion-card p {
   margin: 15px 0 24px;
   color: #4d5749;
 }
-
 .promotion-card small {
   display: block;
   margin-top: 18px;
@@ -435,13 +375,9 @@ a {
   font-size: 0.75rem;
   line-height: 1.5;
 }
-
-
 /* =========================================================
    8. TRUST SECTION
-   White portion of the color balance.
    ========================================================= */
-
 .trust-section {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -450,7 +386,6 @@ a {
   padding: 65px max(24px, calc((100% - var(--content-width)) / 2));
   background: var(--white);
 }
-
 .trust-card {
   padding: 30px 24px;
   background: var(--off-white);
@@ -460,7 +395,6 @@ a {
   box-shadow: 0 10px 28px rgba(1, 14, 56, 0.08);
   text-align: center;
 }
-
 .trust-icon {
   display: flex;
   align-items: center;
@@ -474,25 +408,20 @@ a {
   font-size: 1.4rem;
   font-weight: 800;
 }
-
 .trust-card h3 {
   color: var(--navy-dark);
   font-family: "Montserrat", Arial, sans-serif;
   font-size: 1.06rem;
   font-weight: 800;
 }
-
 .trust-card p {
   margin-top: 12px;
   color: #596255;
   font-size: 0.9rem;
 }
-
-
 /* =========================================================
    9. GOLD STANDARD SECTION
    ========================================================= */
-
 .gold-standard-section {
   display: grid;
   grid-template-columns: minmax(280px, 0.75fr) minmax(0, 1.25fr);
@@ -507,7 +436,6 @@ a {
       var(--navy-medium)
     );
 }
-
 .gold-badge {
   position: relative;
   display: flex;
@@ -533,48 +461,41 @@ a {
     0 22px 55px rgba(0, 0, 0, 0.35);
   text-align: center;
 }
-
 .badge-stars {
   margin-bottom: 8px;
   color: var(--navy-dark);
   font-size: 1.3rem;
   letter-spacing: 5px;
 }
-
 .badge-center {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-
 .badge-small-text {
   font-family: "Montserrat", Arial, sans-serif;
   font-size: 1.1rem;
   font-style: italic;
   font-weight: 700;
 }
-
 .badge-center strong {
   font-family: "Montserrat", Arial, sans-serif;
   font-size: clamp(2.8rem, 8vw, 4.4rem);
   font-weight: 800;
   line-height: 1;
 }
-
 .badge-center > span:not(.badge-small-text) {
   font-family: "Montserrat", Arial, sans-serif;
   font-size: clamp(1.25rem, 4vw, 2rem);
   font-weight: 800;
   letter-spacing: 3px;
 }
-
 .badge-center small {
   margin-top: 8px;
   font-family: "Montserrat", Arial, sans-serif;
   font-size: 0.78rem;
   font-weight: 700;
 }
-
 .badge-ribbon {
   margin-top: 19px;
   padding: 8px 16px;
@@ -585,7 +506,6 @@ a {
   font-weight: 700;
   letter-spacing: 0.7px;
 }
-
 .gold-standard-content h2,
 .procedure-section h2,
 .services-preview h2,
@@ -596,51 +516,40 @@ a {
   line-height: 1.15;
   letter-spacing: -1.5px;
 }
-
 .gold-standard-content h2 span {
   color: var(--gold);
 }
-
 .gold-standard-content > p:not(.section-label) {
   max-width: 690px;
   margin: 23px 0 30px;
   color: rgba(255, 255, 255, 0.84);
   font-size: 1.05rem;
 }
-
-
 /* =========================================================
    10. PROCEDURE SECTION
-   White portion.
    ========================================================= */
-
 .procedure-section {
   padding: 90px max(24px, calc((100% - var(--content-width)) / 2));
   background: var(--white);
 }
-
 .section-heading {
   max-width: 800px;
   margin: 0 auto 50px;
   text-align: center;
 }
-
 .section-heading h2 {
   color: var(--navy-dark);
 }
-
 .section-heading > p:not(.section-label) {
   margin-top: 18px;
   color: #596255;
   font-size: 1.03rem;
 }
-
 .procedure-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 22px;
 }
-
 .procedure-card {
   position: relative;
   min-height: 190px;
@@ -654,12 +563,10 @@ a {
     transform 0.2s ease,
     box-shadow 0.2s ease;
 }
-
 .procedure-card:hover {
   box-shadow: var(--navy-shadow);
   transform: translateY(-4px);
 }
-
 .step-number {
   position: absolute;
   top: 28px;
@@ -677,26 +584,20 @@ a {
   font-size: 0.9rem;
   font-weight: 800;
 }
-
 .procedure-card h3 {
   color: var(--navy-dark);
   font-family: "Montserrat", Arial, sans-serif;
   font-size: 1.13rem;
   font-weight: 800;
 }
-
 .procedure-card p {
   margin-top: 10px;
   color: #5e675a;
   font-size: 0.93rem;
 }
-
-
 /* =========================================================
    11. SERVICES PREVIEW
-   Light/white section with green accents.
    ========================================================= */
-
 .services-preview {
   padding: 90px max(24px, calc((100% - var(--content-width)) / 2));
   background:
@@ -706,13 +607,11 @@ a {
       var(--white)
     );
 }
-
 .services-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 24px;
 }
-
 .service-card {
   min-height: 220px;
   padding: 34px 28px;
@@ -722,14 +621,12 @@ a {
   border-radius: var(--border-radius-medium);
   box-shadow: 0 12px 30px rgba(1, 14, 56, 0.09);
 }
-
 .service-card h3 {
   color: var(--navy-dark);
   font-family: "Montserrat", Arial, sans-serif;
   font-size: 1.25rem;
   font-weight: 800;
 }
-
 .service-card h3::after {
   content: "";
   display: block;
@@ -739,23 +636,17 @@ a {
   background: var(--gold);
   border-radius: 999px;
 }
-
 .service-card p {
   margin-top: 17px;
   color: #596255;
 }
-
 .center-button {
   margin-top: 45px;
   text-align: center;
 }
-
-
 /* =========================================================
    12. FINAL QUOTE SECTION
-   Green and navy call-to-action.
    ========================================================= */
-
 .final-quote-section {
   position: relative;
   overflow: hidden;
@@ -769,7 +660,6 @@ a {
     );
   text-align: center;
 }
-
 .final-quote-section::before,
 .final-quote-section::after {
   content: "";
@@ -777,43 +667,36 @@ a {
   border: 3px solid rgba(255, 255, 255, 0.1);
   border-radius: 50%;
 }
-
 .final-quote-section::before {
   top: -160px;
   left: -120px;
   width: 380px;
   height: 380px;
 }
-
 .final-quote-section::after {
   right: -130px;
   bottom: -170px;
   width: 420px;
   height: 420px;
 }
-
 .final-quote-content {
   position: relative;
   z-index: 1;
   max-width: 850px;
   margin: 0 auto;
 }
-
 .gold-label {
   color: var(--gold-light);
 }
-
 .final-quote-section h2 {
   color: var(--white);
 }
-
 .final-quote-content > p:not(.section-label):not(.contact-note) {
   max-width: 760px;
   margin: 23px auto 32px;
   color: rgba(255, 255, 255, 0.9);
   font-size: 1.08rem;
 }
-
 .large-quote-button {
   min-width: 260px;
   min-height: 62px;
@@ -822,25 +705,20 @@ a {
   border-color: var(--gold);
   font-size: 1.08rem;
 }
-
 .large-quote-button:hover,
 .large-quote-button:focus-visible {
   color: var(--navy-dark);
   background: var(--gold);
   border-color: var(--white);
 }
-
 .contact-note {
   margin-top: 22px;
   color: rgba(255, 255, 255, 0.82);
   font-size: 0.9rem;
 }
-
-
 /* =========================================================
    13. FOOTER
    ========================================================= */
-
 .site-footer {
   padding: 55px 24px 30px;
   color: var(--white);
@@ -848,22 +726,16 @@ a {
   border-top: 5px solid var(--gold);
   text-align: center;
 }
-
 .footer-brand h2 {
+  color: var(--uniform-green);
   font-family: "Montserrat", Arial, sans-serif;
   font-size: clamp(1.7rem, 4vw, 2.5rem);
   font-style: italic;
   font-weight: 600;
 }
-
 .footer-brand h2 span {
   color: var(--white);
 }
-
-.footer-brand h2 {
-  color: var(--uniform-green);
-}
-
 .footer-brand p {
   margin-top: 7px;
   color: var(--gold);
@@ -871,7 +743,6 @@ a {
   font-size: 0.9rem;
   font-weight: 600;
 }
-
 .footer-links {
   display: flex;
   flex-wrap: wrap;
@@ -879,194 +750,242 @@ a {
   gap: 13px 24px;
   margin: 30px auto;
 }
-
 .footer-links a {
   color: rgba(255, 255, 255, 0.83);
   font-size: 0.9rem;
   font-weight: 700;
   transition: color 0.2s ease;
 }
-
 .footer-links a:hover,
 .footer-links a:focus-visible {
   color: var(--uniform-green);
 }
-
 .copyright {
   padding-top: 24px;
   color: rgba(255, 255, 255, 0.55);
   border-top: 1px solid rgba(255, 255, 255, 0.12);
   font-size: 0.78rem;
 }
-
-
 /* =========================================================
-   14. TABLET RESPONSIVE DESIGN
+   14. JAVASCRIPT ANIMATIONS
    ========================================================= */
-
+.hidden {
+  opacity: 0;
+  transform: translateY(40px);
+  transition:
+    opacity 0.8s ease,
+    transform 0.8s ease;
+}
+.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+.ripple {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.35);
+  transform: scale(0);
+  animation: ripple 0.6s linear;
+  pointer-events: none;
+}
+@keyframes ripple {
+  to {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+/* =========================================================
+   15. BACK-TO-TOP BUTTON
+   ========================================================= */
+.back-to-top {
+  position: fixed;
+  right: 30px;
+  bottom: 30px;
+  width: 55px;
+  height: 55px;
+  color: var(--white);
+  background: var(--uniform-green);
+  border: 2px solid var(--gold);
+  border-radius: 50%;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+  font-size: 24px;
+  font-weight: 700;
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity 0.3s ease,
+    visibility 0.3s ease,
+    transform 0.3s ease,
+    background-color 0.3s ease;
+  z-index: 9999;
+}
+.back-to-top.show {
+  opacity: 1;
+  visibility: visible;
+}
+.back-to-top:hover,
+.back-to-top:focus-visible {
+  background: var(--green-dark);
+  transform: translateY(-3px);
+}
+/* =========================================================
+   16. TABLET RESPONSIVE DESIGN
+   ========================================================= */
 @media (max-width: 980px) {
   .hero-section {
     grid-template-columns: 1fr;
   }
-
   .hero-content {
     margin: 0 auto;
     text-align: center;
   }
-
   .hero-description {
     margin-right: auto;
     margin-left: auto;
   }
-
   .hero-buttons {
     justify-content: center;
   }
-
   .promotion-card {
     width: min(100%, 520px);
     margin: 0 auto;
   }
-
   .trust-section {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
-
   .gold-standard-section {
     grid-template-columns: 1fr;
     text-align: center;
   }
-
   .gold-standard-content > p:not(.section-label) {
     margin-right: auto;
     margin-left: auto;
   }
-
   .services-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
-
-
 /* =========================================================
-   15. MOBILE RESPONSIVE DESIGN
+   17. MOBILE RESPONSIVE DESIGN
    ========================================================= */
-
 @media (max-width: 680px) {
   .site-header {
     padding: 24px 16px;
   }
-
   .main-logo {
     width: 230px;
   }
-
   .business-name {
     flex-direction: column;
     gap: 3px;
     letter-spacing: -0.8px;
   }
-
   .main-navigation {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 10px;
   }
-
   .nav-button {
     min-width: 0;
     padding: 11px 12px;
     font-size: 0.82rem;
   }
-
   .hero-section {
     min-height: auto;
     padding-top: 65px;
     padding-bottom: 65px;
   }
-
   .hero-section h2 {
     letter-spacing: -1.4px;
   }
-
   .hero-buttons {
     flex-direction: column;
   }
-
   .hero-buttons a {
     width: 100%;
   }
-
   .promotion-card {
     padding: 32px 22px;
   }
-
   .trust-section {
     grid-template-columns: 1fr;
   }
-
   .gold-standard-section,
   .procedure-section,
   .services-preview {
     padding-top: 70px;
     padding-bottom: 70px;
   }
-
   .gold-badge {
     width: min(310px, 82vw);
     border-width: 10px;
   }
-
   .procedure-grid {
     grid-template-columns: 1fr;
   }
-
   .procedure-card {
     padding: 85px 23px 27px;
     text-align: center;
   }
-
   .step-number {
     top: 22px;
     left: 50%;
     transform: translateX(-50%);
   }
-
   .services-grid {
     grid-template-columns: 1fr;
   }
-
   .final-quote-section {
     padding-top: 75px;
     padding-bottom: 75px;
   }
-
   .large-quote-button {
     width: 100%;
     min-width: 0;
   }
+  .back-to-top {
+    right: 18px;
+    bottom: 18px;
+    width: 48px;
+    height: 48px;
+    font-size: 21px;
+  }
 }
-
-
 /* =========================================================
-   16. VERY SMALL PHONE SCREENS
+   18. VERY SMALL PHONE SCREENS
    ========================================================= */
-
 @media (max-width: 390px) {
   .main-navigation {
     grid-template-columns: 1fr;
   }
-
   .nav-button {
     width: 100%;
   }
-
   .promotion-circle {
     width: 145px;
     height: 145px;
   }
-
   .promotion-number {
     font-size: 2.6rem;
+  }
+}
+/* =========================================================
+   19. REDUCED MOTION ACCESSIBILITY
+   ========================================================= */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  .hidden {
+    opacity: 1;
+    transform: none;
   }
 }
