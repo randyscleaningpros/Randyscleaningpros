@@ -50,6 +50,8 @@
       --green: #35a853;
       --green-dark: #23843d;
       --gold: #d7a72c;
+      --gold-light: #f4d77b;
+      --gold-dark: #a97812;
       --white: #ffffff;
       --light-blue: #eef7ff;
       --light-gray: #f5f7fa;
@@ -359,29 +361,19 @@
     .mascot-area {
       position: relative;
       display: flex;
-      align-items: flex-end;
+      align-items: center;
       justify-content: center;
       min-height: 500px;
-    }
-
-    .mascot-circle {
-      position: absolute;
-      width: 440px;
-      height: 440px;
-      max-width: 90vw;
-      max-height: 90vw;
-      background: var(--white);
-      border: 16px solid rgba(20, 116, 212, 0.09);
-      border-radius: 50%;
-      box-shadow: var(--shadow);
     }
 
     .hero-mascot {
       position: relative;
       z-index: 2;
-      width: 500px;
-      max-height: 520px;
+      width: auto;
+      height: clamp(420px, 46vw, 640px);
+      max-width: 100%;
       object-fit: contain;
+      margin: 0 auto;
     }
 
     .sparkle {
@@ -834,18 +826,8 @@
       }
 
       .mascot-area {
-        min-height: 390px;
+        min-height: 360px;
         order: -1;
-      }
-
-      .hero-mascot {
-        width: 390px;
-        max-height: 400px;
-      }
-
-      .mascot-circle {
-        width: 330px;
-        height: 330px;
       }
 
       .services-grid {
@@ -895,17 +877,7 @@
       }
 
       .mascot-area {
-        min-height: 330px;
-      }
-
-      .hero-mascot {
-        width: 325px;
-        max-height: 335px;
-      }
-
-      .mascot-circle {
-        width: 275px;
-        height: 275px;
+        min-height: 280px;
       }
 
       .trust-grid {
@@ -1061,7 +1033,7 @@
         <div class="hero-copy">
 
           <p class="eyebrow">
-            Detailed Cleaning You Can Trust
+            Why Homeowners Choose Us
           </p>
 
           <h1>
@@ -1070,9 +1042,9 @@
           </h1>
 
           <p class="hero-description">
-            Professional home cleaning backed by dependable
-            service, no-surprise pricing, and our
-            10-Step Gold Standard.
+            Same trusted team, fixed pricing, and our
+            10-Step Gold Standard on every visit —
+            that's the difference.
           </p>
 
           <div class="hero-buttons">
@@ -1108,11 +1080,6 @@
 
         <div class="mascot-area">
 
-          <div
-            class="mascot-circle"
-            aria-hidden="true"
-          ></div>
-
           <span
             class="sparkle sparkle-one"
             aria-hidden="true"
@@ -1129,8 +1096,8 @@
 
           <img
             class="hero-mascot"
-            src="Mascot12.jpg"
-            alt="Randy's Cleaning Pros mascot"
+            src="Photoroomlogo11.png"
+            alt="Randy's Cleaning Pros — Setting the Gold Standard in Cleaning"
           >
 
         </div>
@@ -1536,5 +1503,4 @@
   </script>
 
 </body>
-
 </html>
