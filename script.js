@@ -1,159 +1,213 @@
 /* ==========================================================
    RANDY'S CLEANING PROS
-   script.js
+   WEBSITE JAVASCRIPT
    ========================================================== */
 
 document.addEventListener("DOMContentLoaded", () => {
 
-    /* ===============================
-       Highlight Current Page
-    =============================== */
+  /* ========================================================
+     MENU BUTTON
+     ======================================================== */
 
-    const currentPage = window.location.pathname.split("/").pop();
+  const menuToggle = document.getElementById("menuToggle");
+  const mainMenu = document.getElementById("mainMenu");
 
-    document.querySelectorAll(".nav-button").forEach(button => {
+  function openMenu() {
+    menuToggle.classList.add("open");
+    mainMenu.classList.add("open");
 
-        const link = button.getAttribute("href");
+    menuToggle.setAttribute("aria-expanded", "true");
+    menuToggle.setAttribute("aria-label", "Close website menu");
+  }
 
-        if (
-            link === currentPage ||
-            (currentPage === "" && link === "index.html")
-        ) {
-            button.classList.add("active");
-        }
+  function closeMenu() {
+    menuToggle.classList.remove("open");
+    mainMenu.classList.remove("open");
 
+    menuToggle.setAttribute("aria-expanded", "false");
+    menuToggle.setAttribute("aria-label", "Open website menu");
+  }
+
+  function toggleMenu() {
+    const menuIsOpen = mainMenu.classList.contains("open");
+
+    if (menuIsOpen) {
+      closeMenu();
+    } else {
+      openMenu();
+    }
+  }
+
+  if (menuToggle && mainMenu) {
+    menuToggle.addEventListener("click", toggleMenu);
+
+    mainMenu.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", closeMenu);
     });
 
+    document.addEventListener("click", (event) => {
+      const clickedInsideMenu = mainMenu.contains(event.target);
+      const clickedMenuButton = menuToggle.contains(event.target);
 
-    /* ===============================
-       Button Click Animation
-    =============================== */
+      if (!clickedInsideMenu && !clickedMenuButton) {
+        closeMenu();
+      }
+    });
 
-    document.querySelectorAll(".primary-button, .secondary-button, .nav-button, .promotion-button, .large-quote-button")
-        .forEach(button => {
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") {
+        closeMenu();
+        menuToggle.focus();
+      }
+    });
+  }
 
-            button.addEventListener("click", function () {
 
-                this.style.transform = "scale(.96)";
+  /* ========================================================
+     HIGHLIGHT THE CURRENT PAGE
+     ======================================================== */
 
-                setTimeout(() => {
+  const currentPage =
+    window.location.pathname.split("/").pop() || "index.html";
 
-                    this.style.transform = "";
+  document.querySelectorAll(".menu-link").forEach((link) => {
+    const linkPage = link.getAttribute("href");
 
-                }, 150);
+    if (linkPage === currentPage) {
+      link.classList.add("active");
+    } else {
+      link.classList.remove("active");
+    }
+  });
 
-            });
+
+  /* ========================================================
+     SCROLL REVEAL ANIMATIONS
+     ======================================================== */
+
+  const revealElements = document.querySelectorAll(
+    ".trust-card, " +
+    ".promotion-card, " +
+    ".work-photo, " +
+    ".work-content, " +
+    ".gold-badge, " +
+    ".gold-standard-content, " +
+    ".service-card, " +
+    ".photo-banner-overlay"
+  );
+
+  if ("IntersectionObserver" in window) {
+    const revealObserver = new IntersectionObserver(
+      (entries, observer) => {
+
+        entries.forEach((entry) => {
+
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            observer.unobserve(entry.target);
+          }
 
         });
 
+      },
+      {
+        threshold: 0.12
+      }
+    );
 
-    /* ===============================
-       Fade In Animation
-    =============================== */
+    revealElements.forEach((element) => {
+      element.classList.add("reveal-item");
+      revealObserver.observe(element);
+    });
 
-    const observer = new IntersectionObserver(entries => {
+  } else {
 
-        entries.forEach(entry => {
+    revealElements.forEach((element) => {
+      element.classList.add("visible");
+    });
 
-            if (entry.isIntersecting) {
+  }
 
-                entry.target.classList.add("show");
 
-            }
+  /* ========================================================
+     BUTTON RIPPLE EFFECT
+     ======================================================== */
 
-        });
+  const clickableButtons = document.querySelectorAll(
+    ".primary-button, " +
+    ".secondary-button, " +
+    ".promotion-button, " +
+    ".gold-button, " +
+    ".large-quote-button, " +
+    ".menu-quote-link"
+  );
 
-    }, {
+  clickableButtons.forEach((button) => {
 
-        threshold: .15
+    button.addEventListener("click", function (event) {
+
+      const oldRipple = this.querySelector(".ripple");
+
+      if (oldRipple) {
+        oldRipple.remove();
+      }
+
+      const circle = document.createElement("span");
+      const rectangle = this.getBoundingClientRect();
+      const size = Math.max(rectangle.width, rectangle.height);
+
+      circle.style.width = `${size}px`;
+      circle.style.height = `${size}px`;
+
+      circle.style.left =
+        `${event.clientX - rectangle.left - size / 2}px`;
+
+      circle.style.top =
+        `${event.clientY - rectangle.top - size / 2}px`;
+
+      circle.classList.add("ripple");
+
+      this.appendChild(circle);
+
+      window.setTimeout(() => {
+        circle.remove();
+      }, 650);
 
     });
 
-    document.querySelectorAll(
-        ".trust-card, .service-card, .procedure-card, .promotion-card, .gold-standard-content, .gold-badge"
-    ).forEach(item => {
+  });
 
-        item.classList.add("hidden");
 
-        observer.observe(item);
+  /* ========================================================
+     BACK-TO-TOP BUTTON
+     ======================================================== */
 
+  const backToTopButton = document.createElement("button");
+
+  backToTopButton.type = "button";
+  backToTopButton.className = "back-to-top";
+  backToTopButton.setAttribute("aria-label", "Return to top of page");
+  backToTopButton.textContent = "↑";
+
+  document.body.appendChild(backToTopButton);
+
+  window.addEventListener("scroll", () => {
+
+    if (window.scrollY > 500) {
+      backToTopButton.classList.add("show");
+    } else {
+      backToTopButton.classList.remove("show");
+    }
+
+  });
+
+  backToTopButton.addEventListener("click", () => {
+
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
     });
 
-
-    /* ===============================
-       Ripple Effect
-    =============================== */
-
-    document.querySelectorAll("a").forEach(button => {
-
-        button.addEventListener("click", function (e) {
-
-            const circle = document.createElement("span");
-
-            const rect = this.getBoundingClientRect();
-
-            const size = Math.max(rect.width, rect.height);
-
-            circle.style.width = size + "px";
-            circle.style.height = size + "px";
-
-            circle.style.left =
-                e.clientX - rect.left - size / 2 + "px";
-
-            circle.style.top =
-                e.clientY - rect.top - size / 2 + "px";
-
-            circle.classList.add("ripple");
-
-            this.appendChild(circle);
-
-            setTimeout(() => {
-
-                circle.remove();
-
-            }, 600);
-
-        });
-
-    });
-
-
-    /* ===============================
-       Back To Top Button
-    =============================== */
-
-    const topButton = document.createElement("button");
-
-    topButton.innerHTML = "↑";
-
-    topButton.className = "back-to-top";
-
-    document.body.appendChild(topButton);
-
-    window.addEventListener("scroll", () => {
-
-        if (window.scrollY > 400) {
-
-            topButton.classList.add("show");
-
-        } else {
-
-            topButton.classList.remove("show");
-
-        }
-
-    });
-
-    topButton.addEventListener("click", () => {
-
-        window.scrollTo({
-
-            top: 0,
-
-            behavior: "smooth"
-
-        });
-
-    });
+  });
 
 });
