@@ -11,26 +11,980 @@
 
   <meta
     name="description"
-    content="Learn about the 10-Step Gold Standard Cleaning Procedure used by Randy's Cleaning Pros throughout Southern Maine."
+    content="Discover the values, 10-Step Gold Standard Cleaning System, and satisfaction guarantee behind Randy's Cleaning Pros."
   >
 
-  <title>
-    Gold Standard | Randy's Cleaning Pros
-  </title>
+  <title>The Gold Standard | Randy's Cleaning Pros</title>
 
+  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
 
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
   <link
-    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Open+Sans:wght@400;600;700&display=swap"
-    rel="stylesheet"
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
   >
 
   <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,600;0,700;0,800;0,900;1,600;1,700;1,800&family=Open+Sans:wght@400;600;700&display=swap"
     rel="stylesheet"
-    href="styles.css"
   >
+
+  <!-- Favicon -->
+  <link
+    rel="icon"
+    type="image/png"
+    href="smalllogo.PNG"
+  >
+
+  <style>
+    /* =====================================================
+       BRAND COLORS
+       ===================================================== */
+
+    :root {
+      --navy-dark: #010a2b;
+      --navy: #010e38;
+      --navy-light: #09245f;
+
+      --green: #579b12;
+      --green-dark: #3d7508;
+      --green-light: #75bd28;
+
+      --gold-dark: #a97812;
+      --gold: #e4b63f;
+      --gold-light: #f4d77b;
+
+      --white: #ffffff;
+      --off-white: #f7f8fb;
+      --light-gray: #e4e8ef;
+      --text-dark: #162033;
+      --text-soft: #5d6675;
+
+      --shadow-soft: 0 12px 32px rgba(1, 14, 56, 0.1);
+      --shadow-medium: 0 18px 45px rgba(1, 14, 56, 0.16);
+      --shadow-dark: 0 24px 55px rgba(0, 0, 0, 0.28);
+
+      --radius-small: 14px;
+      --radius-medium: 20px;
+      --radius-large: 28px;
+    }
+
+    /* =====================================================
+       RESET
+       ===================================================== */
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Open Sans", Arial, sans-serif;
+      background: var(--off-white);
+      color: var(--text-dark);
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    button,
+    a {
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .container {
+      width: min(1140px, 92%);
+      margin: 0 auto;
+    }
+
+    /* =====================================================
+       HEADER
+       ===================================================== */
+
+    .site-header {
+      position: relative;
+      z-index: 1000;
+      background: var(--navy);
+      border-bottom: 3px solid var(--green);
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .header-inner {
+      min-height: 92px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 12px 0;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 13px;
+    }
+
+    .brand-logo {
+      width: 70px;
+      height: 70px;
+      object-fit: contain;
+    }
+
+    .brand-name {
+      font-family: "Montserrat", sans-serif;
+      font-style: italic;
+      font-weight: 700;
+      font-size: clamp(1rem, 2.5vw, 1.48rem);
+      line-height: 1.05;
+    }
+
+    .brand-name span {
+      display: block;
+    }
+
+    .brand-randys {
+      color: var(--white);
+    }
+
+    .brand-cleaning {
+      color: var(--green);
+    }
+
+    .menu-button {
+      min-height: 50px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      border: 0;
+      border-radius: 999px;
+      background: var(--green);
+      color: var(--white);
+      padding: 12px 21px;
+      font-family: "Montserrat", sans-serif;
+      font-size: 0.95rem;
+      font-weight: 800;
+      cursor: pointer;
+      box-shadow: 0 9px 22px rgba(87, 155, 18, 0.26);
+      transition:
+        transform 0.2s ease,
+        background 0.2s ease;
+    }
+
+    .menu-button:hover,
+    .menu-button:focus-visible {
+      background: var(--green-dark);
+      transform: translateY(-2px);
+    }
+
+    .menu-lines {
+      width: 21px;
+      display: grid;
+      gap: 4px;
+    }
+
+    .menu-lines span {
+      display: block;
+      width: 100%;
+      height: 2px;
+      background: var(--white);
+      border-radius: 999px;
+    }
+
+    /* =====================================================
+       DROP-DOWN MENU
+       ===================================================== */
+
+    .menu-panel {
+      display: none;
+      background: var(--navy-dark);
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .menu-panel.open {
+      display: block;
+    }
+
+    .menu-links {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 11px;
+      padding: 22px 0;
+    }
+
+    .menu-links a {
+      display: block;
+      color: var(--white);
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.11);
+      border-radius: 12px;
+      padding: 13px 12px;
+      text-align: center;
+      font-family: "Montserrat", sans-serif;
+      font-size: 0.88rem;
+      font-weight: 700;
+      transition: 0.2s ease;
+    }
+
+    .menu-links a:hover,
+    .menu-links a:focus-visible {
+      background: var(--green);
+      border-color: var(--green);
+      transform: translateY(-2px);
+    }
+
+    /* =====================================================
+       HERO
+       ===================================================== */
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      color: var(--white);
+      text-align: center;
+      background:
+        radial-gradient(
+          circle at 50% 5%,
+          rgba(228, 182, 63, 0.18),
+          transparent 30%
+        ),
+        radial-gradient(
+          circle at 15% 75%,
+          rgba(87, 155, 18, 0.16),
+          transparent 32%
+        ),
+        linear-gradient(
+          145deg,
+          var(--navy-dark) 0%,
+          var(--navy-light) 52%,
+          var(--navy) 100%
+        );
+      padding: 68px 0 92px;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: -140px;
+      right: -110px;
+      width: 330px;
+      height: 330px;
+      border: 60px solid rgba(255, 255, 255, 0.025);
+      border-radius: 50%;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 6px;
+      background: linear-gradient(
+        90deg,
+        var(--green),
+        var(--gold),
+        var(--green)
+      );
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 930px;
+      margin: 0 auto;
+    }
+
+    .hero-image {
+      width: min(475px, 90%);
+      margin: 0 auto 20px;
+      filter: drop-shadow(0 20px 30px rgba(0, 0, 0, 0.35));
+    }
+
+    .eyebrow {
+      color: var(--gold);
+      font-family: "Montserrat", sans-serif;
+      font-size: 0.88rem;
+      font-weight: 900;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .hero h1 {
+      max-width: 900px;
+      margin: 0 auto 20px;
+      font-family: "Montserrat", sans-serif;
+      font-size: clamp(2.45rem, 7vw, 5.1rem);
+      font-weight: 900;
+      line-height: 1.03;
+    }
+
+    .hero h1 .gold-text {
+      color: var(--gold);
+    }
+
+    .hero-description {
+      max-width: 760px;
+      margin: 0 auto 28px;
+      color: #edf2f9;
+      font-size: clamp(1rem, 2.2vw, 1.16rem);
+    }
+
+    .hero-quote {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 20px 25px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-left: 5px solid var(--gold);
+      border-radius: 16px;
+      color: var(--white);
+      font-family: "Montserrat", sans-serif;
+      font-size: clamp(1rem, 2vw, 1.15rem);
+      font-style: italic;
+      font-weight: 700;
+      backdrop-filter: blur(7px);
+    }
+
+    /* =====================================================
+       BUTTONS
+       ===================================================== */
+
+    .button-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 14px;
+      margin-top: 31px;
+    }
+
+    .button {
+      min-height: 54px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 13px 26px;
+      border-radius: 999px;
+      font-family: "Montserrat", sans-serif;
+      font-weight: 800;
+      transition: 0.2s ease;
+    }
+
+    .button-green {
+      background: var(--green);
+      color: var(--white);
+      box-shadow: 0 12px 28px rgba(87, 155, 18, 0.3);
+    }
+
+    .button-green:hover,
+    .button-green:focus-visible {
+      background: var(--green-dark);
+      transform: translateY(-2px);
+    }
+
+    .button-gold {
+      background: var(--gold);
+      color: var(--navy);
+      box-shadow: 0 12px 28px rgba(228, 182, 63, 0.25);
+    }
+
+    .button-gold:hover,
+    .button-gold:focus-visible {
+      background: var(--gold-light);
+      transform: translateY(-2px);
+    }
+
+    .button-outline {
+      color: var(--white);
+      border: 2px solid var(--gold);
+    }
+
+    .button-outline:hover,
+    .button-outline:focus-visible {
+      background: var(--gold);
+      color: var(--navy);
+      transform: translateY(-2px);
+    }
+
+    /* =====================================================
+       GENERAL SECTIONS
+       ===================================================== */
+
+    .section {
+      padding: 82px 0;
+    }
+
+    .section-white {
+      background: var(--white);
+    }
+
+    .section-navy {
+      background: var(--navy);
+      color: var(--white);
+    }
+
+    .section-heading {
+      max-width: 790px;
+      margin: 0 auto 44px;
+      text-align: center;
+    }
+
+    .section-heading .small-title {
+      color: var(--green-dark);
+      font-family: "Montserrat", sans-serif;
+      font-size: 0.88rem;
+      font-weight: 900;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+      margin-bottom: 9px;
+    }
+
+    .section-heading h2 {
+      color: var(--navy);
+      font-family: "Montserrat", sans-serif;
+      font-size: clamp(2rem, 4.5vw, 3.25rem);
+      font-weight: 900;
+      line-height: 1.16;
+      margin-bottom: 14px;
+    }
+
+    .section-heading h2 span {
+      color: var(--green);
+    }
+
+    .section-heading p {
+      color: var(--text-soft);
+      font-size: 1.05rem;
+    }
+
+    .section-navy .section-heading .small-title {
+      color: var(--gold);
+    }
+
+    .section-navy .section-heading h2 {
+      color: var(--white);
+    }
+
+    .section-navy .section-heading p {
+      color: #dae2ef;
+    }
+
+    .gold-line {
+      width: 92px;
+      height: 4px;
+      margin: 18px auto 0;
+      background: var(--gold);
+      border-radius: 999px;
+    }
+
+    /* =====================================================
+       VALUES
+       ===================================================== */
+
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .value-card {
+      position: relative;
+      overflow: hidden;
+      background: var(--white);
+      border: 1px solid rgba(1, 14, 56, 0.07);
+      border-radius: var(--radius-medium);
+      padding: 31px 25px;
+      text-align: center;
+      box-shadow: var(--shadow-soft);
+      transition:
+        transform 0.22s ease,
+        box-shadow 0.22s ease;
+    }
+
+    .value-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 5px;
+      background: linear-gradient(
+        90deg,
+        var(--green),
+        var(--gold)
+      );
+    }
+
+    .value-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-medium);
+    }
+
+    .value-icon {
+      font-size: 2.45rem;
+      margin-bottom: 13px;
+    }
+
+    .value-card h3 {
+      color: var(--navy);
+      font-family: "Montserrat", sans-serif;
+      font-size: 1.2rem;
+      font-weight: 800;
+      margin-bottom: 9px;
+    }
+
+    .value-card p {
+      color: var(--text-soft);
+      font-size: 0.96rem;
+    }
+
+    /* =====================================================
+       10-STEP SYSTEM
+       ===================================================== */
+
+    .system-card {
+      position: relative;
+      max-width: 960px;
+      margin: 0 auto;
+      overflow: hidden;
+      background: var(--white);
+      color: var(--text-dark);
+      border: 3px solid var(--gold);
+      border-radius: var(--radius-large);
+      padding: clamp(32px, 6vw, 62px);
+      text-align: center;
+      box-shadow: var(--shadow-dark);
+    }
+
+    .system-card::before {
+      content: "GOLD STANDARD";
+      position: absolute;
+      top: 28px;
+      right: -52px;
+      width: 210px;
+      background: var(--gold);
+      color: var(--navy);
+      padding: 8px;
+      font-family: "Montserrat", sans-serif;
+      font-size: 0.7rem;
+      font-weight: 900;
+      letter-spacing: 0.1em;
+      transform: rotate(42deg);
+    }
+
+    .system-number {
+      width: 105px;
+      height: 105px;
+      display: grid;
+      place-items: center;
+      margin: 0 auto 22px;
+      background: var(--green);
+      color: var(--white);
+      border: 6px solid var(--gold);
+      border-radius: 50%;
+      font-family: "Montserrat", sans-serif;
+      font-size: 2.65rem;
+      font-weight: 900;
+      box-shadow: 0 12px 28px rgba(87, 155, 18, 0.28);
+    }
+
+    .system-card h2 {
+      color: var(--navy);
+      font-family: "Montserrat", sans-serif;
+      font-size: clamp(2rem, 4.5vw, 3.3rem);
+      font-weight: 900;
+      line-height: 1.15;
+      margin-bottom: 17px;
+    }
+
+    .system-card h2 span {
+      color: var(--green);
+    }
+
+    .system-card p {
+      max-width: 750px;
+      margin: 0 auto 19px;
+      color: var(--text-soft);
+      font-size: 1.06rem;
+    }
+
+    .system-features {
+      max-width: 750px;
+      margin: 30px auto 0;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+      text-align: left;
+    }
+
+    .system-feature {
+      display: flex;
+      align-items: flex-start;
+      gap: 11px;
+      background: #f4f8ee;
+      border-radius: 13px;
+      padding: 15px;
+      color: var(--navy);
+      font-weight: 700;
+    }
+
+    .feature-check {
+      color: var(--green);
+      font-size: 1.2rem;
+      flex-shrink: 0;
+    }
+
+    .system-quote {
+      max-width: 720px;
+      margin: 28px auto 0;
+      padding: 19px 23px;
+      background: var(--navy);
+      border-left: 5px solid var(--gold);
+      border-radius: 14px;
+      color: var(--white);
+      font-family: "Montserrat", sans-serif;
+      font-style: italic;
+      font-weight: 700;
+    }
+
+    /* =====================================================
+       GUARANTEE
+       ===================================================== */
+
+    .guarantee-main {
+      max-width: 980px;
+      margin: 0 auto;
+      overflow: hidden;
+      background:
+        linear-gradient(
+          145deg,
+          var(--navy-dark),
+          var(--navy-light)
+        );
+      border: 3px solid var(--gold);
+      border-radius: var(--radius-large);
+      padding: clamp(34px, 6vw, 64px);
+      color: var(--white);
+      text-align: center;
+      box-shadow: var(--shadow-dark);
+    }
+
+    .guarantee-shield {
+      width: 110px;
+      height: 110px;
+      display: grid;
+      place-items: center;
+      margin: 0 auto 22px;
+      background: var(--gold);
+      color: var(--navy);
+      border: 7px solid rgba(255, 255, 255, 0.17);
+      border-radius: 50%;
+      font-size: 3rem;
+      box-shadow: 0 13px 30px rgba(0, 0, 0, 0.28);
+    }
+
+    .guarantee-main h2 {
+      color: var(--white);
+      font-family: "Montserrat", sans-serif;
+      font-size: clamp(2.1rem, 5vw, 3.7rem);
+      font-weight: 900;
+      line-height: 1.12;
+      margin-bottom: 12px;
+    }
+
+    .guarantee-main h2 span {
+      color: var(--gold);
+    }
+
+    .guarantee-lead {
+      max-width: 720px;
+      margin: 0 auto 30px;
+      color: #eaf0f8;
+      font-size: 1.08rem;
+    }
+
+    .guarantee-options {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+      margin-top: 32px;
+    }
+
+    .guarantee-option {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      border-radius: 18px;
+      padding: 26px 22px;
+    }
+
+    .guarantee-option .option-icon {
+      font-size: 2.25rem;
+      margin-bottom: 11px;
+    }
+
+    .guarantee-option h3 {
+      color: var(--gold);
+      font-family: "Montserrat", sans-serif;
+      font-size: 1.3rem;
+      margin-bottom: 9px;
+    }
+
+    .guarantee-option p {
+      color: #e9eef7;
+    }
+
+    .guarantee-highlight {
+      max-width: 760px;
+      margin: 30px auto 0;
+      padding: 20px 25px;
+      background: var(--green);
+      border-radius: 15px;
+      color: var(--white);
+      font-family: "Montserrat", sans-serif;
+      font-size: clamp(1.1rem, 2.5vw, 1.42rem);
+      font-weight: 900;
+    }
+
+    .guarantee-note {
+      max-width: 750px;
+      margin: 18px auto 0;
+      color: #cfd8e7;
+      font-size: 0.9rem;
+    }
+
+    /* =====================================================
+       PROMISE SECTION
+       ===================================================== */
+
+    .promise-card {
+      max-width: 920px;
+      margin: 0 auto;
+      background: var(--white);
+      border-radius: var(--radius-large);
+      padding: clamp(34px, 6vw, 60px);
+      text-align: center;
+      box-shadow: var(--shadow-medium);
+    }
+
+    .promise-icon {
+      font-size: 3rem;
+      margin-bottom: 12px;
+    }
+
+    .promise-card h2 {
+      color: var(--navy);
+      font-family: "Montserrat", sans-serif;
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      font-weight: 900;
+      margin-bottom: 17px;
+    }
+
+    .promise-card blockquote {
+      max-width: 760px;
+      margin: 0 auto 22px;
+      color: var(--green-dark);
+      font-family: "Montserrat", sans-serif;
+      font-size: clamp(1.22rem, 3vw, 1.75rem);
+      font-style: italic;
+      font-weight: 800;
+      line-height: 1.5;
+    }
+
+    .promise-card p {
+      max-width: 740px;
+      margin: 0 auto;
+      color: var(--text-soft);
+      font-size: 1.04rem;
+    }
+
+    /* =====================================================
+       FINAL CALL TO ACTION
+       ===================================================== */
+
+    .cta {
+      background:
+        linear-gradient(
+          rgba(1, 14, 56, 0.97),
+          rgba(1, 14, 56, 0.97)
+        );
+      color: var(--white);
+      text-align: center;
+      padding: 78px 0;
+    }
+
+    .cta h2 {
+      font-family: "Montserrat", sans-serif;
+      font-size: clamp(2rem, 4.5vw, 3.35rem);
+      font-weight: 900;
+      line-height: 1.18;
+      margin-bottom: 15px;
+    }
+
+    .cta h2 span {
+      color: var(--gold);
+    }
+
+    .cta p {
+      max-width: 720px;
+      margin: 0 auto;
+      color: #dbe4f1;
+      font-size: 1.06rem;
+    }
+
+    /* =====================================================
+       FOOTER
+       ===================================================== */
+
+    .site-footer {
+      background: #000722;
+      color: #d7dfeb;
+      text-align: center;
+      padding: 34px 0;
+      border-top: 3px solid var(--green);
+    }
+
+    .footer-brand {
+      margin-bottom: 8px;
+      font-family: "Montserrat", sans-serif;
+      font-style: italic;
+      font-weight: 800;
+    }
+
+    .footer-brand .white {
+      color: var(--white);
+    }
+
+    .footer-brand .green {
+      color: var(--green);
+    }
+
+    .site-footer p {
+      font-size: 0.92rem;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 18px;
+      margin-top: 17px;
+    }
+
+    .footer-links a {
+      color: var(--gold-light);
+      font-size: 0.9rem;
+      font-weight: 700;
+    }
+
+    .footer-links a:hover {
+      color: var(--white);
+    }
+
+    /* =====================================================
+       RESPONSIVE DESIGN
+       ===================================================== */
+
+    @media (max-width: 900px) {
+      .menu-links {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .values-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 700px) {
+      .header-inner {
+        min-height: 82px;
+      }
+
+      .brand-logo {
+        width: 58px;
+        height: 58px;
+      }
+
+      .menu-button {
+        min-width: auto;
+        padding: 11px 16px;
+      }
+
+      .menu-button-text {
+        display: none;
+      }
+
+      .hero {
+        padding: 48px 0 72px;
+      }
+
+      .section {
+        padding: 64px 0;
+      }
+
+      .values-grid,
+      .system-features,
+      .guarantee-options {
+        grid-template-columns: 1fr;
+      }
+
+      .system-card::before {
+        display: none;
+      }
+
+      .button-row {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .button {
+        width: 100%;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .brand-name {
+        font-size: 0.95rem;
+      }
+
+      .menu-links {
+        grid-template-columns: 1fr;
+      }
+
+      .values-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-image {
+        width: min(360px, 94%);
+      }
+
+      .hero-quote {
+        padding: 17px 18px;
+      }
+
+      .guarantee-main,
+      .system-card,
+      .promise-card {
+        border-radius: 20px;
+      }
+    }
+  </style>
 </head>
 
 <body>
@@ -41,663 +995,446 @@
 
   <header class="site-header">
 
-    <div class="header-logo-area">
+    <div class="container header-inner">
 
       <a
         href="index.html"
-        class="header-logo-link"
-        aria-label="Return to home page"
+        class="brand"
+        aria-label="Randy's Cleaning Pros home page"
       >
 
         <img
-          src="Goldstandard.PNG"
+          src="smalllogo.PNG"
           alt="Randy's Cleaning Pros logo"
-          class="page-header-logo"
+          class="brand-logo"
         >
+
+        <div class="brand-name">
+          <span class="brand-randys">Randy's</span>
+          <span class="brand-cleaning">Cleaning Pros</span>
+        </div>
 
       </a>
 
-      <div class="header-business-name">
-        Randy's Cleaning Pros
-      </div>
-
-      <div class="header-slogan">
-        Setting the Gold Standard in Cleaning
-      </div>
-
-    </div>
-
-
-    <div class="header-navigation">
-
       <button
-        id="menuButton"
         class="menu-button"
+        id="menuButton"
         type="button"
         aria-expanded="false"
-        aria-controls="mainMenu"
-        aria-label="Open navigation menu"
+        aria-controls="menuPanel"
       >
 
-        <span class="menu-icon">
-          ☰
+        <span class="menu-lines" aria-hidden="true">
+          <span></span>
+          <span></span>
+          <span></span>
         </span>
 
-        <span class="menu-text">
-          Menu
-        </span>
+        <span class="menu-button-text">Menu</span>
 
       </button>
 
+    </div>
 
-      <nav
-        id="mainMenu"
-        class="dropdown-menu"
-        aria-label="Main navigation"
-      >
+    <nav
+      class="menu-panel"
+      id="menuPanel"
+      aria-label="Main navigation"
+    >
 
-        <a href="index.html">
-          Home
+      <div class="container menu-links">
+
+        <a href="index.html">Home</a>
+
+        <a href="services.html">Services</a>
+
+        <a href="residential-cleaning.html">
+          Residential Cleaning
         </a>
 
-        <a href="services.html">
-          Services
-        </a>
-
-        <a
-          href="gold-standard.html"
-          class="active"
-          aria-current="page"
-        >
+        <a href="gold-standard.html">
           Gold Standard
         </a>
 
-        <a href="about.html">
-          About Us
-        </a>
+        <a href="about.html">About Us</a>
 
-        <a href="charity.html">
-          Our Purpose
-        </a>
+        <a href="charity.html">Our Charity</a>
 
-        <a href="contact.html">
-          Contact
-        </a>
+        <a href="contact.html">Contact</a>
 
-        <a
-          href="quote.html"
-          class="menu-quote-button"
-        >
-          Get a Free Quote
-        </a>
+        <a href="quote.html">Free Quote</a>
 
-      </nav>
+      </div>
 
-    </div>
+    </nav>
 
   </header>
 
-
-  <!-- =====================================================
-       MAIN CONTENT
-       ===================================================== -->
-
   <main>
 
-
     <!-- ===================================================
-         HERO SECTION
+         HERO
          =================================================== -->
 
-    <section class="gold-page-hero">
+    <section class="hero">
 
-      <div class="container gold-page-hero-grid">
+      <div class="container hero-content">
 
-        <div class="gold-page-hero-content">
+        <img
+          src="Goldstandard.PNG"
+          alt="Randy's Cleaning Pros Gold Standard"
+          class="hero-image"
+        >
 
-          <p class="eyebrow gold-eyebrow">
-            The Randy's Cleaning Pros Difference
-          </p>
-
-          <h1>
-            Our 10-Step
-            <span>Gold Standard</span>
-            Cleaning Procedure
-          </h1>
-
-          <p class="gold-page-introduction">
-            Every cleaning follows a structured, top-to-bottom
-            process designed to deliver dependable, detailed,
-            and consistent results.
-          </p>
-
-          <div class="gold-page-buttons">
-
-            <a
-              href="quote.html"
-              class="button button-primary"
-            >
-              Get a Free Quote
-            </a>
-
-            <a
-              href="sms:2075581298"
-              class="button button-light"
-            >
-              Text Randy
-            </a>
-
-          </div>
-
-        </div>
-
-
-        <div class="gold-page-hero-photo">
-
-          <img
-            src="GoldStandardCleaner.jpg"
-            alt="Professional cleaner wearing a navy Randy's Cleaning Pros polo and matching visor while using a premium cordless stick vacuum"
-          >
-
-          <div class="photo-brand-badge">
-
-            <strong>
-              Randy's Cleaning Pros
-            </strong>
-
-            <span>
-              Care. Detail. Consistency.
-            </span>
-
-          </div>
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- ===================================================
-         INTRODUCTION
-         =================================================== -->
-
-    <section class="section section-white">
-
-      <div class="container narrow-container">
-
-        <div class="section-heading centered-heading">
-
-          <p class="eyebrow">
-            More Than Basic Cleaning
-          </p>
-
-          <h2>
-            A Complete System Built Around Quality
-          </h2>
-
-          <p>
-            Our Gold Standard procedure helps ensure that
-            important areas are not overlooked. We clean with
-            purpose, follow a consistent order, and give each
-            room the attention it deserves.
-          </p>
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- ===================================================
-         TEN STEPS
-         =================================================== -->
-
-    <section class="section gold-steps-section">
-
-      <div class="container">
-
-        <div class="section-heading centered-heading light-heading">
-
-          <p class="eyebrow gold-text">
-            Our Professional Process
-          </p>
-
-          <h2>
-            The 10-Step Gold Standard
-          </h2>
-
-          <p>
-            Each visit follows the same dependable foundation,
-            adjusted to the needs of your home, rental, or office.
-          </p>
-
-        </div>
-
-
-        <div class="gold-steps-grid">
-
-
-          <article class="gold-step-card">
-
-            <div class="gold-step-number">
-              1
-            </div>
-
-            <h3>
-              Walkthrough and Preparation
-            </h3>
-
-            <p>
-              We review the space, identify priority areas,
-              organize our supplies, and prepare to clean safely
-              and efficiently.
-            </p>
-
-          </article>
-
-
-          <article class="gold-step-card">
-
-            <div class="gold-step-number">
-              2
-            </div>
-
-            <h3>
-              Declutter and Reset
-            </h3>
-
-            <p>
-              We carefully straighten accessible areas and move
-              light items as needed so surfaces can be cleaned
-              properly.
-            </p>
-
-          </article>
-
-
-          <article class="gold-step-card">
-
-            <div class="gold-step-number">
-              3
-            </div>
-
-            <h3>
-              High Dusting
-            </h3>
-
-            <p>
-              We begin at the top by addressing reachable ceiling
-              corners, vents, light fixtures, trim, and other
-              elevated surfaces.
-            </p>
-
-          </article>
-
-
-          <article class="gold-step-card">
-
-            <div class="gold-step-number">
-              4
-            </div>
-
-            <h3>
-              Surface Dusting
-            </h3>
-
-            <p>
-              Furniture, shelves, ledges, décor, and accessible
-              surfaces are dusted carefully with attention to
-              detail.
-            </p>
-
-          </article>
-
-
-          <article class="gold-step-card">
-
-            <div class="gold-step-number">
-              5
-            </div>
-
-            <h3>
-              Wipe and Sanitize
-            </h3>
-
-            <p>
-              High-touch areas and washable surfaces are wiped
-              using professional methods and appropriate products.
-            </p>
-
-          </article>
-
-
-          <article class="gold-step-card">
-
-            <div class="gold-step-number">
-              6
-            </div>
-
-            <h3>
-              Kitchen Detailing
-            </h3>
-
-            <p>
-              Counters, sinks, appliance exteriors, cabinet fronts,
-              and other included kitchen surfaces receive detailed
-              attention.
-            </p>
-
-          </article>
-
-
-          <article class="gold-step-card">
-
-            <div class="gold-step-number">
-              7
-            </div>
-
-            <h3>
-              Bathroom Cleaning
-            </h3>
-
-            <p>
-              Toilets, sinks, mirrors, tubs, showers, fixtures,
-              and bathroom surfaces are cleaned and refreshed.
-            </p>
-
-          </article>
-
-
-          <article class="gold-step-card">
-
-            <div class="gold-step-number">
-              8
-            </div>
-
-            <h3>
-              Vacuuming
-            </h3>
-
-            <p>
-              Carpets, rugs, edges, and accessible floor areas
-              are vacuumed using premium professional-style
-              equipment.
-            </p>
-
-          </article>
-
-
-          <article class="gold-step-card">
-
-            <div class="gold-step-number">
-              9
-            </div>
-
-            <h3>
-              Floor Washing
-            </h3>
-
-            <p>
-              Hard floors are carefully washed using methods
-              appropriate for the flooring material and condition.
-            </p>
-
-          </article>
-
-
-          <article class="gold-step-card">
-
-            <div class="gold-step-number">
-              10
-            </div>
-
-            <h3>
-              Final Inspection
-            </h3>
-
-            <p>
-              We complete a final room-by-room review, straighten
-              finishing touches, and check the overall presentation.
-            </p>
-
-          </article>
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- ===================================================
-         ADVERTISING PHOTO SECTION
-         =================================================== -->
-
-    <section class="section section-soft">
-
-      <div class="container gold-feature-grid">
-
-        <div class="gold-feature-photo">
-
-          <img
-            src="GoldStandardVacuum.jpg"
-            alt="Professional cleaner in a navy uniform and matching visor vacuuming a bright modern living room with a premium cordless stick vacuum"
-          >
-
-        </div>
-
-
-        <div class="gold-feature-content">
-
-          <p class="eyebrow">
-            Professional Appearance
-          </p>
-
-          <h2>
-            The Right Image. The Right Equipment. The Right Care.
-          </h2>
-
-          <p>
-            Our professional image is part of the experience.
-            The featured cleaner wears a coordinated navy uniform
-            and matching visor displaying the Randy's Cleaning Pros
-            brand.
-          </p>
-
-          <p>
-            We use modern, premium-style cleaning equipment,
-            including a sleek cordless stick vacuum with strong
-            suction and a clear collection bin.
-          </p>
-
-          <ul class="gold-check-list">
-
-            <li>
-              Clean navy company polo
-            </li>
-
-            <li>
-              Matching navy hat or visor
-            </li>
-
-            <li>
-              Modern cordless cleaning equipment
-            </li>
-
-            <li>
-              Respectful and professional presentation
-            </li>
-
-          </ul>
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- ===================================================
-         QUALITY PROMISE
-         =================================================== -->
-
-    <section class="section quality-promise-section">
-
-      <div class="container">
-
-        <div class="quality-promise-card">
-
-          <div class="quality-promise-badge">
-
-            <span class="quality-promise-number">
-              24
-            </span>
-
-            <span class="quality-promise-hours">
-              Hour
-            </span>
-
-            <span class="quality-promise-label">
-              Satisfaction Promise
-            </span>
-
-          </div>
-
-
-          <div class="quality-promise-content">
-
-            <p class="eyebrow gold-text">
-              Our Commitment
-            </p>
-
-            <h2>
-              We Stand Behind Our Work
-            </h2>
-
-            <p>
-              Please let us know within 24 hours if an included
-              area does not meet your reasonable expectations.
-              We will communicate with you and work to make it right.
-            </p>
-
-          </div>
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- ===================================================
-         TRUST FEATURES
-         =================================================== -->
-
-    <section class="section section-white">
-
-      <div class="container">
-
-        <div class="trust-grid gold-page-trust-grid">
-
-
-          <article class="trust-card">
-
-            <div class="trust-icon">
-              ✓
-            </div>
-
-            <h3>
-              Consistent Process
-            </h3>
-
-            <p>
-              A clear system helps us provide dependable service
-              from one visit to the next.
-            </p>
-
-          </article>
-
-
-          <article class="trust-card">
-
-            <div class="trust-icon">
-              ★
-            </div>
-
-            <h3>
-              Detailed Results
-            </h3>
-
-            <p>
-              We focus on the smaller details that help a room
-              feel properly refreshed.
-            </p>
-
-          </article>
-
-
-          <article class="trust-card">
-
-            <div class="trust-icon">
-              ♥
-            </div>
-
-            <h3>
-              Respectful Care
-            </h3>
-
-            <p>
-              Your home and belongings are treated with care,
-              professionalism, and respect.
-            </p>
-
-          </article>
-
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- ===================================================
-         FINAL CALL TO ACTION
-         =================================================== -->
-
-    <section class="bottom-quote-section">
-
-      <div class="container bottom-quote-content">
-
-        <p class="eyebrow gold-text">
-          Experience the Difference
+        <p class="eyebrow">
+          Randy's Cleaning Pros
         </p>
 
-        <h2>
-          Ready for a Gold Standard Cleaning?
-        </h2>
+        <h1>
+          More Than a Cleaning.
+          <span class="gold-text">
+            It's Our Standard.
+          </span>
+        </h1>
 
-        <p>
-          Tell us about your space and receive a personalized
-          cleaning estimate.
+        <p class="hero-description">
+          Our Gold Standard is the promise behind every visit:
+          dependable service, careful attention to detail and
+          genuine respect for your home.
         </p>
 
-        <div class="bottom-quote-buttons">
+        <blockquote class="hero-quote">
+          “We don't believe in doing the bare minimum.
+          We believe in showing up, doing the job right and
+          leaving every home feeling truly cared for.”
+        </blockquote>
+
+        <div class="button-row">
 
           <a
             href="quote.html"
-            class="button button-primary"
+            class="button button-green"
           >
-            Get My Free Quote
+            ✨ Get a Free Quote
           </a>
 
           <a
             href="sms:2075581298"
-            class="button button-outline-light"
+            class="button button-outline"
           >
-            Text 207-558-1298
+            💬 Text Randy
+          </a>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- ===================================================
+         VALUES
+         =================================================== -->
+
+    <section class="section section-white">
+
+      <div class="container">
+
+        <div class="section-heading">
+
+          <p class="small-title">
+            What Guides Our Work
+          </p>
+
+          <h2>
+            Our <span>Gold Standard Values</span>
+          </h2>
+
+          <p>
+            These are more than words on a website.
+            They're the values we bring into every home
+            and every cleaning.
+          </p>
+
+          <div class="gold-line"></div>
+
+        </div>
+
+        <div class="values-grid">
+
+          <article class="value-card">
+            <div class="value-icon">❤️</div>
+            <h3>Respect</h3>
+            <p>
+              We treat your home, your family, your pets and
+              your belongings with kindness and care.
+            </p>
+          </article>
+
+          <article class="value-card">
+            <div class="value-icon">✨</div>
+            <h3>Excellence</h3>
+            <p>
+              We pay attention to the little things because
+              doing the job right matters to us.
+            </p>
+          </article>
+
+          <article class="value-card">
+            <div class="value-icon">🤝</div>
+            <h3>Integrity</h3>
+            <p>
+              We communicate honestly, keep our word and take
+              responsibility for the work we provide.
+            </p>
+          </article>
+
+          <article class="value-card">
+            <div class="value-icon">😊</div>
+            <h3>Friendly Service</h3>
+            <p>
+              We believe a friendly smile and good communication
+              are just as important as a clean home.
+            </p>
+          </article>
+
+          <article class="value-card">
+            <div class="value-icon">🏡</div>
+            <h3>Consistency</h3>
+            <p>
+              We follow the same careful process on every visit
+              so quality doesn't depend on the day.
+            </p>
+          </article>
+
+          <article class="value-card">
+            <div class="value-icon">🌱</div>
+            <h3>Always Improving</h3>
+            <p>
+              We listen, learn and keep improving because
+              “good enough” isn't our Gold Standard.
+            </p>
+          </article>
+
+          <article class="value-card">
+            <div class="value-icon">💚</div>
+            <h3>Gratitude</h3>
+            <p>
+              We appreciate every customer who gives us the
+              opportunity to care for their home.
+            </p>
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- ===================================================
+         10-STEP SYSTEM
+         =================================================== -->
+
+    <section class="section section-navy">
+
+      <div class="container">
+
+        <div class="system-card">
+
+          <div class="system-number">10</div>
+
+          <h2>
+            Our 10-Step
+            <span>Gold Standard</span>
+            Cleaning System
+          </h2>
+
+          <p>
+            A great cleaning shouldn't depend on luck.
+            That's why we follow a structured 10-step process
+            designed to help us clean each room thoroughly,
+            consistently and with purpose.
+          </p>
+
+          <p>
+            Our system keeps us organized and helps make sure
+            the small details don't get overlooked.
+          </p>
+
+          <div class="system-features">
+
+            <div class="system-feature">
+              <span class="feature-check">✔</span>
+              <span>Consistent room-by-room cleaning</span>
+            </div>
+
+            <div class="system-feature">
+              <span class="feature-check">✔</span>
+              <span>Top-to-bottom attention to detail</span>
+            </div>
+
+            <div class="system-feature">
+              <span class="feature-check">✔</span>
+              <span>A careful final quality check</span>
+            </div>
+
+            <div class="system-feature">
+              <span class="feature-check">✔</span>
+              <span>Respect for your home and belongings</span>
+            </div>
+
+          </div>
+
+          <blockquote class="system-quote">
+            “Consistency creates quality, and quality builds trust.”
+          </blockquote>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- ===================================================
+         GUARANTEE
+         =================================================== -->
+
+    <section class="section section-white">
+
+      <div class="container">
+
+        <div class="guarantee-main">
+
+          <div class="guarantee-shield">🛡️</div>
+
+          <p class="eyebrow">
+            Our Promise to You
+          </p>
+
+          <h2>
+            The 100%
+            <span>Gold Standard Guarantee</span>
+          </h2>
+
+          <p class="guarantee-lead">
+            We want you to feel confident when you choose
+            Randy's Cleaning Pros. If we miss something,
+            we're not going to make the process difficult.
+            We'll simply work with you to make it right.
+          </p>
+
+          <div class="guarantee-options">
+
+            <article class="guarantee-option">
+
+              <div class="option-icon">🔄</div>
+
+              <h3>We'll Come Back</h3>
+
+              <p>
+                Let us know within 24 hours and we'll return
+                to address any area that was reasonably missed.
+              </p>
+
+            </article>
+
+            <article class="guarantee-option">
+
+              <div class="option-icon">💵</div>
+
+              <h3>20% Back in Your Pocket</h3>
+
+              <p>
+                If the issue is too small for a return visit
+                or cannot reasonably be corrected, we'll refund
+                20% of the affected cleaning service.
+              </p>
+
+            </article>
+
+          </div>
+
+          <div class="guarantee-highlight">
+            “If you're not happy, we're not finished.”
+          </div>
+
+          <p class="guarantee-note">
+            Concerns must be reported within 24 hours of the
+            completed cleaning. The guarantee applies to areas
+            included in the agreed cleaning service.
+          </p>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- ===================================================
+         OUR PROMISE
+         =================================================== -->
+
+    <section class="section">
+
+      <div class="container">
+
+        <div class="promise-card">
+
+          <div class="promise-icon">🏆</div>
+
+          <h2>Our Promise</h2>
+
+          <blockquote>
+            “We don't just clean homes. We care for the people
+            who live in them.”
+          </blockquote>
+
+          <p>
+            We're not trying to be the biggest cleaning company.
+            We want to be the company you feel comfortable calling
+            again and recommending to your family, friends and
+            neighbors. Every visit is another opportunity for us
+            to earn your trust.
+          </p>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- ===================================================
+         CALL TO ACTION
+         =================================================== -->
+
+    <section class="cta">
+
+      <div class="container">
+
+        <h2>
+          Ready to Experience the
+          <span>Gold Standard?</span>
+        </h2>
+
+        <p>
+          Tell us about your home and what kind of cleaning
+          you're looking for. We'll help you find an option
+          that works for your needs.
+        </p>
+
+        <div class="button-row">
+
+          <a
+            href="quote.html"
+            class="button button-green"
+          >
+            🧹 Request a Free Quote
+          </a>
+
+          <a
+            href="sms:2075581298"
+            class="button button-gold"
+          >
+            📱 Text 207-558-1298
           </a>
 
         </div>
@@ -708,109 +1445,77 @@
 
   </main>
 
-
   <!-- =====================================================
        FOOTER
        ===================================================== -->
 
   <footer class="site-footer">
 
-    <div class="container footer-grid">
+    <div class="container">
 
       <div class="footer-brand">
-
-        <img
-          src="Photoroomlogo11.png"
-          alt="Randy's Cleaning Pros"
-          class="footer-logo"
-        >
-
-        <h2>
-          Randy's Cleaning Pros
-        </h2>
-
-        <p class="footer-slogan">
-          Setting the Gold Standard in Cleaning
-        </p>
-
-        <p>
-          Professional residential, rental, move, and office
-          cleaning throughout Southern Maine.
-        </p>
-
+        <span class="white">Randy's</span>
+        <span class="green"> Cleaning Pros</span>
       </div>
 
+      <p>
+        Setting the Gold Standard in Cleaning
+      </p>
 
       <div class="footer-links">
 
-        <h3>
-          Quick Links
-        </h3>
+        <a href="index.html">Home</a>
 
-        <a href="index.html">
-          Home
-        </a>
+        <a href="services.html">Services</a>
 
-        <a href="services.html">
-          Services
-        </a>
+        <a href="contact.html">Contact</a>
 
-        <a href="gold-standard.html">
-          Gold Standard
-        </a>
+        <a href="privacy.html">Privacy</a>
 
-        <a href="about.html">
-          About Us
-        </a>
-
-        <a href="contact.html">
-          Contact
-        </a>
-
-        <a href="quote.html">
-          Free Quote
-        </a>
+        <a href="terms.html">Terms</a>
 
       </div>
-
-
-      <div class="footer-contact">
-
-        <h3>
-          Contact
-        </h3>
-
-        <p>
-          Serving Southern Maine
-        </p>
-
-        <a href="sms:2075581298">
-          Text: 207-558-1298
-        </a>
-
-        <p>
-          Texting is preferred for faster communication.
-        </p>
-
-      </div>
-
-    </div>
-
-
-    <div class="footer-bottom">
-
-      <p>
-        &copy;
-        <span id="year"></span>
-        Randy's Cleaning Pros. All rights reserved.
-      </p>
 
     </div>
 
   </footer>
 
+  <!-- =====================================================
+       MENU JAVASCRIPT
+       ===================================================== -->
 
-  <script src="script.js"></script>
+  <script>
+    const menuButton = document.getElementById("menuButton");
+    const menuPanel = document.getElementById("menuPanel");
+
+    menuButton.addEventListener("click", function () {
+      const isOpen = menuPanel.classList.toggle("open");
+
+      menuButton.setAttribute(
+        "aria-expanded",
+        isOpen ? "true" : "false"
+      );
+    });
+
+    document.addEventListener("click", function (event) {
+      const clickedInsideMenu =
+        menuPanel.contains(event.target) ||
+        menuButton.contains(event.target);
+
+      if (!clickedInsideMenu) {
+        menuPanel.classList.remove("open");
+        menuButton.setAttribute("aria-expanded", "false");
+      }
+    });
+
+    document.addEventListener("keydown", function (event) {
+      if (event.key === "Escape") {
+        menuPanel.classList.remove("open");
+        menuButton.setAttribute("aria-expanded", "false");
+        menuButton.focus();
+      }
+    });
+  </script>
 
 </body>
 
