@@ -16,7 +16,7 @@
 
   <title>Randy's Cleaning Pros | Southern Maine Cleaning</title>
 
-  <!-- Montserrat Font -->
+  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
 
   <link
@@ -26,73 +26,115 @@
   >
 
   <link
-    href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,500;0,600;0,700;0,800;1,600;1,700;1,800&family=Open+Sans:wght@400;600;700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,600;0,700;0,800;0,900;1,700;1,800;1,900&family=Open+Sans:wght@400;600;700&display=swap"
     rel="stylesheet"
   >
 
-  <!-- Website Styles -->
+  <!-- Website CSS -->
   <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
 
   <!-- =========================================
-       HEADER AND LOGO
-       This header is not fixed to the screen.
+       HEADER
        ========================================= -->
   <header class="site-header">
 
-    <div class="logo-area">
+    <!-- Top menu area -->
+    <div class="menu-bar">
 
-      <!-- Transparent logo -->
-      <a href="index.html" class="logo-link">
-        <img
-          src="Photoroomlogo11.png"
-          alt="Randy's Cleaning Pros logo"
-          class="main-logo"
-        >
+      <a href="index.html" class="small-brand">
+        Randy's Cleaning Pros
       </a>
 
-      <!-- Business name underneath logo -->
+      <button
+        class="menu-toggle"
+        id="menuToggle"
+        type="button"
+        aria-label="Open website menu"
+        aria-controls="mainMenu"
+        aria-expanded="false"
+      >
+        <span class="menu-word">MENU</span>
+
+        <span class="hamburger" aria-hidden="true">
+          <span></span>
+          <span></span>
+          <span></span>
+        </span>
+      </button>
+
+    </div>
+
+
+    <!-- Dropdown menu -->
+    <nav
+      class="dropdown-menu"
+      id="mainMenu"
+      aria-label="Main website navigation"
+    >
+
+      <a href="index.html" class="menu-link active">
+        Home
+      </a>
+
+      <a href="services.html" class="menu-link">
+        Services
+      </a>
+
+      <a href="gold-standard.html" class="menu-link">
+        Gold Standard
+      </a>
+
+      <a href="about.html" class="menu-link">
+        About Us
+      </a>
+
+      <a href="reviews.html" class="menu-link">
+        Reviews
+      </a>
+
+      <a href="charity.html" class="menu-link">
+        Our Charity
+      </a>
+
+      <a href="contact.html" class="menu-link">
+        Contact
+      </a>
+
+      <a href="free-quote.html" class="menu-quote-link">
+        Get a Free Quote
+      </a>
+
+    </nav>
+
+
+    <!-- Main logo area -->
+    <div class="logo-area">
+
+      <a href="index.html" class="logo-link">
+
+        <img
+          src="Photoroomlogo11.png"
+          alt="Randy's Cleaning Pros mascot and logo"
+          class="main-logo"
+        >
+
+      </a>
+
       <h1 class="business-name">
         <span class="randy-name">Randy's</span>
         <span class="cleaning-name">Cleaning Pros</span>
       </h1>
 
       <p class="main-slogan">
-        Setting the <span>Gold Standard</span> in Cleaning
+        Setting the
+        <span>Gold Standard</span>
+        in Cleaning
       </p>
 
     </div>
-
-    <!-- Navigation buttons -->
-    <nav class="main-navigation" aria-label="Main navigation">
-
-      <a href="index.html" class="nav-button active">
-        Home
-      </a>
-
-      <a href="services.html" class="nav-button">
-        Services
-      </a>
-
-      <a href="gold-standard.html" class="nav-button">
-        Gold Standard
-      </a>
-
-      <a href="about.html" class="nav-button">
-        About Us
-      </a>
-
-      <a href="reviews.html" class="nav-button">
-        Reviews
-      </a>
-
-      <a href="contact.html" class="nav-button">
-        Contact
-      </a>
-
-    </nav>
 
   </header>
 
@@ -100,26 +142,34 @@
   <main>
 
     <!-- =========================================
-         HERO / SELLING PITCH
+         HERO SECTION
          ========================================= -->
     <section class="hero-section">
 
       <div class="hero-content">
 
-        <div class="promotion-label">
-          New Customer Special
-        </div>
+        <p class="promotion-label">
+          Southern Maine Cleaning Professionals
+        </p>
 
         <h2>
           A More Detailed Clean.
-          <span>A Higher Standard of Care.</span>
+
+          <span>
+            A Higher Standard of Care.
+          </span>
         </h2>
 
         <p class="hero-description">
-          Your home deserves more than a quick surface cleaning.
-          Randy's Cleaning Pros delivers dependable, top-to-bottom
-          cleaning with careful attention to the details that make
-          your space feel comfortable, refreshed, and truly cared for.
+          Randy's Cleaning Pros provides dependable, top-to-bottom
+          cleaning for homes, rentals, offices, and properties
+          throughout Southern Maine.
+        </p>
+
+        <p class="hero-description">
+          We do more than quickly wipe visible surfaces. We follow an
+          organized process, pay attention to commonly missed areas,
+          and treat every property with care and respect.
         </p>
 
         <p class="hero-promise">
@@ -141,29 +191,42 @@
       </div>
 
 
-      <!-- Promotional card -->
+      <!-- 50% discount card -->
       <aside class="promotion-card">
 
         <div class="promotion-circle">
-          <span class="promotion-number">50%</span>
-          <span class="promotion-word">OFF</span>
+
+          <span class="promotion-number">
+            50%
+          </span>
+
+          <span class="promotion-word">
+            OFF
+          </span>
+
         </div>
 
-        <h3>Your First Cleaning</h3>
+        <p class="card-label">
+          New Customer Special
+        </p>
+
+        <h3>
+          Save 50% on Your First Cleaning
+        </h3>
 
         <p>
-          New recurring customers receive 50% off their first
-          scheduled cleaning when starting a qualifying monthly,
-          biweekly, or weekly cleaning plan.
+          New recurring customers can receive 50% off their first
+          scheduled cleaning when beginning a qualifying weekly,
+          biweekly, or monthly cleaning plan.
         </p>
 
         <a href="free-quote.html" class="promotion-button">
-          Claim This Offer
+          Claim the Offer
         </a>
 
         <small>
-          New customers only. Conditions and service-area restrictions
-          may apply.
+          New customers only. Service-area restrictions and qualifying
+          recurring-service requirements may apply.
         </small>
 
       </aside>
@@ -172,51 +235,133 @@
 
 
     <!-- =========================================
-         TRUST FEATURES
+         TRUST SECTION
          ========================================= -->
     <section class="trust-section">
 
       <article class="trust-card">
-        <div class="trust-icon">✓</div>
-        <h3>Satisfaction Promise</h3>
+
+        <div class="trust-icon">
+          ✓
+        </div>
+
+        <h3>
+          Satisfaction Promise
+        </h3>
+
         <p>
-          We stand behind our work and will return to address
-          qualifying concerns reported within 24 hours.
+          Report a qualifying concern within 24 hours and we will work
+          with you to make it right.
         </p>
+
       </article>
 
-      <article class="trust-card">
-        <div class="trust-icon">★</div>
-        <h3>Gold Standard Service</h3>
-        <p>
-          Every appointment follows a consistent system designed
-          to produce dependable, top-to-bottom results.
-        </p>
-      </article>
 
       <article class="trust-card">
-        <div class="trust-icon">♥</div>
-        <h3>Respectful and Pet Friendly</h3>
+
+        <div class="trust-icon">
+          ★
+        </div>
+
+        <h3>
+          Gold Standard Process
+        </h3>
+
         <p>
-          We treat your home, belongings, family, and pets with
-          the care and respect they deserve.
+          Every visit follows an organized cleaning process designed
+          to create consistent results.
         </p>
+
       </article>
 
+
       <article class="trust-card">
-        <div class="trust-icon">◆</div>
-        <h3>Professional Cleaning</h3>
+
+        <div class="trust-icon">
+          ♥
+        </div>
+
+        <h3>
+          Pet Friendly
+        </h3>
+
         <p>
-          Uniformed, non-smoking cleaning professionals focused
-          on reliability, communication, and attention to detail.
+          We treat your home, belongings, family, and pets with care
+          and respect.
         </p>
+
+      </article>
+
+
+      <article class="trust-card">
+
+        <div class="trust-icon">
+          ◆
+        </div>
+
+        <h3>
+          Professional Service
+        </h3>
+
+        <p>
+          Uniformed, non-smoking professionals focused on dependable
+          communication and attention to detail.
+        </p>
+
       </article>
 
     </section>
 
 
     <!-- =========================================
-         GOLD STANDARD BADGE SECTION
+         WORKER PHOTO SECTION 1
+         ========================================= -->
+    <section class="work-section">
+
+      <div class="work-photo">
+
+        <img
+          src="worker-cleaning-1.jpg"
+          alt="Randy's Cleaning Pros worker cleaning a kitchen while wearing blue gloves"
+          loading="lazy"
+        >
+
+      </div>
+
+      <div class="work-content">
+
+        <p class="section-label">
+          Care You Can See
+        </p>
+
+        <h2>
+          Professional Cleaning With Attention to Detail
+        </h2>
+
+        <p>
+          Our cleaners arrive prepared to work carefully and
+          efficiently. We use professional methods, appropriate
+          products, clean uniforms, and blue protective gloves while
+          performing cleaning tasks.
+        </p>
+
+        <p>
+          From kitchens and bathrooms to bedrooms and living spaces,
+          we work methodically instead of rushing from one task to the
+          next.
+        </p>
+
+        <a href="about.html" class="primary-button">
+          Learn About Our Company
+        </a>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================================
+         GOLD STANDARD FEATURE
          ========================================= -->
     <section class="gold-standard-section">
 
@@ -227,10 +372,23 @@
         </div>
 
         <div class="badge-center">
-          <span class="badge-small-text">Randy's</span>
-          <strong>GOLD</strong>
-          <span>STANDARD</span>
-          <small>10-Step Cleaning Procedure</small>
+
+          <span class="badge-small-text">
+            Randy's
+          </span>
+
+          <strong>
+            GOLD
+          </strong>
+
+          <span>
+            STANDARD
+          </span>
+
+          <small>
+            10-Step Cleaning Procedure
+          </small>
+
         </div>
 
         <div class="badge-ribbon">
@@ -242,24 +400,30 @@
 
       <div class="gold-standard-content">
 
-        <p class="section-label">
+        <p class="section-label gold-label">
           Our Signature Cleaning System
         </p>
 
         <h2>
-          The 10-Step <span>Gold Standard</span> Procedure
+          Setting the
+          <span>Gold Standard</span>
+          in Cleaning
         </h2>
 
         <p>
-          Our structured cleaning procedure helps ensure that every
-          room receives consistent attention. Instead of rushing from
-          task to task, we follow an organized top-to-bottom process
-          designed to reduce missed areas and deliver a more complete
-          result.
+          Our 10-Step Gold Standard Cleaning Procedure gives every
+          appointment structure and purpose. It helps our cleaners
+          work from top to bottom, reduce missed areas, and complete a
+          final quality check before leaving.
         </p>
 
-        <a href="gold-standard.html" class="primary-button">
-          Discover the Gold Standard
+        <p class="gold-statement">
+          A more organized process helps create a more dependable
+          cleaning experience.
+        </p>
+
+        <a href="gold-standard.html" class="gold-button">
+          Discover Our Gold Standard
         </a>
 
       </div>
@@ -268,119 +432,46 @@
 
 
     <!-- =========================================
-         10-STEP PROCEDURE
+         WORKER PHOTO SECTION 2
          ========================================= -->
-    <section class="procedure-section">
+    <section class="work-section reverse">
 
-      <div class="section-heading">
+      <div class="work-photo">
 
-        <p class="section-label">
-          How We Raise the Standard
-        </p>
-
-        <h2>
-          Our 10-Step Cleaning Procedure
-        </h2>
-
-        <p>
-          Each cleaning is adapted to your home and selected service,
-          while following our organized quality-control process.
-        </p>
+        <img
+          src="worker-cleaning-2.jpg"
+          alt="Randy's Cleaning Pros worker cleaning a bathroom while wearing blue gloves"
+          loading="lazy"
+        >
 
       </div>
 
+      <div class="work-content">
 
-      <div class="procedure-grid">
+        <p class="section-label">
+          Top-to-Bottom Cleaning
+        </p>
 
-        <article class="procedure-card">
-          <span class="step-number">01</span>
-          <h3>Inspect and Prepare</h3>
-          <p>
-            We review the space, identify priority areas, and prepare
-            the proper supplies before cleaning begins.
-          </p>
-        </article>
+        <h2>
+          A Cleaner Space Without the Stress
+        </h2>
 
-        <article class="procedure-card">
-          <span class="step-number">02</span>
-          <h3>Remove Clutter Carefully</h3>
-          <p>
-            Light items are handled respectfully so surfaces can be
-            cleaned without unnecessarily reorganizing belongings.
-          </p>
-        </article>
+        <p>
+          Cleaning can take time and energy away from your family,
+          work, appointments, and the things you enjoy. Our goal is to
+          give you that time back while helping your home feel clean,
+          refreshed, and comfortable.
+        </p>
 
-        <article class="procedure-card">
-          <span class="step-number">03</span>
-          <h3>Clean From Top to Bottom</h3>
-          <p>
-            Higher surfaces are addressed before lower surfaces to
-            prevent dust from falling onto finished areas.
-          </p>
-        </article>
+        <p>
+          We focus on reachable surfaces, fixtures, floors, detailed
+          areas, and the overall presentation of each room included in
+          your service.
+        </p>
 
-        <article class="procedure-card">
-          <span class="step-number">04</span>
-          <h3>Dust Detailed Areas</h3>
-          <p>
-            We focus on reachable ledges, furniture, fixtures,
-            décor, corners, and other commonly missed areas.
-          </p>
-        </article>
-
-        <article class="procedure-card">
-          <span class="step-number">05</span>
-          <h3>Clean and Sanitize</h3>
-          <p>
-            Appropriate surfaces are cleaned using professional
-            methods and products selected for the material.
-          </p>
-        </article>
-
-        <article class="procedure-card">
-          <span class="step-number">06</span>
-          <h3>Polish and Detail</h3>
-          <p>
-            Mirrors, fixtures, stainless steel, and finished surfaces
-            receive careful attention for a polished appearance.
-          </p>
-        </article>
-
-        <article class="procedure-card">
-          <span class="step-number">07</span>
-          <h3>Vacuum Thoroughly</h3>
-          <p>
-            Carpeted areas and accessible floor edges are vacuumed
-            methodically to collect dust, hair, and debris.
-          </p>
-        </article>
-
-        <article class="procedure-card">
-          <span class="step-number">08</span>
-          <h3>Wash Hard Floors</h3>
-          <p>
-            Hard floors are carefully washed using a method suitable
-            for the flooring type and condition.
-          </p>
-        </article>
-
-        <article class="procedure-card">
-          <span class="step-number">09</span>
-          <h3>Reset the Room</h3>
-          <p>
-            Furniture and approved items are returned neatly so the
-            room feels comfortable, refreshed, and cared for.
-          </p>
-        </article>
-
-        <article class="procedure-card">
-          <span class="step-number">10</span>
-          <h3>Complete a Final Check</h3>
-          <p>
-            We perform a final visual inspection to identify anything
-            that may need attention before the service is completed.
-          </p>
-        </article>
+        <a href="services.html" class="primary-button">
+          View Cleaning Services
+        </a>
 
       </div>
 
@@ -395,12 +486,17 @@
       <div class="section-heading">
 
         <p class="section-label">
-          Professional Cleaning for Your Space
+          Cleaning Built Around Your Needs
         </p>
 
         <h2>
-          Cleaning Services Built Around Your Needs
+          Professional Services for Homes and Businesses
         </h2>
+
+        <p>
+          Choose the cleaning service that best matches your property,
+          schedule, and priorities.
+        </p>
 
       </div>
 
@@ -408,66 +504,162 @@
       <div class="services-grid">
 
         <article class="service-card">
-          <h3>Recurring Home Cleaning</h3>
+
+          <span class="service-number">
+            01
+          </span>
+
+          <h3>
+            Recurring Home Cleaning
+          </h3>
+
           <p>
-            Weekly, biweekly, and monthly cleaning plans that help
-            keep your home consistently clean and comfortable.
+            Weekly, biweekly, and monthly cleaning plans designed to
+            keep your home consistently clean.
           </p>
+
         </article>
 
-        <article class="service-card">
-          <h3>Deep Cleaning</h3>
-          <p>
-            A more detailed service for homes that need additional
-            time, attention, and top-to-bottom cleaning.
-          </p>
-        </article>
 
         <article class="service-card">
-          <h3>Move-In and Move-Out</h3>
+
+          <span class="service-number">
+            02
+          </span>
+
+          <h3>
+            Deep Cleaning
+          </h3>
+
           <p>
-            Detailed cleaning designed to prepare an empty home or
-            apartment for its next chapter.
+            A more detailed service for homes needing additional time,
+            attention, and top-to-bottom care.
           </p>
+
         </article>
 
-        <article class="service-card">
-          <h3>Airbnb Cleaning</h3>
-          <p>
-            Dependable turnover cleaning that helps create a clean,
-            welcoming experience for arriving guests.
-          </p>
-        </article>
 
         <article class="service-card">
-          <h3>Office Cleaning</h3>
+
+          <span class="service-number">
+            03
+          </span>
+
+          <h3>
+            Move-In and Move-Out
+          </h3>
+
+          <p>
+            Detailed cleaning to prepare an empty home or apartment
+            for its next chapter.
+          </p>
+
+        </article>
+
+
+        <article class="service-card">
+
+          <span class="service-number">
+            04
+          </span>
+
+          <h3>
+            Airbnb Cleaning
+          </h3>
+
+          <p>
+            Dependable turnover cleaning that helps create a welcoming
+            experience for arriving guests.
+          </p>
+
+        </article>
+
+
+        <article class="service-card">
+
+          <span class="service-number">
+            05
+          </span>
+
+          <h3>
+            Office Cleaning
+          </h3>
+
           <p>
             Professional cleaning for offices and smaller commercial
             spaces that value cleanliness and presentation.
           </p>
+
         </article>
 
+
         <article class="service-card">
-          <h3>Customized Cleaning</h3>
+
+          <span class="service-number">
+            06
+          </span>
+
+          <h3>
+            Customized Cleaning
+          </h3>
+
           <p>
-            Tell us what your property needs, and we will help create
-            a cleaning plan based on your priorities.
+            Tell us what your property needs and we will help create a
+            plan based on your priorities.
           </p>
+
         </article>
 
       </div>
 
       <div class="center-button">
+
         <a href="services.html" class="primary-button">
           View All Services
         </a>
+
       </div>
 
     </section>
 
 
     <!-- =========================================
-         FINAL FREE QUOTE SECTION
+         WORKER PHOTO SECTION 3
+         ========================================= -->
+    <section class="photo-banner">
+
+      <img
+        src="worker-cleaning-3.jpg"
+        alt="Randy's Cleaning Pros team member professionally cleaning a home"
+        loading="lazy"
+      >
+
+      <div class="photo-banner-overlay">
+
+        <p class="section-label gold-label">
+          Reliable Service
+        </p>
+
+        <h2>
+          Your Home Deserves More Than a Rushed Cleaning
+        </h2>
+
+        <p>
+          Experience an organized cleaning service built around care,
+          consistency, respect, and attention to detail.
+        </p>
+
+        <a href="free-quote.html" class="gold-button">
+          Request a Free Quote
+        </a>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================================
+         FINAL QUOTE SECTION
          ========================================= -->
     <section class="final-quote-section">
 
@@ -482,13 +674,10 @@
         </h2>
 
         <p>
-          Spend less time worrying about cleaning and more time
-          enjoying a space that feels refreshed, comfortable, and
-          cared for. Tell us about your home and receive a personalized
-          cleaning quote.
+          Tell us about your home, rental, office, or property and
+          receive a personalized cleaning quote based on your needs.
         </p>
 
-        <!-- Opens separate free quote page -->
         <a href="free-quote.html" class="large-quote-button">
           Get My Free Quote
         </a>
@@ -510,22 +699,29 @@
   <footer class="site-footer">
 
     <div class="footer-brand">
+
       <h2>
-        <span>Randy's</span> Cleaning Pros
+        <span>Randy's</span>
+        Cleaning Pros
       </h2>
 
       <p>
         Setting the Gold Standard in Cleaning
       </p>
+
     </div>
 
     <div class="footer-links">
+
       <a href="index.html">Home</a>
       <a href="services.html">Services</a>
       <a href="gold-standard.html">Gold Standard</a>
       <a href="about.html">About</a>
+      <a href="reviews.html">Reviews</a>
+      <a href="charity.html">Charity</a>
       <a href="free-quote.html">Free Quote</a>
       <a href="contact.html">Contact</a>
+
     </div>
 
     <p class="copyright">
@@ -533,6 +729,10 @@
     </p>
 
   </footer>
+
+
+  <!-- Website JavaScript -->
+  <script src="script.js"></script>
 
 </body>
 </html>
