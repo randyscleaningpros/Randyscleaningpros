@@ -16,7 +16,6 @@
 
   <title>Services | Randy's Cleaning Pros</title>
 
-  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
 
   <link
@@ -34,44 +33,32 @@
     /* =========================================================
        RANDY'S CLEANING PROS
        SERVICES PAGE
-       File name: services.html
+       Designed to match index.html
        ========================================================= */
 
     :root {
-      /* Navy colors */
-      --navy-bright: #08245c;
-      --navy-middle: #04194a;
+      --navy-top: #071d50;
       --navy-main: #010e38;
       --navy-deep: #01091d;
+      --navy-black: #000719;
 
-      /* Green colors */
-      --green-dark: #356b0d;
+      --green-dark: #276800;
       --green: #579b12;
-      --green-light: #6caf25;
+      --green-light: #70ba25;
 
-      /* Gold colors */
-      --gold-dark: #a97812;
+      --gold-dark: #b3841c;
       --gold: #e4b63f;
       --gold-light: #f4d77b;
 
-      /* Neutral colors */
       --white: #ffffff;
-      --off-white: #f5f7fb;
       --soft-white: #d7dfeb;
 
-      /* Transparent colors */
-      --white-border: rgba(255, 255, 255, 0.14);
-      --white-card: rgba(255, 255, 255, 0.055);
-      --white-card-hover: rgba(255, 255, 255, 0.085);
+      --border-white: rgba(255, 255, 255, 0.14);
+      --card-background: rgba(255, 255, 255, 0.055);
 
-      /* Shadows */
+      --shadow: 0 22px 55px rgba(0, 0, 0, 0.34);
       --soft-shadow: 0 14px 34px rgba(0, 0, 0, 0.22);
-      --deep-shadow: 0 22px 54px rgba(0, 0, 0, 0.34);
     }
-
-    /* =========================================================
-       RESET
-       ========================================================= */
 
     * {
       box-sizing: border-box;
@@ -88,21 +75,21 @@
 
       background:
         radial-gradient(
-          circle at top right,
-          rgba(87, 155, 18, 0.14),
-          transparent 30%
+          circle at 50% 12%,
+          rgba(30, 71, 130, 0.42),
+          transparent 27%
         ),
         radial-gradient(
-          circle at top left,
-          rgba(23, 59, 120, 0.3),
-          transparent 35%
+          circle at top right,
+          rgba(87, 155, 18, 0.08),
+          transparent 25%
         ),
         linear-gradient(
           180deg,
-          var(--navy-bright) 0%,
-          var(--navy-middle) 18%,
-          var(--navy-main) 50%,
-          var(--navy-deep) 100%
+          var(--navy-top) 0%,
+          var(--navy-main) 28%,
+          var(--navy-deep) 65%,
+          var(--navy-black) 100%
         );
 
       background-attachment: fixed;
@@ -153,85 +140,95 @@
       position: relative;
       z-index: 1000;
 
-      border-bottom: 1px solid var(--white-border);
+      min-height: 92px;
 
-      background: rgba(1, 9, 29, 0.94);
-      backdrop-filter: blur(12px);
+      background:
+        linear-gradient(
+          180deg,
+          rgba(1, 14, 56, 0.96),
+          rgba(1, 14, 56, 0.82)
+        );
     }
 
-    .menu-bar {
+    .top-bar {
       width: min(1220px, 92%);
-      min-height: 78px;
+      min-height: 92px;
       margin: 0 auto;
 
       display: flex;
       align-items: center;
-      justify-content: space-between;
-
-      gap: 20px;
+      justify-content: flex-end;
     }
-
-    .small-brand {
-      display: inline-flex;
-      align-items: center;
-      flex-wrap: wrap;
-
-      text-decoration: none;
-
-      font-family: "Montserrat", sans-serif;
-      font-size: clamp(0.92rem, 2.8vw, 1.17rem);
-      font-style: italic;
-      font-weight: 800;
-      letter-spacing: -0.025em;
-    }
-
-    .brand-randy {
-      color: var(--white);
-    }
-
-    .brand-cleaning {
-      margin-left: 6px;
-      color: var(--green);
-    }
-
-    /* Text-only menu button */
 
     .menu-toggle {
-      min-width: 116px;
-      min-height: 50px;
-      padding: 12px 22px;
+      min-width: 160px;
+      min-height: 68px;
+      padding: 15px 28px;
 
-      border: 2px solid var(--green);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+
+      gap: 18px;
+
+      border: 4px solid var(--gold);
       border-radius: 999px;
 
-      background: var(--green-dark);
+      background:
+        linear-gradient(
+          180deg,
+          #347b08,
+          #245f00
+        );
+
       color: var(--white);
 
       cursor: pointer;
 
+      box-shadow:
+        0 0 0 5px rgba(255, 255, 255, 0.08),
+        0 12px 28px rgba(0, 0, 0, 0.3);
+
       font-family: "Montserrat", sans-serif;
-      font-size: 0.88rem;
+      font-size: 1rem;
       font-weight: 900;
-      letter-spacing: 0.12em;
+      letter-spacing: 0.1em;
 
       transition:
         transform 0.2s ease,
         background-color 0.2s ease,
-        border-color 0.2s ease,
-        color 0.2s ease;
+        border-color 0.2s ease;
     }
 
     .menu-toggle:hover {
       transform: translateY(-2px);
-
-      border-color: var(--green-light);
+      border-color: var(--gold-light);
       background: var(--green);
     }
 
+    .menu-lines {
+      width: 37px;
+      display: grid;
+      gap: 7px;
+    }
+
+    .menu-lines span {
+      display: block;
+      width: 100%;
+      height: 4px;
+
+      border-radius: 999px;
+
+      background: var(--white);
+    }
+
     .menu-toggle[aria-expanded="true"] {
-      border-color: var(--gold);
       background: var(--gold);
       color: var(--navy-deep);
+    }
+
+    .menu-toggle[aria-expanded="true"] .menu-lines span {
+      background: var(--navy-deep);
     }
 
     /* =========================================================
@@ -250,23 +247,18 @@
 
       gap: 12px;
 
-      border-top: 0 solid var(--white-border);
-
       opacity: 0;
       visibility: hidden;
 
       transition:
         max-height 0.35s ease,
         padding 0.35s ease,
-        opacity 0.25s ease,
-        border-width 0.25s ease;
+        opacity 0.25s ease;
     }
 
     .dropdown-menu.open {
       max-height: 700px;
-      padding: 22px 0 28px;
-
-      border-top-width: 1px;
+      padding: 10px 0 28px;
 
       opacity: 1;
       visibility: visible;
@@ -281,10 +273,10 @@
       align-items: center;
       justify-content: center;
 
-      border: 1px solid var(--white-border);
+      border: 1px solid var(--border-white);
       border-radius: 14px;
 
-      background: rgba(255, 255, 255, 0.05);
+      background: rgba(255, 255, 255, 0.06);
       color: var(--white);
 
       text-align: center;
@@ -292,7 +284,7 @@
 
       font-family: "Montserrat", sans-serif;
       font-size: 0.9rem;
-      font-weight: 700;
+      font-weight: 800;
 
       transition:
         transform 0.2s ease,
@@ -302,15 +294,13 @@
 
     .menu-link:hover {
       transform: translateY(-2px);
-
       border-color: var(--green);
-      background: rgba(87, 155, 18, 0.18);
+      background: rgba(87, 155, 18, 0.2);
     }
 
     .menu-link.active {
-      border-color: var(--green);
+      border-color: var(--green-light);
       background: var(--green);
-      color: var(--white);
     }
 
     .menu-quote-link {
@@ -321,375 +311,337 @@
 
     .menu-quote-link:hover {
       transform: translateY(-2px);
-
-      border-color: var(--gold-light);
       background: var(--gold-light);
     }
 
     /* =========================================================
-       LOGO AREA
+       LARGE HOMEPAGE-STYLE LOGO
        ========================================================= */
 
-    .logo-area {
-      min-height: 260px;
-      padding: 28px 20px 38px;
-
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      background:
-        radial-gradient(
-          circle at center,
-          rgba(255, 255, 255, 0.055),
-          transparent 66%
-        );
-    }
-
-    .logo-link {
-      display: inline-block;
-      text-decoration: none;
-    }
-
-    .main-logo {
-      width: min(420px, 88vw);
-      max-height: 290px;
-      margin: 0 auto;
-
-      object-fit: contain;
-      background: transparent;
-
-      filter: drop-shadow(0 16px 28px rgba(0, 0, 0, 0.28));
-    }
-
-    /* =========================================================
-       SHARED BUTTONS
-       ========================================================= */
-
-    .primary-button,
-    .secondary-button,
-    .gold-button,
-    .quote-button {
-      min-height: 58px;
-      padding: 15px 29px;
-
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-
-      border: 2px solid transparent;
-      border-radius: 999px;
-
-      text-align: center;
-      text-decoration: none;
-
-      font-family: "Montserrat", sans-serif;
-      font-size: 0.97rem;
-      font-weight: 800;
-
-      transition:
-        transform 0.2s ease,
-        background-color 0.2s ease,
-        border-color 0.2s ease,
-        color 0.2s ease;
-    }
-
-    .primary-button,
-    .quote-button {
-      border-color: var(--green);
-      background: var(--green-dark);
-      color: var(--white);
-
-      box-shadow: 0 14px 30px rgba(53, 107, 13, 0.34);
-    }
-
-    .primary-button:hover,
-    .quote-button:hover {
-      transform: translateY(-3px);
-
-      border-color: var(--green-light);
-      background: var(--green);
-    }
-
-    .secondary-button {
-      border-color: rgba(255, 255, 255, 0.3);
-      background: rgba(255, 255, 255, 0.04);
-      color: var(--white);
-    }
-
-    .secondary-button:hover {
-      transform: translateY(-3px);
-
-      border-color: var(--white);
-      background: rgba(255, 255, 255, 0.1);
-    }
-
-    .gold-button {
-      border-color: var(--gold);
-      background: var(--gold);
-      color: var(--navy-deep);
-
-      box-shadow: 0 14px 30px rgba(228, 182, 63, 0.24);
-    }
-
-    .gold-button:hover {
-      transform: translateY(-3px);
-
-      border-color: var(--gold-light);
-      background: var(--gold-light);
-    }
-
-    /* =========================================================
-       HERO SECTION
-       ========================================================= */
-
-    .services-hero {
-      padding: 72px 0 82px;
-    }
-
-    .hero-layout {
-      display: grid;
-      grid-template-columns: 1.12fr 0.88fr;
-      align-items: center;
-
-      gap: 48px;
-    }
-
-    .section-label {
-      margin-bottom: 13px;
-
-      color: var(--green-light);
-
-      font-family: "Montserrat", sans-serif;
-      font-size: 0.84rem;
-      font-weight: 900;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-    }
-
-    .hero-content h1 {
-      font-family: "Montserrat", sans-serif;
-      font-size: clamp(2.6rem, 7vw, 5rem);
-      font-weight: 900;
-      line-height: 1.03;
-      letter-spacing: -0.045em;
-    }
-
-    .hero-content h1 span {
-      display: block;
-      color: var(--green-light);
-    }
-
-    .hero-description {
-      max-width: 720px;
-      margin-top: 22px;
-
-      color: var(--soft-white);
-      font-size: clamp(1rem, 2.5vw, 1.16rem);
-    }
-
-    .hero-promise {
-      margin-top: 20px;
-
-      color: var(--gold-light);
-
-      font-family: "Montserrat", sans-serif;
-      font-size: clamp(1rem, 2.5vw, 1.14rem);
-      font-style: italic;
-      font-weight: 800;
-    }
-
-    .hero-buttons {
-      margin-top: 31px;
-
-      display: flex;
-      flex-wrap: wrap;
-
-      gap: 14px;
-    }
-
-    /* Hero side card */
-
-    .hero-card {
+    .brand-hero {
       position: relative;
+
+      min-height: 830px;
+      padding: 30px 20px 50px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
       overflow: hidden;
 
-      padding: 36px;
-
-      border: 1px solid rgba(87, 155, 18, 0.52);
-      border-radius: 28px;
-
       background:
         radial-gradient(
-          circle at top right,
-          rgba(228, 182, 63, 0.12),
-          transparent 32%
+          circle at 50% 24%,
+          rgba(32, 75, 142, 0.36),
+          transparent 31%
         ),
         linear-gradient(
-          145deg,
-          rgba(87, 155, 18, 0.17),
-          rgba(255, 255, 255, 0.04)
+          180deg,
+          #061b4c 0%,
+          #010e38 48%,
+          #000821 100%
         );
-
-      box-shadow: var(--deep-shadow);
     }
 
-    .hero-card::after {
+    .brand-hero::before {
       content: "";
 
       position: absolute;
-      right: -70px;
-      bottom: -70px;
+      inset: 0;
 
-      width: 190px;
-      height: 190px;
+      pointer-events: none;
 
-      border-radius: 50%;
-
-      background: rgba(87, 155, 18, 0.08);
+      background:
+        radial-gradient(
+          ellipse at center,
+          transparent 30%,
+          rgba(0, 0, 0, 0.16) 72%,
+          rgba(0, 0, 0, 0.34) 100%
+        );
     }
 
-    .hero-card-label {
+    .brand-logo {
       position: relative;
       z-index: 1;
 
-      display: inline-block;
-      padding: 7px 13px;
+      width: min(650px, 94vw);
+      max-height: 760px;
+      margin: 0 auto;
 
-      border: 1px solid rgba(228, 182, 63, 0.56);
-      border-radius: 999px;
+      object-fit: contain;
 
-      background: rgba(228, 182, 63, 0.11);
-      color: var(--gold-light);
-
-      font-family: "Montserrat", sans-serif;
-      font-size: 0.76rem;
-      font-weight: 800;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
+      filter: drop-shadow(0 20px 35px rgba(0, 0, 0, 0.3));
     }
 
-    .hero-card h2 {
-      position: relative;
-      z-index: 1;
+    .green-divider {
+      height: 9px;
 
-      margin-top: 20px;
+      border: 0;
 
-      font-family: "Montserrat", sans-serif;
-      font-size: clamp(1.65rem, 4vw, 2.25rem);
-      line-height: 1.15;
-    }
-
-    .hero-card p {
-      position: relative;
-      z-index: 1;
-
-      margin-top: 15px;
-      color: var(--soft-white);
-    }
-
-    .hero-list {
-      position: relative;
-      z-index: 1;
-
-      margin-top: 20px;
-      list-style: none;
-    }
-
-    .hero-list li {
-      position: relative;
-
-      margin-top: 10px;
-      padding-left: 28px;
-
-      font-weight: 600;
-    }
-
-    .hero-list li::before {
-      content: "✓";
-
-      position: absolute;
-      left: 0;
-
-      color: var(--green-light);
-      font-weight: 900;
-    }
-
-    .hero-card .primary-button {
-      position: relative;
-      z-index: 1;
-
-      width: 100%;
-      margin-top: 27px;
+      background:
+        linear-gradient(
+          90deg,
+          var(--green-dark),
+          var(--green),
+          var(--green-dark)
+        );
     }
 
     /* =========================================================
-       SERVICES SECTION
+       SHARED TYPOGRAPHY
        ========================================================= */
 
-    .services-section {
-      padding: 84px 0;
+    .section-label {
+      display: inline-block;
+      padding: 13px 25px;
 
-      border-top: 1px solid var(--white-border);
-      border-bottom: 1px solid var(--white-border);
+      border-left: 7px solid var(--gold);
+      border-radius: 12px;
 
       background:
         linear-gradient(
           180deg,
-          rgba(255, 255, 255, 0.025),
-          rgba(255, 255, 255, 0.012)
+          #347b08,
+          #276800
         );
+
+      color: var(--white);
+
+      font-family: "Montserrat", sans-serif;
+      font-size: 0.88rem;
+      font-weight: 900;
+      letter-spacing: 0.13em;
+      line-height: 1.5;
+      text-transform: uppercase;
     }
 
     .section-heading {
-      max-width: 850px;
+      max-width: 880px;
       margin: 0 auto 48px;
 
       text-align: center;
     }
 
     .section-heading h2 {
+      margin-top: 25px;
+
       font-family: "Montserrat", sans-serif;
-      font-size: clamp(2rem, 5.5vw, 3.7rem);
-      line-height: 1.08;
-      letter-spacing: -0.038em;
+      font-size: clamp(2.2rem, 7vw, 4.5rem);
+      font-weight: 900;
+      line-height: 1.04;
+      letter-spacing: -0.045em;
     }
 
     .section-heading h2 span {
+      display: block;
       color: var(--green-light);
     }
 
     .section-heading p:last-child {
-      max-width: 720px;
-      margin: 17px auto 0;
+      max-width: 760px;
+      margin: 24px auto 0;
 
       color: var(--soft-white);
-      font-size: clamp(1rem, 2.4vw, 1.12rem);
+      font-size: clamp(1rem, 2.6vw, 1.18rem);
+    }
+
+    /* =========================================================
+       BUTTONS
+       ========================================================= */
+
+    .primary-button,
+    .secondary-button,
+    .gold-button,
+    .quote-button {
+      min-height: 60px;
+      padding: 16px 30px;
+
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+
+      border: 3px solid transparent;
+      border-radius: 999px;
+
+      text-align: center;
+      text-decoration: none;
+
+      font-family: "Montserrat", sans-serif;
+      font-size: 0.98rem;
+      font-weight: 900;
+
+      transition:
+        transform 0.2s ease,
+        background-color 0.2s ease,
+        border-color 0.2s ease;
+    }
+
+    .primary-button,
+    .quote-button {
+      border-color: var(--gold);
+      background:
+        linear-gradient(
+          180deg,
+          #347b08,
+          #245f00
+        );
+
+      color: var(--white);
+
+      box-shadow: 0 14px 30px rgba(0, 0, 0, 0.27);
+    }
+
+    .primary-button:hover,
+    .quote-button:hover {
+      transform: translateY(-3px);
+      border-color: var(--gold-light);
+      background: var(--green);
+    }
+
+    .secondary-button {
+      border-color: rgba(255, 255, 255, 0.38);
+      background: rgba(255, 255, 255, 0.05);
+      color: var(--white);
+    }
+
+    .secondary-button:hover {
+      transform: translateY(-3px);
+      border-color: var(--white);
+      background: rgba(255, 255, 255, 0.12);
+    }
+
+    .gold-button {
+      border-color: var(--gold);
+      background: var(--gold);
+      color: var(--navy-deep);
+    }
+
+    .gold-button:hover {
+      transform: translateY(-3px);
+      background: var(--gold-light);
+    }
+
+    /* =========================================================
+       SERVICES INTRO
+       ========================================================= */
+
+    .services-intro {
+      padding: 100px 0 88px;
+
+      background:
+        radial-gradient(
+          circle at top center,
+          rgba(25, 73, 124, 0.35),
+          transparent 44%
+        ),
+        linear-gradient(
+          180deg,
+          #061a48 0%,
+          var(--navy-main) 55%,
+          var(--navy-deep) 100%
+        );
+    }
+
+    .intro-content {
+      max-width: 970px;
+      margin: 0 auto;
+
+      text-align: center;
+    }
+
+    .intro-content h1 {
+      margin-top: 28px;
+
+      font-family: "Montserrat", sans-serif;
+      font-size: clamp(2.8rem, 9vw, 5.6rem);
+      font-weight: 900;
+      line-height: 1;
+      letter-spacing: -0.055em;
+    }
+
+    .intro-content h1 span {
+      display: block;
+      margin-top: 8px;
+
+      color: var(--green-light);
+    }
+
+    .intro-description {
+      max-width: 800px;
+      margin: 31px auto 0;
+
+      color: var(--soft-white);
+      font-size: clamp(1.05rem, 3vw, 1.3rem);
+    }
+
+    .intro-slogan {
+      margin-top: 21px;
+
+      color: var(--gold-light);
+
+      font-family: "Montserrat", sans-serif;
+      font-size: clamp(1rem, 2.5vw, 1.18rem);
+      font-style: italic;
+      font-weight: 800;
+    }
+
+    .intro-buttons {
+      margin-top: 35px;
+
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+
+      gap: 15px;
+    }
+
+    /* =========================================================
+       SERVICES CARDS
+       ========================================================= */
+
+    .services-section {
+      padding: 90px 0;
+
+      border-top: 1px solid var(--border-white);
+      border-bottom: 1px solid var(--border-white);
+
+      background:
+        linear-gradient(
+          180deg,
+          rgba(255, 255, 255, 0.025),
+          rgba(255, 255, 255, 0.01)
+        );
     }
 
     .services-grid {
       display: grid;
-      grid-template-columns: repeat(6, minmax(0, 1fr));
+      grid-template-columns: repeat(2, minmax(0, 1fr));
 
-      gap: 24px;
+      gap: 25px;
     }
 
     .service-card {
       position: relative;
       overflow: hidden;
 
-      min-height: 275px;
-      padding: 32px;
+      min-height: 310px;
+      padding: 36px;
 
       display: flex;
       flex-direction: column;
 
-      border: 1px solid var(--white-border);
+      border: 1px solid var(--border-white);
       border-radius: 25px;
 
       background:
+        radial-gradient(
+          circle at top right,
+          rgba(87, 155, 18, 0.12),
+          transparent 30%
+        ),
         linear-gradient(
-          150deg,
+          145deg,
           rgba(255, 255, 255, 0.08),
           rgba(255, 255, 255, 0.025)
         );
@@ -698,59 +650,30 @@
 
       transition:
         transform 0.25s ease,
-        border-color 0.25s ease,
-        background 0.25s ease;
-    }
-
-    .service-card:nth-child(1),
-    .service-card:nth-child(2) {
-      grid-column: span 3;
-    }
-
-    .service-card:nth-child(3),
-    .service-card:nth-child(4),
-    .service-card:nth-child(5) {
-      grid-column: span 2;
+        border-color 0.25s ease;
     }
 
     .service-card:hover {
       transform: translateY(-7px);
-
-      border-color: rgba(87, 155, 18, 0.72);
-
-      background:
-        linear-gradient(
-          150deg,
-          rgba(87, 155, 18, 0.16),
-          rgba(255, 255, 255, 0.03)
-        );
+      border-color: var(--green-light);
     }
 
-    .service-card::after {
-      content: "";
-
-      position: absolute;
-      right: -45px;
-      bottom: -45px;
-
-      width: 145px;
-      height: 145px;
-
-      border-radius: 50%;
-
-      background: rgba(87, 155, 18, 0.08);
+    .service-card:last-child {
+      grid-column: 1 / -1;
+      width: calc(50% - 12px);
+      justify-self: center;
     }
 
     .service-number {
-      width: 56px;
-      height: 56px;
-      margin-bottom: 21px;
+      width: 62px;
+      height: 62px;
+      margin-bottom: 23px;
 
       display: flex;
       align-items: center;
       justify-content: center;
 
-      border: 2px solid var(--green);
+      border: 3px solid var(--gold);
       border-radius: 50%;
 
       background: var(--green-dark);
@@ -762,35 +685,28 @@
     }
 
     .service-card h3 {
-      position: relative;
-      z-index: 1;
-
       font-family: "Montserrat", sans-serif;
-      font-size: clamp(1.22rem, 3vw, 1.52rem);
-      line-height: 1.25;
+      font-size: clamp(1.35rem, 3vw, 1.75rem);
+      line-height: 1.2;
     }
 
     .service-card p {
-      position: relative;
-      z-index: 1;
+      margin-top: 15px;
 
-      margin-top: 13px;
       color: var(--soft-white);
+      font-size: 1rem;
     }
 
     .service-link {
-      position: relative;
-      z-index: 1;
-
       margin-top: auto;
-      padding-top: 21px;
+      padding-top: 25px;
 
       color: var(--green-light);
 
       text-decoration: none;
 
       font-family: "Montserrat", sans-serif;
-      font-weight: 800;
+      font-weight: 900;
     }
 
     .service-link:hover {
@@ -798,119 +714,35 @@
     }
 
     /* =========================================================
-       SIMPLE PROCESS SECTION
+       GOLD STANDARD
        ========================================================= */
 
-    .process-section {
-      padding: 84px 0;
-    }
-
-    .process-layout {
-      display: grid;
-      grid-template-columns: 0.92fr 1.08fr;
-      align-items: center;
-
-      gap: 48px;
-    }
-
-    .process-content h2 {
-      font-family: "Montserrat", sans-serif;
-      font-size: clamp(2rem, 5vw, 3.5rem);
-      line-height: 1.08;
-      letter-spacing: -0.038em;
-    }
-
-    .process-content h2 span {
-      color: var(--green-light);
-    }
-
-    .process-content p:not(.section-label) {
-      margin-top: 18px;
-      color: var(--soft-white);
-    }
-
-    .process-steps {
-      display: grid;
-      gap: 15px;
-    }
-
-    .process-step {
-      padding: 20px;
-
-      display: flex;
-      align-items: center;
-
-      gap: 17px;
-
-      border: 1px solid var(--white-border);
-      border-radius: 18px;
-
-      background: var(--white-card);
-    }
-
-    .process-number {
-      width: 48px;
-      min-width: 48px;
-      height: 48px;
-
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      border-radius: 50%;
-
-      background: var(--green-dark);
-      color: var(--white);
-
-      font-family: "Montserrat", sans-serif;
-      font-weight: 900;
-    }
-
-    .process-step h3 {
-      font-family: "Montserrat", sans-serif;
-      font-size: 1rem;
-    }
-
-    .process-step p {
-      margin-top: 3px;
-
-      color: var(--soft-white);
-      font-size: 0.92rem;
-    }
-
-    /* =========================================================
-       GOLD STANDARD SECTION
-       ========================================================= */
-
-    .gold-standard-section {
-      padding: 84px 0;
-
-      border-top: 1px solid var(--white-border);
-      border-bottom: 1px solid var(--white-border);
+    .gold-section {
+      padding: 90px 0;
 
       background:
         radial-gradient(
-          circle at left center,
-          rgba(228, 182, 63, 0.09),
+          circle at left,
+          rgba(228, 182, 63, 0.12),
           transparent 35%
         ),
         linear-gradient(
           135deg,
-          rgba(228, 182, 63, 0.08),
-          rgba(1, 9, 29, 0.18)
+          rgba(228, 182, 63, 0.07),
+          rgba(1, 9, 29, 0.22)
         );
     }
 
     .gold-layout {
       display: grid;
-      grid-template-columns: 0.78fr 1.22fr;
+      grid-template-columns: 0.8fr 1.2fr;
       align-items: center;
 
-      gap: 50px;
+      gap: 52px;
     }
 
     .gold-badge {
-      width: min(330px, 90%);
+      width: min(340px, 92%);
       aspect-ratio: 1;
       margin: 0 auto;
       padding: 36px;
@@ -920,27 +752,25 @@
       align-items: center;
       justify-content: center;
 
-      border: 8px double var(--gold);
+      border: 9px double var(--gold);
       border-radius: 50%;
 
       background:
         radial-gradient(
           circle,
-          rgba(228, 182, 63, 0.2),
-          rgba(1, 9, 29, 0.78)
+          rgba(228, 182, 63, 0.21),
+          rgba(1, 9, 29, 0.82)
         );
 
       text-align: center;
 
-      box-shadow:
-        0 22px 50px rgba(0, 0, 0, 0.36),
-        inset 0 0 30px rgba(228, 182, 63, 0.09);
+      box-shadow: var(--shadow);
     }
 
     .gold-stars {
       color: var(--gold);
-      font-size: 1.2rem;
-      letter-spacing: 0.24em;
+      font-size: 1.25rem;
+      letter-spacing: 0.25em;
     }
 
     .gold-badge strong {
@@ -949,7 +779,7 @@
       color: var(--gold-light);
 
       font-family: "Montserrat", sans-serif;
-      font-size: clamp(2.4rem, 7vw, 3.45rem);
+      font-size: clamp(2.6rem, 7vw, 3.6rem);
       line-height: 0.95;
     }
 
@@ -959,40 +789,44 @@
       color: var(--gold-light);
 
       font-family: "Montserrat", sans-serif;
-      font-size: clamp(1.1rem, 4vw, 1.52rem);
+      font-size: 1.45rem;
       font-weight: 900;
       letter-spacing: 0.1em;
     }
 
     .gold-badge small {
-      margin-top: 14px;
-
+      margin-top: 15px;
       color: var(--white);
       font-weight: 700;
     }
 
     .gold-content .section-label {
-      color: var(--gold);
+      border-left-color: var(--gold-light);
     }
 
     .gold-content h2 {
+      margin-top: 24px;
+
       font-family: "Montserrat", sans-serif;
-      font-size: clamp(2rem, 5vw, 3.5rem);
-      line-height: 1.08;
-      letter-spacing: -0.038em;
+      font-size: clamp(2.2rem, 6vw, 4rem);
+      font-weight: 900;
+      line-height: 1.05;
+      letter-spacing: -0.045em;
     }
 
     .gold-content h2 span {
       color: var(--gold);
     }
 
-    .gold-content p:not(.section-label) {
-      margin-top: 18px;
+    .gold-content p {
+      margin-top: 20px;
+
       color: var(--soft-white);
+      font-size: 1.05rem;
     }
 
     .gold-content .gold-button {
-      margin-top: 27px;
+      margin-top: 29px;
     }
 
     /* =========================================================
@@ -1000,7 +834,7 @@
        ========================================================= */
 
     .trust-section {
-      padding: 78px 0;
+      padding: 85px 0;
     }
 
     .trust-grid {
@@ -1011,36 +845,34 @@
     }
 
     .trust-card {
-      padding: 27px 21px;
+      padding: 28px 21px;
 
-      border: 1px solid var(--white-border);
+      border: 1px solid var(--border-white);
       border-radius: 21px;
 
-      background: var(--white-card);
+      background: var(--card-background);
       text-align: center;
 
       transition:
         transform 0.2s ease,
-        border-color 0.2s ease,
-        background-color 0.2s ease;
+        border-color 0.2s ease;
     }
 
     .trust-card:hover {
       transform: translateY(-5px);
-
-      border-color: rgba(87, 155, 18, 0.62);
-      background: var(--white-card-hover);
+      border-color: var(--green-light);
     }
 
     .trust-icon {
-      width: 52px;
-      height: 52px;
-      margin: 0 auto 15px;
+      width: 54px;
+      height: 54px;
+      margin: 0 auto 16px;
 
       display: flex;
       align-items: center;
       justify-content: center;
 
+      border: 2px solid var(--gold);
       border-radius: 50%;
 
       background: var(--green-dark);
@@ -1056,24 +888,24 @@
     }
 
     .trust-card p {
-      margin-top: 9px;
+      margin-top: 10px;
 
       color: var(--soft-white);
       font-size: 0.9rem;
     }
 
     /* =========================================================
-       FINAL QUOTE SECTION
+       FINAL QUOTE
        ========================================================= */
 
     .final-quote-section {
-      padding: 12px 0 94px;
+      padding: 20px 0 95px;
     }
 
     .final-quote-box {
-      padding: 56px 32px;
+      padding: 57px 32px;
 
-      border: 1px solid rgba(87, 155, 18, 0.62);
+      border: 4px solid var(--gold);
       border-radius: 30px;
 
       background:
@@ -1084,16 +916,12 @@
         ),
         linear-gradient(
           135deg,
-          var(--green-dark),
-          #234808
+          #347b08,
+          #245f00
         );
 
-      box-shadow: var(--deep-shadow);
+      box-shadow: var(--shadow);
       text-align: center;
-    }
-
-    .final-quote-box .section-label {
-      color: var(--gold-light);
     }
 
     .final-quote-box h2 {
@@ -1101,25 +929,26 @@
       margin: 0 auto;
 
       font-family: "Montserrat", sans-serif;
-      font-size: clamp(2rem, 5.5vw, 3.68rem);
-      line-height: 1.08;
-      letter-spacing: -0.038em;
+      font-size: clamp(2.1rem, 6vw, 4rem);
+      font-weight: 900;
+      line-height: 1.06;
+      letter-spacing: -0.04em;
     }
 
-    .final-quote-box p:not(.section-label) {
+    .final-quote-box p {
       max-width: 720px;
-      margin: 18px auto 0;
+      margin: 19px auto 0;
+
       color: var(--white);
+      font-size: 1.05rem;
     }
 
     .final-quote-box .quote-button {
-      margin-top: 29px;
+      margin-top: 31px;
 
       border-color: var(--white);
       background: var(--white);
       color: var(--navy-deep);
-
-      box-shadow: none;
     }
 
     .final-quote-box .quote-button:hover {
@@ -1132,11 +961,11 @@
        ========================================================= */
 
     .site-footer {
-      padding: 47px 20px;
+      padding: 48px 20px;
 
-      border-top: 1px solid var(--white-border);
+      border-top: 1px solid var(--border-white);
 
-      background: var(--navy-deep);
+      background: var(--navy-black);
       text-align: center;
     }
 
@@ -1191,47 +1020,17 @@
        RESPONSIVE DESIGN
        ========================================================= */
 
-    @media (max-width: 980px) {
+    @media (max-width: 960px) {
       .dropdown-menu {
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
 
-      .hero-layout,
-      .process-layout,
       .gold-layout {
         grid-template-columns: 1fr;
       }
 
-      .hero-content,
-      .process-content,
       .gold-content {
         text-align: center;
-      }
-
-      .hero-description {
-        margin-left: auto;
-        margin-right: auto;
-      }
-
-      .hero-buttons {
-        justify-content: center;
-      }
-
-      .services-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-
-      .service-card:nth-child(1),
-      .service-card:nth-child(2),
-      .service-card:nth-child(3),
-      .service-card:nth-child(4) {
-        grid-column: auto;
-      }
-
-      .service-card:nth-child(5) {
-        grid-column: 1 / -1;
-        width: calc(50% - 12px);
-        justify-self: center;
       }
 
       .trust-grid {
@@ -1239,33 +1038,36 @@
       }
     }
 
-    @media (max-width: 700px) {
+    @media (max-width: 720px) {
+      .brand-hero {
+        min-height: 760px;
+        padding: 20px 14px 40px;
+      }
+
+      .brand-logo {
+        width: min(610px, 96vw);
+      }
+
       .services-grid {
         grid-template-columns: 1fr;
       }
 
-      .service-card:nth-child(5) {
+      .service-card:last-child {
         grid-column: auto;
         width: 100%;
       }
     }
 
     @media (max-width: 620px) {
-      .menu-bar {
-        min-height: 72px;
-      }
-
-      .small-brand {
-        max-width: 210px;
-        line-height: 1.25;
+      .site-header,
+      .top-bar {
+        min-height: 86px;
       }
 
       .menu-toggle {
-        min-width: 94px;
-        min-height: 46px;
-        padding: 10px 17px;
-
-        font-size: 0.78rem;
+        min-width: 154px;
+        min-height: 64px;
+        padding: 14px 23px;
       }
 
       .dropdown-menu {
@@ -1276,41 +1078,25 @@
         max-height: 900px;
       }
 
-      .logo-area {
-        min-height: 220px;
-        padding: 20px 15px 29px;
+      .brand-hero {
+        min-height: 740px;
       }
 
-      .main-logo {
-        width: min(340px, 92vw);
-        max-height: 240px;
+      .services-intro {
+        padding: 88px 0 72px;
       }
 
-      .services-hero {
-        padding: 54px 0 66px;
+      .section-label {
+        width: 100%;
+        padding: 13px 14px;
+        text-align: center;
       }
 
-      .hero-buttons {
+      .intro-buttons {
         flex-direction: column;
       }
 
-      .hero-buttons a {
-        width: 100%;
-      }
-
-      .hero-card {
-        padding: 29px 23px;
-      }
-
-      .service-card {
-        min-height: auto;
-        padding: 28px 24px;
-      }
-
-      .trust-grid {
-        grid-template-columns: 1fr;
-      }
-
+      .intro-buttons a,
       .primary-button,
       .secondary-button,
       .gold-button,
@@ -1318,8 +1104,31 @@
         width: 100%;
       }
 
+      .service-card {
+        min-height: auto;
+        padding: 29px 24px;
+      }
+
+      .trust-grid {
+        grid-template-columns: 1fr;
+      }
+
       .final-quote-box {
-        padding: 45px 23px;
+        padding: 46px 23px;
+      }
+    }
+
+    @media (max-width: 430px) {
+      .brand-hero {
+        min-height: 690px;
+      }
+
+      .menu-toggle {
+        min-width: 146px;
+      }
+
+      .menu-lines {
+        width: 32px;
       }
     }
 
@@ -1340,17 +1149,12 @@
 <body>
 
   <!-- =======================================================
-       HEADER
+       HEADER AND MENU
        ======================================================= -->
 
   <header class="site-header">
 
-    <div class="menu-bar">
-
-      <a href="index.html" class="small-brand">
-        <span class="brand-randy">Randy's</span>
-        <span class="brand-cleaning">Cleaning Pros</span>
-      </a>
+    <div class="top-bar">
 
       <button
         class="menu-toggle"
@@ -1360,7 +1164,13 @@
         aria-controls="mainMenu"
         aria-expanded="false"
       >
-        MENU
+        <span id="menuText">MENU</span>
+
+        <span class="menu-lines" aria-hidden="true">
+          <span></span>
+          <span></span>
+          <span></span>
+        </span>
       </button>
 
     </div>
@@ -1409,101 +1219,73 @@
 
     </nav>
 
-    <div class="logo-area">
-
-      <a href="index.html" class="logo-link">
-
-        <img
-          src="Photoroomlogo11.png"
-          alt="Randy's Cleaning Pros mascot and logo"
-          class="main-logo"
-        >
-
-      </a>
-
-    </div>
-
   </header>
+
+  <!-- =======================================================
+       LARGE LOGO AREA
+       ======================================================= -->
+
+  <section class="brand-hero">
+
+    <a href="index.html">
+
+      <img
+        src="Photoroomlogo11.png"
+        alt="Randy's Cleaning Pros — Setting the Gold Standard in Cleaning"
+        class="brand-logo"
+      >
+
+    </a>
+
+  </section>
+
+  <div class="green-divider"></div>
 
   <main>
 
     <!-- =====================================================
-         HERO SECTION
+         SERVICES INTRO
          ===================================================== -->
 
-    <section class="services-hero">
+    <section class="services-intro">
 
-      <div class="page-container hero-layout">
+      <div class="page-container intro-content">
 
-        <div class="hero-content">
+        <p class="section-label">
+          Southern Maine Cleaning Professionals
+        </p>
 
-          <p class="section-label">
-            Southern Maine Cleaning Professionals
-          </p>
+        <h1>
+          A More Detailed Clean.
+          <span>A Higher Standard of Care.</span>
+        </h1>
 
-          <h1>
-            Professional Cleaning
-            <span>Made Simple</span>
-          </h1>
+        <p class="intro-description">
+          Randy's Cleaning Pros provides dependable cleaning for
+          homes, offices, rental properties, Airbnb properties, and
+          upcoming moves throughout Southern Maine.
+        </p>
 
-          <p class="hero-description">
-            Randy's Cleaning Pros provides dependable cleaning for
-            homes, offices, rentals, Airbnb properties, and upcoming
-            moves throughout Southern Maine.
-          </p>
+        <p class="intro-description">
+          Every cleaning is built around your property's size,
+          condition, priorities, and individual cleaning needs.
+        </p>
 
-          <p class="hero-description">
-            Choose the service that matches your property and receive
-            a personalized quote based on its size, condition, and
-            cleaning needs.
-          </p>
+        <p class="intro-slogan">
+          Cleaning Homes. Earning Trust. Building Hope.
+        </p>
 
-          <p class="hero-promise">
-            Cleaning Homes. Earning Trust. Building Hope.
-          </p>
-
-          <div class="hero-buttons">
-
-            <a href="free-quote.html" class="primary-button">
-              Get Your Free Quote
-            </a>
-
-            <a href="#our-services" class="secondary-button">
-              Explore Our Services
-            </a>
-
-          </div>
-
-        </div>
-
-        <aside class="hero-card">
-
-          <span class="hero-card-label">
-            The Randy's Cleaning Pros Difference
-          </span>
-
-          <h2>
-            More Care. Less Stress.
-          </h2>
-
-          <p>
-            We follow an organized process and focus on the details
-            that help your property feel clean, refreshed, and cared for.
-          </p>
-
-          <ul class="hero-list">
-            <li>Organized top-to-bottom cleaning</li>
-            <li>Professional and respectful service</li>
-            <li>Pet-friendly care</li>
-            <li>24-hour satisfaction promise</li>
-            <li>Personalized free quotes</li>
-          </ul>
+        <div class="intro-buttons">
 
           <a href="free-quote.html" class="primary-button">
-            Request a Free Quote
+            Get Your Free Quote
           </a>
 
-        </aside>
+          <a href="#our-services" class="secondary-button">
+            View Our Services
+          </a>
+
+        </div>
 
       </div>
 
@@ -1523,37 +1305,33 @@
         <div class="section-heading">
 
           <p class="section-label">
-            Five Core Cleaning Services
+            Our Five Core Services
           </p>
 
           <h2>
-            Cleaning That Fits
-            <span>Your Property</span>
+            Professional Cleaning
+            <span>Built Around Your Needs</span>
           </h2>
 
           <p>
-            Our service choices are simple, flexible, and designed
-            around the needs of Southern Maine homes and businesses.
+            Choose the service that matches your property and receive
+            a personalized estimate based on the work required.
           </p>
 
         </div>
 
         <div class="services-grid">
 
-          <!-- Residential Cleaning -->
           <article class="service-card">
 
-            <span class="service-number">
-              01
-            </span>
+            <span class="service-number">01</span>
 
-            <h3>
-              Residential Cleaning
-            </h3>
+            <h3>Residential Cleaning</h3>
 
             <p>
-              One-time, weekly, biweekly, or monthly cleaning to help
-              keep your home comfortable and consistently cared for.
+              One-time, weekly, biweekly, or monthly cleaning designed
+              to keep your home fresh, comfortable, and consistently
+              cared for.
             </p>
 
             <a href="free-quote.html" class="service-link">
@@ -1562,20 +1340,16 @@
 
           </article>
 
-          <!-- Office Cleaning -->
           <article class="service-card">
 
-            <span class="service-number">
-              02
-            </span>
+            <span class="service-number">02</span>
 
-            <h3>
-              Office Cleaning
-            </h3>
+            <h3>Office Cleaning</h3>
 
             <p>
-              Dependable cleaning for offices and smaller commercial
-              spaces that value cleanliness and professional presentation.
+              Professional cleaning for offices and smaller commercial
+              spaces that need a clean, organized, and welcoming
+              environment.
             </p>
 
             <a href="free-quote.html" class="service-link">
@@ -1584,42 +1358,32 @@
 
           </article>
 
-          <!-- Landlord Cleaning -->
           <article class="service-card">
 
-            <span class="service-number">
-              03
-            </span>
+            <span class="service-number">03</span>
 
-            <h3>
-              Landlord Cleaning
-            </h3>
+            <h3>Landlord Cleaning</h3>
 
             <p>
-              Cleaning for rental homes and apartments between tenants
-              or before showing a property to new renters.
+              Detailed cleaning for rental homes and apartments between
+              tenants or before showing a property to prospective renters.
             </p>
 
             <a href="free-quote.html" class="service-link">
-              Get a Rental Quote →
+              Get a Landlord Quote →
             </a>
 
           </article>
 
-          <!-- Airbnb Cleaning -->
           <article class="service-card">
 
-            <span class="service-number">
-              04
-            </span>
+            <span class="service-number">04</span>
 
-            <h3>
-              Airbnb Cleaning
-            </h3>
+            <h3>Airbnb Cleaning</h3>
 
             <p>
-              Reliable turnover cleaning that helps prepare your
-              short-term rental for arriving guests.
+              Dependable turnover cleaning that helps prepare your
+              Airbnb or short-term rental for the arrival of new guests.
             </p>
 
             <a href="free-quote.html" class="service-link">
@@ -1628,20 +1392,16 @@
 
           </article>
 
-          <!-- Move Cleaning -->
           <article class="service-card">
 
-            <span class="service-number">
-              05
-            </span>
+            <span class="service-number">05</span>
 
-            <h3>
-              Move-In and Move-Out Cleaning
-            </h3>
+            <h3>Move-In and Move-Out Cleaning</h3>
 
             <p>
               Detailed cleaning for empty homes and apartments before
-              moving in or after moving out.
+              moving in, after moving out, or before the property enters
+              its next chapter.
             </p>
 
             <a href="free-quote.html" class="service-link">
@@ -1657,132 +1417,22 @@
     </section>
 
     <!-- =====================================================
-         SIMPLE PROCESS
+         GOLD STANDARD
          ===================================================== -->
 
-    <section class="process-section">
-
-      <div class="page-container process-layout">
-
-        <div class="process-content">
-
-          <p class="section-label">
-            A Simple Cleaning Experience
-          </p>
-
-          <h2>
-            From Your Quote to a
-            <span>Cleaner Property</span>
-          </h2>
-
-          <p>
-            We make it easy to tell us what you need, receive a
-            personalized quote, and schedule the right cleaning service.
-          </p>
-
-          <p>
-            Your cleaning plan is based on your property, priorities,
-            and the level of service requested.
-          </p>
-
-        </div>
-
-        <div class="process-steps">
-
-          <article class="process-step">
-
-            <span class="process-number">
-              1
-            </span>
-
-            <div>
-              <h3>Tell Us About Your Property</h3>
-
-              <p>
-                Complete the quote form and describe the cleaning you need.
-              </p>
-            </div>
-
-          </article>
-
-          <article class="process-step">
-
-            <span class="process-number">
-              2
-            </span>
-
-            <div>
-              <h3>Receive Your Personalized Quote</h3>
-
-              <p>
-                We review the property size, condition, and service needs.
-              </p>
-            </div>
-
-          </article>
-
-          <article class="process-step">
-
-            <span class="process-number">
-              3
-            </span>
-
-            <div>
-              <h3>Schedule Your Cleaning</h3>
-
-              <p>
-                Choose an available day that works for your schedule.
-              </p>
-            </div>
-
-          </article>
-
-          <article class="process-step">
-
-            <span class="process-number">
-              4
-            </span>
-
-            <div>
-              <h3>Enjoy a Cleaner Space</h3>
-
-              <p>
-                We complete the service and perform a final quality check.
-              </p>
-            </div>
-
-          </article>
-
-        </div>
-
-      </div>
-
-    </section>
-
-    <!-- =====================================================
-         GOLD STANDARD SECTION
-         ===================================================== -->
-
-    <section class="gold-standard-section">
+    <section class="gold-section">
 
       <div class="page-container gold-layout">
 
-        <div
-          class="gold-badge"
-          aria-label="Randy's Cleaning Pros Gold Standard badge"
-        >
+        <div class="gold-badge">
 
           <span class="gold-stars">
             ★ ★ ★
           </span>
 
-          <strong>
-            GOLD
-          </strong>
+          <strong>GOLD</strong>
 
-          <span>
-            STANDARD
-          </span>
+          <span>STANDARD</span>
 
           <small>
             10-Step Cleaning Procedure
@@ -1797,19 +1447,19 @@
           </p>
 
           <h2>
-            Every Visit Follows Our
+            Every Cleaning Follows Our
             <span>Gold Standard</span>
           </h2>
 
           <p>
-            Our 10-Step Gold Standard Cleaning Procedure gives every
-            appointment structure and purpose.
+            Our 10-Step Gold Standard Cleaning Procedure gives each
+            appointment structure, direction, and purpose.
           </p>
 
           <p>
-            It helps us clean in an organized order, reduce commonly
-            missed areas, and complete a final quality check before
-            leaving your property.
+            The procedure helps us work from top to bottom, pay
+            attention to commonly missed areas, and complete a final
+            quality check before leaving your property.
           </p>
 
           <a href="gold-standard.html" class="gold-button">
@@ -1828,79 +1478,56 @@
 
     <section class="trust-section">
 
-      <div class="page-container">
+      <div class="page-container trust-grid">
 
-        <div class="trust-grid">
+        <article class="trust-card">
 
-          <article class="trust-card">
+          <div class="trust-icon">✓</div>
 
-            <div class="trust-icon">
-              ✓
-            </div>
+          <h3>24-Hour Satisfaction Promise</h3>
 
-            <h3>
-              Satisfaction Promise
-            </h3>
+          <p>
+            Report a qualifying concern within 24 hours and we will
+            work with you to make it right.
+          </p>
 
-            <p>
-              Report a qualifying concern within 24 hours and we will
-              work with you to make it right.
-            </p>
+        </article>
 
-          </article>
+        <article class="trust-card">
 
-          <article class="trust-card">
+          <div class="trust-icon">★</div>
 
-            <div class="trust-icon">
-              ★
-            </div>
+          <h3>Gold Standard Process</h3>
 
-            <h3>
-              Gold Standard Process
-            </h3>
+          <p>
+            Every appointment follows an organized cleaning procedure.
+          </p>
 
-            <p>
-              Every visit follows an organized procedure designed for
-              consistent results.
-            </p>
+        </article>
 
-          </article>
+        <article class="trust-card">
 
-          <article class="trust-card">
+          <div class="trust-icon">♥</div>
 
-            <div class="trust-icon">
-              ♥
-            </div>
+          <h3>Pet Friendly</h3>
 
-            <h3>
-              Pet Friendly
-            </h3>
+          <p>
+            We treat your family, pets, belongings, and property with care.
+          </p>
 
-            <p>
-              We treat your home, belongings, family, and pets with
-              care and respect.
-            </p>
+        </article>
 
-          </article>
+        <article class="trust-card">
 
-          <article class="trust-card">
+          <div class="trust-icon">◆</div>
 
-            <div class="trust-icon">
-              ◆
-            </div>
+          <h3>Professional Service</h3>
 
-            <h3>
-              Professional Service
-            </h3>
+          <p>
+            Dependable communication and careful service from start to finish.
+          </p>
 
-            <p>
-              Dependable communication and attention to detail from
-              start to finish.
-            </p>
-
-          </article>
-
-        </div>
+        </article>
 
       </div>
 
@@ -1916,17 +1543,13 @@
 
         <div class="final-quote-box">
 
-          <p class="section-label">
-            Ready for a Cleaner Property?
-          </p>
-
           <h2>
-            Let Us Create the Right Cleaning Plan for You
+            Ready to Experience the Gold Standard?
           </h2>
 
           <p>
             Tell us about your home, office, rental, Airbnb, or
-            upcoming move and receive a personalized quote.
+            upcoming move and receive a personalized cleaning quote.
           </p>
 
           <a href="free-quote.html" class="quote-button">
@@ -1988,27 +1611,30 @@
 
   <script>
     const menuToggle = document.getElementById("menuToggle");
+    const menuText = document.getElementById("menuText");
     const mainMenu = document.getElementById("mainMenu");
-
-    function closeMenu() {
-      mainMenu.classList.remove("open");
-      document.body.classList.remove("menu-open");
-
-      menuToggle.setAttribute("aria-expanded", "false");
-      menuToggle.textContent = "MENU";
-      menuToggle.setAttribute("aria-label", "Open website menu");
-    }
 
     function openMenu() {
       mainMenu.classList.add("open");
       document.body.classList.add("menu-open");
 
       menuToggle.setAttribute("aria-expanded", "true");
-      menuToggle.textContent = "CLOSE";
       menuToggle.setAttribute("aria-label", "Close website menu");
+
+      menuText.textContent = "CLOSE";
     }
 
-    if (menuToggle && mainMenu) {
+    function closeMenu() {
+      mainMenu.classList.remove("open");
+      document.body.classList.remove("menu-open");
+
+      menuToggle.setAttribute("aria-expanded", "false");
+      menuToggle.setAttribute("aria-label", "Open website menu");
+
+      menuText.textContent = "MENU";
+    }
+
+    if (menuToggle && menuText && mainMenu) {
       menuToggle.addEventListener("click", function () {
         const menuIsOpen =
           menuToggle.getAttribute("aria-expanded") === "true";
@@ -2031,13 +1657,13 @@
       });
 
       document.addEventListener("click", function (event) {
-        const clickedInsideMenu = mainMenu.contains(event.target);
         const clickedMenuButton = menuToggle.contains(event.target);
+        const clickedInsideMenu = mainMenu.contains(event.target);
 
         if (
-          !clickedInsideMenu &&
+          mainMenu.classList.contains("open") &&
           !clickedMenuButton &&
-          mainMenu.classList.contains("open")
+          !clickedInsideMenu
         ) {
           closeMenu();
         }
