@@ -17,7 +17,7 @@
   <link
     rel="icon"
     type="image/png"
-    href="Smalllogo.PNG"
+    href="Photoroomlogo11.png"
   >
 
   <title>Pricing & Estimates | Randy's Cleaning Pros</title>
@@ -1124,6 +1124,375 @@
         text-align: left;
       }
     }
+  
+    /* =========================================================
+       SHARED SITE HEADER & FOOTER
+       (Kept identical across every page — do not edit per page)
+       ========================================================= */
+
+    .site-header {
+      position: relative;
+      z-index: 1000;
+
+      border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+
+      background:
+        linear-gradient(
+          180deg,
+          rgba(1, 14, 56, 0.98),
+          rgba(1, 14, 56, 0.9)
+        );
+    }
+
+    .top-bar {
+      width: min(1220px, 94%);
+      min-height: 116px;
+      margin: 0 auto;
+      padding: 14px 0;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      gap: 20px;
+    }
+
+    .small-brand {
+      display: flex;
+      align-items: center;
+
+      gap: 15px;
+
+      text-decoration: none;
+    }
+
+    .small-brand-logo {
+      width: 82px;
+      max-height: 82px;
+
+      object-fit: contain;
+
+      filter: drop-shadow(0 8px 15px rgba(0, 0, 0, 0.3));
+    }
+
+    .brand-name {
+      display: flex;
+      flex-direction: column;
+
+      font-family: "Montserrat", Arial, sans-serif;
+      font-style: italic;
+      font-weight: 700;
+      line-height: 0.95;
+
+      text-transform: uppercase;
+    }
+
+    .brand-randys {
+      color: #ffffff;
+      font-size: clamp(1.25rem, 3vw, 1.9rem);
+      letter-spacing: -0.03em;
+
+      text-shadow:
+        1px 1px 0 rgba(0, 0, 0, 0.7),
+        -1px -1px 0 rgba(0, 0, 0, 0.35);
+    }
+
+    .brand-cleaning {
+      margin-top: 7px;
+
+      color: #70ba25;
+      font-size: clamp(0.85rem, 2.2vw, 1.15rem);
+      letter-spacing: 0.025em;
+
+      text-shadow:
+        1px 1px 0 rgba(0, 0, 0, 0.7),
+        -1px -1px 0 rgba(0, 0, 0, 0.35);
+    }
+
+    .menu-toggle {
+      min-width: 154px;
+      min-height: 64px;
+      padding: 13px 25px;
+
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+
+      gap: 16px;
+
+      border: 3px solid #e4b63f;
+      border-radius: 999px;
+
+      background: linear-gradient(180deg, #347b08, #245f00);
+
+      color: #ffffff;
+      cursor: pointer;
+
+      box-shadow:
+        0 0 0 4px rgba(255, 255, 255, 0.06),
+        0 12px 28px rgba(0, 0, 0, 0.3);
+
+      font-family: "Montserrat", Arial, sans-serif;
+      font-size: 0.92rem;
+      font-weight: 800;
+      letter-spacing: 0.09em;
+
+      transition:
+        transform 0.2s ease,
+        background-color 0.2s ease,
+        border-color 0.2s ease;
+    }
+
+    .menu-toggle:hover {
+      transform: translateY(-2px);
+      border-color: #f4d77b;
+      background: #579b12;
+    }
+
+    .menu-lines {
+      width: 32px;
+
+      display: grid;
+      gap: 6px;
+    }
+
+    .menu-lines span {
+      display: block;
+      width: 100%;
+      height: 4px;
+
+      border-radius: 999px;
+
+      background: #ffffff;
+    }
+
+    .menu-toggle[aria-expanded="true"] {
+      background: #e4b63f;
+      color: #01091d;
+    }
+
+    .menu-toggle[aria-expanded="true"] .menu-lines span {
+      background: #01091d;
+    }
+
+    .dropdown-menu {
+      width: min(1220px, 92%);
+      max-height: 0;
+      margin: 0 auto;
+      padding: 0;
+      overflow: hidden;
+
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+
+      gap: 12px;
+
+      opacity: 0;
+      visibility: hidden;
+
+      transition:
+        max-height 0.35s ease,
+        padding 0.35s ease,
+        opacity 0.25s ease;
+    }
+
+    .dropdown-menu.open {
+      max-height: 700px;
+      padding: 10px 0 28px;
+
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .menu-link,
+    .menu-quote-link {
+      min-height: 54px;
+      padding: 13px 15px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: 14px;
+
+      background: rgba(255, 255, 255, 0.06);
+      color: #ffffff;
+
+      text-align: center;
+      text-decoration: none;
+
+      font-family: "Montserrat", Arial, sans-serif;
+      font-size: 0.9rem;
+      font-weight: 700;
+
+      transition:
+        transform 0.2s ease,
+        background-color 0.2s ease,
+        border-color 0.2s ease;
+    }
+
+    .menu-link:hover {
+      transform: translateY(-2px);
+      border-color: #70ba25;
+      background: rgba(87, 155, 18, 0.2);
+    }
+
+    .menu-link.active {
+      border-color: #70ba25;
+      background: #579b12;
+    }
+
+    .menu-quote-link {
+      border-color: #e4b63f;
+      background: #e4b63f;
+      color: #01091d;
+    }
+
+    .menu-quote-link:hover {
+      transform: translateY(-2px);
+      background: #f4d77b;
+    }
+
+    .site-footer {
+      padding: 48px 20px;
+
+      border-top: 1px solid rgba(255, 255, 255, 0.14);
+
+      background: #000719;
+      text-align: center;
+    }
+
+    .footer-brand {
+      font-family: "Montserrat", Arial, sans-serif;
+      font-size: 1.3rem;
+      font-style: italic;
+      font-weight: 700;
+    }
+
+    .footer-randy {
+      color: #ffffff;
+    }
+
+    .footer-cleaning {
+      color: #70ba25;
+    }
+
+    .footer-slogan {
+      margin-top: 8px;
+      color: #f4d77b;
+    }
+
+    .footer-links {
+      margin-top: 24px;
+
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+
+      gap: 18px;
+    }
+
+    .footer-links a {
+      color: #ffffff;
+      text-decoration: none;
+      font-weight: 700;
+    }
+
+    .footer-links a:hover {
+      color: #70ba25;
+    }
+
+    .copyright {
+      margin-top: 24px;
+
+      color: #d7dfeb;
+      font-size: 0.86rem;
+    }
+
+    @media (max-width: 960px) {
+      .dropdown-menu {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 720px) {
+      .top-bar {
+        align-items: center;
+      }
+
+      .small-brand-logo {
+        width: 68px;
+      }
+
+      .brand-randys {
+        font-size: 1.18rem;
+      }
+
+      .brand-cleaning {
+        font-size: 0.78rem;
+      }
+
+      .menu-toggle {
+        min-width: 130px;
+        min-height: 58px;
+        padding: 12px 18px;
+
+        gap: 12px;
+      }
+
+      .menu-lines {
+        width: 27px;
+      }
+    }
+
+    @media (max-width: 620px) {
+      .top-bar {
+        min-height: 98px;
+      }
+
+      .small-brand {
+        gap: 9px;
+      }
+
+      .small-brand-logo {
+        width: 58px;
+      }
+
+      .brand-randys {
+        font-size: 1rem;
+      }
+
+      .brand-cleaning {
+        font-size: 0.68rem;
+      }
+
+      .menu-toggle {
+        min-width: 110px;
+        min-height: 54px;
+        padding: 11px 15px;
+
+        font-size: 0.77rem;
+      }
+
+      .menu-lines {
+        width: 24px;
+        gap: 5px;
+      }
+
+      .menu-lines span {
+        height: 3px;
+      }
+
+      .dropdown-menu {
+        grid-template-columns: 1fr;
+      }
+
+      .dropdown-menu.open {
+        max-height: 900px;
+      }
+    }
+
   </style>
 </head>
 
@@ -1135,57 +1504,83 @@
 
   <header class="site-header">
 
-    <!-- PULL-DOWN MENU -->
+    <div class="top-bar">
 
-    <div class="menu-wrapper">
+      <!-- Small logo and business name -->
+      <a
+        href="index.html"
+        class="small-brand"
+        aria-label="Randy's Cleaning Pros home page"
+      >
 
+        <img
+          src="Photoroomlogo11.png"
+          alt="Randy's Cleaning Pros logo"
+          class="small-brand-logo"
+        >
+
+        <span class="brand-name">
+          <span class="brand-randys">Randy's</span>
+          <span class="brand-cleaning">Cleaning Pros</span>
+        </span>
+
+      </a>
+
+      <!-- Menu button -->
       <button
-        class="menu-button"
-        id="menuButton"
+        class="menu-toggle"
+        id="menuToggle"
         type="button"
+        aria-label="Open website menu"
+        aria-controls="mainMenu"
         aria-expanded="false"
-        aria-controls="dropdownMenu"
       >
-        <span>☰ Menu</span>
-        <span class="menu-arrow">▼</span>
+        <span id="menuText">MENU</span>
+        <span class="menu-lines" aria-hidden="true">
+          <span></span>
+          <span></span>
+          <span></span>
+        </span>
       </button>
-
-      <nav
-        class="dropdown-menu"
-        id="dropdownMenu"
-        aria-label="Main website navigation"
-      >
-
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="about.html">About Us</a></li>
-          <li><a href="services.html">Services</a></li>
-          <li><a href="gold-standard.html">Gold Standard</a></li>
-          <li><a href="pricing.html" class="active">Pricing & Estimates</a></li>
-          <li><a href="contact.html">Contact Us</a></li>
-          <li><a href="quote.html">Request a Free Quote</a></li>
-        </ul>
-
-      </nav>
 
     </div>
 
-    <!-- SMALL BRAND IN RIGHT CORNER -->
+    <!-- Dropdown navigation -->
+    <nav class="dropdown-menu" id="mainMenu" aria-label="Main website navigation">
 
-    <a href="index.html" class="brand">
+      <a href="index.html" class="menu-link">
+        Home
+      </a>
 
-      <div class="brand-name">
-        <span class="brand-randys">Randy’s</span>
-        <span class="brand-cleaning">Cleaning Pros</span>
-      </div>
+      <a href="services.html" class="menu-link">
+        Services
+      </a>
 
-      <img
-        src="Smalllogo.PNG"
-        alt="Randy's Cleaning Pros logo"
-        class="brand-logo"
-      >
+      <a href="pricing.html" class="menu-link active" aria-current="page">
+        Pricing &amp; Estimates
+      </a>
 
-    </a>
+      <a href="gold-standard.html" class="menu-link">
+        Gold Standard
+      </a>
+
+      <a href="about.html" class="menu-link">
+        About Us
+      </a>
+
+      <a href="reviews.html" class="menu-link">
+        Reviews
+      </a>
+
+      <a href="contact.html" class="menu-link">
+        Contact
+      </a>
+
+      <a href="quote.html" class="menu-quote-link">
+        Get a Free Quote
+      </a>
+
+    </nav>
 
   </header>
 
@@ -2086,362 +2481,48 @@
   </footer>
 
   <script>
-    /* =====================================================
-       PULL-DOWN MENU
-       ===================================================== */
+    (function () {
+      const menuToggle = document.getElementById("menuToggle");
+      const mainMenu = document.getElementById("mainMenu");
 
-    const menuButton =
-      document.getElementById("menuButton");
+      if (!menuToggle || !mainMenu) return;
 
-    const dropdownMenu =
-      document.getElementById("dropdownMenu");
-
-    menuButton.addEventListener("click", function () {
-      const isOpen =
-        dropdownMenu.classList.toggle("open");
-
-      menuButton.setAttribute(
-        "aria-expanded",
-        String(isOpen)
-      );
-    });
-
-    /*
-      Close the menu when someone clicks
-      somewhere else on the page.
-    */
-
-    document.addEventListener("click", function (event) {
-      const clickedInsideMenu =
-        event.target.closest(".menu-wrapper");
-
-      if (!clickedInsideMenu) {
-        dropdownMenu.classList.remove("open");
-        menuButton.setAttribute("aria-expanded", "false");
-      }
-    });
-
-    /*
-      Close the menu after a navigation link is selected.
-    */
-
-    dropdownMenu
-      .querySelectorAll("a")
-      .forEach(function (link) {
-        link.addEventListener("click", function () {
-          dropdownMenu.classList.remove("open");
-          menuButton.setAttribute("aria-expanded", "false");
-        });
-      });
-
-    /* =====================================================
-       ROOM-BY-ROOM ESTIMATE CALCULATOR
-       ===================================================== */
-
-    const laborRate = 60;
-
-    const serviceType =
-      document.getElementById("serviceType");
-
-    const condition =
-      document.getElementById("condition");
-
-    const frequency =
-      document.getElementById("frequency");
-
-    const roomInputs =
-      document.querySelectorAll(".room-input");
-
-    const addOns =
-      document.querySelectorAll(".addon");
-
-    const roomBreakdown =
-      document.getElementById("roomBreakdown");
-
-    const originalLaborDisplay =
-      document.getElementById("originalLabor");
-
-    const serviceAdjustmentDisplay =
-      document.getElementById("serviceAdjustment");
-
-    const conditionAdjustmentDisplay =
-      document.getElementById("conditionAdjustment");
-
-    const frequencySavingsDisplay =
-      document.getElementById("frequencySavings");
-
-    const addOnTotalDisplay =
-      document.getElementById("addOnTotal");
-
-    const estimatedTotalDisplay =
-      document.getElementById("estimatedTotal");
-
-    const estimatedTimeDisplay =
-      document.getElementById("estimatedTime");
-
-    function formatMoney(amount) {
-      return new Intl.NumberFormat("en-US", {
-        style: "currency",
-        currency: "USD"
-      }).format(amount);
-    }
-
-    function formatTime(totalMinutes) {
-      const roundedMinutes = Math.round(totalMinutes);
-
-      const hours =
-        Math.floor(roundedMinutes / 60);
-
-      const minutes =
-        roundedMinutes % 60;
-
-      if (hours === 0) {
-        return roundedMinutes + " minutes";
+      function openMenu() {
+        menuToggle.classList.add("open");
+        mainMenu.classList.add("open");
+        menuToggle.setAttribute("aria-expanded", "true");
       }
 
-      if (minutes === 0) {
-        return hours === 1
-          ? "1 hour"
-          : hours + " hours";
+      function closeMenu() {
+        menuToggle.classList.remove("open");
+        mainMenu.classList.remove("open");
+        menuToggle.setAttribute("aria-expanded", "false");
       }
 
-      return (
-        hours +
-        (hours === 1 ? " hour " : " hours ") +
-        minutes +
-        " minutes"
-      );
-    }
-
-    function updateEstimate() {
-      const serviceMultiplier =
-        Number(serviceType.value);
-
-      const conditionMultiplier =
-        Number(condition.value);
-
-      const frequencyMultiplier =
-        Number(frequency.value);
-
-      let originalMinutes = 0;
-      let originalRoomLabor = 0;
-      let roomRows = [];
-
-      /*
-        Calculate each room separately.
-      */
-
-      roomInputs.forEach(function (roomInput) {
-        let quantity =
-          Number(roomInput.value);
-
-        if (quantity < 0 || Number.isNaN(quantity)) {
-          quantity = 0;
-          roomInput.value = 0;
-        }
-
-        const roomName =
-          roomInput.dataset.name;
-
-        const minutesPerRoom =
-          Number(roomInput.dataset.minutes);
-
-        if (quantity > 0) {
-          const roomMinutes =
-            quantity * minutesPerRoom;
-
-          const adjustedRoomMinutes =
-            roomMinutes *
-            serviceMultiplier *
-            conditionMultiplier;
-
-          const roomCost =
-            adjustedRoomMinutes / 60 * laborRate;
-
-          originalMinutes += roomMinutes;
-
-          originalRoomLabor +=
-            roomMinutes / 60 * laborRate;
-
-          roomRows.push({
-            name: roomName,
-            quantity: quantity,
-            minutes: adjustedRoomMinutes,
-            cost: roomCost
-          });
+      menuToggle.addEventListener("click", function () {
+        if (mainMenu.classList.contains("open")) {
+          closeMenu();
+        } else {
+          openMenu();
         }
       });
 
-      /*
-        Service and condition calculations.
-      */
-
-      const afterServiceLabor =
-        originalRoomLabor * serviceMultiplier;
-
-      const serviceAdjustment =
-        afterServiceLabor - originalRoomLabor;
-
-      const afterConditionLabor =
-        afterServiceLabor * conditionMultiplier;
-
-      const conditionAdjustment =
-        afterConditionLabor - afterServiceLabor;
-
-      const frequencyPrice =
-        afterConditionLabor * frequencyMultiplier;
-
-      const frequencySavings =
-        afterConditionLabor - frequencyPrice;
-
-      /*
-        Optional service calculations.
-      */
-
-      let addOnPrice = 0;
-      let addOnMinutes = 0;
-      let selectedAddOnRows = [];
-
-      addOns.forEach(function (addOn) {
-        if (addOn.checked) {
-          const addOnName =
-            addOn.dataset.name;
-
-          const addOnCost =
-            Number(addOn.value);
-
-          const addOnTime =
-            Number(addOn.dataset.minutes);
-
-          addOnPrice += addOnCost;
-          addOnMinutes += addOnTime;
-
-          selectedAddOnRows.push({
-            name: addOnName,
-            quantity: 1,
-            minutes: addOnTime,
-            cost: addOnCost
-          });
-        }
+      mainMenu.querySelectorAll("a").forEach(function (link) {
+        link.addEventListener("click", closeMenu);
       });
 
-      /*
-        Build the visible room table.
-      */
+      document.addEventListener("keydown", function (event) {
+        if (event.key === "Escape") closeMenu();
+      });
 
-      const allRows =
-        roomRows.concat(selectedAddOnRows);
-
-      if (allRows.length === 0) {
-        roomBreakdown.innerHTML = `
-          <tr>
-            <td colspan="4" class="empty-breakdown">
-              Select at least one room to see your breakdown.
-            </td>
-          </tr>
-        `;
-      } else {
-        roomBreakdown.innerHTML =
-          allRows.map(function (item) {
-            return `
-              <tr>
-                <td>${item.name}</td>
-                <td>${item.quantity}</td>
-                <td>${formatTime(item.minutes)}</td>
-                <td>${formatMoney(item.cost)}</td>
-              </tr>
-            `;
-          }).join("");
-      }
-
-      /*
-        Calculate final total and final time.
-      */
-
-      const finalTotal =
-        frequencyPrice + addOnPrice;
-
-      const adjustedRoomMinutes =
-        originalMinutes *
-        serviceMultiplier *
-        conditionMultiplier;
-
-      const totalEstimatedMinutes =
-        adjustedRoomMinutes + addOnMinutes;
-
-      /*
-        Update the summary.
-      */
-
-      originalLaborDisplay.textContent =
-        formatMoney(originalRoomLabor);
-
-      serviceAdjustmentDisplay.textContent =
-        serviceAdjustment > 0
-          ? "+ " + formatMoney(serviceAdjustment)
-          : formatMoney(0);
-
-      conditionAdjustmentDisplay.textContent =
-        conditionAdjustment > 0
-          ? "+ " + formatMoney(conditionAdjustment)
-          : conditionAdjustment < 0
-            ? "- " + formatMoney(Math.abs(conditionAdjustment))
-            : formatMoney(0);
-
-      frequencySavingsDisplay.textContent =
-        frequencySavings > 0
-          ? "- " + formatMoney(frequencySavings)
-          : formatMoney(0);
-
-      addOnTotalDisplay.textContent =
-        formatMoney(addOnPrice);
-
-      estimatedTotalDisplay.textContent =
-        formatMoney(finalTotal);
-
-      estimatedTimeDisplay.textContent =
-        "Estimated labor time: " +
-        formatTime(totalEstimatedMinutes);
-    }
-
-    /*
-      Update whenever the customer changes an option.
-    */
-
-    serviceType.addEventListener(
-      "change",
-      updateEstimate
-    );
-
-    condition.addEventListener(
-      "change",
-      updateEstimate
-    );
-
-    frequency.addEventListener(
-      "change",
-      updateEstimate
-    );
-
-    roomInputs.forEach(function (roomInput) {
-      roomInput.addEventListener(
-        "input",
-        updateEstimate
-      );
-    });
-
-    addOns.forEach(function (addOn) {
-      addOn.addEventListener(
-        "change",
-        updateEstimate
-      );
-    });
-
-    /*
-      Load the starting estimate immediately.
-    */
-
-    updateEstimate();
+      document.addEventListener("click", function (event) {
+        const clickedMenuButton = menuToggle.contains(event.target);
+        const clickedInsideMenu = mainMenu.contains(event.target);
+        if (mainMenu.classList.contains("open") && !clickedMenuButton && !clickedInsideMenu) {
+          closeMenu();
+        }
+      });
+    })();
   </script>
 
 </body>
