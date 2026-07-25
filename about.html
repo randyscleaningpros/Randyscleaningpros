@@ -34,7 +34,7 @@
   <link
     rel="icon"
     type="image/png"
-    href="Smalllogo.PNG"
+    href="Photoroomlogo11.png"
   >
 
   <style>
@@ -961,6 +961,375 @@
         border-radius: 20px;
       }
     }
+  
+    /* =========================================================
+       SHARED SITE HEADER & FOOTER
+       (Kept identical across every page — do not edit per page)
+       ========================================================= */
+
+    .site-header {
+      position: relative;
+      z-index: 1000;
+
+      border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+
+      background:
+        linear-gradient(
+          180deg,
+          rgba(1, 14, 56, 0.98),
+          rgba(1, 14, 56, 0.9)
+        );
+    }
+
+    .top-bar {
+      width: min(1220px, 94%);
+      min-height: 116px;
+      margin: 0 auto;
+      padding: 14px 0;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      gap: 20px;
+    }
+
+    .small-brand {
+      display: flex;
+      align-items: center;
+
+      gap: 15px;
+
+      text-decoration: none;
+    }
+
+    .small-brand-logo {
+      width: 82px;
+      max-height: 82px;
+
+      object-fit: contain;
+
+      filter: drop-shadow(0 8px 15px rgba(0, 0, 0, 0.3));
+    }
+
+    .brand-name {
+      display: flex;
+      flex-direction: column;
+
+      font-family: "Montserrat", Arial, sans-serif;
+      font-style: italic;
+      font-weight: 700;
+      line-height: 0.95;
+
+      text-transform: uppercase;
+    }
+
+    .brand-randys {
+      color: #ffffff;
+      font-size: clamp(1.25rem, 3vw, 1.9rem);
+      letter-spacing: -0.03em;
+
+      text-shadow:
+        1px 1px 0 rgba(0, 0, 0, 0.7),
+        -1px -1px 0 rgba(0, 0, 0, 0.35);
+    }
+
+    .brand-cleaning {
+      margin-top: 7px;
+
+      color: #70ba25;
+      font-size: clamp(0.85rem, 2.2vw, 1.15rem);
+      letter-spacing: 0.025em;
+
+      text-shadow:
+        1px 1px 0 rgba(0, 0, 0, 0.7),
+        -1px -1px 0 rgba(0, 0, 0, 0.35);
+    }
+
+    .menu-toggle {
+      min-width: 154px;
+      min-height: 64px;
+      padding: 13px 25px;
+
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+
+      gap: 16px;
+
+      border: 3px solid #e4b63f;
+      border-radius: 999px;
+
+      background: linear-gradient(180deg, #347b08, #245f00);
+
+      color: #ffffff;
+      cursor: pointer;
+
+      box-shadow:
+        0 0 0 4px rgba(255, 255, 255, 0.06),
+        0 12px 28px rgba(0, 0, 0, 0.3);
+
+      font-family: "Montserrat", Arial, sans-serif;
+      font-size: 0.92rem;
+      font-weight: 800;
+      letter-spacing: 0.09em;
+
+      transition:
+        transform 0.2s ease,
+        background-color 0.2s ease,
+        border-color 0.2s ease;
+    }
+
+    .menu-toggle:hover {
+      transform: translateY(-2px);
+      border-color: #f4d77b;
+      background: #579b12;
+    }
+
+    .menu-lines {
+      width: 32px;
+
+      display: grid;
+      gap: 6px;
+    }
+
+    .menu-lines span {
+      display: block;
+      width: 100%;
+      height: 4px;
+
+      border-radius: 999px;
+
+      background: #ffffff;
+    }
+
+    .menu-toggle[aria-expanded="true"] {
+      background: #e4b63f;
+      color: #01091d;
+    }
+
+    .menu-toggle[aria-expanded="true"] .menu-lines span {
+      background: #01091d;
+    }
+
+    .dropdown-menu {
+      width: min(1220px, 92%);
+      max-height: 0;
+      margin: 0 auto;
+      padding: 0;
+      overflow: hidden;
+
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+
+      gap: 12px;
+
+      opacity: 0;
+      visibility: hidden;
+
+      transition:
+        max-height 0.35s ease,
+        padding 0.35s ease,
+        opacity 0.25s ease;
+    }
+
+    .dropdown-menu.open {
+      max-height: 700px;
+      padding: 10px 0 28px;
+
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .menu-link,
+    .menu-quote-link {
+      min-height: 54px;
+      padding: 13px 15px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: 14px;
+
+      background: rgba(255, 255, 255, 0.06);
+      color: #ffffff;
+
+      text-align: center;
+      text-decoration: none;
+
+      font-family: "Montserrat", Arial, sans-serif;
+      font-size: 0.9rem;
+      font-weight: 700;
+
+      transition:
+        transform 0.2s ease,
+        background-color 0.2s ease,
+        border-color 0.2s ease;
+    }
+
+    .menu-link:hover {
+      transform: translateY(-2px);
+      border-color: #70ba25;
+      background: rgba(87, 155, 18, 0.2);
+    }
+
+    .menu-link.active {
+      border-color: #70ba25;
+      background: #579b12;
+    }
+
+    .menu-quote-link {
+      border-color: #e4b63f;
+      background: #e4b63f;
+      color: #01091d;
+    }
+
+    .menu-quote-link:hover {
+      transform: translateY(-2px);
+      background: #f4d77b;
+    }
+
+    .site-footer {
+      padding: 48px 20px;
+
+      border-top: 1px solid rgba(255, 255, 255, 0.14);
+
+      background: #000719;
+      text-align: center;
+    }
+
+    .footer-brand {
+      font-family: "Montserrat", Arial, sans-serif;
+      font-size: 1.3rem;
+      font-style: italic;
+      font-weight: 700;
+    }
+
+    .footer-randy {
+      color: #ffffff;
+    }
+
+    .footer-cleaning {
+      color: #70ba25;
+    }
+
+    .footer-slogan {
+      margin-top: 8px;
+      color: #f4d77b;
+    }
+
+    .footer-links {
+      margin-top: 24px;
+
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+
+      gap: 18px;
+    }
+
+    .footer-links a {
+      color: #ffffff;
+      text-decoration: none;
+      font-weight: 700;
+    }
+
+    .footer-links a:hover {
+      color: #70ba25;
+    }
+
+    .copyright {
+      margin-top: 24px;
+
+      color: #d7dfeb;
+      font-size: 0.86rem;
+    }
+
+    @media (max-width: 960px) {
+      .dropdown-menu {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 720px) {
+      .top-bar {
+        align-items: center;
+      }
+
+      .small-brand-logo {
+        width: 68px;
+      }
+
+      .brand-randys {
+        font-size: 1.18rem;
+      }
+
+      .brand-cleaning {
+        font-size: 0.78rem;
+      }
+
+      .menu-toggle {
+        min-width: 130px;
+        min-height: 58px;
+        padding: 12px 18px;
+
+        gap: 12px;
+      }
+
+      .menu-lines {
+        width: 27px;
+      }
+    }
+
+    @media (max-width: 620px) {
+      .top-bar {
+        min-height: 98px;
+      }
+
+      .small-brand {
+        gap: 9px;
+      }
+
+      .small-brand-logo {
+        width: 58px;
+      }
+
+      .brand-randys {
+        font-size: 1rem;
+      }
+
+      .brand-cleaning {
+        font-size: 0.68rem;
+      }
+
+      .menu-toggle {
+        min-width: 110px;
+        min-height: 54px;
+        padding: 11px 15px;
+
+        font-size: 0.77rem;
+      }
+
+      .menu-lines {
+        width: 24px;
+        gap: 5px;
+      }
+
+      .menu-lines span {
+        height: 3px;
+      }
+
+      .dropdown-menu {
+        grid-template-columns: 1fr;
+      }
+
+      .dropdown-menu.open {
+        max-height: 900px;
+      }
+    }
+
   </style>
 </head>
 
@@ -972,75 +1341,81 @@
 
   <header class="site-header">
 
-    <div class="container header-inner">
+    <div class="top-bar">
 
+      <!-- Small logo and business name -->
       <a
         href="index.html"
-        class="brand"
+        class="small-brand"
         aria-label="Randy's Cleaning Pros home page"
       >
 
         <img
-          src="Smalllogo.PNG"
+          src="Photoroomlogo11.png"
           alt="Randy's Cleaning Pros logo"
-          class="brand-logo"
+          class="small-brand-logo"
         >
 
-        <div class="brand-name">
+        <span class="brand-name">
           <span class="brand-randys">Randy's</span>
           <span class="brand-cleaning">Cleaning Pros</span>
-        </div>
+        </span>
 
       </a>
 
+      <!-- Menu button -->
       <button
-        class="menu-button"
-        id="menuButton"
+        class="menu-toggle"
+        id="menuToggle"
         type="button"
+        aria-label="Open website menu"
+        aria-controls="mainMenu"
         aria-expanded="false"
-        aria-controls="menuPanel"
       >
-
+        <span id="menuText">MENU</span>
         <span class="menu-lines" aria-hidden="true">
           <span></span>
           <span></span>
           <span></span>
         </span>
-
-        <span class="menu-button-text">Menu</span>
-
       </button>
 
     </div>
 
-    <nav
-      class="menu-panel"
-      id="menuPanel"
-      aria-label="Main navigation"
-    >
+    <!-- Dropdown navigation -->
+    <nav class="dropdown-menu" id="mainMenu" aria-label="Main website navigation">
 
-      <div class="container menu-links">
+      <a href="index.html" class="menu-link">
+        Home
+      </a>
 
-        <a href="index.html">Home</a>
+      <a href="services.html" class="menu-link">
+        Services
+      </a>
 
-        <a href="services.html">Services</a>
+      <a href="pricing.html" class="menu-link">
+        Pricing &amp; Estimates
+      </a>
 
-        <a href="gold-standard.html">
-          Gold Standard
-        </a>
+      <a href="gold-standard.html" class="menu-link">
+        Gold Standard
+      </a>
 
-        <a
-          href="about.html"
-          class="active"
-        >
-          About Us
-        </a>
+      <a href="about.html" class="menu-link active" aria-current="page">
+        About Us
+      </a>
 
-        <a href="contact.html">Contact</a>
+      <a href="reviews.html" class="menu-link">
+        Reviews
+      </a>
 
-        <a href="quote.html">Free Quote</a>
+      <a href="contact.html" class="menu-link">
+        Contact
+      </a>
 
-      </div>
+      <a href="quote.html" class="menu-quote-link">
+        Get a Free Quote
+      </a>
 
     </nav>
 
@@ -1591,36 +1966,25 @@
 
   <footer class="site-footer">
 
-    <div class="container">
-
-      <div class="footer-brand">
-        <span class="white">Randy's</span>
-        <span class="green"> Cleaning Pros</span>
-      </div>
-
-      <p>
-        Setting the Gold Standard in Cleaning
-      </p>
-
-      <div class="footer-links">
-
-        <a href="index.html">Home</a>
-
-        <a href="services.html">Services</a>
-
-        <a href="gold-standard.html">
-          Gold Standard
-        </a>
-
-        <a href="contact.html">Contact</a>
-
-        <a href="privacy.html">Privacy</a>
-
-        <a href="terms.html">Terms</a>
-
-      </div>
-
+    <div class="footer-brand">
+      <span class="footer-randy">Randy's</span>
+      <span class="footer-cleaning">Cleaning Pros</span>
     </div>
+
+    <p class="footer-slogan">Setting the Gold Standard in Cleaning</p>
+
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="services.html">Services</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="gold-standard.html">Gold Standard</a>
+      <a href="about.html">About</a>
+      <a href="reviews.html">Reviews</a>
+      <a href="quote.html">Free Quote</a>
+      <a href="contact.html">Contact</a>
+    </div>
+
+    <p class="copyright">&copy; 2026 Randy's Cleaning Pros. All rights reserved.</p>
 
   </footer>
 
@@ -1629,36 +1993,48 @@
        ===================================================== -->
 
   <script>
-    const menuButton = document.getElementById("menuButton");
-    const menuPanel = document.getElementById("menuPanel");
+    (function () {
+      const menuToggle = document.getElementById("menuToggle");
+      const mainMenu = document.getElementById("mainMenu");
 
-    menuButton.addEventListener("click", function () {
-      const isOpen = menuPanel.classList.toggle("open");
+      if (!menuToggle || !mainMenu) return;
 
-      menuButton.setAttribute(
-        "aria-expanded",
-        isOpen ? "true" : "false"
-      );
-    });
-
-    document.addEventListener("click", function (event) {
-      const clickedInsideMenu =
-        menuPanel.contains(event.target) ||
-        menuButton.contains(event.target);
-
-      if (!clickedInsideMenu) {
-        menuPanel.classList.remove("open");
-        menuButton.setAttribute("aria-expanded", "false");
+      function openMenu() {
+        menuToggle.classList.add("open");
+        mainMenu.classList.add("open");
+        menuToggle.setAttribute("aria-expanded", "true");
       }
-    });
 
-    document.addEventListener("keydown", function (event) {
-      if (event.key === "Escape") {
-        menuPanel.classList.remove("open");
-        menuButton.setAttribute("aria-expanded", "false");
-        menuButton.focus();
+      function closeMenu() {
+        menuToggle.classList.remove("open");
+        mainMenu.classList.remove("open");
+        menuToggle.setAttribute("aria-expanded", "false");
       }
-    });
+
+      menuToggle.addEventListener("click", function () {
+        if (mainMenu.classList.contains("open")) {
+          closeMenu();
+        } else {
+          openMenu();
+        }
+      });
+
+      mainMenu.querySelectorAll("a").forEach(function (link) {
+        link.addEventListener("click", closeMenu);
+      });
+
+      document.addEventListener("keydown", function (event) {
+        if (event.key === "Escape") closeMenu();
+      });
+
+      document.addEventListener("click", function (event) {
+        const clickedMenuButton = menuToggle.contains(event.target);
+        const clickedInsideMenu = mainMenu.contains(event.target);
+        if (mainMenu.classList.contains("open") && !clickedMenuButton && !clickedInsideMenu) {
+          closeMenu();
+        }
+      });
+    })();
   </script>
 
 </body>
