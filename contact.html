@@ -2,216 +2,780 @@
 <html lang="en">
 
 <head>
-<link rel="icon" type="image/png" href="Smalllogo.PNG">
+  <meta charset="UTF-8">
 
-<meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Contact Randy's Cleaning Pros for a free cleaning estimate in Southern Maine.">
 
-<title>Contact Us | Randy's Cleaning Pros</title>
+  <title>Contact Us | Randy's Cleaning Pros</title>
 
-<link rel="stylesheet" href="styles.css">
+  <!-- Website favicon -->
+  <link rel="icon" type="image/png" href="Photoroomlogo11.png">
 
-<style>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,500;0,600;0,700;0,800;1,600;1,700;1,800&family=Open+Sans:wght@400;600;700&display=swap"
+    rel="stylesheet"
+  >
 
-body{
-    margin:0;
-    font-family:Arial, Helvetica, sans-serif;
-    background:#031a33;
-    color:white;
-}
+  <style>
 
-.container{
-    max-width:900px;
-    margin:40px auto;
-    padding:20px;
-}
+    :root {
+      --navy-top: #071d50;
+      --navy-main: #010e38;
+      --navy-deep: #01091d;
+      --navy-black: #000719;
 
-.logo{
-    width:350px;
-    max-width:90%;
-    display:block;
-    margin:auto;
-}
+      --green-dark: #276800;
+      --green: #579b12;
+      --green-light: #70ba25;
 
-h1{
-    text-align:center;
-    color:#d4af37;
-    font-size:52px;
-    margin-top:30px;
-}
+      --gold-dark: #b3841c;
+      --gold: #e4b63f;
+      --gold-light: #f4d77b;
 
-.subtitle{
-    text-align:center;
-    font-size:22px;
-    color:#62b32e;
-    margin-bottom:40px;
-}
+      --white: #ffffff;
+      --soft-white: #d7dfeb;
+      --muted-white: rgba(255, 255, 255, 0.76);
 
-.card{
+      --border-white: rgba(255, 255, 255, 0.14);
+      --card-background: rgba(255, 255, 255, 0.06);
 
-    background:#082746;
+      --shadow: 0 22px 55px rgba(0, 0, 0, 0.34);
+      --soft-shadow: 0 14px 34px rgba(0, 0, 0, 0.24);
+    }
 
-    border:2px solid #62b32e;
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-    border-radius:15px;
+    html {
+      scroll-behavior: smooth;
+    }
 
-    padding:35px;
+    body {
+      min-height: 100vh;
 
-    text-align:center;
+      background:
+        radial-gradient(circle at 50% 5%, rgba(30, 71, 130, 0.48), transparent 30%),
+        radial-gradient(circle at top right, rgba(87, 155, 18, 0.1), transparent 26%),
+        linear-gradient(180deg, var(--navy-top) 0%, var(--navy-main) 30%, var(--navy-deep) 68%, var(--navy-black) 100%);
 
-    box-shadow:0 10px 25px rgba(0,0,0,.35);
+      color: var(--white);
 
-}
+      font-family: "Open Sans", Arial, sans-serif;
+      line-height: 1.7;
+    }
 
-.card h2{
-    color:#d4af37;
-    margin-bottom:20px;
-}
+    img {
+      display: block;
+      max-width: 100%;
+      height: auto;
+    }
 
-.card p{
-    font-size:20px;
-    line-height:1.8;
-}
+    a {
+      color: inherit;
+    }
 
-.notice{
+    .page-container {
+      width: min(900px, 92%);
+      margin: 0 auto;
+      padding: 60px 0 80px;
+    }
 
-    margin-top:30px;
+    .page-title {
+      text-align: center;
+      color: var(--gold-light);
+      font-family: "Montserrat", Arial, sans-serif;
+      font-weight: 800;
+      font-size: clamp(2.4rem, 6vw, 3.4rem);
+      letter-spacing: -0.02em;
+      margin-bottom: 14px;
+    }
 
-    padding:20px;
+    .page-subtitle {
+      text-align: center;
+      color: var(--green-light);
+      font-family: "Montserrat", Arial, sans-serif;
+      font-weight: 700;
+      font-size: 1.2rem;
+      margin-bottom: 40px;
+    }
 
-    background:#0d365d;
+    .card {
+      background: var(--card-background);
+      border: 1px solid var(--border-white);
+      border-radius: 20px;
+      padding: 40px;
+      box-shadow: var(--soft-shadow);
+    }
 
-    border-left:6px solid #d4af37;
+    .card h2 {
+      color: var(--gold-light);
+      font-family: "Montserrat", Arial, sans-serif;
+      font-size: 1.4rem;
+      margin: 28px 0 14px;
+    }
 
-    border-radius:10px;
+    .card h2:first-child {
+      margin-top: 0;
+    }
 
-    font-size:21px;
+    .card p, .card li {
+      color: var(--soft-white);
+      font-size: 1.05rem;
+      line-height: 1.8;
+    }
 
-    font-weight:bold;
+    .card ul {
+      padding-left: 22px;
+      margin-top: 6px;
+    }
 
-}
+    .card a {
+      color: var(--green-light);
+      font-weight: 700;
+      text-decoration: underline;
+    }
 
-.button{
+    .notice {
+      margin-top: 30px;
+      padding: 22px;
+      background: rgba(228, 182, 63, 0.1);
+      border-left: 6px solid var(--gold);
+      border-radius: 12px;
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--white);
+    }
 
-    display:inline-block;
+    .button-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      justify-content: center;
+      margin-top: 28px;
+    }
 
-    margin:15px;
+    .action-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 15px 28px;
+      border-radius: 12px;
+      font-family: "Montserrat", Arial, sans-serif;
+      font-weight: 800;
+      font-size: 0.95rem;
+      text-decoration: none;
+      letter-spacing: 0.03em;
+      transition: transform 0.2s ease, background-color 0.2s ease;
+    }
 
-    padding:16px 30px;
+    .action-button.primary {
+      background: var(--green);
+      color: var(--white);
+    }
 
-    background:#62b32e;
+    .action-button.primary:hover {
+      background: var(--green-light);
+      transform: translateY(-2px);
+    }
 
-    color:white;
+    .action-button.secondary {
+      background: transparent;
+      border: 2px solid var(--gold);
+      color: var(--gold-light);
+    }
 
-    text-decoration:none;
+    .action-button.secondary:hover {
+      background: var(--gold);
+      color: var(--navy-deep);
+      transform: translateY(-2px);
+    }
 
-    border-radius:10px;
+    .contact-info p {
+      font-size: 1.15rem;
+      margin-bottom: 18px;
+      color: var(--soft-white);
+    }
 
-    font-size:20px;
+    .back-link {
+      display: inline-block;
+      margin-top: 40px;
+      color: var(--green-light);
+      font-weight: 700;
+      text-decoration: none;
+    }
 
-    font-weight:bold;
+    .back-link:hover {
+      text-decoration: underline;
+    }
 
-}
 
-.button:hover{
 
-    background:#d4af37;
+    /* =========================================================
+       SHARED SITE HEADER & FOOTER
+       (Kept identical across every page — do not edit per page)
+       ========================================================= */
 
-    color:#031a33;
+    .site-header {
+      position: relative;
+      z-index: 1000;
 
-}
+      border-bottom: 1px solid rgba(255, 255, 255, 0.14);
 
-footer{
+      background:
+        linear-gradient(
+          180deg,
+          rgba(1, 14, 56, 0.98),
+          rgba(1, 14, 56, 0.9)
+        );
+    }
 
-    margin-top:50px;
+    .top-bar {
+      width: min(1220px, 94%);
+      min-height: 116px;
+      margin: 0 auto;
+      padding: 14px 0;
 
-    background:#021326;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
 
-    border-top:4px solid #62b32e;
+      gap: 20px;
+    }
 
-    padding:25px;
+    .small-brand {
+      display: flex;
+      align-items: center;
 
-    text-align:center;
+      gap: 15px;
 
-}
+      text-decoration: none;
+    }
 
-</style>
+    .small-brand-logo {
+      width: 82px;
+      max-height: 82px;
 
+      object-fit: contain;
+
+      filter: drop-shadow(0 8px 15px rgba(0, 0, 0, 0.3));
+    }
+
+    .brand-name {
+      display: flex;
+      flex-direction: column;
+
+      font-family: "Montserrat", Arial, sans-serif;
+      font-style: italic;
+      font-weight: 700;
+      line-height: 0.95;
+
+      text-transform: uppercase;
+    }
+
+    .brand-randys {
+      color: #ffffff;
+      font-size: clamp(1.25rem, 3vw, 1.9rem);
+      letter-spacing: -0.03em;
+
+      text-shadow:
+        1px 1px 0 rgba(0, 0, 0, 0.7),
+        -1px -1px 0 rgba(0, 0, 0, 0.35);
+    }
+
+    .brand-cleaning {
+      margin-top: 7px;
+
+      color: #70ba25;
+      font-size: clamp(0.85rem, 2.2vw, 1.15rem);
+      letter-spacing: 0.025em;
+
+      text-shadow:
+        1px 1px 0 rgba(0, 0, 0, 0.7),
+        -1px -1px 0 rgba(0, 0, 0, 0.35);
+    }
+
+    .menu-toggle {
+      min-width: 154px;
+      min-height: 64px;
+      padding: 13px 25px;
+
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+
+      gap: 16px;
+
+      border: 3px solid #e4b63f;
+      border-radius: 999px;
+
+      background: linear-gradient(180deg, #347b08, #245f00);
+
+      color: #ffffff;
+      cursor: pointer;
+
+      box-shadow:
+        0 0 0 4px rgba(255, 255, 255, 0.06),
+        0 12px 28px rgba(0, 0, 0, 0.3);
+
+      font-family: "Montserrat", Arial, sans-serif;
+      font-size: 0.92rem;
+      font-weight: 800;
+      letter-spacing: 0.09em;
+
+      transition:
+        transform 0.2s ease,
+        background-color 0.2s ease,
+        border-color 0.2s ease;
+    }
+
+    .menu-toggle:hover {
+      transform: translateY(-2px);
+      border-color: #f4d77b;
+      background: #579b12;
+    }
+
+    .menu-lines {
+      width: 32px;
+
+      display: grid;
+      gap: 6px;
+    }
+
+    .menu-lines span {
+      display: block;
+      width: 100%;
+      height: 4px;
+
+      border-radius: 999px;
+
+      background: #ffffff;
+    }
+
+    .menu-toggle[aria-expanded="true"] {
+      background: #e4b63f;
+      color: #01091d;
+    }
+
+    .menu-toggle[aria-expanded="true"] .menu-lines span {
+      background: #01091d;
+    }
+
+    .dropdown-menu {
+      width: min(1220px, 92%);
+      max-height: 0;
+      margin: 0 auto;
+      padding: 0;
+      overflow: hidden;
+
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+
+      gap: 12px;
+
+      opacity: 0;
+      visibility: hidden;
+
+      transition:
+        max-height 0.35s ease,
+        padding 0.35s ease,
+        opacity 0.25s ease;
+    }
+
+    .dropdown-menu.open {
+      max-height: 700px;
+      padding: 10px 0 28px;
+
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .menu-link,
+    .menu-quote-link {
+      min-height: 54px;
+      padding: 13px 15px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: 14px;
+
+      background: rgba(255, 255, 255, 0.06);
+      color: #ffffff;
+
+      text-align: center;
+      text-decoration: none;
+
+      font-family: "Montserrat", Arial, sans-serif;
+      font-size: 0.9rem;
+      font-weight: 700;
+
+      transition:
+        transform 0.2s ease,
+        background-color 0.2s ease,
+        border-color 0.2s ease;
+    }
+
+    .menu-link:hover {
+      transform: translateY(-2px);
+      border-color: #70ba25;
+      background: rgba(87, 155, 18, 0.2);
+    }
+
+    .menu-link.active {
+      border-color: #70ba25;
+      background: #579b12;
+    }
+
+    .menu-quote-link {
+      border-color: #e4b63f;
+      background: #e4b63f;
+      color: #01091d;
+    }
+
+    .menu-quote-link:hover {
+      transform: translateY(-2px);
+      background: #f4d77b;
+    }
+
+    .site-footer {
+      padding: 48px 20px;
+
+      border-top: 1px solid rgba(255, 255, 255, 0.14);
+
+      background: #000719;
+      text-align: center;
+    }
+
+    .footer-brand {
+      font-family: "Montserrat", Arial, sans-serif;
+      font-size: 1.3rem;
+      font-style: italic;
+      font-weight: 700;
+    }
+
+    .footer-randy {
+      color: #ffffff;
+    }
+
+    .footer-cleaning {
+      color: #70ba25;
+    }
+
+    .footer-slogan {
+      margin-top: 8px;
+      color: #f4d77b;
+    }
+
+    .footer-links {
+      margin-top: 24px;
+
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+
+      gap: 18px;
+    }
+
+    .footer-links a {
+      color: #ffffff;
+      text-decoration: none;
+      font-weight: 700;
+    }
+
+    .footer-links a:hover {
+      color: #70ba25;
+    }
+
+    .copyright {
+      margin-top: 24px;
+
+      color: #d7dfeb;
+      font-size: 0.86rem;
+    }
+
+    @media (max-width: 960px) {
+      .dropdown-menu {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 720px) {
+      .top-bar {
+        align-items: center;
+      }
+
+      .small-brand-logo {
+        width: 68px;
+      }
+
+      .brand-randys {
+        font-size: 1.18rem;
+      }
+
+      .brand-cleaning {
+        font-size: 0.78rem;
+      }
+
+      .menu-toggle {
+        min-width: 130px;
+        min-height: 58px;
+        padding: 12px 18px;
+
+        gap: 12px;
+      }
+
+      .menu-lines {
+        width: 27px;
+      }
+    }
+
+    @media (max-width: 620px) {
+      .top-bar {
+        min-height: 98px;
+      }
+
+      .small-brand {
+        gap: 9px;
+      }
+
+      .small-brand-logo {
+        width: 58px;
+      }
+
+      .brand-randys {
+        font-size: 1rem;
+      }
+
+      .brand-cleaning {
+        font-size: 0.68rem;
+      }
+
+      .menu-toggle {
+        min-width: 110px;
+        min-height: 54px;
+        padding: 11px 15px;
+
+        font-size: 0.77rem;
+      }
+
+      .menu-lines {
+        width: 24px;
+        gap: 5px;
+      }
+
+      .menu-lines span {
+        height: 3px;
+      }
+
+      .dropdown-menu {
+        grid-template-columns: 1fr;
+      }
+
+      .dropdown-menu.open {
+        max-height: 900px;
+      }
+    }
+
+  </style>
 </head>
 
 <body>
 
-<div class="container">
+  <header class="site-header">
 
-<img src="Photoroomlogo11.png" alt="Randy's Cleaning Pros Logo" class="logo">
+    <div class="top-bar">
 
-<h1>Contact Us</h1>
+      <!-- Small logo and business name -->
+      <a
+        href="index.html"
+        class="small-brand"
+        aria-label="Randy's Cleaning Pros home page"
+      >
 
-<p class="subtitle">
-We're here to help with all your cleaning needs.
-</p>
+        <img
+          src="Photoroomlogo11.png"
+          alt="Randy's Cleaning Pros logo"
+          class="small-brand-logo"
+        >
 
-<div class="card">
+        <span class="brand-name">
+          <span class="brand-randys">Randy's</span>
+          <span class="brand-cleaning">Cleaning Pros</span>
+        </span>
 
-<h2>Get Your Free Estimate</h2>
+      </a>
 
-<p>
+      <!-- Menu button -->
+      <button
+        class="menu-toggle"
+        id="menuToggle"
+        type="button"
+        aria-label="Open website menu"
+        aria-controls="mainMenu"
+        aria-expanded="false"
+      >
+        <span id="menuText">MENU</span>
+        <span class="menu-lines" aria-hidden="true">
+          <span></span>
+          <span></span>
+          <span></span>
+        </span>
+      </button>
 
-📱 <strong>Phone:</strong><br>
-1-877-207-3123
+    </div>
 
-</p>
+    <!-- Dropdown navigation -->
+    <nav class="dropdown-menu" id="mainMenu" aria-label="Main website navigation">
 
-<p>
+      <a href="index.html" class="menu-link">
+        Home
+      </a>
 
-📧 <strong>Email:</strong><br>
-randyscleaningpros@gmail.com
+      <a href="services.html" class="menu-link">
+        Services
+      </a>
 
-</p>
+      <a href="pricing.html" class="menu-link">
+        Pricing &amp; Estimates
+      </a>
 
-<p>
+      <a href="gold-standard.html" class="menu-link">
+        Gold Standard
+      </a>
 
-📍 <strong>Service Area:</strong><br>
-Portland, Maine
+      <a href="about.html" class="menu-link">
+        About Us
+      </a>
 
-</p>
+      <a href="reviews.html" class="menu-link">
+        Reviews
+      </a>
 
-<div class="notice">
+      <a href="contact.html" class="menu-link active" aria-current="page">
+        Contact
+      </a>
 
-📱 We prefer texting for better communication.
-Text messages allow us to respond faster, keep accurate records of your cleaning needs, and provide the best customer service possible.
+      <a href="quote.html" class="menu-quote-link">
+        Get a Free Quote
+      </a>
 
-</div>
+    </nav>
 
-<br>
+  </header>
 
-<a href="sms:18772073123" class="button">
-Text Us
-</a>
+  <main>
 
-<a href="tel:+18772073123" class="button">
-Call Us
-</a>
+    <div class="page-container">
 
-</div>
+      <h1 class="page-title">Contact Us</h1>
+      <p class="page-subtitle">We're here to help with all your cleaning needs.</p>
 
-</div>
+      <div class="card contact-info" style="text-align:center;">
 
-<footer>
+        <h2>Get Your Free Estimate</h2>
 
-<p>
+        <p>&#128241; <strong>Phone:</strong><br>1-877-207-3123</p>
 
-© 2026 Randy's Cleaning Pros
+        <p>&#128231; <strong>Email:</strong><br>randyscleaningpros@gmail.com</p>
 
-<br><br>
+        <p>&#128205; <strong>Service Area:</strong><br>Portland, Maine</p>
 
-<strong>Cleaning Homes. Earning Trust. Building Hope.</strong>
+        <div class="notice">
+          &#128241; We prefer texting for better communication.
+          Text messages allow us to respond faster, keep accurate records of your
+          cleaning needs, and provide the best customer service possible.
+        </div>
 
-</p>
+        <div class="button-row">
+          <a href="sms:18772073123" class="action-button primary">Text Us</a>
+          <a href="tel:+18772073123" class="action-button secondary">Call Us</a>
+        </div>
 
-</footer>
+      </div>
+
+    </div>
+
+  </main>
+
+  <footer class="site-footer">
+
+    <div class="footer-brand">
+      <span class="footer-randy">Randy's</span>
+      <span class="footer-cleaning">Cleaning Pros</span>
+    </div>
+
+    <p class="footer-slogan">Setting the Gold Standard in Cleaning</p>
+
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="services.html">Services</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="gold-standard.html">Gold Standard</a>
+      <a href="about.html">About</a>
+      <a href="reviews.html">Reviews</a>
+      <a href="quote.html">Free Quote</a>
+      <a href="contact.html">Contact</a>
+    </div>
+
+    <p class="copyright">&copy; 2026 Randy's Cleaning Pros. All rights reserved.</p>
+
+  </footer>
+
+  <script>
+    (function () {
+      const menuToggle = document.getElementById("menuToggle");
+      const mainMenu = document.getElementById("mainMenu");
+
+      if (!menuToggle || !mainMenu) return;
+
+      function openMenu() {
+        menuToggle.classList.add("open");
+        mainMenu.classList.add("open");
+        menuToggle.setAttribute("aria-expanded", "true");
+      }
+
+      function closeMenu() {
+        menuToggle.classList.remove("open");
+        mainMenu.classList.remove("open");
+        menuToggle.setAttribute("aria-expanded", "false");
+      }
+
+      menuToggle.addEventListener("click", function () {
+        if (mainMenu.classList.contains("open")) {
+          closeMenu();
+        } else {
+          openMenu();
+        }
+      });
+
+      mainMenu.querySelectorAll("a").forEach(function (link) {
+        link.addEventListener("click", closeMenu);
+      });
+
+      document.addEventListener("keydown", function (event) {
+        if (event.key === "Escape") closeMenu();
+      });
+
+      document.addEventListener("click", function (event) {
+        const clickedMenuButton = menuToggle.contains(event.target);
+        const clickedInsideMenu = mainMenu.contains(event.target);
+        if (mainMenu.classList.contains("open") && !clickedMenuButton && !clickedInsideMenu) {
+          closeMenu();
+        }
+      });
+    })();
+  </script>
 
 </body>
-
 </html>
+ by
