@@ -1,131 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="icon" type="image/png" href="Smalllogo.PNG">
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="Photoroomlogo11.png">
+  <title>Page Not Found | Randy's Cleaning Pros</title>
 
-<title>Page Not Found | Randy's Cleaning Pros</title>
-
-<link rel="stylesheet" href="styles.css">
-
-<style>
-
-body{
-    margin:0;
-    padding:0;
-    font-family:Arial, Helvetica, sans-serif;
-    background:#062b45;
-    color:white;
-    text-align:center;
-}
-
-.container{
-    max-width:900px;
-    margin:auto;
-    padding:40px 20px;
-}
-
-.logo{
-    width:350px;
-    max-width:90%;
-    margin:20px auto 30px;
-    display:block;
-}
-
-.error{
-    font-size:110px;
-    color:#28c76f;
-    font-weight:bold;
-    margin-bottom:10px;
-}
-
-h1{
-    font-size:42px;
-    margin-bottom:20px;
-}
-
-p{
-    font-size:20px;
-    line-height:1.8;
-    max-width:700px;
-    margin:auto;
-}
-
-.buttons{
-    margin-top:45px;
-}
-
-.button{
-    display:inline-block;
-    margin:10px;
-    padding:16px 34px;
-    background:#28c76f;
-    color:white;
-    text-decoration:none;
-    font-size:18px;
-    font-weight:bold;
-    border-radius:8px;
-    transition:.3s;
-}
-
-.button:hover{
-    background:#1ea45a;
-    transform:translateY(-3px);
-}
-
-footer{
-    margin-top:70px;
-    padding:30px;
-    border-top:1px solid rgba(255,255,255,.2);
-    color:#ddd;
-}
-
-</style>
-
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,600;0,700;0,800;0,900;1,700;1,800;1,900&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
 
-<div class="container">
+  <header class="site-header">
+    <div class="menu-bar">
+      <a href="index.html" class="small-brand">Randy's Cleaning Pros</a>
+      <button class="menu-toggle" id="menuToggle" type="button" aria-label="Open website menu" aria-controls="mainMenu" aria-expanded="false">
+        <span class="menu-word">MENU</span>
+        <span class="hamburger" aria-hidden="true"><span></span><span></span><span></span></span>
+      </button>
+    </div>
 
-<img src="Photoroomlogo11.png" alt="Randy's Cleaning Pros Logo" class="logo">
+    <nav class="dropdown-menu" id="mainMenu" aria-label="Main website navigation">
+      <a href="index.html" class="menu-link">Home</a>
+      <a href="services.html" class="menu-link">Services</a>
+      <a href="gold-standard.html" class="menu-link">Gold Standard</a>
+      <a href="about.html" class="menu-link">About Us</a>
+      <a href="reviews.html" class="menu-link">Reviews</a>
+      <a href="contact.html" class="menu-link">Contact</a>
+      <a href="quote.html" class="menu-quote-link">Get a Free Quote</a>
+    </nav>
+  </header>
 
-<div class="error">404</div>
+  <main>
+    <section class="page-hero">
+      <h1>404</h1>
+      <p>Oops! We couldn't find that page.</p>
+    </section>
 
-<h1>Oops! We Couldn't Find That Page</h1>
+    <div class="content-wrap">
+      <div class="content-card" style="text-align:center;">
 
-<p>
-The page you're looking for may have been moved, renamed, or no longer exists.
-</p>
+        <p>The page you're looking for may have been moved, renamed, or no longer exists.</p>
+        <p>Don't worry — we're still here to help keep your home or business looking its best.</p>
 
-<p style="margin-top:20px;">
-Don't worry—we're still here to help keep your home or business looking its best.
-</p>
+        <div class="content-actions">
+          <a href="index.html" class="primary-button">🏠 Return Home</a>
+          <a href="quote.html" class="gold-button">📝 Free Quote</a>
+          <a href="contact.html" class="secondary-button" style="color:var(--dark-text);border-color:var(--green-dark);">📞 Contact Us</a>
+        </div>
 
-<div class="buttons">
+      </div>
+    </div>
+  </main>
 
-<a href="index.html" class="button">🏠 Return Home</a>
+  <footer class="site-footer">
+    <div class="footer-brand">
+      <img src="Photoroomlogo11.png" alt="Randy's Cleaning Pros mascot" class="footer-mascot">
+      <h2><span>Randy's</span> Cleaning Pros</h2>
+      <p>Setting the Gold Standard in Cleaning</p>
+      <a href="tel:+18772073123" class="footer-phone">1-877-207-3123</a>
+    </div>
 
-<a href="quote.html" class="button">📝 Free Quote</a>
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="services.html">Services</a>
+      <a href="gold-standard.html">Gold Standard</a>
+      <a href="about.html">About</a>
+      <a href="reviews.html">Reviews</a>
+      <a href="quote.html">Free Quote</a>
+      <a href="contact.html">Contact</a>
+    </div>
 
-<a href="contact.html" class="button">📞 Contact Us</a>
+    <p class="copyright">&copy; 2026 Randy's Cleaning Pros. All rights reserved.</p>
+  </footer>
 
-</div>
-
-<footer>
-
-<p>
-<strong>Randy's Cleaning Pros</strong><br><br>
-
-Setting the Gold Standard in Cleaning<br><br>
-
-Thank you for visiting our website.
-</p>
-
-</footer>
-
-</div>
-
+  <script src="script.js"></script>
 </body>
 </html>
