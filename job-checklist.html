@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/png" href="Photoroomlogo11.png">
+<title>Job Checklist & Service Report | Randy's Cleaning Pros</title>
+
+<style>
+  :root{
+    --navy:#08245c;
+    --navy-dark:#010e38;
+    --green:#579b12;
+    --green-dark:#315f08;
+    --gold:#e4b63f;
+    --line:#c7d0da;
+    --text:#152031;
+    --muted:#5c6b7a;
+  }
+
+  *{ box-sizing:border-box; }
+
+  body{
+    margin:0;
+    font-family:Arial, Helvetica, sans-serif;
+    background:#eef1f5;
+    color:var(--text);
+  }
+
+  button, input, select, textarea{ font:inherit; }
+
+  /* ---------- on-screen toolbar (hidden on print) ---------- */
+  .toolbar{
+    position:sticky;
+    top:0;
+    z-index:20;
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    align-items:center;
+    justify-content:space-between;
+    padding:12px 16px;
+    background:var(--navy-dark);
+    color:#fff;
+    box-shadow:0 6px 16px rgba(0,0,0,.2);
+  }
+
+  .toolbar .brand{
+    font-weight:800;
+    font-size:1rem;
+  }
+
+  .toolbar .actions{
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+  }
+
+  .toolbar button{
+    border:2px solid var(--gold);
+    border-radius:999px;
+    padding:10px 18px;
+    background:var(--green-dark);
+    color:#fff;
+    font-weight:800;
+    cursor:pointer;
+  }
+
+  .toolbar button.secondary{
+    background:transparent;
+  }
+
+  .toolbar .save-status{
+    width:100%;
+    font-size:.85rem;
+    color:#cfe8ff;
+    min-height:1.1em;
+  }
+
+  /* ---------- report sheet ---------- */
+  .sheet-wrap{
+    max-width:860px;
+    margin:22px auto 60px;
+    padding:0 14px;
+  }
+
+  .sheet{
+    background:#fff;
+    border-radius:14px;
+    box-shadow:0 12px 30px rgba(8,36,92,.15);
+    padding:34px 34px 26px;
+  }
+
+  .sheet-header{
+    display:flex;
+    align-items:center;
+    gap:16px;
+    border-bottom:3px solid var(--navy);
+    padding-bottom:16px;
+    margin-bottom:20px;
+  }
+
+  .sheet-header img{
+    width:74px;
+    height:auto;
+    flex-shrink:0;
+  }
+
+  .sheet-header h1{
+    color:var(--navy);
+    font-size:1.5rem;
+    line-height:1.2;
+    margin-bottom:4px;
+  }
+
+  .sheet-header p{
+    color:var(--muted);
+    font-size:.88rem;
+  }
+
+  .sheet-header .contact{
+    margin-left:auto;
+    text-align:right;
+    font-size:.85rem;
+    color:var(--muted);
+  }
+
+  h2.section-title{
+    color:var(--navy);
+    font-size:1rem;
+    text-transform:uppercase;
+    letter-spacing:.6px;
+    margin:22px 0 10px;
+    padding-bottom:6px;
+    border-bottom:2px solid var(--line);
+  }
+
+  .job-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:12px 20px;
+  }
+
+  .job-grid .full{ grid-column:1/-1; }
+
+  .field label{
+    display:block;
+    font-size:.78rem;
+    font-weight:700;
+    color:var(--muted);
+    text-transform:uppercase;
+    letter-spacing:.4px;
+    margin-bottom:4px;
+  }
+
+  .field input,
+  .field select,
+  .field textarea{
+    width:100%;
+    border:none;
+    border-bottom:2px solid var(--line);
+    padding:6px 2px;
+    background:transparent;
+    color:var(--text);
+  }
+
+  .field input:focus,
+  .field select:focus,
+  .field textarea:focus{
+    outline:none;
+    border-color:var(--green);
+  }
+
+  .checklist{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:4px 22px;
+  }
+
+  .check-item{
+    display:flex;
+    align-items:flex-start;
+    gap:8px;
+    padding:5px 0;
+    border-bottom:1px dashed var(--line);
+    font-size:.92rem;
+  }
+
+  .check-item input[type="checkbox"]{
+    width:18px;
+    height:18px;
+    flex-shrink:0;
+    margin-top:2px;
+    accent-color:var(--green-dark);
+  }
+
+  .notes-box textarea{
+    width:100%;
+    min-height:70px;
+    border:2px solid var(--line);
+    border-radius:8px;
+    padding:10px;
+    resize:vertical;
+  }
+
+  .sign-row{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:26px;
+    margin-top:26px;
+  }
+
+  .sign-box{
+    padding-top:34px;
+    border-top:2px solid var(--text);
+    text-align:center;
+  }
+
+  .sign-box small{
+    display:block;
+    color:var(--muted);
+    font-size:.78rem;
+    margin-top:4px;
+  }
+
+  .sign-date{
+    margin-top:14px;
+    font-size:.82rem;
+    color:var(--muted);
+  }
+
+  .sign-date input{
+    border:none;
+    border-bottom:1px solid var(--line);
+    background:transparent;
+    font:inherit;
+  }
+
+  .guarantee{
+    margin-top:22px;
+    padding:12px 16px;
+    background:#f5fff9;
+    border-left:5px solid var(--green);
+    border-radius:6px;
+    font-size:.82rem;
+    color:var(--muted);
+  }
+
+  .job-number{
+    font-size:.8rem;
+    color:var(--muted);
+    text-align:right;
+    margin-bottom:6px;
+  }
+
+  /* ---------- print rules ---------- */
+  @media print{
+    body{ background:#fff; }
+    .toolbar{ display:none; }
+    .sheet-wrap{ margin:0; padding:0; max-width:100%; }
+    .sheet{
+      box-shadow:none;
+      border-radius:0;
+      padding:0;
+    }
+    .field input,
+    .field select,
+    .field textarea{
+      color:#000;
+    }
+    @page{
+      size:letter;
+      margin:0.5in;
+    }
+  }
+
+  @media (max-width:620px){
+    .job-grid,
+    .checklist,
+    .sign-row{
+      grid-template-columns:1fr;
+    }
+    .sheet{ padding:22px 18px; }
+    .sheet-header{ flex-wrap:wrap; }
+    .sheet-header .contact{ margin-left:0; text-align:left; }
+  }
+</style>
+</head>
+
+<body>
+
+<div class="toolbar">
+  <div class="brand">Randy's Cleaning Pros — Job Checklist</div>
+  <div class="actions">
+    <a href="employee-portal-google-maps.html" style="align-self:center;color:#cfe8ff;font-size:.85rem;text-decoration:underline;">← Estimate Builder</a>
+    <button type="button" id="newJobBtn" class="secondary">New Job</button>
+    <button type="button" id="saveBtn">Save Record</button>
+    <button type="button" id="printBtn">Print Sheet</button>
+  </div>
+  <div class="save-status" id="saveStatus"></div>
+</div>
+
+<div class="sheet-wrap">
+  <div class="sheet" id="sheet">
+
+    <div class="job-number">Job # <span id="jobNumber">—</span></div>
+
+    <div class="sheet-header">
+      <img src="Photoroomlogo11.png" alt="Randy's Cleaning Pros">
+      <div>
+        <h1>Job Checklist &amp; Service Report</h1>
+        <p>Setting the Gold Standard in Cleaning</p>
+      </div>
+      <div class="contact">
+        1-877-207-3123<br>
+        randyscleaningpros@gmail.com
+      </div>
+    </div>
+
+    <h2 class="section-title">Job Information</h2>
+    <div class="job-grid">
+      <div class="field"><label>Date</label><input type="date" id="jobDate"></div>
+      <div class="field"><label>Crew / Cleaner Name(s)</label><input type="text" id="crewName" placeholder="e.g. Randy, Alex"></div>
+
+      <div class="field full"><label>Customer Name</label><input type="text" id="customerName" placeholder="Customer full name"></div>
+      <div class="field full"><label>Service Address</label><input type="text" id="customerAddress" placeholder="Street, City, State, ZIP"></div>
+
+      <div class="field"><label>Customer Phone</label><input type="tel" id="customerPhone" placeholder="(207) 000-0000"></div>
+      <div class="field"><label>Cleaning Type</label>
+        <select id="cleaningType">
+          <option>Standard / Recurring</option>
+          <option>Deep Clean</option>
+          <option>Move-In / Move-Out</option>
+          <option>Airbnb Turnover</option>
+          <option>Office / Commercial</option>
+        </select>
+      </div>
+
+      <div class="field"><label>Arrival Time</label><input type="time" id="arriveTime"></div>
+      <div class="field"><label>Departure Time</label><input type="time" id="departTime"></div>
+    </div>
+
+    <h2 class="section-title">Gold Standard Checklist</h2>
+    <div class="checklist">
+      <label class="check-item"><input type="checkbox"> Kitchen counters, backsplash &amp; sink cleaned</label>
+      <label class="check-item"><input type="checkbox"> Appliance exteriors wiped (fridge, stove, microwave, dishwasher)</label>
+      <label class="check-item"><input type="checkbox"> Inside microwave cleaned</label>
+      <label class="check-item"><input type="checkbox"> Cabinet fronts wiped down</label>
+      <label class="check-item"><input type="checkbox"> Bathrooms: toilets, tubs/showers, sinks disinfected</label>
+      <label class="check-item"><input type="checkbox"> Mirrors &amp; glass streak-free</label>
+      <label class="check-item"><input type="checkbox"> Bedrooms tidied, surfaces dusted</label>
+      <label class="check-item"><input type="checkbox"> All rooms dusted (shelves, baseboards, sills)</label>
+      <label class="check-item"><input type="checkbox"> Floors vacuumed</label>
+      <label class="check-item"><input type="checkbox"> Hard floors mopped</label>
+      <label class="check-item"><input type="checkbox"> Trash emptied &amp; liners replaced</label>
+      <label class="check-item"><input type="checkbox"> Doors, light switches &amp; handles wiped</label>
+      <label class="check-item"><input type="checkbox"> Windowsills &amp; interior glass spot-cleaned</label>
+      <label class="check-item"><input type="checkbox"> Final walkthrough completed</label>
+      <label class="check-item"><input type="checkbox"> Doors locked &amp; property secured on exit</label>
+      <label class="check-item"><input type="checkbox"> Photos taken (before/after)</label>
+    </div>
+
+    <h2 class="section-title">Special Instructions / Notes</h2>
+    <div class="notes-box">
+      <textarea id="notes" placeholder="Gate codes, pets, parking, areas to avoid, customer requests..."></textarea>
+    </div>
+
+    <div class="sign-row">
+      <div>
+        <div class="sign-box">
+          <div>Employee Signature</div>
+          <small>Confirms checklist completed as marked</small>
+        </div>
+        <div class="sign-date">Date: <input type="text" id="empSignDate" placeholder="__ / __ / ____"></div>
+      </div>
+      <div>
+        <div class="sign-box">
+          <div>Customer Signature</div>
+          <small>Confirms satisfaction with service</small>
+        </div>
+        <div class="sign-date">Date: <input type="text" id="custSignDate" placeholder="__ / __ / ____"></div>
+      </div>
+    </div>
+
+    <div class="guarantee">
+      <strong>Gold Standard Guarantee:</strong> Not fully satisfied with any area cleaned? Contact us within 24 hours and we'll gladly return to make it right.
+    </div>
+
+  </div>
+</div>
+
+<!-- ============================================================
+     SUPABASE CONNECTION
+     Paste your Supabase Project URL below (Project Settings > API).
+     The publishable/anon key is already filled in.
+     Run the SQL provided in chat once to create the job_checklists table.
+     ============================================================ -->
+<script>
+  const SUPABASE_URL = "PASTE_YOUR_SUPABASE_PROJECT_URL_HERE"; // e.g. "https://xxxxxxxx.supabase.co"
+  const SUPABASE_KEY = "sb_publishable_kUyBNcjdgQQ4l7qgX36H0w_NYCazDf5";
+</script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script>
+  const sheet = document.getElementById("sheet");
+  const statusBox = document.getElementById("saveStatus");
+  const fieldIds = [
+    "jobDate","crewName","customerName","customerAddress","customerPhone",
+    "cleaningType","arriveTime","departTime","notes","empSignDate","custSignDate"
+  ];
+
+  let supabaseClient = null;
+  if (SUPABASE_URL && SUPABASE_URL.indexOf("PASTE_YOUR") === -1 && window.supabase) {
+    supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+  }
+
+  function showStatus(message){
+    statusBox.textContent = message;
+    clearTimeout(showStatus.timer);
+    showStatus.timer = setTimeout(() => { statusBox.textContent = ""; }, 5000);
+  }
+
+  function newJobNumber(){
+    return "RCP-" + Date.now().toString().slice(-8);
+  }
+
+  function setJobNumber(){
+    document.getElementById("jobNumber").textContent = newJobNumber();
+  }
+
+  function collectData(){
+    const data = { jobNumber: document.getElementById("jobNumber").textContent };
+    fieldIds.forEach(id => { data[id] = document.getElementById(id).value; });
+    data.checklist = Array.from(document.querySelectorAll(".check-item input"))
+      .map(cb => ({ item: cb.closest("label").textContent.trim(), checked: cb.checked }));
+    return data;
+  }
+
+  async function saveRecord(){
+    const data = collectData();
+
+    // Always keep a local backup on this device
+    const history = JSON.parse(localStorage.getItem("randysJobChecklists") || "[]");
+    history.push({ ...data, savedAt: new Date().toISOString() });
+    localStorage.setItem("randysJobChecklists", JSON.stringify(history));
+
+    if (supabaseClient) {
+      const { error } = await supabaseClient.from("job_checklists").insert([{
+        job_number: data.jobNumber,
+        job_date: data.jobDate || null,
+        crew_name: data.crewName,
+        customer_name: data.customerName,
+        customer_address: data.customerAddress,
+        customer_phone: data.customerPhone,
+        cleaning_type: data.cleaningType,
+        arrive_time: data.arriveTime || null,
+        depart_time: data.departTime || null,
+        notes: data.notes,
+        checklist: data.checklist
+      }]);
+
+      if (error) {
+        showStatus("Saved on this device. Cloud sync failed: " + error.message);
+      } else {
+        showStatus("Saved on this device and to the cloud.");
+      }
+    } else {
+      showStatus("Saved on this device. Add your Supabase Project URL to also save to the cloud.");
+    }
+  }
+
+  document.getElementById("saveBtn").addEventListener("click", saveRecord);
+
+  document.getElementById("printBtn").addEventListener("click", () => {
+    window.print();
+  });
+
+  document.getElementById("newJobBtn").addEventListener("click", () => {
+    if (!confirm("Clear this sheet and start a new job?")) return;
+    fieldIds.forEach(id => { document.getElementById(id).value = ""; });
+    document.querySelectorAll(".check-item input").forEach(cb => cb.checked = false);
+    setJobNumber();
+  });
+
+  // Default date to today
+  const today = new Date();
+  document.getElementById("jobDate").value =
+    today.getFullYear() + "-" + String(today.getMonth()+1).padStart(2,"0") + "-" + String(today.getDate()).padStart(2,"0");
+
+  setJobNumber();
+</script>
+
+</body>
+</html>
