@@ -176,6 +176,7 @@ main{padding:28px 32px;max-width:1180px}
   font-size:.7rem;font-weight:700;padding:4px 9px;border-radius:20px;text-transform:capitalize;white-space:nowrap;
 }
 .badge.scheduled{background:var(--amber-bg);color:var(--amber)}
+.badge.quote{background:#EDE7F6;color:#6A3FA0}
 .badge.in_progress{background:#E4EDFB;color:#2a6fb0}
 .badge.completed{background:var(--green-bg);color:var(--green)}
 
