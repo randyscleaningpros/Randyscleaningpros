@@ -10,7 +10,7 @@ const $ = id => document.getElementById(id);
 const uid = () => (crypto.randomUUID ? crypto.randomUUID() : String(Date.now() + Math.random()));
 
 let customers = [], jobs = [], employees = [], mileage = [];
-let settings = { rate: 45, minPrice: 60, adminPin: "1234" };
+let settings = { rate: 45, minPrice: 60, adminPin: "1234", commercialMult: 1.15, airbnbMult: 1.1, recurringDiscount: 10 };
 let session = null; // {role:'admin'|'employee', employeeId}
 let activeJobId = null;
 let timerInterval = null;
@@ -28,7 +28,7 @@ const timeRules = {
 };
 const roomKeys = Object.keys(timeRules);
 const conditionNames = { "0.85": "Excellent", "1": "Good", "1.2": "Needs attention", "1.45": "Heavy cleaning", "1.75": "Move-out / deep clean" };
-const checklistItems = ["Walk-through", "Baseboards", "Floors vacuumed & mopped", "Extras completed", "Trash removed", "Final quality check"];
+const checklistItems = ["Kitchen completed", "Bathrooms completed", "Floors inspected", "Trash removed", "Final walkthrough completed"];
 
 /* ---------- helpers ---------- */
 function toast(msg) { const t = $("toast"); t.textContent = msg; t.classList.add("show"); setTimeout(() => t.classList.remove("show"), 2200); }
@@ -173,6 +173,9 @@ function renderAll() {
   renderDashboard();
   $("setRate").value = settings.rate;
   $("setMinPrice").value = settings.minPrice;
+  $("setCommercialMult").value = settings.commercialMult ?? 1.15;
+  $("setAirbnbMult").value = settings.airbnbMult ?? 1.1;
+  $("setRecurringDiscount").value = settings.recurringDiscount ?? 10;
 }
 function renderSelects() {
   const custOpts = '<option value="">Select customer</option>' +
@@ -203,9 +206,20 @@ function openCustomer(c = {}) {
   $("customerState").value = c.state || "ME";
   $("customerZip").value = c.zip || "";
   $("customerGateCode").value = c.gate_code || "";
+  $("customerAlarmCode").value = c.alarm_code || "";
   $("customerParking").value = c.parking || "";
+  $("customerKeyLocation").value = c.key_location || "";
+  $("customerEntryInstructions").value = c.entry_instructions || "";
   $("customerPets").value = c.pets || "";
+  $("customerBirthday").value = c.birthday || "";
+  $("customerReferral").value = c.referral || "";
+  $("customerRecurring").value = c.recurring || "";
+  $("customerProperties").value = (c.properties || []).join("\n");
+  $("customerVip").checked = !!c.vip;
+  $("customerDoNotBook").checked = !!c.do_not_book;
   $("customerNotes").value = c.notes || "";
+  $("customerFavoriteEmployee").innerHTML = '<option value="">No preference</option>' +
+    employees.map(e => `<option value="${e.id}" ${c.favorite_employee_id === e.id ? "selected" : ""}>${esc(e.name)}</option>`).join("");
   $("customerDialog").showModal();
 }
 $("addCustomerBtn").onclick = () => openCustomer();
@@ -216,8 +230,15 @@ $("customerForm").onsubmit = async e => {
   const row = {
     name: $("customerName").value, phone: $("customerPhone").value, email: $("customerEmail").value,
     street: $("customerStreet").value, city: $("customerCity").value, state: $("customerState").value,
-    zip: $("customerZip").value, gate_code: $("customerGateCode").value, parking: $("customerParking").value,
-    pets: $("customerPets").value, notes: $("customerNotes").value
+    zip: $("customerZip").value, gate_code: $("customerGateCode").value, alarm_code: $("customerAlarmCode").value,
+    parking: $("customerParking").value, key_location: $("customerKeyLocation").value,
+    entry_instructions: $("customerEntryInstructions").value, pets: $("customerPets").value,
+    birthday: $("customerBirthday").value || null, referral: $("customerReferral").value,
+    recurring: $("customerRecurring").value || null,
+    properties: $("customerProperties").value.split("\n").map(s => s.trim()).filter(Boolean),
+    favorite_employee_id: $("customerFavoriteEmployee").value || null,
+    vip: $("customerVip").checked, do_not_book: $("customerDoNotBook").checked,
+    notes: $("customerNotes").value
   };
   const id = $("customerId").value;
   if (online) {
@@ -239,23 +260,61 @@ window.deleteCustomer = async id => {
   jobs = jobs.filter(j => j.customer_id !== id);
   storeAll(); renderAll();
 };
+function customerSatisfaction(id) {
+  const rated = jobs.filter(j => j.customer_id === id && j.satisfaction_rating);
+  if (!rated.length) return null;
+  return rated.reduce((a, j) => a + j.satisfaction_rating, 0) / rated.length;
+}
 function renderCustomers() {
   const q = ($("customerSearch").value || "").toLowerCase();
   const rows = customers.filter(c => `${c.name} ${c.street} ${c.city}`.toLowerCase().includes(q));
-  $("customersList").innerHTML = rows.map(c => `
+  $("customersList").innerHTML = rows.map(c => {
+    const sat = customerSatisfaction(c.id);
+    const daysUntilBday = birthdayCountdown(c.birthday);
+    return `
     <article class="record-card">
       <div>
-        <strong>${esc(c.name)}</strong>
+        <strong>${esc(c.name)}${c.vip ? " ⭐" : ""}${c.do_not_book ? " 🚫" : ""}</strong>
         <p>${esc(c.street)}, ${esc(c.city)}, ${esc(c.state)} ${esc(c.zip || "")}</p>
-        <span class="small">${esc(c.phone || "")}${c.email ? " • " + esc(c.email) : ""}${c.gate_code ? " • gate: " + esc(c.gate_code) : ""}</span>
+        <span class="small">${esc(c.phone || "")}${c.email ? " • " + esc(c.email) : ""}${c.gate_code ? " • gate: " + esc(c.gate_code) : ""}</span><br>
+        <span class="small">
+          ${c.recurring ? "🔁 " + esc(c.recurring) + " • " : ""}
+          ${c.favorite_employee_id ? "Favorite: " + esc(employeeName(c.favorite_employee_id)) + " • " : ""}
+          ${sat ? "★".repeat(Math.round(sat)) + "☆".repeat(5 - Math.round(sat)) + " • " : ""}
+          ${(c.properties || []).length ? c.properties.length + " other propert" + (c.properties.length === 1 ? "y" : "ies") + " • " : ""}
+          ${daysUntilBday != null ? "🎂 in " + daysUntilBday + "d" : ""}
+        </span>
       </div>
       <div class="record-actions">
         <button onclick="editCustomer('${c.id}')">Edit</button>
+        <button onclick="rebookCustomer('${c.id}')">Rebook</button>
+        <button onclick="viewCustomerGallery('${c.id}')">Photos</button>
         <button onclick="deleteCustomer('${c.id}')">Delete</button>
       </div>
-    </article>`).join("") || '<div class="card empty-state">No customers found. Add your first one.</div>';
+    </article>`;
+  }).join("") || '<div class="card empty-state">No customers found. Add your first one.</div>';
   $("customerSearch").oninput = renderCustomers;
 }
+function birthdayCountdown(bday) {
+  if (!bday) return null;
+  const today = new Date(); today.setHours(0, 0, 0, 0);
+  const [, m, d] = bday.split("-").map(Number);
+  let next = new Date(today.getFullYear(), m - 1, d);
+  if (next < today) next = new Date(today.getFullYear() + 1, m - 1, d);
+  const days = Math.round((next - today) / 86400000);
+  return days <= 30 ? days : null;
+}
+window.viewCustomerGallery = id => {
+  const c = customerObj(id);
+  const photos = jobs.filter(j => j.customer_id === id).flatMap(j => [...(j.before_photos || []), ...(j.after_photos || [])]);
+  if (!photos.length) { toast("No photos on file for this customer yet"); return; }
+  const win = window.open("", "_blank");
+  win.document.write(`<title>${c.name} — Photos</title><body style="font-family:sans-serif;padding:20px;background:#16202b">
+    <h2 style="color:#fff">${c.name} — Photo gallery</h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:10px">
+      ${photos.map(p => `<img src="${p}" style="width:100%;border-radius:8px">`).join("")}
+    </div></body>`);
+};
 
 /* ============================================================
    EMPLOYEES
@@ -323,21 +382,70 @@ function calcEstimate() {
   const c = +document.querySelector('input[name="condition"]:checked').value;
   m *= c;
   $("jobEstimate").textContent = minsText(m);
-  const price = Math.max(settings.minPrice || 0, Math.round((m / 60) * (settings.rate || 0)));
+
+  let rate = settings.rate || 0;
+  const serviceType = $("jobServiceType").value;
+  if (serviceType === "commercial") rate *= (settings.commercialMult || 1);
+  if (serviceType === "airbnb") rate *= (settings.airbnbMult || 1);
+
+  let price = Math.max(settings.minPrice || 0, Math.round((m / 60) * rate));
+  const custId = $("jobCustomer").value;
+  const cust = custId ? customerObj(custId) : null;
+  if (cust && cust.recurring) price = Math.round(price * (1 - (settings.recurringDiscount || 0) / 100));
+
   $("jobPrice").textContent = money(price);
   return { minutes: Math.round(m), price };
 }
 document.querySelectorAll("#jobForm input,#jobForm select,#jobForm textarea").forEach(x => x.addEventListener("change", calcEstimate));
+$("jobIsQuote").addEventListener("change", () => {
+  $("jobQuoteExpiryWrap").style.display = $("jobIsQuote").checked ? "" : "none";
+});
+$("jobCustomer").addEventListener("change", () => {
+  const c = customerObj($("jobCustomer").value);
+  $("jobProperty").innerHTML = `<option value="">${esc(c.street || "Primary address")}</option>` +
+    (c.properties || []).map(p => `<option value="${esc(p)}">${esc(p)}</option>`).join("");
+  if (c.do_not_book) toast("⚠️ This customer is flagged do-not-book");
+  calcEstimate();
+});
 
-function openJob() {
+function openJob(existing = null) {
   $("jobForm").reset();
   roomKeys.forEach(id => $(id).value = 0);
   $("kitchenSize").value = 35;
   $("jobDate").value = todayStr();
-  renderSelects(); calcEstimate();
+  $("jobId").value = "";
+  $("jobDialogTitle").textContent = "Create job";
+  $("jobSaveBtn").textContent = "Save job";
+  $("jobQuoteExpiryWrap").style.display = "none";
+  renderSelects();
+
+  if (existing) {
+    $("jobId").value = existing.id;
+    $("jobDialogTitle").textContent = "Edit job";
+    $("jobSaveBtn").textContent = "Save changes";
+    $("jobCustomer").value = existing.customer_id;
+    $("jobCustomer").dispatchEvent(new Event("change"));
+    $("jobProperty").value = existing.property || "";
+    $("jobEmployee").value = existing.employee_id || "";
+    $("jobDate").value = existing.service_date;
+    $("jobArrival").value = existing.arrival_window || "";
+    $("jobServiceType").value = existing.service_type || "residential";
+    $("jobIsQuote").checked = existing.status === "quote";
+    $("jobQuoteExpiryWrap").style.display = $("jobIsQuote").checked ? "" : "none";
+    $("jobQuoteExpiry").value = existing.quote_expiry || "";
+    const rd = existing.room_data || {};
+    roomKeys.forEach(id => $(id).value = rd[id] || 0);
+    $("kitchenSize").value = rd.kitchenSize || 35;
+    document.querySelectorAll(".extra").forEach(x => x.checked = (existing.extras || []).includes(x.dataset.label));
+    const condEntry = Object.entries(conditionNames).find(([, name]) => name === existing.condition_name);
+    if (condEntry) document.querySelector(`input[name="condition"][value="${condEntry[0]}"]`).checked = true;
+    $("jobNotes").value = existing.notes || "";
+  }
+  calcEstimate();
   $("jobDialog").showModal();
 }
-document.querySelectorAll("[data-open-job]").forEach(b => b.onclick = openJob);
+document.querySelectorAll("[data-open-job]").forEach(b => b.onclick = () => openJob());
+window.editJob = id => openJob(jobs.find(j => j.id === id));
 
 $("jobForm").onsubmit = async e => {
   e.preventDefault();
@@ -346,19 +454,47 @@ $("jobForm").onsubmit = async e => {
   const extras = [...document.querySelectorAll(".extra:checked")].map(x => x.dataset.label);
   const cv = document.querySelector('input[name="condition"]:checked').value;
   const est = calcEstimate();
+  const editingId = $("jobId").value;
+  const empId = $("jobEmployee").value || null;
+  const date = $("jobDate").value;
+
+  const conflict = jobs.find(j => j.id !== editingId && j.employee_id === empId && j.service_date === date && j.status !== "completed");
+  if (empId && conflict && !confirm(`${employeeName(empId)} already has a job on ${date}. Schedule anyway?`)) return;
+
+  const isQuote = $("jobIsQuote").checked;
   const row = {
-    customer_id: $("jobCustomer").value, employee_id: $("jobEmployee").value || null,
-    service_date: $("jobDate").value, arrival_window: $("jobArrival").value,
-    status: "scheduled", estimated_minutes: est.minutes, actual_minutes: null, price: est.price,
-    condition_name: conditionNames[cv], room_data: rooms, extras, notes: $("jobNotes").value,
-    before_photos: [], after_photos: [], signature: null, checklist: {}
+    customer_id: $("jobCustomer").value, property: $("jobProperty").value || null, employee_id: empId,
+    service_date: date, arrival_window: $("jobArrival").value, service_type: $("jobServiceType").value,
+    status: isQuote ? "quote" : (editingId ? undefined : "scheduled"),
+    quote_expiry: isQuote ? ($("jobQuoteExpiry").value || null) : null,
+    estimated_minutes: est.minutes, price: est.price,
+    condition_name: conditionNames[cv], room_data: rooms, extras, notes: $("jobNotes").value
   };
-  if (online) {
-    const r = await db.from("jobs").insert(row).select().single();
-    if (r.error) return toast("Could not save job");
-    jobs.push(r.data);
-  } else { row.id = uid(); jobs.push(row); storeAll(); }
-  $("jobDialog").close(); renderAll(); toast("Job saved");
+  if (row.status === undefined) delete row.status;
+
+  if (editingId) {
+    const j = jobs.find(x => x.id === editingId);
+    Object.assign(j, row);
+    if (online) await db.from("jobs").update(row).eq("id", editingId);
+    storeAll();
+  } else {
+    Object.assign(row, {
+      actual_minutes: null, before_photos: [], after_photos: [], signature: null, checklist: {},
+      payment_status: "unpaid", payment_method: null, amount_paid: 0
+    });
+    if (online) {
+      const r = await db.from("jobs").insert(row).select().single();
+      if (r.error) return toast("Could not save job");
+      jobs.push(r.data);
+    } else { row.id = uid(); jobs.push(row); storeAll(); }
+  }
+  $("jobDialog").close(); renderAll(); toast(editingId ? "Job updated" : "Job saved");
+};
+window.approveQuote = async id => {
+  const j = jobs.find(x => x.id === id);
+  j.status = "scheduled";
+  if (online) await db.from("jobs").update({ status: "scheduled" }).eq("id", id);
+  storeAll(); renderAll(); toast("Quote approved — now on the schedule");
 };
 window.toggleComplete = async id => {
   const j = jobs.find(x => x.id === id);
@@ -372,25 +508,66 @@ window.deleteJob = async id => {
   jobs = jobs.filter(j => j.id !== id);
   storeAll(); renderAll();
 };
+window.recordPayment = async id => {
+  const j = jobs.find(x => x.id === id);
+  const method = prompt("Payment method (Cash, Card, Check, Other):", j.payment_method || "Card");
+  if (method === null) return;
+  const amountStr = prompt("Amount received:", j.amount_paid || j.price || 0);
+  if (amountStr === null) return;
+  const amount = +amountStr || 0;
+  const row = { payment_method: method, amount_paid: amount, payment_status: amount > 0 ? "paid" : "unpaid" };
+  if (online) await db.from("jobs").update(row).eq("id", id);
+  Object.assign(j, row);
+  storeAll(); renderAll(); toast("Payment recorded");
+};
+window.rebookCustomer = id => {
+  openJob();
+  $("jobCustomer").value = id;
+  $("jobCustomer").dispatchEvent(new Event("change"));
+  toast("Job pre-filled for this customer — adjust and save");
+};
+window.rateJob = async id => {
+  const j = jobs.find(x => x.id === id);
+  const val = prompt("Customer satisfaction, 1-5 stars:", j.satisfaction_rating || 5);
+  if (val === null) return;
+  const rating = Math.max(1, Math.min(5, +val || 5));
+  if (online) await db.from("jobs").update({ satisfaction_rating: rating }).eq("id", id);
+  j.satisfaction_rating = rating; storeAll(); renderAll(); toast("Rating saved");
+};
 function renderJobs() {
   const q = ($("jobSearch").value || "").toLowerCase(), f = $("jobFilter").value;
   const rows = jobs.filter(j => (f === "all" || j.status === f) &&
     `${customerName(j.customer_id)} ${customerObj(j.customer_id).street || ""} ${employeeName(j.employee_id)}`.toLowerCase().includes(q))
     .sort((a, b) => a.service_date < b.service_date ? 1 : -1);
-  $("jobsList").innerHTML = rows.map(j => `
-    <article class="record-card">
-      <div>
-        <strong>${esc(customerName(j.customer_id))}</strong>
-        <p>${esc(customerObj(j.customer_id).street || "")} • ${j.service_date}${j.arrival_window ? " • " + esc(j.arrival_window) : ""}</p>
-        <span class="small">${minsText(j.estimated_minutes)} • ${money(j.price)} • ${esc(employeeName(j.employee_id))}</span>
+  $("jobsList").innerHTML = rows.map(j => {
+    const progress = { quote: 10, scheduled: 35, in_progress: 70, completed: 100 }[j.status] || 0;
+    return `
+    <article class="record-card" style="flex-direction:column;align-items:stretch">
+      <div style="display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap">
+        <div>
+          <strong>${esc(customerName(j.customer_id))}${j.reclean_requested ? " 🔁" : ""}</strong>
+          <p>${esc(j.property || customerObj(j.customer_id).street || "")} • ${j.service_date}${j.arrival_window ? " • " + esc(j.arrival_window) : ""}</p>
+          <span class="small">${minsText(j.estimated_minutes)} • ${money(j.price)} • ${esc(employeeName(j.employee_id))} • ${esc(j.service_type || "residential")}</span>
+        </div>
+        <span class="badge ${j.status}">${j.status.replace("_", " ")}</span>
+        <span class="badge ${j.payment_status === "paid" ? "completed" : "scheduled"}">${j.payment_status === "paid" ? "Paid" : "Unpaid"}</span>
       </div>
-      <span class="badge ${j.status}">${j.status.replace("_", " ")}</span>
+      <div style="height:6px;background:var(--line);border-radius:4px;margin:10px 0;overflow:hidden">
+        <div style="height:100%;width:${progress}%;background:var(--teal)"></div>
+      </div>
       <div class="record-actions">
+        ${j.status === "quote" ? `<button onclick="approveQuote('${j.id}')">Approve quote</button>` : ""}
+        <button onclick="editJob('${j.id}')">Edit</button>
         <button onclick="printJob('${j.id}')">Print</button>
+        <button onclick="printInvoice('${j.id}')">Invoice</button>
+        <button onclick="recordPayment('${j.id}')">${j.payment_status === "paid" ? "Edit payment" : "Record payment"}</button>
+        <button onclick="rebookCustomer('${j.customer_id}')">Rebook</button>
+        ${j.status === "completed" ? `<button onclick="rateJob('${j.id}')">${j.satisfaction_rating ? "★".repeat(j.satisfaction_rating) : "Rate"}</button>` : ""}
         <button onclick="toggleComplete('${j.id}')">${j.status === "completed" ? "Reopen" : "Mark done"}</button>
         <button onclick="deleteJob('${j.id}')">Delete</button>
       </div>
-    </article>`).join("") || '<div class="card empty-state">No jobs found.</div>';
+    </article>`;
+  }).join("") || '<div class="card empty-state">No jobs found.</div>';
   $("jobSearch").oninput = renderJobs; $("jobFilter").onchange = renderJobs;
 }
 function employeeName(id) { const e = employees.find(x => x.id === id); return e ? e.name : "Unassigned"; }
@@ -477,6 +654,11 @@ function renderDashboard() {
   $("dashboardMiles").innerHTML = mileage.slice(0, 5).map(t => `
     <div class="list-item"><div><strong>${esc(t.purpose)}</strong><p>${esc(t.start_location || "")} → ${esc(t.end_location || "")}</p></div>
     <strong>${(+t.miles).toFixed(1)} mi</strong></div>`).join("") || "No mileage logged yet.";
+
+  const upcoming = customers.map(c => ({ c, days: birthdayCountdown(c.birthday) })).filter(x => x.days != null).sort((a, b) => a.days - b.days);
+  $("dashboardBirthdays").innerHTML = upcoming.map(({ c, days }) => `
+    <div class="list-item"><div><strong>${esc(c.name)}</strong><p>${days === 0 ? "Today!" : "In " + days + " day" + (days === 1 ? "" : "s")}</p></div></div>
+  `).join("") || "No birthdays in the next 30 days.";
 }
 
 /* ============================================================
@@ -489,9 +671,9 @@ function renderReports() {
     const withActual = eJobs.filter(j => j.actual_minutes);
     const avgActual = withActual.length ? withActual.reduce((a, j) => a + j.actual_minutes, 0) / withActual.length : null;
     return { name: e.name, count: eJobs.length, avgEst, avgActual };
-  });
-  $("reportsPerf").innerHTML = rows.length ? `<table><thead><tr><th>Employee</th><th>Jobs done</th><th>Avg. estimate</th><th>Avg. actual</th></tr></thead><tbody>${
-    rows.map(r => `<tr><td style="font-family:inherit">${esc(r.name)}</td><td>${r.count}</td><td>${minsText(r.avgEst)}</td><td>${r.avgActual != null ? minsText(r.avgActual) : "—"}</td></tr>`).join("")
+  }).sort((a, b) => b.count - a.count);
+  $("reportsPerf").innerHTML = rows.length ? `<table><thead><tr><th>#</th><th>Employee</th><th>Jobs done</th><th>Avg. estimate</th><th>Avg. actual</th></tr></thead><tbody>${
+    rows.map((r, i) => `<tr><td>${i + 1}</td><td style="font-family:inherit">${esc(r.name)}</td><td>${r.count}</td><td>${minsText(r.avgEst)}</td><td>${r.avgActual != null ? minsText(r.avgActual) : "—"}</td></tr>`).join("")
   }</tbody></table>` : '<p class="muted">No completed jobs yet.</p>';
 
   const withBoth = jobs.filter(j => j.status === "completed" && j.actual_minutes);
@@ -500,6 +682,24 @@ function renderReports() {
   $("reportsAccuracy").innerHTML = avgDiff != null
     ? `<div class="list-item"><div><strong>${withBoth.length} completed jobs with timer data</strong><p>Average estimate was off by ${minsText(avgDiff)}</p></div></div>`
     : `<div class="list-item"><div><strong>No timer data yet</strong><p>Estimates sharpen automatically as employees use start/finish timers on jobs.</p></div></div>`;
+
+  const done = jobs.filter(j => j.status === "completed");
+  const now = new Date();
+  const sumSince = days => { const cutoff = new Date(now); cutoff.setDate(cutoff.getDate() - days);
+    return done.filter(j => new Date(j.service_date + "T12:00") >= cutoff).reduce((a, j) => a + (+j.price || 0), 0); };
+  $("reportsIncome").innerHTML = `
+    <article class="stat"><span>Today</span><strong>${money(done.filter(j => isToday(j.service_date)).reduce((a, j) => a + (+j.price || 0), 0))}</strong></article>
+    <article class="stat"><span>Last 7 days</span><strong>${money(sumSince(7))}</strong></article>
+    <article class="stat"><span>Last 30 days</span><strong>${money(sumSince(30))}</strong></article>`;
+
+  const profitRows = done.slice(0, 25).map(j => {
+    const emp = employees.find(e => e.id === j.employee_id);
+    const laborCost = emp && j.actual_minutes ? (j.actual_minutes / 60) * (emp.rate || 0) : 0;
+    return { name: customerName(j.customer_id), date: j.service_date, price: j.price || 0, cost: laborCost, profit: (j.price || 0) - laborCost };
+  });
+  $("reportsProfit").innerHTML = profitRows.length ? `<table><thead><tr><th>Customer</th><th>Date</th><th>Price</th><th>Labor cost</th><th>Profit</th></tr></thead><tbody>${
+    profitRows.map(r => `<tr><td style="font-family:inherit">${esc(r.name)}</td><td>${r.date}</td><td>${money(r.price)}</td><td>${money(r.cost)}</td><td>${money(r.profit)}</td></tr>`).join("")
+  }</tbody></table>` : '<p class="muted">No completed jobs yet.</p>';
 }
 
 /* ============================================================
@@ -540,6 +740,9 @@ $("settingsForm").onsubmit = e => {
   e.preventDefault();
   settings.rate = +$("setRate").value || 0;
   settings.minPrice = +$("setMinPrice").value || 0;
+  settings.commercialMult = +$("setCommercialMult").value || 1;
+  settings.airbnbMult = +$("setAirbnbMult").value || 1;
+  settings.recurringDiscount = +$("setRecurringDiscount").value || 0;
   storeAll(); toast("Pricing saved");
 };
 $("pinForm").onsubmit = e => {
@@ -598,6 +801,36 @@ window.printJob = id => {
 };
 $("printCurrentBtn") && ($("printCurrentBtn").onclick = () => activeJobId ? printJob(activeJobId) : toast("Open a job first"));
 
+window.printInvoice = id => {
+  const j = jobs.find(x => x.id === id), c = customerObj(j.customer_id);
+  const invoiceNum = "INV-" + j.id.slice(0, 8).toUpperCase();
+  const balance = (j.price || 0) - (j.amount_paid || 0);
+  $("printSheet").innerHTML = `
+    <div class="print-header"><div><strong>Randy's Cleaning Pros</strong><br>Invoice ${invoiceNum}</div><div>${j.service_date}</div></div>
+    <div class="print-body">
+      <h1>${esc(c.name || "Customer")}</h1>
+      <p>${esc(c.street || "")}, ${esc(c.city || "")}, ${esc(c.state || "")} ${esc(c.zip || "")}</p>
+      ${c.phone ? `<p>${esc(c.phone)}</p>` : ""}
+      <div class="print-grid" style="margin-top:18px">
+        <div class="print-box full">
+          <h3>Service</h3>
+          <table style="width:100%;border-collapse:collapse">
+            <tr><td style="padding:6px 0">Cleaning service — ${esc(j.condition_name || "Standard")} (${minsText(j.estimated_minutes)})</td><td style="text-align:right">${money(j.price)}</td></tr>
+            ${(j.extras || []).map(x => `<tr><td style="padding:6px 0;color:#5B6B7A">+ ${esc(x)}</td><td></td></tr>`).join("")}
+          </table>
+        </div>
+        <div class="print-box"><h3>Total</h3><p style="font-size:1.3rem;font-weight:700">${money(j.price)}</p></div>
+        <div class="print-box"><h3>Payment status</h3>
+          <p>${j.payment_status === "paid" ? "Paid" : "Unpaid"}${j.payment_method ? " via " + esc(j.payment_method) : ""}</p>
+          <p>Amount received: ${money(j.amount_paid || 0)}</p>
+          <p><strong>Balance due: ${money(Math.max(0, balance))}</strong></p>
+        </div>
+        <div class="print-box full"><p class="muted">Thank you for choosing Randy's Cleaning Pros. Questions about this invoice? Call 1-877-207-3123.</p></div>
+      </div>
+    </div>`;
+  window.print();
+};
+
 /* ============================================================
    EMPLOYEE PORTAL — today's jobs, timer, photos, checklist, signature
    ============================================================ */
@@ -635,8 +868,12 @@ function renderEmployeeJobDetail() {
       <p class="muted">${esc(address)}</p>
       <a class="gps-link" href="${gpsUrl}" target="_blank" rel="noopener">📍 Get directions</a>
       ${c.gate_code ? `<p class="muted" style="margin-top:8px">Gate/entry code: <strong>${esc(c.gate_code)}</strong></p>` : ""}
+      ${c.alarm_code ? `<p class="muted">Alarm code: <strong>${esc(c.alarm_code)}</strong></p>` : ""}
+      ${c.key_location ? `<p class="muted">Key location: ${esc(c.key_location)}</p>` : ""}
+      ${c.entry_instructions ? `<p class="muted">Entry instructions: ${esc(c.entry_instructions)}</p>` : ""}
       ${c.parking ? `<p class="muted">Parking: ${esc(c.parking)}</p>` : ""}
       ${c.pets ? `<p class="muted">Pets: ${esc(c.pets)}</p>` : ""}
+      ${c.vip ? `<p class="muted">⭐ VIP customer</p>` : ""}
       ${j.notes ? `<p class="muted">Special instructions: ${esc(j.notes)}</p>` : ""}
       <button class="btn ghost" style="margin-top:12px" onclick="printJob('${j.id}')">Print work order</button>
     </div>
@@ -646,9 +883,10 @@ function renderEmployeeJobDetail() {
       <div class="timer-display" id="timerDisplay">${timerText(j)}</div>
       <div class="timer-actions">
         ${!j.started_at ? `<button class="btn primary" onclick="startTimer('${j.id}')">Start job</button>` : ""}
-        ${j.started_at && !j.finished_at ? `<button class="btn primary" onclick="finishTimer('${j.id}')">Finish job</button>` : ""}
+        ${j.started_at && !j.finished_at ? `<button class="btn primary" onclick="finishTimer('${j.id}')" ${checklistComplete(j) ? "" : "disabled title='Complete the Gold Standard checklist below first'"}>Finish job</button>` : ""}
         ${j.finished_at ? `<span class="badge completed">Completed in ${minsText(j.actual_minutes)}</span>` : ""}
       </div>
+      ${j.started_at && !j.finished_at && !checklistComplete(j) ? `<p class="muted" style="margin-top:8px">Complete the Gold Standard Quality Score checklist to finish this job.</p>` : ""}
     </div>
 
     <div class="job-detail-card">
@@ -675,6 +913,15 @@ function renderEmployeeJobDetail() {
       <h3>Customer signature</h3>
       ${j.signature ? `<img src="${j.signature}" style="max-width:100%;border:1px solid var(--line);border-radius:8px">` : `<p class="muted">Not signed yet.</p>`}
       <button class="btn primary" style="margin-top:10px" onclick="openSignature('${j.id}')">${j.signature ? "Re-sign" : "Collect signature"}</button>
+    </div>
+
+    <div class="job-detail-card">
+      <h3>Damage report</h3>
+      <textarea class="stack-form" style="width:100%;min-height:70px;padding:10px 12px;border:1px solid var(--line);border-radius:9px" placeholder="Note any pre-existing damage or anything that happened on this job" onchange="saveDamageReport('${j.id}',this.value)">${esc(j.damage_report || "")}</textarea>
+      <label class="checklist-item" style="margin-top:8px">
+        <input type="checkbox" ${j.reclean_requested ? "checked" : ""} onchange="toggleReclean('${j.id}',this.checked)">
+        Request a reclean for this job
+      </label>
     </div>`;
 
   renderPhotoGrid("beforePhotoGrid", j.before_photos || [], j.id, "before_photos");
@@ -693,6 +940,7 @@ window.startTimer = id => {
 };
 window.finishTimer = id => {
   const j = jobs.find(x => x.id === id);
+  if (!checklistComplete(j)) { toast("Complete the Gold Standard checklist first"); return; }
   j.finished_at = new Date().toISOString();
   j.actual_minutes = Math.max(1, Math.round((new Date(j.finished_at) - new Date(j.started_at)) / 60000));
   j.status = "completed";
@@ -731,7 +979,22 @@ window.removePhoto = (jobId, field, i) => {
 window.toggleChecklist = (jobId, item, checked) => {
   const j = jobs.find(x => x.id === jobId);
   j.checklist = j.checklist || {}; j.checklist[item] = checked;
-  storeAll();
+  storeAll(); renderEmployeeJobDetail();
+};
+function checklistComplete(j) {
+  const c = j.checklist || {};
+  return checklistItems.every(item => c[item]);
+}
+window.saveDamageReport = (jobId, text) => {
+  const j = jobs.find(x => x.id === jobId);
+  j.damage_report = text; storeAll();
+  if (online) db.from("jobs").update({ damage_report: text }).eq("id", jobId);
+};
+window.toggleReclean = (jobId, checked) => {
+  const j = jobs.find(x => x.id === jobId);
+  j.reclean_requested = checked; storeAll(); renderAll();
+  if (online) db.from("jobs").update({ reclean_requested: checked }).eq("id", jobId);
+  toast(checked ? "Reclean requested — admin notified on the Jobs list" : "Reclean request cleared");
 };
 
 /* ---------- signature pad ---------- */
