@@ -1,426 +1,820 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#0B2545">
-<title>Randy's Cleaning Pros | Team Portal</title>
-<link rel="stylesheet" href="styles.css">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<script src="config.js"></script>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="description"
+    content="Randy's Cleaning Pros provides professional residential, office, Airbnb, recurring, and move-out cleaning services throughout Southern Maine."
+  >
+
+  <title>Randy's Cleaning Pros | Southern Maine Cleaning</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  >
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,600;0,700;0,800;0,900;1,700;1,800;1,900&family=Open+Sans:wght@400;600;700&display=swap"
+    rel="stylesheet"
+  >
+
+  <!-- Website CSS -->
+  <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
-<div id="toast" class="toast" aria-live="polite"></div>
 
-<!-- ===== ROLE SELECT ===== -->
-<section id="roleScreen" class="gate active">
-  <div class="gate-card">
-    <div class="mark"><span>RCP</span></div>
-    <p class="eyebrow">Randy's Cleaning Pros</p>
-    <h1>Team Portal</h1>
-    <p class="gate-sub">Jobs, customers, mileage, and payroll — one place, built for the crew.</p>
-    <div class="gate-actions">
-      <button class="btn primary lg" id="gateAdminBtn">Admin sign in</button>
-      <button class="btn ghost lg" id="gateEmployeeBtn">Employee sign in</button>
+  <!-- =========================================
+       HEADER
+       ========================================= -->
+  <header class="site-header">
+
+    <!-- Top menu area -->
+    <div class="menu-bar">
+
+      <a href="index.html" class="small-brand">
+        Randy's Cleaning Pros
+      </a>
+
+      <button
+        class="menu-toggle"
+        id="menuToggle"
+        type="button"
+        aria-label="Open website menu"
+        aria-controls="mainMenu"
+        aria-expanded="false"
+      >
+        <span class="menu-word">MENU</span>
+
+        <span class="hamburger" aria-hidden="true">
+          <span></span>
+          <span></span>
+          <span></span>
+        </span>
+      </button>
+
     </div>
-    <span id="connectionBadge" class="status offline">Local mode</span>
-  </div>
-</section>
 
-<!-- ===== ADMIN LOGIN ===== -->
-<section id="adminLoginScreen" class="gate">
-  <div class="gate-card">
-    <button class="back-link" data-back="roleScreen">&larr; Back</button>
-    <p class="eyebrow">Admin</p>
-    <h1>Sign in</h1>
-    <form id="adminLoginForm" class="gate-form">
-      <label>Admin PIN
-        <input type="password" id="adminPin" inputmode="numeric" autocomplete="off" required placeholder="••••">
-      </label>
-      <button type="submit" class="btn primary lg">Enter admin portal</button>
-    </form>
-    <p class="hint">First time here? Set your PIN in Settings once you're in — default is <strong>1234</strong>.</p>
-  </div>
-</section>
 
-<!-- ===== EMPLOYEE LOGIN ===== -->
-<section id="employeeLoginScreen" class="gate">
-  <div class="gate-card">
-    <button class="back-link" data-back="roleScreen">&larr; Back</button>
-    <p class="eyebrow">Employee</p>
-    <h1>Sign in</h1>
-    <form id="employeeLoginForm" class="gate-form">
-      <label>Your name
-        <select id="employeeLoginSelect" required></select>
-      </label>
-      <label>PIN
-        <input type="password" id="employeePin" inputmode="numeric" autocomplete="off" required placeholder="••••">
-      </label>
-      <button type="submit" class="btn primary lg">Start my shift</button>
-    </form>
-    <p class="hint">Don't see your name? Ask an admin to add you under Employees.</p>
-  </div>
-</section>
+    <!-- Dropdown menu -->
+    <nav
+      class="dropdown-menu"
+      id="mainMenu"
+      aria-label="Main website navigation"
+    >
 
-<!-- ===== ADMIN APP ===== -->
-<div id="adminApp" class="app">
-  <header class="topbar">
-    <div class="brand">
-      <div class="logo">RCP</div>
-      <div><strong>Randy's Cleaning Pros</strong><span>Admin Portal</span></div>
+      <a href="index.html" class="menu-link active">
+        Home
+      </a>
+
+      <a href="services.html" class="menu-link">
+        Services
+      </a>
+
+      <a href="gold-standard.html" class="menu-link">
+        Gold Standard
+      </a>
+
+      <a href="about.html" class="menu-link">
+        About Us
+      </a>
+
+      <a href="reviews.html" class="menu-link">
+        Reviews
+      </a>
+
+      
+
+      <a href="contact.html" class="menu-link">
+        Contact
+      </a>
+
+      <a href="quote.html" class="menu-quote-link">
+        Get a Free Quote
+      </a>
+
+    </nav>
+
+
+    <!-- Main logo area -->
+    <div class="logo-area">
+
+      <a href="index.html" class="logo-link">
+
+        <img
+          src="Photoroomlogo11.png"
+          alt="Randy's Cleaning Pros mascot and logo"
+          class="main-logo"
+        >
+
+      </a>
+
+      <h1 class="business-name">
+        <span class="randy-name">Randy's</span>
+        <span class="cleaning-name">Cleaning Pros</span>
+      </h1>
+
+      <p class="main-slogan">
+        Setting the
+        <span>Gold Standard</span>
+        in Cleaning
+      </p>
+
     </div>
-    <div class="top-actions">
-      <span id="connectionBadgeAdmin" class="status offline">Local mode</span>
-      <button class="btn ghost" id="adminLogoutBtn">Sign out</button>
-    </div>
+
   </header>
-  <div class="layout">
-    <aside class="sidebar">
-      <button class="nav-btn active" data-view="dashboard">Dashboard</button>
-      <button class="nav-btn" data-view="jobs">Jobs</button>
-      <button class="nav-btn" data-view="customers">Customers</button>
-      <button class="nav-btn" data-view="employees">Employees</button>
-      <button class="nav-btn" data-view="mileage">Mileage</button>
-      <button class="nav-btn" data-view="payroll">Payroll</button>
-      <button class="nav-btn" data-view="reports">Reports</button>
-      <button class="nav-btn" data-view="settings">Settings</button>
-    </aside>
-    <main>
 
-      <!-- DASHBOARD -->
-      <section id="dashboard" class="view active">
-        <div class="page-head">
-          <div><p class="eyebrow">Today at a glance</p><h1>Business Dashboard</h1></div>
-          <button class="btn primary" data-open-job>+ Create job</button>
-        </div>
-        <div class="stat-grid">
-          <article class="stat"><span>Jobs today</span><strong id="statJobsToday">0</strong></article>
-          <article class="stat"><span>Employees working</span><strong id="statEmpToday">0</strong></article>
-          <article class="stat"><span>Revenue today</span><strong id="statRevToday">$0</strong></article>
-          <article class="stat"><span>Completed today</span><strong id="statDoneToday">0</strong></article>
-        </div>
-        <div class="content-grid">
-          <article class="card">
-            <div class="card-head"><h2>Today's jobs</h2><button class="link-btn" data-view-link="jobs">View all</button></div>
-            <div id="dashboardJobs" class="list"></div>
-          </article>
-          <article class="card">
-            <div class="card-head"><h2>Who's working today</h2></div>
-            <div id="dashboardCrew" class="list"></div>
-          </article>
-          <article class="card">
-            <div class="card-head"><h2>Recent mileage</h2><button class="link-btn" data-view-link="mileage">View all</button></div>
-            <div id="dashboardMiles" class="list"></div>
-          </article>
-        </div>
-      </section>
 
-      <!-- JOBS -->
-      <section id="jobs" class="view">
-        <div class="page-head">
-          <div><p class="eyebrow">Scheduling</p><h1>Jobs</h1></div>
-          <button class="btn primary" data-open-job>+ Create job</button>
-        </div>
-        <div class="filter-row">
-          <input id="jobSearch" placeholder="Search by customer, address, or employee">
-          <select id="jobFilter">
-            <option value="all">All statuses</option>
-            <option value="scheduled">Scheduled</option>
-            <option value="in_progress">In progress</option>
-            <option value="completed">Completed</option>
-          </select>
-        </div>
-        <div id="jobsList" class="record-list"></div>
-      </section>
+  <main>
 
-      <!-- CUSTOMERS -->
-      <section id="customers" class="view">
-        <div class="page-head">
-          <div><p class="eyebrow">Client records</p><h1>Customers</h1></div>
-          <div class="head-actions">
-            <button class="btn ghost" id="exportCustomersBtn">Export CSV</button>
-            <button class="btn primary" id="addCustomerBtn">+ Add customer</button>
-          </div>
-        </div>
-        <div class="filter-row"><input id="customerSearch" placeholder="Search customers"></div>
-        <div id="customersList" class="record-list"></div>
-      </section>
+    <!-- =========================================
+         HERO SECTION
+         ========================================= -->
+    <section class="hero-section">
 
-      <!-- EMPLOYEES -->
-      <section id="employees" class="view">
-        <div class="page-head">
-          <div><p class="eyebrow">Your crew</p><h1>Employees</h1></div>
-          <button class="btn primary" id="addEmployeeBtn">+ Add employee</button>
-        </div>
-        <div id="employeesList" class="record-list"></div>
-      </section>
+      <div class="hero-content">
 
-      <!-- MILEAGE -->
-      <section id="mileage" class="view">
-        <div class="page-head">
-          <div><p class="eyebrow">Tax records</p><h1>Mileage</h1></div>
-          <div class="head-actions">
-            <button class="btn ghost" id="exportMileageBtn">Export CSV</button>
-            <button class="btn primary" id="addTripBtn">+ Log trip</button>
-          </div>
-        </div>
-        <div class="stat-grid three">
-          <article class="stat"><span>Total miles</span><strong id="mileTotal">0.0</strong></article>
-          <article class="stat"><span>This month</span><strong id="monthMiles">0.0</strong></article>
-          <article class="stat"><span>Trips logged</span><strong id="tripCount">0</strong></article>
-        </div>
-        <div id="mileageList" class="card"></div>
-      </section>
+        <p class="promotion-label">
+          Southern Maine Cleaning Professionals
+        </p>
 
-      <!-- PAYROLL -->
-      <section id="payroll" class="view">
-        <div class="page-head">
-          <div><p class="eyebrow">Hours &amp; pay</p><h1>Payroll</h1></div>
-          <button class="btn ghost" id="exportPayrollBtn">Export CSV</button>
-        </div>
-        <div class="filter-row">
-          <label class="inline-label">From <input type="date" id="payrollFrom"></label>
-          <label class="inline-label">To <input type="date" id="payrollTo"></label>
-        </div>
-        <div id="payrollList" class="card"></div>
-      </section>
+        <h2>
+          A More Detailed Clean.
 
-      <!-- REPORTS -->
-      <section id="reports" class="view">
-        <div class="page-head"><div><p class="eyebrow">Performance</p><h1>Reports</h1></div>
-          <button class="btn ghost" id="exportJobsBtn">Export jobs CSV</button>
+          <span>
+            A Higher Standard of Care.
+          </span>
+        </h2>
+
+        <p class="hero-description">
+          Randy's Cleaning Pros provides dependable, top-to-bottom
+          cleaning for homes, rentals, offices, and properties
+          throughout Southern Maine.
+        </p>
+
+        <p class="hero-description">
+          We do more than quickly wipe visible surfaces. We follow an
+          organized process, pay attention to commonly missed areas,
+          and treat every property with care and respect.
+        </p>
+
+        <p class="hero-promise">
+          Cleaning Homes. Earning Trust. Building Hope.
+        </p>
+
+        <div class="hero-buttons">
+
+          <a href="quote.html" class="primary-button">
+            Get Your Free Quote
+          </a>
+
+          <a href="services.html" class="secondary-button">
+            Explore Our Services
+          </a>
+
         </div>
-        <div class="content-grid">
-          <article class="card">
-            <div class="card-head"><h2>Employee performance</h2></div>
-            <p class="muted">Estimated vs. actual time, jobs completed, and average per-job time by employee.</p>
-            <div id="reportsPerf" class="table-wrap"></div>
-          </article>
-          <article class="card">
-            <div class="card-head"><h2>Estimate accuracy</h2></div>
-            <p class="muted">As real job durations come in, estimates for similar homes get sharper.</p>
-            <div id="reportsAccuracy" class="list"></div>
-          </article>
+
+      </div>
+
+
+      <!-- 50% discount card -->
+      <aside class="promotion-card">
+
+        <div class="promotion-circle">
+
+          <span class="promotion-number">
+            50%
+          </span>
+
+          <span class="promotion-word">
+            OFF
+          </span>
+
         </div>
-      </section>
 
-      <!-- SETTINGS -->
-      <section id="settings" class="view">
-        <div class="page-head"><div><p class="eyebrow">Configuration</p><h1>Settings</h1></div></div>
-        <div class="content-grid">
-          <article class="card">
-            <div class="card-head"><h2>Pricing</h2></div>
-            <form id="settingsForm" class="stack-form">
-              <label>Hourly rate charged to customers ($)
-                <input type="number" id="setRate" min="0" step="1">
-              </label>
-              <label>Minimum job price ($)
-                <input type="number" id="setMinPrice" min="0" step="1">
-              </label>
-              <button type="submit" class="btn primary">Save pricing</button>
-            </form>
-          </article>
-          <article class="card">
-            <div class="card-head"><h2>Security</h2></div>
-            <form id="pinForm" class="stack-form">
-              <label>Admin PIN
-                <input type="password" id="setAdminPin" inputmode="numeric" placeholder="4+ digits">
-              </label>
-              <button type="submit" class="btn primary">Update PIN</button>
-            </form>
-          </article>
-          <article class="card">
-            <div class="card-head"><h2>Roadmap</h2></div>
-            <p class="muted">Planned next: photo-based time estimates, room-condition detection, and crew-size recommendations, learned from your own completed jobs over time.</p>
-          </article>
-        </div>
-      </section>
+        <p class="card-label">
+          New Customer Special
+        </p>
 
-    </main>
-  </div>
-</div>
+        <h3>
+          Save 50% on Your First Cleaning
+        </h3>
 
-<!-- ===== EMPLOYEE APP ===== -->
-<div id="employeeApp" class="app employee-app">
-  <header class="topbar">
-    <div class="brand">
-      <div class="logo">RCP</div>
-      <div><strong id="empGreeting">Hi</strong><span>Employee Portal</span></div>
-    </div>
-    <div class="top-actions">
-      <button class="btn ghost" id="empLogoutBtn">Sign out</button>
-    </div>
-  </header>
-  <main class="employee-main">
+        <p>
+          New recurring customers can receive 50% off their first
+          scheduled cleaning when beginning a qualifying weekly,
+          biweekly, or monthly cleaning plan.
+        </p>
 
-    <section id="empToday" class="eview active">
-      <p class="eyebrow" id="empDateLabel">Today</p>
-      <h1>Your jobs</h1>
-      <div id="empJobsList" class="record-list"></div>
+        <a href="quote.html" class="promotion-button">
+          Claim the Offer
+        </a>
+
+        <small>
+          New customers only. Service-area restrictions and qualifying
+          recurring-service requirements may apply.
+        </small>
+       
+
+      </aside>
+
     </section>
 
-    <section id="empJobDetail" class="eview">
-      <button class="back-link" data-eback="empToday">&larr; Back to my jobs</button>
-      <div id="empJobDetailBody"></div>
+
+    <!-- =========================================
+         MASCOT PITCH SECTION
+         ========================================= -->
+    <section class="mascot-pitch-section">
+
+      <div class="mascot-image-wrap">
+
+        <img
+          src="mascot-randy.png"
+          alt="Randy, the Randy's Cleaning Pros mascot, in uniform with cleaning gloves and towel"
+          class="mascot-image"
+        >
+
+      </div>
+
+      <div class="mascot-speech">
+
+        <div class="speech-bubble">
+
+          <p class="section-label">
+            Straight Talk From Randy
+          </p>
+
+          <p class="speech-text">
+            "I started this company because homes and businesses in
+            Southern Maine deserved better than a rushed job. Every
+            cleaner on my team follows the same Gold Standard process
+            I'd want in my own home &mdash; no shortcuts, no corners
+            cut."
+          </p>
+
+          <p class="speech-signature">
+            &mdash; Randy, Founder
+          </p>
+
+        </div>
+
+        <div class="mascot-actions">
+
+          <a href="quote.html" class="primary-button">
+            Get Your Free Quote
+          </a>
+
+          <a href="tel:+18772073123" class="mascot-phone-button">
+            <span class="phone-label">Call Randy's Team</span>
+            <span class="phone-number">1-877-207-3123</span>
+          </a>
+
+        </div>
+
+      </div>
+
     </section>
 
-    <section id="empMileage" class="eview">
-      <p class="eyebrow">Tax records</p>
-      <h1>My mileage</h1>
-      <button class="btn primary" id="empAddTripBtn">+ Log trip</button>
-      <div id="empMileageList" class="card"></div>
+
+    <!-- =========================================
+         TRUST SECTION
+         ========================================= -->
+    <section class="trust-section">
+
+      <div class="trust-intro">
+
+        <img
+          src="mascot-randy-small.png"
+          alt="Randy's Cleaning Pros mascot"
+          class="trust-mascot-avatar"
+        >
+
+        <p class="trust-intro-text">
+          "Here's what you can count on every time you book with us."
+        </p>
+
+      </div>
+
+
+      <div class="trust-cards-grid">
+
+      <article class="trust-card">
+
+        <div class="trust-icon">
+          ✓
+        </div>
+
+        <h3>
+          Satisfaction Promise
+        </h3>
+
+        <p>
+          Report a qualifying concern within 24 hours and we will work
+          with you to make it right.
+        </p>
+
+      </article>
+
+
+      <article class="trust-card">
+
+        <div class="trust-icon">
+          ★
+        </div>
+
+        <h3>
+          Gold Standard Process
+        </h3>
+
+        <p>
+          Every visit follows an organized cleaning process designed
+          to create consistent results.
+        </p>
+
+      </article>
+
+
+      <article class="trust-card">
+
+        <div class="trust-icon">
+          ♥
+        </div>
+
+        <h3>
+          Pet Friendly
+        </h3>
+
+        <p>
+          We treat your home, belongings, family, and pets with care
+          and respect.
+        </p>
+
+      </article>
+
+
+      <article class="trust-card">
+
+        <div class="trust-icon">
+          ◆
+        </div>
+
+        <h3>
+          Professional Service
+        </h3>
+
+        <p>
+          Uniformed, non-smoking professionals focused on dependable
+          communication and attention to detail.
+        </p>
+
+      </article>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================================
+         WORKER PHOTO SECTION 1
+         ========================================= -->
+    <section class="work-section">
+
+      <div class="work-photo">
+
+        <img
+          src="Green.PNG"
+          alt="Randy's Cleaning Pros worker cleaning a kitchen while wearing blue gloves"
+          class="work-image"
+        >
+
+      </div>
+
+      <div class="work-content">
+
+        <p class="section-label">
+          Care You Can See
+        </p>
+
+        <h2>
+          Professional Cleaning With Attention to Detail
+        </h2>
+
+        <p>
+          Our cleaners arrive prepared to work carefully and
+          efficiently. We use professional methods, appropriate
+          products, clean uniforms, and blue protective gloves while
+          performing cleaning tasks.
+        </p>
+
+        <p>
+          From kitchens and bathrooms to bedrooms and living spaces,
+          we work methodically instead of rushing from one task to the
+          next.
+        </p>
+
+        <a href="about.html" class="primary-button">
+          Learn About Our Company
+        </a>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================================
+         GOLD STANDARD FEATURE
+         ========================================= -->
+    <section class="gold-standard-section">
+
+      <div class="gold-badge" aria-label="Gold Standard badge">
+
+        <div class="badge-stars">
+          ★ ★ ★
+        </div>
+
+        <div class="badge-center">
+
+          <span class="badge-small-text">
+            Randy's
+          </span>
+
+          <strong>
+            GOLD
+          </strong>
+
+          <span>
+            STANDARD
+          </span>
+
+          <small>
+            10-Step Cleaning Procedure
+          </small>
+
+        </div>
+
+        <div class="badge-ribbon">
+          Detailed • Dependable • Consistent
+        </div>
+
+      </div>
+
+
+      <div class="gold-standard-content">
+
+        <p class="section-label gold-label">
+          Our Signature Cleaning System
+        </p>
+
+        <h2>
+          Setting the
+          <span>Gold Standard</span>
+          in Cleaning
+        </h2>
+
+        <p>
+          Our 10-Step Gold Standard Cleaning Procedure gives every
+          appointment structure and purpose. It helps our cleaners
+          work from top to bottom, reduce missed areas, and complete a
+          final quality check before leaving.
+        </p>
+
+        <p class="gold-statement">
+          A more organized process helps create a more dependable
+          cleaning experience.
+        </p>
+
+        <a href="gold-standard.html" class="gold-button">
+          Discover Our Gold Standard
+        </a>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================================
+         WORKER PHOTO SECTION 2
+         ========================================= -->
+    <section class="work-section reverse">
+
+      <div class="work-photo">
+
+        <img
+          src="Pet.PNG"
+          alt="Randy's Cleaning Pros worker showing how we love pets and we ger pet hairs"
+          class="work-image"
+        >
+
+      </div>
+
+      <div class="work-content">
+
+        <p class="section-label">
+          Top-to-Bottom Cleaning
+        </p>
+
+        <h2>
+          A Cleaner Space Without the Stress
+        </h2>
+
+        <p>
+          Cleaning can take time and energy away from your family,
+          work, appointments, and the things you enjoy. Our goal is to
+          give you that time back while helping your home feel clean,
+          refreshed, and comfortable.
+        </p>
+
+        <p>
+          We focus on reachable surfaces, fixtures, floors, detailed
+          areas, and the overall presentation of each room included in
+          your service.
+        </p>
+
+        <a href="services.html" class="primary-button">
+          View Cleaning Services
+        </a>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================================
+         SERVICES PREVIEW
+         ========================================= -->
+    <section class="services-preview">
+
+      <div class="section-heading">
+
+        <p class="section-label">
+          Cleaning Built Around Your Needs
+        </p>
+
+        <h2>
+          Professional Services for Homes and Businesses
+        </h2>
+
+        <p>
+          Choose the cleaning service that best matches your property,
+          schedule, and priorities.
+        </p>
+
+      </div>
+
+
+      <div class="services-grid">
+
+        <article class="service-card">
+
+          <span class="service-number">
+            01
+          </span>
+
+          <h3>
+            Recurring Home Cleaning
+          </h3>
+
+          <p>
+            Weekly, biweekly, and monthly cleaning plans designed to
+            keep your home consistently clean.
+          </p>
+
+        </article>
+
+
+        <article class="service-card">
+
+          <span class="service-number">
+            02
+          </span>
+
+          <h3>
+            Deep Cleaning
+          </h3>
+
+          <p>
+            A more detailed service for homes needing additional time,
+            attention, and top-to-bottom care.
+          </p>
+
+        </article>
+
+
+        <article class="service-card">
+
+          <span class="service-number">
+            03
+          </span>
+
+          <h3>
+            Move-In and Move-Out
+          </h3>
+
+          <p>
+            Detailed cleaning to prepare an empty home or apartment
+            for its next chapter.
+          </p>
+
+        </article>
+
+
+        <article class="service-card">
+
+          <span class="service-number">
+            04
+          </span>
+
+          <h3>
+            Airbnb Cleaning
+          </h3>
+
+          <p>
+            Dependable turnover cleaning that helps create a welcoming
+            experience for arriving guests.
+          </p>
+
+        </article>
+
+
+        <article class="service-card">
+
+          <span class="service-number">
+            05
+          </span>
+
+          <h3>
+            Office Cleaning
+          </h3>
+
+          <p>
+            Professional cleaning for offices and smaller commercial
+            spaces that value cleanliness and presentation.
+          </p>
+
+        </article>
+
+
+        <article class="service-card">
+
+          <span class="service-number">
+            06
+          </span>
+
+          <h3>
+            Customized Cleaning
+          </h3>
+
+          <p>
+            Tell us what your property needs and we will help create a
+            plan based on your priorities.
+          </p>
+
+        </article>
+
+      </div>
+
+      <div class="center-button">
+
+        <a href="services.html" class="primary-button">
+          View All Services
+        </a>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================================
+         WORKER PHOTO SECTION 3
+         ========================================= -->
+    <section class="photo-banner">
+
+      <img
+        src="Photoroom.png"
+        alt="Randy's Cleaning Pros team member professionally cleaning a home"
+        loading="lazy"
+      >
+
+      <div class="photo-banner-overlay">
+
+        <p class="section-label gold-label">
+          Reliable Service
+        </p>
+
+        <h2>
+          Your Home Deserves More Than a Rushed Cleaning
+        </h2>
+
+        <p>
+          Experience an organized cleaning service built around care,
+          consistency, respect, and attention to detail.
+        </p>
+
+        <a href="quote.html" class="gold-button">
+          Request a Free Quote
+        </a>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================================
+         FINAL QUOTE SECTION
+         ========================================= -->
+    <section class="final-quote-section">
+
+      <div class="final-quote-content">
+
+        <p class="section-label gold-label">
+          Experience the Difference
+        </p>
+
+        <h2>
+          Give Your Home the Gold Standard Treatment
+        </h2>
+
+        <p>
+          Tell us about your home, rental, office, or property and
+          receive a personalized cleaning quote based on your needs.
+        </p>
+
+        <a href="quote.html" class="large-quote-button">
+          Get My Free Quote
+        </a>
+
+        <p class="contact-note">
+          Serving homes, rentals, and businesses throughout Southern Maine.
+        </p>
+
+      </div>
+
     </section>
 
   </main>
-  <nav class="bottom-nav">
-    <button class="bn-btn active" data-eview="empToday">Today</button>
-    <button class="bn-btn" data-eview="empMileage">Mileage</button>
-  </nav>
-</div>
 
-<!-- ===== DIALOGS ===== -->
-<dialog id="customerDialog">
-  <form id="customerForm" method="dialog">
-    <h2>Customer</h2>
-    <input type="hidden" id="customerId">
-    <div class="form-grid">
-      <label>Full name<input id="customerName" required></label>
-      <label>Phone<input id="customerPhone" type="tel"></label>
-      <label>Email<input id="customerEmail" type="email"></label>
-      <label>Street<input id="customerStreet" required></label>
-      <label>City<input id="customerCity"></label>
-      <label>State<input id="customerState" value="ME" maxlength="2"></label>
-      <label>ZIP<input id="customerZip"></label>
-      <label>Gate / entry code<input id="customerGateCode" placeholder="e.g. lockbox 4482"></label>
-      <label>Parking instructions<input id="customerParking" placeholder="e.g. driveway on left, avoid mailbox"></label>
-      <label class="full">Pets<input id="customerPets" placeholder="e.g. one friendly dog, kept in yard"></label>
-      <label class="full">Notes<textarea id="customerNotes" rows="2"></textarea></label>
-    </div>
-    <div class="dialog-actions">
-      <button type="button" class="btn ghost" data-close-dialog>Cancel</button>
-      <button type="submit" class="btn primary">Save customer</button>
-    </div>
-  </form>
-</dialog>
 
-<dialog id="employeeDialog">
-  <form id="employeeForm" method="dialog">
-    <h2>Employee</h2>
-    <input type="hidden" id="employeeId">
-    <div class="form-grid">
-      <label>Full name<input id="employeeName" required></label>
-      <label>Phone<input id="employeePhone" type="tel"></label>
-      <label>4-digit PIN<input id="employeePinSet" inputmode="numeric" maxlength="6" required></label>
-      <label>Pay rate, $/hr<input id="employeeRate" type="number" min="0" step="0.5"></label>
-      <label class="full"><input type="checkbox" id="employeeActive" checked> Active</label>
-    </div>
-    <div class="dialog-actions">
-      <button type="button" class="btn ghost" data-close-dialog>Cancel</button>
-      <button type="submit" class="btn primary">Save employee</button>
-    </div>
-  </form>
-</dialog>
+  <!-- =========================================
+       FOOTER
+       ========================================= -->
+  <footer class="site-footer">
 
-<dialog id="jobDialog" class="wide">
-  <form id="jobForm" method="dialog">
-    <h2>Create job</h2>
-    <div class="form-grid">
-      <label>Customer<select id="jobCustomer" required></select></label>
-      <label>Assign employee<select id="jobEmployee"></select></label>
-      <label>Service date<input type="date" id="jobDate" required></label>
-      <label>Arrival window<input id="jobArrival" placeholder="e.g. 9–11am"></label>
+    <div class="footer-brand">
+
+      <img
+        src="mascot-randy-small.png"
+        alt="Randy's Cleaning Pros mascot"
+        class="footer-mascot"
+      >
+
+      <h2>
+        <span>Randy's</span>
+        Cleaning Pros
+      </h2>
+
+      <p>
+        Setting the Gold Standard in Cleaning
+      </p>
+
+      <a href="tel:+18772073123" class="footer-phone">
+        1-877-207-3123
+      </a>
+
     </div>
 
-    <h3>Rooms &amp; areas</h3>
-    <div class="room-grid">
-      <label>Kitchen minutes<input type="number" id="kitchenSize" value="35" min="0"></label>
-      <label>Small bedrooms<select id="smallBedrooms"></select></label>
-      <label>Medium bedrooms<select id="mediumBedrooms"></select></label>
-      <label>Large bedrooms<select id="largeBedrooms"></select></label>
-      <label>Half bathrooms<select id="halfBathrooms"></select></label>
-      <label>Full bathrooms<select id="fullBathrooms"></select></label>
-      <label>Large primary bathrooms<select id="primaryBathrooms"></select></label>
-      <label>Living / family rooms<select id="livingRooms"></select></label>
-      <label>Dining rooms<select id="diningRooms"></select></label>
-      <label>Home offices<select id="homeOffices"></select></label>
-      <label>Laundry rooms<select id="laundryRooms"></select></label>
-      <label>Flights of stairs<select id="stairs"></select></label>
-      <label>Basements<select id="basements"></select></label>
-      <label>Attics<select id="attics"></select></label>
-      <label>Garages<select id="garages"></select></label>
+    <div class="footer-links">
+
+      <a href="index.html">Home</a>
+      <a href="services.html">Services</a>
+      <a href="gold-standard.html">Gold Standard</a>
+      <a href="about.html">About</a>
+      <a href="reviews.html">Reviews</a>
+      <a href="quote.html">Free Quote</a>
+      <a href="contact.html">Contact</a>
+
     </div>
 
-    <h3>Extras</h3>
-    <div class="extras-grid">
-      <label><input type="checkbox" class="extra" data-minutes="30" data-label="Inside fridge"> Inside fridge</label>
-      <label><input type="checkbox" class="extra" data-minutes="30" data-label="Inside oven"> Inside oven</label>
-      <label><input type="checkbox" class="extra" data-minutes="20" data-label="Interior windows"> Interior windows</label>
-      <label><input type="checkbox" class="extra" data-minutes="15" data-label="Inside cabinets"> Inside cabinets</label>
-      <label><input type="checkbox" class="extra" data-minutes="25" data-label="Laundry (wash/fold)"> Laundry</label>
-    </div>
+    <p class="copyright">
+      &copy; 2026 Randy's Cleaning Pros. All rights reserved.
+    </p>
 
-    <h3>Condition</h3>
-    <div class="condition-row">
-      <label><input type="radio" name="condition" value="0.85"> Excellent</label>
-      <label><input type="radio" name="condition" value="1" checked> Good</label>
-      <label><input type="radio" name="condition" value="1.2"> Needs attention</label>
-      <label><input type="radio" name="condition" value="1.45"> Heavy cleaning</label>
-      <label><input type="radio" name="condition" value="1.75"> Move-out / deep clean</label>
-    </div>
+  </footer>
 
-    <div class="estimate-row">
-      <div>Estimated labor time<strong id="jobEstimate">0 minutes</strong></div>
-      <div>Estimated price<strong id="jobPrice">$0</strong></div>
-    </div>
 
-    <label class="full">Special instructions<textarea id="jobNotes" rows="2"></textarea></label>
+  <!-- Website JavaScript -->
+  <script src="script.js"></script>
 
-    <div class="dialog-actions">
-      <button type="button" class="btn ghost" data-close-dialog>Cancel</button>
-      <button type="submit" class="btn primary">Save job</button>
-    </div>
-  </form>
-</dialog>
-
-<dialog id="tripDialog">
-  <form id="tripForm" method="dialog">
-    <h2>Log mileage</h2>
-    <div class="form-grid">
-      <label>Date<input type="date" id="tripDate" required></label>
-      <label>Related job<select id="tripJob"></select></label>
-      <label>Business purpose<input id="tripPurpose" placeholder="e.g. drive to job site" required></label>
-      <label>Vehicle<input id="tripVehicle" placeholder="e.g. work van"></label>
-      <label>Start location<input id="tripStart"></label>
-      <label>End location<input id="tripEnd"></label>
-      <label>Odometer start<input type="number" id="odoStart" step="0.1"></label>
-      <label>Odometer end<input type="number" id="odoEnd" step="0.1"></label>
-      <label>Total miles<input type="number" id="tripMiles" step="0.1" required></label>
-      <label class="full">Notes<textarea id="tripNotes" rows="2"></textarea></label>
-    </div>
-    <div class="dialog-actions">
-      <button type="button" class="btn ghost" data-close-dialog>Cancel</button>
-      <button type="submit" class="btn primary">Save trip</button>
-    </div>
-  </form>
-</dialog>
-
-<dialog id="signatureDialog">
-  <div class="sig-wrap">
-    <h2>Customer signature</h2>
-    <p class="muted">Please sign to confirm the job is complete.</p>
-    <canvas id="sigCanvas" width="480" height="220"></canvas>
-    <div class="dialog-actions">
-      <button type="button" class="btn ghost" id="sigClearBtn">Clear</button>
-      <button type="button" class="btn ghost" data-close-dialog>Cancel</button>
-      <button type="button" class="btn primary" id="sigSaveBtn">Save signature</button>
-    </div>
-  </div>
-</dialog>
-
-<div id="printSheet" class="print-sheet"></div>
-
-<script src="app.js"></script>
 </body>
 </html>
