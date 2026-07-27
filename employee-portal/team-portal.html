@@ -115,6 +115,10 @@
             <div class="card-head"><h2>Recent mileage</h2><button class="link-btn" data-view-link="mileage">View all</button></div>
             <div id="dashboardMiles" class="list"></div>
           </article>
+          <article class="card">
+            <div class="card-head"><h2>Upcoming birthdays</h2></div>
+            <div id="dashboardBirthdays" class="list"></div>
+          </article>
         </div>
       </section>
 
@@ -128,6 +132,7 @@
           <input id="jobSearch" placeholder="Search by customer, address, or employee">
           <select id="jobFilter">
             <option value="all">All statuses</option>
+            <option value="quote">Quotes</option>
             <option value="scheduled">Scheduled</option>
             <option value="in_progress">In progress</option>
             <option value="completed">Completed</option>
@@ -204,6 +209,16 @@
             <p class="muted">As real job durations come in, estimates for similar homes get sharper.</p>
             <div id="reportsAccuracy" class="list"></div>
           </article>
+          <article class="card">
+            <div class="card-head"><h2>Income</h2></div>
+            <p class="muted">From completed jobs, before payroll and expenses.</p>
+            <div id="reportsIncome" class="stat-grid three" style="margin-bottom:0"></div>
+          </article>
+          <article class="card">
+            <div class="card-head"><h2>Profit per job</h2></div>
+            <p class="muted">Price minus estimated labor cost at each employee's pay rate.</p>
+            <div id="reportsProfit" class="table-wrap"></div>
+          </article>
         </div>
       </section>
 
@@ -219,6 +234,15 @@
               </label>
               <label>Minimum job price ($)
                 <input type="number" id="setMinPrice" min="0" step="1">
+              </label>
+              <label>Commercial rate multiplier
+                <input type="number" id="setCommercialMult" min="0" step="0.05" value="1.15">
+              </label>
+              <label>Airbnb turnover rate multiplier
+                <input type="number" id="setAirbnbMult" min="0" step="0.05" value="1.1">
+              </label>
+              <label>Recurring customer discount (%)
+                <input type="number" id="setRecurringDiscount" min="0" max="50" step="1" value="10">
               </label>
               <button type="submit" class="btn primary">Save pricing</button>
             </form>
@@ -295,8 +319,25 @@
       <label>State<input id="customerState" value="ME" maxlength="2"></label>
       <label>ZIP<input id="customerZip"></label>
       <label>Gate / entry code<input id="customerGateCode" placeholder="e.g. lockbox 4482"></label>
+      <label>Alarm code<input id="customerAlarmCode" placeholder="e.g. 4-2-1-9, arm on exit"></label>
       <label>Parking instructions<input id="customerParking" placeholder="e.g. driveway on left, avoid mailbox"></label>
+      <label>Key location<input id="customerKeyLocation" placeholder="e.g. under mat, lockbox"></label>
+      <label class="full">Entry instructions<input id="customerEntryInstructions" placeholder="e.g. use side door, dog barks but is friendly"></label>
       <label class="full">Pets<input id="customerPets" placeholder="e.g. one friendly dog, kept in yard"></label>
+      <label>Favorite cleaner<select id="customerFavoriteEmployee"><option value="">No preference</option></select></label>
+      <label>Birthday<input id="customerBirthday" type="date"></label>
+      <label>How they found us<input id="customerReferral" placeholder="e.g. referred by Jane, Google, Facebook"></label>
+      <label>Recurring plan
+        <select id="customerRecurring">
+          <option value="">One-time / as needed</option>
+          <option value="weekly">Weekly</option>
+          <option value="biweekly">Biweekly</option>
+          <option value="monthly">Monthly</option>
+        </select>
+      </label>
+      <label class="full">Other properties for this customer<textarea id="customerProperties" rows="2" placeholder="One address per line, e.g. a rental or second home"></textarea></label>
+      <label class="full"><input type="checkbox" id="customerVip"> VIP customer</label>
+      <label class="full"><input type="checkbox" id="customerDoNotBook"> Do-not-book (flag before scheduling)</label>
       <label class="full">Notes<textarea id="customerNotes" rows="2"></textarea></label>
     </div>
     <div class="dialog-actions">
@@ -326,12 +367,23 @@
 
 <dialog id="jobDialog" class="wide">
   <form id="jobForm" method="dialog">
-    <h2>Create job</h2>
+    <h2 id="jobDialogTitle">Create job</h2>
+    <input type="hidden" id="jobId">
     <div class="form-grid">
       <label>Customer<select id="jobCustomer" required></select></label>
+      <label>Property<select id="jobProperty"></select></label>
       <label>Assign employee<select id="jobEmployee"></select></label>
       <label>Service date<input type="date" id="jobDate" required></label>
       <label>Arrival window<input id="jobArrival" placeholder="e.g. 9–11am"></label>
+      <label>Service type
+        <select id="jobServiceType">
+          <option value="residential">Residential</option>
+          <option value="commercial">Commercial</option>
+          <option value="airbnb">Airbnb turnover</option>
+        </select>
+      </label>
+      <label class="full"><input type="checkbox" id="jobIsQuote"> This is a quote, not a booked job yet</label>
+      <label id="jobQuoteExpiryWrap" style="display:none">Quote expires<input type="date" id="jobQuoteExpiry"></label>
     </div>
 
     <h3>Rooms &amp; areas</h3>
@@ -380,7 +432,7 @@
 
     <div class="dialog-actions">
       <button type="button" class="btn ghost" data-close-dialog>Cancel</button>
-      <button type="submit" class="btn primary">Save job</button>
+      <button type="submit" class="btn primary" id="jobSaveBtn">Save job</button>
     </div>
   </form>
 </dialog>
