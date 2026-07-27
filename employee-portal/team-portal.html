@@ -6,7 +6,7 @@
 <meta name="theme-color" content="#010E38">
 <title>Randy's Cleaning Pros | Team Portal</title>
 <link rel="icon" type="image/png" href="../Photoroomlogo11.png">
-<link rel="stylesheet" href="portal-styles.css?v=2">
+<link rel="stylesheet" href="portal-styles.css?v=3">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,600;0,700;0,800;0,900&family=Open+Sans:wght@400;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
@@ -70,6 +70,7 @@
 <div id="adminApp" class="app">
   <header class="topbar">
     <div class="brand">
+      <button class="menu-btn" id="adminMenuBtn" aria-label="Open menu" aria-expanded="false">☰</button>
       <img src="../Photoroomlogo11.png" alt="Randy's Cleaning Pros" class="logo-img">
       <div><strong class="brand-name"><span class="brand-randys">Randy's</span> <span class="brand-cleaning">Cleaning Pros</span></strong><span>Admin Portal</span></div>
     </div>
@@ -78,46 +79,49 @@
       <button class="btn ghost" id="adminLogoutBtn">Sign out</button>
     </div>
   </header>
-  <div class="layout">
-    <aside class="sidebar">
-      <button class="nav-btn active" data-view="dashboard">🏠 Dashboard</button>
-      <button class="nav-btn" data-view="jobs">🧹 Jobs</button>
-      <button class="nav-btn" data-view="customers">👥 Customers</button>
-      <button class="nav-btn" data-view="employees">🧑‍🔧 Employees</button>
-      <button class="nav-btn" data-view="mileage">🚙 Mileage</button>
-      <button class="nav-btn" data-view="payroll">💵 Payroll</button>
-      <button class="nav-btn" data-view="reports">📊 Reports</button>
-      <button class="nav-btn" data-view="settings">⚙️ Settings</button>
-    </aside>
+
+  <nav class="admin-menu" id="adminMenu">
+    <button class="menu-item active" data-view="dashboard">🏠 Home</button>
+    <button class="menu-item" data-view="jobs">🧹 Jobs</button>
+    <button class="menu-item" data-view="customers">👥 Customers</button>
+    <button class="menu-item" data-view="employees">🧑‍🔧 Employees</button>
+    <button class="menu-item" data-view="mileage">🚙 Mileage</button>
+    <button class="menu-item" data-view="payroll">💵 Payroll</button>
+    <button class="menu-item" data-view="reports">📊 Reports</button>
+    <button class="menu-item" data-view="settings">⚙️ Settings</button>
+  </nav>
+  <div class="menu-backdrop" id="adminMenuBackdrop"></div>
+
+  <div class="layout single-col">
     <main>
 
       <!-- DASHBOARD -->
       <section id="dashboard" class="view active">
         <div class="page-head">
-          <div><p class="eyebrow">Today at a glance</p><h1>Business Dashboard</h1></div>
-          <button class="btn primary" data-open-job>+ Create job</button>
+          <div><h1>👋 Welcome back</h1></div>
+          <button class="btn primary big-tap" style="width:auto;margin:0" data-open-job>➕ Create a job</button>
         </div>
         <div class="stat-grid">
-          <article class="stat"><span>Jobs today</span><strong id="statJobsToday">0</strong></article>
-          <article class="stat"><span>Employees working</span><strong id="statEmpToday">0</strong></article>
-          <article class="stat"><span>Revenue today</span><strong id="statRevToday">$0</strong></article>
-          <article class="stat"><span>Completed today</span><strong id="statDoneToday">0</strong></article>
+          <article class="stat"><span>🧹 Jobs today</span><strong id="statJobsToday">0</strong></article>
+          <article class="stat"><span>🧑‍🔧 Working today</span><strong id="statEmpToday">0</strong></article>
+          <article class="stat"><span>💵 Made today</span><strong id="statRevToday">$0</strong></article>
+          <article class="stat"><span>✅ Finished today</span><strong id="statDoneToday">0</strong></article>
         </div>
         <div class="content-grid">
           <article class="card">
-            <div class="card-head"><h2>Today's jobs</h2><button class="link-btn" data-view-link="jobs">View all</button></div>
+            <div class="card-head"><h2>📋 Today's jobs</h2><button class="link-btn" data-view-link="jobs">See all</button></div>
             <div id="dashboardJobs" class="list"></div>
           </article>
           <article class="card">
-            <div class="card-head"><h2>Who's working today</h2></div>
+            <div class="card-head"><h2>🧑‍🔧 Who's working today</h2></div>
             <div id="dashboardCrew" class="list"></div>
           </article>
           <article class="card">
-            <div class="card-head"><h2>Recent mileage</h2><button class="link-btn" data-view-link="mileage">View all</button></div>
+            <div class="card-head"><h2>🚙 Recent mileage</h2><button class="link-btn" data-view-link="mileage">See all</button></div>
             <div id="dashboardMiles" class="list"></div>
           </article>
           <article class="card">
-            <div class="card-head"><h2>Upcoming birthdays</h2></div>
+            <div class="card-head"><h2>🎂 Upcoming birthdays</h2></div>
             <div id="dashboardBirthdays" class="list"></div>
           </article>
         </div>

@@ -137,13 +137,29 @@ function enterEmployee() {
    ============================================================ */
 function nav(id) {
   document.querySelectorAll(".view").forEach(v => v.classList.toggle("active", v.id === id));
-  document.querySelectorAll(".nav-btn").forEach(b => b.classList.toggle("active", b.dataset.view === id));
+  document.querySelectorAll(".menu-item").forEach(b => b.classList.toggle("active", b.dataset.view === id));
+  closeAdminMenu();
   window.scrollTo(0, 0);
   if (id === "reports") renderReports();
   if (id === "payroll") renderPayroll();
 }
-document.querySelectorAll(".nav-btn").forEach(b => b.onclick = () => nav(b.dataset.view));
+document.querySelectorAll(".menu-item").forEach(b => b.onclick = () => nav(b.dataset.view));
 document.querySelectorAll("[data-view-link]").forEach(b => b.onclick = () => nav(b.dataset.viewLink));
+
+function openAdminMenu() {
+  $("adminMenu").classList.add("open");
+  $("adminMenuBackdrop").classList.add("show");
+  $("adminMenuBtn").setAttribute("aria-expanded", "true");
+}
+function closeAdminMenu() {
+  $("adminMenu").classList.remove("open");
+  $("adminMenuBackdrop").classList.remove("show");
+  $("adminMenuBtn").setAttribute("aria-expanded", "false");
+}
+$("adminMenuBtn").onclick = () => {
+  $("adminMenu").classList.contains("open") ? closeAdminMenu() : openAdminMenu();
+};
+$("adminMenuBackdrop").onclick = closeAdminMenu;
 
 /* ============================================================
    EMPLOYEE APP NAV
@@ -273,7 +289,7 @@ function renderCustomers() {
     const daysUntilBday = birthdayCountdown(c.birthday);
     return `
     <article class="record-card">
-      <div>
+      <div onclick="editCustomer('${c.id}')" style="cursor:pointer;flex:1">
         <strong>${esc(c.name)}${c.vip ? " ⭐" : ""}${c.do_not_book ? " 🚫" : ""}</strong>
         <p>${esc(c.street)}, ${esc(c.city)}, ${esc(c.state)} ${esc(c.zip || "")}</p>
         <span class="small">${esc(c.phone || "")}${c.email ? " • " + esc(c.email) : ""}${c.gate_code ? " • gate: " + esc(c.gate_code) : ""}</span><br>
@@ -544,7 +560,7 @@ function renderJobs() {
     return `
     <article class="record-card" style="flex-direction:column;align-items:stretch">
       <div style="display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap">
-        <div>
+        <div onclick="editJob('${j.id}')" style="cursor:pointer;flex:1;min-width:180px">
           <strong>${esc(customerName(j.customer_id))}${j.reclean_requested ? " 🔁" : ""}</strong>
           <p>${esc(j.property || customerObj(j.customer_id).street || "")} • ${j.service_date}${j.arrival_window ? " • " + esc(j.arrival_window) : ""}</p>
           <span class="small">${minsText(j.estimated_minutes)} • ${money(j.price)} • ${esc(employeeName(j.employee_id))} • ${esc(j.service_type || "residential")}</span>

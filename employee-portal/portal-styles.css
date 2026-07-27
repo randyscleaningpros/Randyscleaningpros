@@ -138,16 +138,34 @@ input,select,textarea{font-family:inherit;font-size:.95rem}
 .gate .status.offline{background:var(--bg);color:var(--muted)}
 .status.online{background:var(--green-bg);color:var(--green)}
 
-.layout{display:grid;grid-template-columns:210px 1fr;min-height:calc(100vh - 66px)}
-.sidebar{
-  background:var(--navy);padding:18px 12px;display:flex;flex-direction:column;gap:2px;
+.layout{min-height:calc(100vh - 66px)}
+.layout.single-col main{max-width:1180px;margin:0 auto}
+
+.menu-btn{
+  width:42px;height:42px;border-radius:10px;border:none;background:rgba(255,255,255,.1);
+  color:#fff;font-size:1.3rem;cursor:pointer;flex-shrink:0;
 }
-.nav-btn{
-  text-align:left;background:none;border:none;color:#C7D6E8;padding:11px 14px;border-radius:10px;
-  font-weight:600;font-size:.88rem;
+.menu-btn:hover{background:rgba(255,255,255,.18)}
+
+.admin-menu{
+  position:fixed;top:0;left:0;bottom:0;z-index:100;width:min(280px,80vw);
+  background:var(--navy);padding:20px 14px;display:flex;flex-direction:column;gap:4px;
+  transform:translateX(-100%);transition:transform .25s ease;box-shadow:20px 0 40px rgba(0,0,0,.25);
+  padding-top:80px;
 }
-.nav-btn:hover{background:rgba(255,255,255,.06);color:#fff}
-.nav-btn.active{background:var(--teal);color:#fff}
+.admin-menu.open{transform:translateX(0)}
+.menu-item{
+  text-align:left;background:none;border:none;color:#C7D6E8;padding:14px 16px;border-radius:10px;
+  font-weight:700;font-size:1rem;
+}
+.menu-item:hover{background:rgba(255,255,255,.06);color:#fff}
+.menu-item.active{background:var(--teal);color:#fff}
+.menu-backdrop{
+  position:fixed;inset:0;z-index:99;background:rgba(8,20,38,.5);
+  opacity:0;visibility:hidden;transition:opacity .25s ease,visibility .25s ease;
+}
+.menu-backdrop.show{opacity:1;visibility:visible}
+
 main{padding:28px 32px;max-width:1180px}
 .view{display:none}
 .view.active{display:block}
@@ -305,12 +323,6 @@ dialog h3{font-size:.92rem;margin:18px 0 10px;color:var(--teal-deep)}
 
 /* ===== Responsive ===== */
 @media (max-width:880px){
-  .layout{grid-template-columns:1fr}
-  .sidebar{
-    flex-direction:row;flex-wrap:wrap;overflow-x:visible;padding:10px;
-    justify-content:center;gap:6px;
-  }
-  .nav-btn{white-space:nowrap;flex:0 0 auto;padding:9px 12px;font-size:.82rem}
   main{padding:20px 16px}
   .stat-grid,.stat-grid.three{grid-template-columns:repeat(2,1fr)}
   .form-grid,.room-grid,.extras-grid{grid-template-columns:1fr 1fr}
