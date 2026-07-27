@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#010E38">
 <title>Randy's Cleaning Pros | Team Portal</title>
-<link rel="icon" type="image/png" href="Photoroomlogo11.png">
+<link rel="icon" type="image/png" href="../Photoroomlogo11.png">
 <link rel="stylesheet" href="portal-styles.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,600;0,700;0,800;0,900&family=Open+Sans:wght@400;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
@@ -23,8 +23,8 @@
     <h1>Team Portal</h1>
     <p class="gate-sub">Jobs, customers, mileage, and payroll — one place, built for the crew.</p>
     <div class="gate-actions">
-      <button class="btn primary lg" id="gateAdminBtn">Admin sign in</button>
-      <button class="btn ghost lg" id="gateEmployeeBtn">Employee sign in</button>
+      <button class="btn primary lg" id="gateAdminBtn">🗝️ Admin sign in</button>
+      <button class="btn ghost lg" id="gateEmployeeBtn">🧹 Employee sign in</button>
     </div>
     <span id="connectionBadge" class="status offline">Local mode</span>
   </div>
@@ -50,18 +50,19 @@
 <section id="employeeLoginScreen" class="gate">
   <div class="gate-card">
     <button class="back-link" data-back="roleScreen">&larr; Back</button>
+    <div class="mark" style="font-size:1.8rem">😊</div>
     <p class="eyebrow">Employee</p>
-    <h1>Sign in</h1>
+    <h1>Hi! Let's get started</h1>
     <form id="employeeLoginForm" class="gate-form">
-      <label>Your name
+      <label>Tap your name
         <select id="employeeLoginSelect" required></select>
       </label>
-      <label>PIN
+      <label>Your PIN
         <input type="password" id="employeePin" inputmode="numeric" autocomplete="off" required placeholder="••••">
       </label>
-      <button type="submit" class="btn primary lg">Start my shift</button>
+      <button type="submit" class="btn primary lg">✅ Start my day</button>
     </form>
-    <p class="hint">Don't see your name? Ask an admin to add you under Employees.</p>
+    <p class="hint">Don't see your name? Ask your boss to add you.</p>
   </div>
 </section>
 
@@ -79,14 +80,14 @@
   </header>
   <div class="layout">
     <aside class="sidebar">
-      <button class="nav-btn active" data-view="dashboard">Dashboard</button>
-      <button class="nav-btn" data-view="jobs">Jobs</button>
-      <button class="nav-btn" data-view="customers">Customers</button>
-      <button class="nav-btn" data-view="employees">Employees</button>
-      <button class="nav-btn" data-view="mileage">Mileage</button>
-      <button class="nav-btn" data-view="payroll">Payroll</button>
-      <button class="nav-btn" data-view="reports">Reports</button>
-      <button class="nav-btn" data-view="settings">Settings</button>
+      <button class="nav-btn active" data-view="dashboard">🏠 Dashboard</button>
+      <button class="nav-btn" data-view="jobs">🧹 Jobs</button>
+      <button class="nav-btn" data-view="customers">👥 Customers</button>
+      <button class="nav-btn" data-view="employees">🧑‍🔧 Employees</button>
+      <button class="nav-btn" data-view="mileage">🚙 Mileage</button>
+      <button class="nav-btn" data-view="payroll">💵 Payroll</button>
+      <button class="nav-btn" data-view="reports">📊 Reports</button>
+      <button class="nav-btn" data-view="settings">⚙️ Settings</button>
     </aside>
     <main>
 
@@ -267,41 +268,41 @@
   </div>
 </div>
 
-<!-- ===== EMPLOYEE APP ===== -->
+<!-- ===== EMPLOYEE APP (big, simple, icon-first) ===== -->
 <div id="employeeApp" class="app employee-app">
   <header class="topbar">
     <div class="brand">
-      <div class="logo">RCP</div>
-      <div><strong id="empGreeting">Hi</strong><span>Employee Portal</span></div>
+      <div class="logo">👋</div>
+      <div><strong id="empGreeting">Hi</strong><span>Your work today</span></div>
     </div>
     <div class="top-actions">
-      <button class="btn ghost" id="empLogoutBtn">Sign out</button>
+      <button class="btn ghost" id="empLogoutBtn">🚪 Sign out</button>
     </div>
   </header>
   <main class="employee-main">
 
     <section id="empToday" class="eview active">
       <p class="eyebrow" id="empDateLabel">Today</p>
-      <h1>Your jobs</h1>
-      <div id="empJobsList" class="record-list"></div>
+      <h1>📋 Your jobs</h1>
+      <div id="empJobsList" class="big-job-list"></div>
     </section>
 
     <section id="empJobDetail" class="eview">
-      <button class="back-link" data-eback="empToday">&larr; Back to my jobs</button>
+      <button class="back-link" data-eback="empToday">⬅️ Back to my jobs</button>
       <div id="empJobDetailBody"></div>
     </section>
 
     <section id="empMileage" class="eview">
-      <p class="eyebrow">Tax records</p>
+      <p class="eyebrow">🚙 Tax records</p>
       <h1>My mileage</h1>
-      <button class="btn primary" id="empAddTripBtn">+ Log trip</button>
+      <button class="btn primary big-tap" id="empAddTripBtn">➕ Log a trip</button>
       <div id="empMileageList" class="card"></div>
     </section>
 
   </main>
   <nav class="bottom-nav">
-    <button class="bn-btn active" data-eview="empToday">Today</button>
-    <button class="bn-btn" data-eview="empMileage">Mileage</button>
+    <button class="bn-btn active" data-eview="empToday">🏠<br>Today</button>
+    <button class="bn-btn" data-eview="empMileage">🚙<br>Mileage</button>
   </nav>
 </div>
 

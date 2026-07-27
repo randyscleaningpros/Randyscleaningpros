@@ -309,3 +309,62 @@ dialog h3{font-size:.92rem;margin:18px 0 10px;color:var(--teal-deep)}
   .form-grid,.room-grid,.extras-grid{grid-template-columns:1fr}
   main{padding:16px 12px}
 }
+
+/* ============================================================
+   BIG-TAP EMPLOYEE MODE — large, icon-first, minimal reading
+   ============================================================ */
+.employee-app{font-size:1.08rem}
+.employee-app .topbar .logo{font-size:1.4rem;background:linear-gradient(135deg,var(--teal),var(--navy))}
+.employee-app h1{font-size:1.7rem}
+.employee-main{padding-bottom:110px}
+
+.big-job-list{display:flex;flex-direction:column;gap:14px;margin-top:10px}
+.big-job-card{
+  display:flex;align-items:center;gap:16px;background:var(--card);border-radius:20px;
+  padding:20px;box-shadow:var(--shadow);border-left:8px solid var(--amber);cursor:pointer;
+  transition:transform .1s ease;
+}
+.big-job-card:active{transform:scale(.98)}
+.big-job-card.status-in_progress{border-left-color:#2a6fb0}
+.big-job-card.status-completed{border-left-color:var(--green)}
+.big-job-card .avatar{
+  width:56px;height:56px;border-radius:50%;background:var(--navy);color:#fff;
+  display:flex;align-items:center;justify-content:center;font-size:1.6rem;font-weight:800;flex-shrink:0;
+}
+.big-job-card .info strong{font-size:1.25rem;display:block}
+.big-job-card .info p{font-size:1rem;color:var(--muted);margin-top:3px}
+.big-job-card .go-arrow{margin-left:auto;font-size:1.8rem;color:var(--muted)}
+
+.big-tap{
+  display:flex;align-items:center;justify-content:center;gap:10px;
+  width:100%;min-height:64px;font-size:1.15rem;font-weight:800;border-radius:16px;margin-bottom:12px;
+}
+.step-card{
+  background:var(--card);border-radius:20px;padding:22px;box-shadow:var(--shadow);margin-bottom:16px;
+  border:3px solid var(--line);
+}
+.step-card .step-label{
+  display:flex;align-items:center;gap:10px;font-size:1.15rem;font-weight:800;color:var(--navy-deep);margin-bottom:14px;
+}
+.step-card .step-num{
+  width:34px;height:34px;border-radius:50%;background:var(--teal);color:#fff;
+  display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0;
+}
+.info-line{display:flex;align-items:center;gap:10px;font-size:1.05rem;padding:8px 0;border-bottom:1px solid var(--line)}
+.info-line:last-child{border-bottom:none}
+.info-line .ic{font-size:1.3rem;flex-shrink:0}
+.big-checklist label{
+  display:flex;align-items:center;gap:14px;padding:16px;margin-bottom:10px;
+  background:var(--bg);border-radius:14px;font-size:1.1rem;font-weight:700;
+}
+.big-checklist input[type="checkbox"]{width:28px;height:28px;flex-shrink:0}
+.big-timer{
+  font-size:3rem;text-align:center;font-family:var(--font-mono);background:var(--bg);
+  border-radius:16px;padding:24px;margin-bottom:14px;color:var(--navy-deep);
+}
+
+@media (max-width:520px){
+  .bottom-nav{padding:10px 6px calc(env(safe-area-inset-bottom) + 10px)}
+  .bn-btn{font-size:1.4rem;line-height:1.3;padding:8px 4px}
+  .bn-btn strong{display:none}
+}

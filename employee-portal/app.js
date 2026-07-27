@@ -125,7 +125,7 @@ function enterEmployee() {
   document.querySelectorAll(".gate").forEach(g => g.classList.remove("active"));
   $("employeeApp").classList.add("active");
   const emp = employees.find(x => x.id === session.employeeId);
-  $("empGreeting").textContent = "Hi, " + (emp ? emp.name.split(" ")[0] : "there");
+  $("empGreeting").textContent = "Hi " + (emp ? emp.name.split(" ")[0] : "there") + "! 👋";
   $("empDateLabel").textContent = new Date().toLocaleDateString(undefined, { weekday: "long", month: "long", day: "numeric" });
   eNav("empToday");
   renderEmployeeToday();
@@ -837,15 +837,20 @@ window.printInvoice = id => {
 function renderEmployeeToday() {
   const mine = jobs.filter(j => j.employee_id === session.employeeId && isToday(j.service_date))
     .sort((a, b) => (a.arrival_window || "").localeCompare(b.arrival_window || ""));
-  $("empJobsList").innerHTML = mine.map(j => `
-    <article class="record-card" onclick="openEmployeeJob('${j.id}')" style="cursor:pointer">
-      <div>
-        <strong>${esc(customerName(j.customer_id))}</strong>
-        <p>${esc(customerObj(j.customer_id).street || "")}</p>
-        <span class="small">${esc(j.arrival_window || "No window set")} • ${minsText(j.estimated_minutes)}</span>
+  $("empJobsList").innerHTML = mine.map(j => {
+    const c = customerObj(j.customer_id);
+    const initial = (c.name || "?").trim().charAt(0).toUpperCase();
+    const statusWord = { scheduled: "Not started", in_progress: "In progress", completed: "Done! ✅", quote: "Quote" }[j.status] || j.status;
+    return `
+    <div class="big-job-card status-${j.status}" onclick="openEmployeeJob('${j.id}')">
+      <div class="avatar">${esc(initial)}</div>
+      <div class="info">
+        <strong>${esc(c.name || "Customer")}</strong>
+        <p>🕐 ${esc(j.arrival_window || "Anytime")} • ${statusWord}</p>
       </div>
-      <span class="badge ${j.status}">${j.status.replace("_", " ")}</span>
-    </article>`).join("") || '<div class="card empty-state">No jobs scheduled for you today. Enjoy the break!</div>';
+      <div class="go-arrow">➡️</div>
+    </div>`;
+  }).join("") || '<div class="card empty-state">🎉 No jobs today. Enjoy your day off!</div>';
 }
 
 window.openEmployeeJob = id => {
@@ -858,71 +863,77 @@ function renderEmployeeJobDetail() {
   const j = jobs.find(x => x.id === activeJobId);
   if (!j) return;
   const c = customerObj(j.customer_id);
-  const address = `${c.street || ""}, ${c.city || ""}, ${c.state || ""} ${c.zip || ""}`;
+  const address = j.property || `${c.street || ""}, ${c.city || ""}, ${c.state || ""} ${c.zip || ""}`;
   const gpsUrl = "https://www.google.com/maps/dir/?api=1&destination=" + encodeURIComponent(address);
   const checklist = j.checklist || {};
+  const done = checklistComplete(j);
 
   $("empJobDetailBody").innerHTML = `
-    <div class="job-detail-card">
-      <h1 style="font-size:1.2rem">${esc(c.name || "Customer")}</h1>
-      <p class="muted">${esc(address)}</p>
-      <a class="gps-link" href="${gpsUrl}" target="_blank" rel="noopener">📍 Get directions</a>
-      ${c.gate_code ? `<p class="muted" style="margin-top:8px">Gate/entry code: <strong>${esc(c.gate_code)}</strong></p>` : ""}
-      ${c.alarm_code ? `<p class="muted">Alarm code: <strong>${esc(c.alarm_code)}</strong></p>` : ""}
-      ${c.key_location ? `<p class="muted">Key location: ${esc(c.key_location)}</p>` : ""}
-      ${c.entry_instructions ? `<p class="muted">Entry instructions: ${esc(c.entry_instructions)}</p>` : ""}
-      ${c.parking ? `<p class="muted">Parking: ${esc(c.parking)}</p>` : ""}
-      ${c.pets ? `<p class="muted">Pets: ${esc(c.pets)}</p>` : ""}
-      ${c.vip ? `<p class="muted">⭐ VIP customer</p>` : ""}
-      ${j.notes ? `<p class="muted">Special instructions: ${esc(j.notes)}</p>` : ""}
-      <button class="btn ghost" style="margin-top:12px" onclick="printJob('${j.id}')">Print work order</button>
+    <div class="step-card">
+      <div class="step-label"><span class="step-num">i</span> ${esc(c.name || "Customer")}</div>
+      ${c.vip ? `<div class="info-line"><span class="ic">⭐</span> VIP customer — extra care!</div>` : ""}
+      ${c.do_not_book ? `<div class="info-line"><span class="ic">🚫</span> Flagged — check with your boss</div>` : ""}
+      <div class="info-line"><span class="ic">📍</span> ${esc(address)}</div>
+      ${c.gate_code ? `<div class="info-line"><span class="ic">🔑</span> Gate code: <strong>${esc(c.gate_code)}</strong></div>` : ""}
+      ${c.alarm_code ? `<div class="info-line"><span class="ic">🔔</span> Alarm code: <strong>${esc(c.alarm_code)}</strong></div>` : ""}
+      ${c.key_location ? `<div class="info-line"><span class="ic">🗝️</span> Key: ${esc(c.key_location)}</div>` : ""}
+      ${c.entry_instructions ? `<div class="info-line"><span class="ic">🚪</span> ${esc(c.entry_instructions)}</div>` : ""}
+      ${c.parking ? `<div class="info-line"><span class="ic">🚗</span> Parking: ${esc(c.parking)}</div>` : ""}
+      ${c.pets ? `<div class="info-line"><span class="ic">🐾</span> Pets: ${esc(c.pets)}</div>` : ""}
+      ${j.notes ? `<div class="info-line"><span class="ic">📝</span> ${esc(j.notes)}</div>` : ""}
     </div>
 
-    <div class="job-detail-card">
-      <h3>Time tracking</h3>
-      <div class="timer-display" id="timerDisplay">${timerText(j)}</div>
-      <div class="timer-actions">
-        ${!j.started_at ? `<button class="btn primary" onclick="startTimer('${j.id}')">Start job</button>` : ""}
-        ${j.started_at && !j.finished_at ? `<button class="btn primary" onclick="finishTimer('${j.id}')" ${checklistComplete(j) ? "" : "disabled title='Complete the Gold Standard checklist below first'"}>Finish job</button>` : ""}
-        ${j.finished_at ? `<span class="badge completed">Completed in ${minsText(j.actual_minutes)}</span>` : ""}
-      </div>
-      ${j.started_at && !j.finished_at && !checklistComplete(j) ? `<p class="muted" style="margin-top:8px">Complete the Gold Standard Quality Score checklist to finish this job.</p>` : ""}
+    <div class="step-card">
+      <div class="step-label"><span class="step-num">1</span> Get there</div>
+      <a class="btn primary big-tap" href="${gpsUrl}" target="_blank" rel="noopener">🚗 Drive there now</a>
     </div>
 
-    <div class="job-detail-card">
-      <h3>Before photos</h3>
+    <div class="step-card">
+      <div class="step-label"><span class="step-num">2</span> Track your time</div>
+      <div class="big-timer" id="timerDisplay">${timerText(j)}</div>
+      ${!j.started_at ? `<button class="btn primary big-tap" onclick="startTimer('${j.id}')">▶️ I'm starting now</button>` : ""}
+      ${j.started_at && !j.finished_at ? `<button class="btn primary big-tap" onclick="finishTimer('${j.id}')" ${done ? "" : "disabled"}>🏁 I'm all done</button>` : ""}
+      ${j.finished_at ? `<div class="big-tap" style="background:var(--green-bg);color:var(--green)">✅ Finished in ${minsText(j.actual_minutes)}</div>` : ""}
+      ${j.started_at && !j.finished_at && !done ? `<p class="muted" style="text-align:center">👇 Finish the checklist below first</p>` : ""}
+    </div>
+
+    <div class="step-card">
+      <div class="step-label"><span class="step-num">3</span> Take photos</div>
+      <p class="muted" style="margin-bottom:8px">📸 Before</p>
       <div class="photo-grid" id="beforePhotoGrid"></div>
       <label class="photo-add" style="width:70px;margin-top:8px;display:inline-flex">＋<input type="file" accept="image/*" capture="environment" style="display:none" onchange="addPhoto('${j.id}','before_photos',this)"></label>
-    </div>
-    <div class="job-detail-card">
-      <h3>After photos</h3>
+      <p class="muted" style="margin:14px 0 8px">✨ After</p>
       <div class="photo-grid" id="afterPhotoGrid"></div>
       <label class="photo-add" style="width:70px;margin-top:8px;display:inline-flex">＋<input type="file" accept="image/*" capture="environment" style="display:none" onchange="addPhoto('${j.id}','after_photos',this)"></label>
     </div>
 
-    <div class="job-detail-card">
-      <h3>Quality checklist</h3>
-      ${checklistItems.map(item => `
-        <label class="checklist-item">
-          <input type="checkbox" ${checklist[item] ? "checked" : ""} onchange="toggleChecklist('${j.id}','${item.replace(/'/g, "\\'")}',this.checked)">
-          ${esc(item)}
-        </label>`).join("")}
+    <div class="step-card">
+      <div class="step-label"><span class="step-num">4</span> Gold Standard checklist</div>
+      <div class="big-checklist">
+        ${checklistItems.map(item => `
+          <label>
+            <input type="checkbox" ${checklist[item] ? "checked" : ""} onchange="toggleChecklist('${j.id}','${item.replace(/'/g, "\\'")}',this.checked)">
+            ✅ ${esc(item)}
+          </label>`).join("")}
+      </div>
     </div>
 
-    <div class="job-detail-card">
-      <h3>Customer signature</h3>
-      ${j.signature ? `<img src="${j.signature}" style="max-width:100%;border:1px solid var(--line);border-radius:8px">` : `<p class="muted">Not signed yet.</p>`}
-      <button class="btn primary" style="margin-top:10px" onclick="openSignature('${j.id}')">${j.signature ? "Re-sign" : "Collect signature"}</button>
+    <div class="step-card">
+      <div class="step-label"><span class="step-num">5</span> Get a signature</div>
+      ${j.signature ? `<img src="${j.signature}" style="max-width:100%;border:1px solid var(--line);border-radius:8px;margin-bottom:10px">` : `<p class="muted" style="margin-bottom:10px">Not signed yet.</p>`}
+      <button class="btn primary big-tap" onclick="openSignature('${j.id}')">✍️ ${j.signature ? "Sign again" : "Get signature"}</button>
     </div>
 
-    <div class="job-detail-card">
-      <h3>Damage report</h3>
-      <textarea class="stack-form" style="width:100%;min-height:70px;padding:10px 12px;border:1px solid var(--line);border-radius:9px" placeholder="Note any pre-existing damage or anything that happened on this job" onchange="saveDamageReport('${j.id}',this.value)">${esc(j.damage_report || "")}</textarea>
+    <div class="step-card">
+      <div class="step-label"><span class="step-num">6</span> If anything happened</div>
+      <textarea class="stack-form" style="width:100%;min-height:70px;padding:10px 12px;border:1px solid var(--line);border-radius:9px" placeholder="Anything broken, spilled, or unusual?" onchange="saveDamageReport('${j.id}',this.value)">${esc(j.damage_report || "")}</textarea>
       <label class="checklist-item" style="margin-top:8px">
         <input type="checkbox" ${j.reclean_requested ? "checked" : ""} onchange="toggleReclean('${j.id}',this.checked)">
-        Request a reclean for this job
+        🔁 This job needs a reclean
       </label>
-    </div>`;
+    </div>
+
+    <button class="btn ghost big-tap" onclick="printJob('${j.id}')">🖨️ Print work order</button>`;
 
   renderPhotoGrid("beforePhotoGrid", j.before_photos || [], j.id, "before_photos");
   renderPhotoGrid("afterPhotoGrid", j.after_photos || [], j.id, "after_photos");
