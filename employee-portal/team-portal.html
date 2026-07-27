@@ -6,7 +6,7 @@
 <meta name="theme-color" content="#010E38">
 <title>Randy's Cleaning Pros | Team Portal</title>
 <link rel="icon" type="image/png" href="../Photoroomlogo11.png">
-<link rel="stylesheet" href="portal-styles.css?v=3">
+<link rel="stylesheet" href="portal-styles.css?v=4">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,600;0,700;0,800;0,900&family=Open+Sans:wght@400;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
@@ -70,13 +70,15 @@
 <div id="adminApp" class="app">
   <header class="topbar">
     <div class="brand">
-      <button class="menu-btn" id="adminMenuBtn" aria-label="Open menu" aria-expanded="false">☰</button>
       <img src="../Photoroomlogo11.png" alt="Randy's Cleaning Pros" class="logo-img">
       <div><strong class="brand-name"><span class="brand-randys">Randy's</span> <span class="brand-cleaning">Cleaning Pros</span></strong><span>Admin Portal</span></div>
     </div>
     <div class="top-actions">
       <span id="connectionBadgeAdmin" class="status offline">Local mode</span>
-      <button class="btn ghost" id="adminLogoutBtn">Sign out</button>
+      <button class="menu-btn" id="adminMenuBtn" aria-label="Open menu" aria-expanded="false">
+        <span class="menu-btn-word">MENU</span>
+        <span class="menu-btn-bars"><span></span><span></span><span></span></span>
+      </button>
     </div>
   </header>
 
@@ -89,6 +91,8 @@
     <button class="menu-item" data-view="payroll">💵 Payroll</button>
     <button class="menu-item" data-view="reports">📊 Reports</button>
     <button class="menu-item" data-view="settings">⚙️ Settings</button>
+    <div class="menu-divider"></div>
+    <button class="menu-item menu-item-signout" id="adminLogoutBtn">🚪 Sign out</button>
   </nav>
   <div class="menu-backdrop" id="adminMenuBackdrop"></div>
 
