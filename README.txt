@@ -14,3 +14,9 @@ COLOR BALANCE
 - Dark/neon green: calls-to-action and accents, approx. 15%
 - White/off-white: content cards and readability, approx. 30%
 - Gold: highlights, borders, trust accents, approx. 15%
+
+
+TRANSPARENT / GLASS UPDATE
+- Header, navigation, cards, forms, and mobile controls now have a polished glass-style transparent look.
+- The Cox.PNG logo is displayed with no CSS background, border, or box.
+- IMPORTANT: Cox.PNG itself must be a true transparent PNG. If the image has a white or checkerboard background baked into it, that must be removed from the image file itself.
