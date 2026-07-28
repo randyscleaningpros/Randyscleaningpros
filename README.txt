@@ -1,21 +1,16 @@
 COX PREMIER CLEANING WEBSITE
-============================
 
-Files:
-- index.html
-- services.html
-- surface-care.html
-- about.html
-- quote.html
-- styles.css
-- script.js
+1. Put your transparent logo/mascot image in this folder and name it exactly:
+   Cox.PNG
 
-IMPORTANT BEFORE PUBLISHING
-1. Replace the sample phone number (207) 555-0123.
-2. Replace hello@coxpremiercleaning.com with your real email.
-3. Connect the quote form to Formspree, Supabase, your employee portal, or another backend.
-4. Add your real logo/mascot if desired.
-5. Review any guarantees, protection/sealing services, and service-area claims before publishing.
+2. Upload ALL files in this folder to the root of your GitHub Pages repository.
 
-GitHub Pages:
-Upload all files to the root of your repository, then enable Pages from the repository Settings > Pages.
+3. Make sure GitHub filename capitalization matches exactly. Cox.PNG is different from cox.png.
+
+4. The contact and quote forms are visual only until connected to a form service or database.
+
+COLOR BALANCE
+- Dark navy: dominant structural/background color, approx. 40%
+- Dark/neon green: calls-to-action and accents, approx. 15%
+- White/off-white: content cards and readability, approx. 30%
+- Gold: highlights, borders, trust accents, approx. 15%
