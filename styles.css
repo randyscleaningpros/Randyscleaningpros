@@ -104,3 +104,29 @@ input:focus,select:focus,textarea:focus{border-color:var(--green);box-shadow:0 0
 
 @media(max-width:900px){.mini-product-grid,.path-grid{grid-template-columns:1fr}.choice-group{grid-template-columns:1fr}}
 @media(max-width:600px){.addon-grid{grid-template-columns:1fr}.step-block{grid-template-columns:48px 1fr;gap:14px}.step-num{width:44px;height:44px;font-size:1.05rem;border-radius:12px}}
+
+/* Card-based comparisons — no horizontal-scroll tables */
+.card-grid-auto{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:18px}
+.bottle-card{background:#fff;border:1px solid var(--line);border-radius:20px;padding:22px;box-shadow:var(--shadow);text-align:center}
+.bottle-visual{width:52px;margin:0 auto 12px;color:var(--navy)}
+.bottle-card h4{font-family:Montserrat,sans-serif;color:var(--navy);margin:4px 0 2px;font-size:1rem}
+.bottle-card .stars{display:block;margin:4px 0 10px}
+.bottle-card p{margin:0;color:var(--muted);font-size:.88rem;line-height:1.5}
+.bottle-card .tag{margin-top:10px}
+.method-card{background:#fff;border:1px solid var(--line);border-radius:20px;padding:22px;box-shadow:var(--shadow)}
+.method-card h4{font-family:Montserrat,sans-serif;color:var(--navy);margin:0 0 8px;font-size:1.05rem}
+.method-card .rating-line{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:9px 0;border-top:1px solid var(--line);font-size:.86rem}
+.method-card .rating-line:first-of-type{border-top:none}
+.method-card .rating-label{font-weight:800;color:var(--navy)}
+.method-card p{margin:10px 0 0;color:var(--muted);font-size:.88rem}
+.tag{display:inline-block;padding:4px 12px;border-radius:999px;font-size:.76rem;font-weight:900;letter-spacing:.02em}
+.tag-low{background:#e6f7e0;color:#1f7a2e}
+.tag-med{background:#fff3d6;color:#8a6100}
+.tag-high{background:#fde3e3;color:#a3222a}
+.power-card{background:#fff;border:1px solid var(--line);border-radius:20px;padding:20px;box-shadow:var(--shadow)}
+.power-card h4{font-family:Montserrat,sans-serif;color:var(--navy);margin:0 0 10px;font-size:.98rem}
+.power-row{display:flex;justify-content:space-between;align-items:center;font-size:.86rem;font-weight:800;padding:5px 0}
+.power-row span:first-child{color:var(--muted);font-weight:700}
+.power-card p{margin:10px 0 0;color:var(--muted);font-size:.84rem}
+.subheading{font-family:Montserrat,sans-serif;color:var(--navy);font-size:1.3rem;margin:34px 0 16px}
+.subheading:first-child{margin-top:0}

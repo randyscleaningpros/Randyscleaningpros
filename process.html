@@ -18,7 +18,7 @@
     <a class="brand" href="index.html"><span class="brand-main">RANDY'S</span><span class="brand-sub">PREMIER CLEANING</span></a>
     <button class="menu-button" type="button" aria-expanded="false" aria-controls="mainMenu" aria-label="Open navigation menu">☰ Menu</button>
     <nav class="menu-panel" id="mainMenu" aria-label="Main navigation">
-      <a href="index.html">Home</a><a href="services.html">Services</a><a href="process.html">Our Process</a><a href="products.html">Products</a><a href="about.html">About</a><a href="promise.html">Premier Promise</a><a href="reviews.html">Reviews</a><a href="contact.html">Contact</a><a class="quote-link" href="quote.html">Free Quote</a>
+      <a href="index.html">Home</a><a href="services.html">Services</a><a href="process.html">Our Process</a><a href="about.html">About</a><a href="promise.html">Premier Promise</a><a href="reviews.html">Reviews</a><a href="contact.html">Contact</a><a class="quote-link" href="quote.html">Free Quote</a>
     </nav>
   </div>
 </header>
@@ -29,8 +29,8 @@
     <div>
       <div class="eyebrow">The Gold Standard Difference</div>
       <h1>We don't just clean. We help protect your home.</h1>
-      <p>A clean home starts with the right products, the right tools, and the right process. Here's our method, in plain terms — no need to read all ten steps to understand how we work.</p>
-      <div class="actions"><a class="button button-green" href="quote.html">Get a Free Quote</a><a class="button button-outline" href="products.html">See Our Products</a></div>
+      <p>A clean home starts with the right products, the right tools, and the right process. Here's our method, in plain terms.</p>
+      <div class="actions"><a class="button button-green" href="quote.html">Get a Free Quote</a><a class="button button-outline" href="#product-system">See Our Products</a></div>
     </div>
     <img class="mascot-small" src="mascot.png" alt="Randy's Premier Cleaning mascot">
   </div>
@@ -55,32 +55,56 @@
         <div class="step-eyebrow">Dusting Method Matters</div>
         <h3>Why we vacuum first — not just wipe.</h3>
         <p>A duster or dry towel can move dust off a surface and straight into the air you breathe, where it just resettles somewhere else. A vacuum with a soft dusting brush lifts dust and hair out of the room entirely. That's why vacuuming leads our process instead of coming last.</p>
-        <div class="responsive-table-wrap">
-          <table class="comparison-table">
-            <thead><tr><th>Method</th><th>Removes Dust</th><th>Sends Dust Into the Air</th><th>Best Use</th></tr></thead>
-            <tbody>
-              <tr class="method-row"><td>🌀 Vacuum + Soft Dusting Brush</td><td class="stars">★★★★★</td><td><div class="bar-cell"><div class="bar-track"><div class="bar-fill air" style="width:15%"></div></div><span>Very Low</span></div></td><td>Baseboards, vents, blinds, pet hair, heavy dust</td></tr>
-              <tr class="method-row"><td>🟡 Dry Microfiber Towel</td><td class="stars">★★★★☆</td><td><div class="bar-cell"><div class="bar-track"><div class="bar-fill air" style="width:40%"></div></div><span>Low</span></div></td><td>Furniture, shelves, electronics, countertops</td></tr>
-              <tr class="method-row"><td>🪶 Swiffer Heavy Duty Duster</td><td class="stars">★★★★☆</td><td><div class="bar-cell"><div class="bar-track"><div class="bar-fill air" style="width:40%"></div></div><span>Low</span></div></td><td>Ceiling fans, décor, blinds, high areas</td></tr>
-              <tr class="method-row"><td>🪶 Feather Duster</td><td class="stars">★★☆☆☆</td><td><div class="bar-cell"><div class="bar-track"><div class="bar-fill air" style="width:95%"></div></div><span>High</span></div></td><td>Not part of our standard process</td></tr>
-            </tbody>
-          </table>
+        <div class="card-grid-auto" style="margin-top:18px">
+<div class="method-card"><h4>🌀 Vacuum + Soft Dusting Brush</h4><div class="rating-line"><span class="rating-label">Removes Dust</span><span class="stars">★★★★★</span></div><div class="rating-line"><span class="rating-label">Dust Into Air</span><span class="tag tag-low">Very Low</span></div><p>Baseboards, vents, blinds, pet hair, heavy dust</p></div>
+<div class="method-card"><h4>🟡 Dry Microfiber Towel</h4><div class="rating-line"><span class="rating-label">Removes Dust</span><span class="stars">★★★★☆</span></div><div class="rating-line"><span class="rating-label">Dust Into Air</span><span class="tag tag-med">Low</span></div><p>Furniture, shelves, electronics, countertops</p></div>
+<div class="method-card"><h4>🪶 Swiffer Heavy Duty Duster</h4><div class="rating-line"><span class="rating-label">Removes Dust</span><span class="stars">★★★★☆</span></div><div class="rating-line"><span class="rating-label">Dust Into Air</span><span class="tag tag-med">Low</span></div><p>Ceiling fans, décor, blinds, high areas</p></div>
+<div class="method-card"><h4>🪶 Feather Duster</h4><div class="rating-line"><span class="rating-label">Removes Dust</span><span class="stars">★★☆☆☆</span></div><div class="rating-line"><span class="rating-label">Dust Into Air</span><span class="tag tag-high">High</span></div><p>Not part of our standard process</p></div>
         </div>
       </div>
     </div>
 
-    <div class="step-block">
+    <div class="step-block" id="product-system">
       <div class="step-num">3</div>
       <div>
         <div class="step-eyebrow">Then, the Right Chemistry</div>
         <h3>We match the right product to the right surface.</h3>
-        <p>Every surface has a product built for it. Here's a quick look — the full catalog with every product we carry, standard and eco-conscious, is one click away.</p>
-        <div class="mini-product-grid">
-          <div class="mini-product-card"><div class="bottle-chip" style="background:#42b84b"></div><div><h4>Everyday Cleaning</h4><span class="stars">★★★★★</span><p>Simple Green — kitchens, trim, doors, tile, LVP and everyday soil.</p></div></div>
-          <div class="mini-product-card"><div class="bottle-chip" style="background:#151515"></div><div><h4>Natural Stone</h4><span class="stars">★★★★★</span><p>StoneTech Daily Cleaner — built for granite, marble and quartz.</p></div></div>
-          <div class="mini-product-card"><div class="bottle-chip" style="background:#7c53c3"></div><div><h4>Bathrooms</h4><span class="stars">★★★★★</span><p>Lysol Power Foaming — cuts soap scum and disinfects safely.</p></div></div>
+        <p>Every product below is exactly what's in our caddy — no guessing what "eco-friendly" or "professional-grade" actually means. Pick your path (standard, eco-conscious, or half &amp; half) on the quote form.</p>
+
+        <div class="subheading">🟢 Standard Performance System</div>
+        <div class="card-grid-auto">
+<div class="bottle-card"><div class="bottle-visual" style="color:#42b84b"><svg class="bottle-visual" viewBox="0 0 64 100" fill="currentColor" aria-hidden="true"><rect x="16" y="34" width="32" height="58" rx="8"/><rect x="24" y="20" width="16" height="16" rx="3"/><rect x="33" y="9" width="19" height="9" rx="3" transform="rotate(28 42 13)"/><rect x="21" y="46" width="22" height="7" rx="2" fill="#fff" opacity=".4"/></svg></div><h4>Simple Green Original</h4><span class="stars">★★★★★</span><p><strong style="color:var(--navy)">General Cleaner</strong><br>Cabinets, trim, doors, tile, LVP and everyday soil</p></div>
+<div class="bottle-card"><div class="bottle-visual" style="color:#151515"><svg class="bottle-visual" viewBox="0 0 64 100" fill="currentColor" aria-hidden="true"><rect x="16" y="34" width="32" height="58" rx="8"/><rect x="24" y="20" width="16" height="16" rx="3"/><rect x="33" y="9" width="19" height="9" rx="3" transform="rotate(28 42 13)"/><rect x="21" y="46" width="22" height="7" rx="2" fill="#fff" opacity=".4"/></svg></div><h4>StoneTech Daily Cleaner</h4><span class="stars">★★★★★</span><p><strong style="color:var(--navy)">Stone System</strong><br>Granite, marble, quartz, travertine</p></div>
+<div class="bottle-card"><div class="bottle-visual" style="color:#83512d"><svg class="bottle-visual" viewBox="0 0 64 100" fill="currentColor" aria-hidden="true"><rect x="16" y="34" width="32" height="58" rx="8"/><rect x="24" y="20" width="16" height="16" rx="3"/><rect x="33" y="9" width="19" height="9" rx="3" transform="rotate(28 42 13)"/><rect x="21" y="46" width="22" height="7" rx="2" fill="#fff" opacity=".4"/></svg></div><h4>Murphy Oil Soap</h4><span class="stars">★★★★☆</span><p><strong style="color:var(--navy)">Wood Cleaner</strong><br>Compatible finished wood, trim, doors and cabinets</p></div>
+<div class="bottle-card"><div class="bottle-visual" style="color:#d9ad43"><svg class="bottle-visual" viewBox="0 0 64 100" fill="currentColor" aria-hidden="true"><rect x="16" y="34" width="32" height="58" rx="8"/><rect x="24" y="20" width="16" height="16" rx="3"/><rect x="33" y="9" width="19" height="9" rx="3" transform="rotate(28 42 13)"/><rect x="21" y="46" width="22" height="7" rx="2" fill="#fff" opacity=".4"/></svg></div><h4>Guardsman Clean & Polish</h4><span class="stars">★★★★★</span><p><strong style="color:var(--navy)">Wood Finish</strong><br>Compatible finished wood furniture and cabinets</p></div>
+<div class="bottle-card"><div class="bottle-visual" style="color:#9ba8b5"><svg class="bottle-visual" viewBox="0 0 64 100" fill="currentColor" aria-hidden="true"><rect x="16" y="34" width="32" height="58" rx="8"/><rect x="24" y="20" width="16" height="16" rx="3"/><rect x="33" y="9" width="19" height="9" rx="3" transform="rotate(28 42 13)"/><rect x="21" y="46" width="22" height="7" rx="2" fill="#fff" opacity=".4"/></svg></div><h4>3M Stainless Steel Cleaner</h4><span class="stars">★★★★★</span><p><strong style="color:var(--navy)">Metal Finish</strong><br>Stainless steel appliances and panels</p></div>
+<div class="bottle-card"><div class="bottle-visual" style="color:#2786d6"><svg class="bottle-visual" viewBox="0 0 64 100" fill="currentColor" aria-hidden="true"><rect x="16" y="34" width="32" height="58" rx="8"/><rect x="24" y="20" width="16" height="16" rx="3"/><rect x="33" y="9" width="19" height="9" rx="3" transform="rotate(28 42 13)"/><rect x="21" y="46" width="22" height="7" rx="2" fill="#fff" opacity=".4"/></svg></div><h4>Sprayway Glass Cleaner</h4><span class="stars">★★★★★</span><p><strong style="color:var(--navy)">Glass System</strong><br>Mirrors, windows, shower glass, glass tables</p></div>
+<div class="bottle-card"><div class="bottle-visual" style="color:#7c53c3"><svg class="bottle-visual" viewBox="0 0 64 100" fill="currentColor" aria-hidden="true"><rect x="16" y="34" width="32" height="58" rx="8"/><rect x="24" y="20" width="16" height="16" rx="3"/><rect x="33" y="9" width="19" height="9" rx="3" transform="rotate(28 42 13)"/><rect x="21" y="46" width="22" height="7" rx="2" fill="#fff" opacity=".4"/></svg></div><h4>Lysol Power Foaming</h4><span class="stars">★★★★★</span><p><strong style="color:var(--navy)">Bathroom System</strong><br>Tubs, showers, ceramic tile, soap scum</p></div>
+<div class="bottle-card"><div class="bottle-visual" style="color:#db3945"><svg class="bottle-visual" viewBox="0 0 64 100" fill="currentColor" aria-hidden="true"><rect x="16" y="34" width="32" height="58" rx="8"/><rect x="24" y="20" width="16" height="16" rx="3"/><rect x="33" y="9" width="19" height="9" rx="3" transform="rotate(28 42 13)"/><rect x="21" y="46" width="22" height="7" rx="2" fill="#fff" opacity=".4"/></svg></div><h4>Lysol Toilet Bowl Cleaner</h4><span class="stars">★★★★★</span><p><strong style="color:var(--navy)">Toilet Bowl Only</strong><br>Inside compatible toilet bowls only</p></div>
+<div class="bottle-card"><div class="bottle-visual" style="color:#f28c28"><svg class="bottle-visual" viewBox="0 0 64 100" fill="currentColor" aria-hidden="true"><rect x="16" y="34" width="32" height="58" rx="8"/><rect x="24" y="20" width="16" height="16" rx="3"/><rect x="33" y="9" width="19" height="9" rx="3" transform="rotate(28 42 13)"/><rect x="21" y="46" width="22" height="7" rx="2" fill="#fff" opacity=".4"/></svg></div><h4>Goo Gone Original</h4><span class="stars">★★★★★</span><p><strong style="color:var(--navy)">Adhesive Remover</strong><br>Sticker, tape and adhesive residue</p></div>
+<div class="bottle-card"><div class="bottle-visual" style="color:#8a8a8a"><svg class="bottle-visual" viewBox="0 0 64 100" fill="currentColor" aria-hidden="true"><rect x="16" y="34" width="32" height="58" rx="8"/><rect x="24" y="20" width="16" height="16" rx="3"/><rect x="33" y="9" width="19" height="9" rx="3" transform="rotate(28 42 13)"/><rect x="21" y="46" width="22" height="7" rx="2" fill="#fff" opacity=".4"/></svg></div><h4>RMR-86</h4><span class="stars">★★★★☆</span><p><strong style="color:var(--navy)">Mold Stain Remover</strong><br>Stubborn mold or mildew staining, special use only</p></div>        </div>
+
+        <div class="subheading">🌿 Eco-Conscious Options</div>
+        <p style="color:var(--muted);margin-top:-8px">A gentler product path, available on request. Performance and safe surfaces still depend on each product's current label.</p>
+        <div class="card-grid-auto" style="margin-top:14px">
+<div class="bottle-card"><div class="bottle-visual" style="color:#42b84b"><svg class="bottle-visual" viewBox="0 0 64 100" fill="currentColor" aria-hidden="true"><rect x="16" y="34" width="32" height="58" rx="8"/><rect x="24" y="20" width="16" height="16" rx="3"/><rect x="33" y="9" width="19" height="9" rx="3" transform="rotate(28 42 13)"/><rect x="21" y="46" width="22" height="7" rx="2" fill="#fff" opacity=".4"/></svg></div><h4>Simple Green Original</h4><span class="stars">★★★★★</span><p><strong style="color:var(--navy)">General Cleaner</strong><br>Same as our standard general cleaner</p></div>
+<div class="bottle-card"><div class="bottle-visual" style="color:#8fd0e0"><svg class="bottle-visual" viewBox="0 0 64 100" fill="currentColor" aria-hidden="true"><rect x="16" y="34" width="32" height="58" rx="8"/><rect x="24" y="20" width="16" height="16" rx="3"/><rect x="33" y="9" width="19" height="9" rx="3" transform="rotate(28 42 13)"/><rect x="21" y="46" width="22" height="7" rx="2" fill="#fff" opacity=".4"/></svg></div><h4>ECOS Glass Cleaner</h4><span class="stars">★★★★☆</span><p><strong style="color:var(--navy)">Glass System</strong><br>Glass and mirrors — gentler than Sprayway</p></div>
+<div class="bottle-card"><div class="bottle-visual" style="color:#a3d977"><svg class="bottle-visual" viewBox="0 0 64 100" fill="currentColor" aria-hidden="true"><rect x="16" y="34" width="32" height="58" rx="8"/><rect x="24" y="20" width="16" height="16" rx="3"/><rect x="33" y="9" width="19" height="9" rx="3" transform="rotate(28 42 13)"/><rect x="21" y="46" width="22" height="7" rx="2" fill="#fff" opacity=".4"/></svg></div><h4>Better Life Tub & Tile</h4><span class="stars">★★★★☆</span><p><strong style="color:var(--navy)">Bathroom System</strong><br>Routine tub, tile and soap-scum cleaning</p></div>
+<div class="bottle-card"><div class="bottle-visual" style="color:#6fbf73"><svg class="bottle-visual" viewBox="0 0 64 100" fill="currentColor" aria-hidden="true"><rect x="16" y="34" width="32" height="58" rx="8"/><rect x="24" y="20" width="16" height="16" rx="3"/><rect x="33" y="9" width="19" height="9" rx="3" transform="rotate(28 42 13)"/><rect x="21" y="46" width="22" height="7" rx="2" fill="#fff" opacity=".4"/></svg></div><h4>ECOS Toilet Cleaner</h4><span class="stars">★★★★☆</span><p><strong style="color:var(--navy)">Toilet Bowl</strong><br>Routine toilet bowl cleaning</p></div>
+<div class="bottle-card"><div class="bottle-visual" style="color:#b08968"><svg class="bottle-visual" viewBox="0 0 64 100" fill="currentColor" aria-hidden="true"><rect x="16" y="34" width="32" height="58" rx="8"/><rect x="24" y="20" width="16" height="16" rx="3"/><rect x="33" y="9" width="19" height="9" rx="3" transform="rotate(28 42 13)"/><rect x="21" y="46" width="22" height="7" rx="2" fill="#fff" opacity=".4"/></svg></div><h4>Method Wood for Good</h4><span class="stars">★★★★☆</span><p><strong style="color:var(--navy)">Wood Cleaner</strong><br>Compatible finished wood surfaces</p></div>
+<div class="bottle-card"><div class="bottle-visual" style="color:#5aa469"><svg class="bottle-visual" viewBox="0 0 64 100" fill="currentColor" aria-hidden="true"><rect x="16" y="34" width="32" height="58" rx="8"/><rect x="24" y="20" width="16" height="16" rx="3"/><rect x="33" y="9" width="19" height="9" rx="3" transform="rotate(28 42 13)"/><rect x="21" y="46" width="22" height="7" rx="2" fill="#fff" opacity=".4"/></svg></div><h4>Seventh Gen Disinfecting</h4><span class="stars">★★★★☆</span><p><strong style="color:var(--navy)">Multi-Surface</strong><br>Label-approved hard, nonporous surfaces</p></div>        </div>
+
+        <div class="subheading">Standard vs. Eco-Conscious, Job by Job</div>
+        <p style="color:var(--muted);margin-top:-8px">Both paths are professional-grade. Standard leans slightly stronger for heavy bathroom grime and disinfecting claims — eco-conscious trades a little of that edge for a gentler footprint.</p>
+        <div class="card-grid-auto" style="margin-top:14px">
+<div class="power-card"><h4>General surface cleaning</h4><div class="power-row"><span>🟢 Standard</span><span class="stars">★★★★★</span></div><div class="power-row"><span>🌿 Eco-Conscious</span><span class="stars">★★★★★</span></div><p>Same product either way — Simple Green covers both paths</p></div>
+<div class="power-card"><h4>Glass & mirrors</h4><div class="power-row"><span>🟢 Standard</span><span class="stars">★★★★★</span></div><div class="power-row"><span>🌿 Eco-Conscious</span><span class="stars">★★★★☆</span></div><p>Sprayway edges out ECOS on streak-free finish</p></div>
+<div class="power-card"><h4>Tub, tile & soap scum</h4><div class="power-row"><span>🟢 Standard</span><span class="stars">★★★★★</span></div><div class="power-row"><span>🌿 Eco-Conscious</span><span class="stars">★★★★☆</span></div><p>Lysol Power Foaming cuts heavy grime fastest</p></div>
+<div class="power-card"><h4>Toilet bowl</h4><div class="power-row"><span>🟢 Standard</span><span class="stars">★★★★★</span></div><div class="power-row"><span>🌿 Eco-Conscious</span><span class="stars">★★★★☆</span></div><p>Both handle routine cleaning well</p></div>
+<div class="power-card"><h4>Finished wood</h4><div class="power-row"><span>🟢 Standard</span><span class="stars">★★★★☆</span></div><div class="power-row"><span>🌿 Eco-Conscious</span><span class="stars">★★★★☆</span></div><p>Comparable — pick by scent/ingredient preference</p></div>
+<div class="power-card"><h4>Disinfecting</h4><div class="power-row"><span>🟢 Standard</span><span class="stars">★★★★★</span></div><div class="power-row"><span>🌿 Eco-Conscious</span><span class="stars">★★★★☆</span></div><p>Seventh Generation still a true disinfectant, check label</p></div>
         </div>
-        <div style="text-align:center;margin-top:26px"><a class="button button-gold" href="products.html">See Our Recommended Products</a></div>
+        <p style="text-align:center;margin-top:20px;color:var(--muted)">Most customers who go <strong style="color:var(--navy)">Half &amp; Half</strong> pick eco-conscious for the whole home and standard strength for the bathroom, since that's the room with the toughest grime.</p>
       </div>
     </div>
 
@@ -125,7 +149,7 @@
   </div>
 </section>
 
-<section class="section section-green eco-section">
+<section class="section section-soft eco-section">
   <div class="container">
     <div class="section-heading"><div class="kicker eco-kicker">🌿 Choose Your Product Path</div><h2>Standard, eco-conscious, or a bit of both.</h2><p>You choose the path when you request your quote. Most customers who go half-and-half keep eco-conscious products everywhere — and standard strength in the bathroom, since that's the room that needs it most.</p></div>
     <div class="path-grid">
@@ -133,7 +157,7 @@
       <div class="path-card"><div class="icon">🌿</div><h4>Eco-Conscious</h4><p>Greener product options throughout the whole home.</p></div>
       <div class="path-card"><div class="icon">⚖️</div><h4>Half &amp; Half</h4><p>Eco-conscious everywhere, standard strength in the bathroom.</p></div>
     </div>
-    <div style="text-align:center;margin-top:28px"><a class="button button-green" href="products.html">Compare Every Product</a></div>
+    <div style="text-align:center;margin-top:28px"><a class="button button-green" href="quote.html">Request Your Free Quote</a></div>
   </div>
 </section>
 
