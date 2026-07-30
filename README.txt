@@ -1,13 +1,8 @@
-RANDY'S PREMIER CLEANING — PREMIUM BLUE WEBSITE
+RANDY'S PREMIER CLEANING WEBSITE
 
-Color balance:
-- Approximately 55% deep navy/blue
-- 35% white
-- 8% green
-- 2% gold
-
-New-customer promotion:
-- 50% off the first cleaning
-- Confirm eligibility, service scope, final price, scheduling, and terms before booking.
-
-Upload every file in this folder together to the root of the GitHub Pages repository.
+Upload every file in this folder to the root of your GitHub Pages repository.
+Main file: index.html
+New page added: products.html (full product catalog, linked from the nav and from process.html)
+Mascot file: mascot.png
+Hero background: hero-home.png
+Shared files: styles.css and script.js
