@@ -1,6 +1,13 @@
-RANDY'S PREMIER CLEANING WEBSITE
+RANDY'S PREMIER CLEANING — PREMIUM BLUE WEBSITE
 
-Upload every file in this folder to the root of your GitHub Pages repository.
-Main file: index.html
-Mascot file: mascot.png
-Shared files: styles.css and script.js
+Color balance:
+- Approximately 55% deep navy/blue
+- 35% white
+- 8% green
+- 2% gold
+
+New-customer promotion:
+- 50% off the first cleaning
+- Confirm eligibility, service scope, final price, scheduling, and terms before booking.
+
+Upload every file in this folder together to the root of the GitHub Pages repository.
