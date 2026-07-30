@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="360" viewBox="0 0 900 360" role="img" aria-label="Randy Premier Cleaning logo">
+  <defs>
+    <linearGradient id="gold" x1="0" x2="1">
+      <stop offset="0" stop-color="#c79a2b"/>
+      <stop offset="0.5" stop-color="#f0cf68"/>
+      <stop offset="1" stop-color="#b98218"/>
+    </linearGradient>
+  </defs>
+  <g transform="translate(35 20)">
+    <path d="M90 115 L205 30 L320 115" fill="none" stroke="#0b3158" stroke-width="24" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M120 105 V245 H290 V105" fill="none" stroke="#32b85b" stroke-width="18" stroke-linejoin="round"/>
+    <rect x="185" y="155" width="48" height="90" rx="7" fill="#0b3158"/>
+    <path d="M52 205 C95 160 135 155 170 175 C145 205 118 226 83 238 C61 234 49 223 52 205Z" fill="#32b85b"/>
+    <path d="M315 70 l14 31 32 12-32 12-14 31-13-31-32-12 32-12z" fill="url(#gold)"/>
+  </g>
+  <g font-family="Arial, Helvetica, sans-serif">
+    <text x="385" y="125" font-size="98" font-weight="900" fill="#0b3158">RANDY</text>
+    <text x="385" y="207" font-size="62" font-weight="900" fill="#32b85b">PREMIER CLEANING</text>
+    <line x1="388" y1="232" x2="820" y2="232" stroke="url(#gold)" stroke-width="8" stroke-linecap="round"/>
+    <text x="385" y="278" font-size="25" font-weight="700" fill="#0b3158" letter-spacing="2">SETTING THE GOLD STANDARD IN CLEANING</text>
+  </g>
+</svg>

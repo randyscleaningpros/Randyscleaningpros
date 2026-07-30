@@ -1,71 +1,74 @@
-<!doctype html><html lang="en"><head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Free Quote | Cox Premier Cleaning</title><link rel="stylesheet" href="styles.css"></head><body>
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Request a free cleaning quote from Randy Premier Cleaning.">
+<title>Free Instant Quote | Randy Premier Cleaning</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800;900&family=Open+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
 
-<a class="skip-link" href="#main">Skip to content</a>
+<div class="topbar">Serving Cumberland and York Counties • Text-first communication for urgent bookings</div>
 <header class="site-header">
-  <div class="brand-zone">
-    <a href="index.html" aria-label="Cox Premier Cleaning home">
-      <img class="brand-logo" src="Cox.PNG" alt="Cox Premier Cleaning logo">
-    </a>
-    <p class="brand-name">COX <span class="green">PREMIER CLEANING</span></p>
-    <p class="tagline">A Higher Standard in Cleaning</p>
-  </div>
-  <div class="nav-wrap">
-    <div class="container nav-inner">
-      <button class="menu-toggle" aria-expanded="false" aria-controls="main-nav">☰ Menu</button>
-      <nav aria-label="Primary navigation">
-        <ul class="nav-links" id="main-nav">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="services.html">Services</a></li>
-          <li><a href="surface-care.html">Surface Care</a></li>
-          <li><a href="about.html">Why Cox</a></li>
-          <li><a href="contact.html">Contact</a></li>
-          <li><a class="nav-cta" href="quote.html">Free Quote</a></li>
-        </ul>
-      </nav>
-    </div>
+  <div class="container nav-wrap">
+    <a class="brand" href="index.html"><img src="logo.svg" alt="Randy Premier Cleaning logo"></a>
+    <button class="menu-button" type="button" aria-expanded="false" aria-controls="mainMenu">☰ Menu</button>
+    <nav class="menu-panel" id="mainMenu" aria-label="Main navigation">
+      <a href="index.html">Home</a>
+      <button class="submenu-toggle" type="button">Services ▾</button>
+      <div class="submenu">
+        <a href="services.html#residential">Residential Cleaning</a>
+        <a href="services.html#deep">Deep Cleaning</a>
+        <a href="services.html#move">Move-In / Move-Out</a>
+        <a href="services.html#airbnb">Airbnb Turnovers</a>
+        <a href="services.html#surface">Stone & Tile Specialist Care</a>
+      </div>
+      <a href="about.html">About Us</a>
+      <a href="promise.html">Our Promise</a>
+      <a href="process.html">Our Process</a>
+      <a href="reviews.html">Reviews</a>
+      <a href="contact.html">Contact</a>
+      <a href="quote.html" style="background:#32b85b;margin-top:8px;">Free Instant Quote</a>
+    </nav>
   </div>
 </header>
 
-<main id="main">
-<section class="page-hero"><div class="container"><h1>Get a Free Cleaning Quote</h1><p>Short, simple, and mobile-friendly. Give us enough information to understand the job without making you fill out a giant form.</p></div></section>
-<section class="section section-alt"><div class="container" style="max-width:880px">
-<div class="quote-box">
-<form action="#" method="post">
-<div class="form-grid">
-<div><label for="qname">Name</label><input id="qname" name="name" required></div>
-<div><label for="qcontact">Phone or email</label><input id="qcontact" name="contact" required></div>
-<div><label for="service">Service</label><select id="service" name="service"><option>Recurring home cleaning</option><option>Deep cleaning</option><option>Move-in / move-out</option><option>Airbnb / rental turnover</option><option>Office cleaning</option><option>Specialty surface care</option></select></div>
-<div><label for="size">Approximate home size</label><select id="size" name="size"><option>Under 1,000 sq ft</option><option>1,000–1,500 sq ft</option><option>1,500–2,000 sq ft</option><option>2,000–3,000 sq ft</option><option>3,000+ sq ft</option><option>Not sure</option></select></div>
-<div><label for="beds">Bedrooms</label><input id="beds" name="beds" inputmode="numeric"></div>
-<div><label for="baths">Bathrooms</label><input id="baths" name="baths" inputmode="numeric"></div>
-<div class="full"><label for="details">Anything we should know?</label><textarea id="details" name="details" placeholder="Pets, buildup, special surfaces, priorities, access, preferred day, etc."></textarea></div>
-<div class="full"><button class="btn btn-primary" type="submit">Request My Free Quote</button><p class="help">This sample form needs to be connected to Formspree, Netlify Forms, Supabase, or another form handler before submissions will send.</p></div>
-</div></form>
-</div></div></section></main>
+
+<main>
+<section class="page-hero"><img src="logo.svg" alt="Randy Premier Cleaning logo"><h1>Free Instant Quote</h1><p>Tell us about your home and cleaning needs. This form opens a prepared email so you can send your request quickly.</p></section>
+<section class="section section-gray"><div class="container quote-wrap">
+<aside class="quote-note"><h2>What happens next?</h2><ol><li>Complete the short form.</li><li>Tap “Send My Quote Request.”</li><li>Your email app opens with your information prepared.</li><li>We review the details and follow up.</li></ol><p><strong>Urgent booking?</strong></p><a class="button button-gold" href="sms:+12075581298">Text Us Instead</a></aside>
+<form action="mailto:randycox207@gmail.com" method="post" enctype="text/plain"><div class="form-grid">
+<div><label for="name">Full Name</label><input id="name" name="Full Name" required></div>
+<div><label for="phone">Phone Number</label><input id="phone" name="Phone" type="tel" required></div>
+<div><label for="email">Email</label><input id="email" name="Email" type="email" required></div>
+<div><label for="town">Town / City</label><input id="town" name="Town" required></div>
+<div><label for="service">Service Needed</label><select id="service" name="Service"><option>Residential Cleaning</option><option>Deep Cleaning</option><option>Move-In / Move-Out</option><option>Airbnb Turnover</option><option>Stone & Tile Specialist Care</option><option>Small Office Cleaning</option></select></div>
+<div><label for="frequency">Frequency</label><select id="frequency" name="Frequency"><option>One-Time</option><option>Weekly</option><option>Bi-Weekly</option><option>Monthly</option><option>Not Sure Yet</option></select></div>
+<div><label for="beds">Bedrooms</label><input id="beds" name="Bedrooms" type="number" min="0"></div>
+<div><label for="baths">Bathrooms</label><input id="baths" name="Bathrooms" type="number" min="0" step="0.5"></div>
+<div class="full"><label for="surfaces">Special Surfaces</label><input id="surfaces" name="Special Surfaces" placeholder="Stone shower, marble, hardwood, stainless steel, tile, etc."></div>
+<div class="full"><label for="details">Tell Us About the Job</label><textarea id="details" name="Cleaning Details" placeholder="Condition, priorities, pets, access, preferred dates, and anything else we should know."></textarea></div>
+<div class="full"><button class="button button-green" type="submit">Send My Quote Request</button></div>
+</div><p class="form-help">This version uses your device’s email app. It can later be connected directly to a database or email service.</p></form>
+</div></section>
+</main>
+
+
+<a class="mobile-text" href="sms:+12075581298">Text Randy Premier Cleaning</a>
 <footer>
   <div class="container">
-    <div class="footer-grid">
-      <div>
-        <h3>Cox Premier Cleaning</h3>
-        <p>Professional, detail-focused cleaning with surface-safe products and a higher standard of care.</p>
-      </div>
-      <div>
-        <h3>Quick links</h3>
-        <p><a href="services.html">Services</a><br><a href="surface-care.html">Surface Care</a><br><a href="quote.html">Free Quote</a></p>
-      </div>
-      <div>
-        <h3>Service area</h3>
-        <p>Southern Maine<br>Greater Portland area</p>
-      </div>
-    </div>
-    <div class="footer-bottom">© <span id="year"></span> Cox Premier Cleaning. All rights reserved.</div>
+    <p><strong>Randy Premier Cleaning</strong></p>
+    <p>Setting the Gold Standard in Cleaning: The Way Cleaning Should Be.</p>
+    <p><a href="quote.html">Request a Free Quote</a> • <a href="sms:+12075581298">Text for Urgent Booking</a></p>
+    <p class="small">Serving Cumberland and York Counties, Maine • © 2026 Randy Premier Cleaning</p>
   </div>
 </footer>
-<div class="sticky-mobile-cta">
-  <a class="btn btn-secondary" href="contact.html">Contact</a>
-  <a class="btn btn-primary" href="quote.html">Free Quote</a>
-</div>
 <script src="script.js"></script>
-</body></html>
+
+</body>
+</html>

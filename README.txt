@@ -1,22 +1,22 @@
-COX PREMIER CLEANING WEBSITE
+RANDY PREMIER CLEANING WEBSITE
 
-1. Put your transparent logo/mascot image in this folder and name it exactly:
-   Cox.PNG
+Upload every file in this folder to the root of your GitHub Pages repository.
 
-2. Upload ALL files in this folder to the root of your GitHub Pages repository.
+Included:
+- index.html
+- services.html
+- about.html
+- process.html
+- promise.html
+- reviews.html
+- contact.html
+- quote.html
+- styles.css
+- script.js
+- logo.svg
 
-3. Make sure GitHub filename capitalization matches exactly. Cox.PNG is different from cox.png.
-
-4. The contact and quote forms are visual only until connected to a form service or database.
-
-COLOR BALANCE
-- Dark navy: dominant structural/background color, approx. 40%
-- Dark/neon green: calls-to-action and accents, approx. 15%
-- White/off-white: content cards and readability, approx. 30%
-- Gold: highlights, borders, trust accents, approx. 15%
-
-
-TRANSPARENT / GLASS UPDATE
-- Header, navigation, cards, forms, and mobile controls now have a polished glass-style transparent look.
-- The Cox.PNG logo is displayed with no CSS background, border, or box.
-- IMPORTANT: Cox.PNG itself must be a true transparent PNG. If the image has a white or checkerboard background baked into it, that must be removed from the image file itself.
+Before publishing:
+1. Confirm the phone number: (207) 558-1298
+2. Confirm the email address: randycox207@gmail.com
+3. Replace placeholder reviews with real customer reviews.
+4. Connect the quote form to Formspree, Netlify Forms, Supabase, or another backend when you want direct online submissions.

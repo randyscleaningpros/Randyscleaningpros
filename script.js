@@ -1,21 +1,24 @@
 
 document.addEventListener("DOMContentLoaded", () => {
-  const toggle = document.querySelector(".menu-toggle");
-  const links = document.querySelector(".nav-links");
-  if (toggle && links) {
-    toggle.addEventListener("click", () => {
-      const open = links.classList.toggle("open");
-      toggle.setAttribute("aria-expanded", open ? "true" : "false");
+  const button = document.querySelector(".menu-button");
+  const panel = document.querySelector(".menu-panel");
+  const toggle = document.querySelector(".submenu-toggle");
+  const submenu = document.querySelector(".submenu");
+  if (button && panel) {
+    button.addEventListener("click", e => {
+      e.stopPropagation();
+      const open = panel.classList.toggle("open");
+      button.setAttribute("aria-expanded", String(open));
+    });
+    document.addEventListener("click", e => {
+      if (!panel.contains(e.target) && !button.contains(e.target)) {
+        panel.classList.remove("open");
+        button.setAttribute("aria-expanded","false");
+      }
+    });
+    document.addEventListener("keydown", e => {
+      if (e.key === "Escape") panel.classList.remove("open");
     });
   }
-
-  document.querySelectorAll('a[href^="#"]').forEach(a => {
-    a.addEventListener("click", () => {
-      if (links) links.classList.remove("open");
-      if (toggle) toggle.setAttribute("aria-expanded", "false");
-    });
-  });
-
-  const year = document.getElementById("year");
-  if (year) year.textContent = new Date().getFullYear();
+  if (toggle && submenu) toggle.addEventListener("click", () => submenu.classList.toggle("open"));
 });
