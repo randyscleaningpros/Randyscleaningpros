@@ -141,6 +141,9 @@ input:focus,select:focus,textarea:focus{border-color:var(--green);box-shadow:0 0
 .header-center .brand-name{font-family:Montserrat,sans-serif;font-weight:800;font-size:2rem;line-height:1.12;color:#fff;letter-spacing:.01em}
 .header-center .brand-tagline{font-family:'Open Sans',sans-serif;font-weight:600;font-size:1rem;color:var(--cyan);letter-spacing:.02em;margin-top:6px}
 .header-center .header-mascot-row{display:flex;justify-content:center}
+.hero-grid-solo{grid-template-columns:1fr;text-align:center}
+.hero-grid-solo .hero-copy{margin:0 auto}
+.hero-grid-solo .actions,.hero-grid-solo .guarantee-badge{justify-content:center;display:inline-flex}
 .logo-mark{height:52px;width:auto;border-radius:12px;box-shadow:0 0 0 2px rgba(53,224,255,.4),0 8px 22px rgba(53,224,255,.3)}
 .header-center .menu-panel{display:none;position:absolute;left:4%;right:4%;top:100%;margin-top:10px;background:var(--navy);padding:20px;border-radius:18px;flex-direction:column;align-items:stretch;z-index:60;box-shadow:0 25px 60px rgba(0,0,0,.35)}
 .header-center .menu-panel.open{display:flex}
