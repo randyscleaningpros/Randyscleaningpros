@@ -478,6 +478,49 @@ textarea{min-height:130px}
 .free-note p{margin:0 0 6px;color:var(--muted);font-size:.94rem}
 .free-note ol{margin:10px 0;padding-left:22px;color:var(--ink);font-size:.96rem;display:grid;gap:6px}
 
+/* ---------- Badge pill row & detailed steps ---------- */
+.badge-row{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:26px}
+.badge-pill{
+  display:inline-flex;align-items:center;gap:6px;
+  font-size:.82rem;font-weight:800;letter-spacing:.02em;
+  color:var(--green);background:rgba(95,184,36,.12);
+  border:1px solid rgba(95,184,36,.35);
+  padding:8px 15px;border-radius:999px;
+}
+.step-card{
+  background:#fff;border:1px solid var(--line);border-radius:var(--radius-lg);
+  padding:30px;box-shadow:var(--shadow-sm);display:grid;
+  grid-template-columns:64px 1fr;gap:20px;margin-bottom:20px;
+}
+.step-num{
+  width:56px;height:56px;border-radius:50%;
+  background:linear-gradient(135deg,var(--green),var(--green2));
+  color:#071f4b;display:grid;place-items:center;
+  font-family:Montserrat,sans-serif;font-weight:900;font-size:1.4rem;
+}
+.step-card h3{font-family:Montserrat,sans-serif;color:var(--navy);margin:0 0 8px;font-size:1.3rem}
+.step-card p{color:var(--muted);margin:0 0 10px}
+.step-tags{display:flex;flex-wrap:wrap;gap:8px}
+.step-tag{background:var(--soft);border:1px solid var(--line);color:var(--navy);font-weight:700;font-size:.82rem;padding:6px 12px;border-radius:999px}
+
+/* ---------- Product chart table (no boxes, compact) ---------- */
+.chart-wrap{overflow-x:auto;border-radius:var(--radius-lg);box-shadow:var(--shadow-sm);border:1px solid var(--line)}
+.chart-table{width:100%;border-collapse:collapse;font-size:.95rem;min-width:640px}
+.chart-table thead th{
+  background:var(--navy);color:#fff;text-align:left;
+  padding:14px 18px;font-family:Montserrat,sans-serif;font-weight:800;
+  font-size:.78rem;text-transform:uppercase;letter-spacing:.04em;
+}
+.chart-table tbody td{padding:14px 18px;border-bottom:1px solid var(--line);vertical-align:top;background:#fff}
+.chart-table tbody tr:nth-child(even) td{background:var(--soft)}
+.chart-table tbody tr:hover td{background:rgba(95,184,36,.08)}
+.chart-table tbody tr:last-child td{border-bottom:none}
+.chart-table .p-name{font-weight:800;color:var(--navy);white-space:nowrap}
+.chart-table .p-cat{font-weight:700;color:var(--navy);white-space:nowrap}
+.chart-table .p-star{color:var(--gold);white-space:nowrap}
+.chart-table .p-use{color:#238f2f}
+.chart-table .p-avoid{color:var(--muted)}
+
 .faq details{
   background:#fff;
   border:1px solid var(--line);
@@ -593,6 +636,8 @@ footer a:hover{color:var(--green)}
 }
 @media(max-width:600px){
   .grid-3,.grid-4,.trust-row,.timeline,.product-grid,.form-grid,.choice-group,.addon-grid{grid-template-columns:1fr}
+  .step-card{grid-template-columns:1fr;text-align:center}
+  .step-num{margin:0 auto}
   .section{padding:60px 0}
   .hero{min-height:auto}
   .hero h1{font-size:2.7rem}
