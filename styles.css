@@ -26,12 +26,17 @@ width:min(1100px,92%);
 margin:auto;
 }
 
-.logo{
-height:320px;
-width:auto;
-display:block;
-margin:0 auto 20px;
-filter:drop-shadow(0 15px 35px rgba(0,0,0,.4));
+..logo-mark-lg{
+    width:900px;
+    max-width:95%;
+    height:auto;
+    display:block;
+    margin:30px auto;
+    border-radius:20px;
+    filter:
+        drop-shadow(0 0 25px rgba(53,224,255,.35))
+        drop-shadow(0 30px 60px rgba(0,0,0,.55));
+
 }
 
 h1{
