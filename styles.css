@@ -487,6 +487,19 @@ textarea{min-height:130px}
   border:1px solid rgba(95,184,36,.35);
   padding:8px 15px;border-radius:999px;
 }
+.badge-pill-gold{
+  color:#3d2f0c;background:linear-gradient(90deg,rgba(217,173,67,.22),rgba(201,148,35,.22));
+  border:1px solid rgba(217,173,67,.55);
+}
+.eyebrow-gold{color:var(--gold)!important;background:rgba(217,173,67,.14)!important;border-color:rgba(217,173,67,.4)!important}
+.kicker-gold{color:var(--gold)!important}
+.guarantee-seal{
+  display:inline-flex;align-items:center;gap:10px;
+  font-family:Montserrat,sans-serif;font-weight:900;font-size:1.05rem;
+  color:#3d2f0c;background:linear-gradient(90deg,var(--gold),var(--gold2));
+  padding:16px 30px;border-radius:999px;box-shadow:var(--shadow);
+  border:2px solid #fff;
+}
 .step-card{
   background:#fff;border:1px solid var(--line);border-radius:var(--radius-lg);
   padding:30px;box-shadow:var(--shadow-sm);display:grid;
@@ -633,6 +646,27 @@ footer a:hover{color:var(--green)}
   .actions{justify-content:center}
   .mobile-action-dock{display:flex}
   body{padding-bottom:74px}
+}
+@media(max-width:700px){
+  .chart-wrap{overflow-x:visible;border:none;box-shadow:none}
+  .chart-table{min-width:0}
+  .chart-table thead{display:none}
+  .chart-table tbody tr{
+    display:block;margin-bottom:14px;border:1px solid var(--line);
+    border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow-sm);
+  }
+  .chart-table tbody tr:nth-child(even) td{background:#fff}
+  .chart-table tbody td{
+    display:flex;justify-content:space-between;gap:14px;
+    padding:12px 16px;border-bottom:1px solid var(--line);
+    text-align:right;white-space:normal;
+  }
+  .chart-table tbody td:before{
+    content:attr(data-label);font-weight:800;color:var(--navy);
+    text-align:left;flex-shrink:0;
+  }
+  .chart-table tbody tr td:first-child{background:var(--navy)!important;color:#fff}
+  .chart-table tbody tr td:first-child:before{color:#fff}
 }
 @media(max-width:600px){
   .grid-3,.grid-4,.trust-row,.timeline,.product-grid,.form-grid,.choice-group,.addon-grid{grid-template-columns:1fr}
