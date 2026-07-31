@@ -428,6 +428,56 @@ input:focus,select:focus,textarea:focus{
 }
 textarea{min-height:130px}
 
+/* ---------- Quote form: choice cards & add-ons ---------- */
+.choice-group{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:10px}
+.choice-card{
+  position:relative;
+  display:flex;
+  flex-direction:column;
+  gap:6px;
+  padding:20px;
+  border:2px solid var(--line);
+  border-radius:var(--radius);
+  cursor:pointer;
+  background:#fcfdfe;
+  transition:border-color .18s ease, box-shadow .18s ease, transform .18s ease;
+}
+.choice-card input{position:absolute;opacity:0;width:0;height:0}
+.choice-card span{display:flex;flex-direction:column;gap:4px;pointer-events:none;font-size:.94rem;color:var(--muted)}
+.choice-card strong{font-family:Montserrat,sans-serif;font-size:1.05rem;color:var(--navy)}
+.choice-card:hover{border-color:var(--green);transform:translateY(-3px);box-shadow:var(--shadow-sm)}
+.choice-card:has(input:checked){border-color:var(--green);background:linear-gradient(160deg,rgba(95,184,36,.08),#fff);box-shadow:0 0 0 3px rgba(95,184,36,.18)}
+.choice-card.recommended{border-color:var(--gold)}
+.choice-card.recommended:has(input:checked){border-color:var(--green)}
+.choice-badge{
+  align-self:flex-start;
+  background:linear-gradient(90deg,var(--gold),var(--gold2));
+  color:#071f4b;
+  font-weight:800;
+  font-size:.7rem;
+  padding:4px 11px;
+  border-radius:999px;
+  letter-spacing:.04em;
+  text-transform:uppercase;
+}
+.addon-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:10px}
+.choice-card.small{padding:14px 16px;flex-direction:row;align-items:center;gap:10px}
+.choice-card.small span{font-size:.95rem;font-weight:700;color:var(--navy)}
+.form-help{margin-top:10px;font-size:.88rem;color:var(--muted)}
+.form-help a{color:var(--green);font-weight:800;text-decoration:underline}
+
+.free-note{
+  margin-top:6px;
+  background:linear-gradient(160deg,rgba(95,184,36,.08),#fff);
+  border:2px solid var(--green);
+  border-radius:var(--radius);
+  padding:22px 24px;
+}
+.free-note h4{font-family:Montserrat,sans-serif;color:var(--navy);margin:0 0 10px;display:flex;align-items:center;gap:10px;flex-wrap:wrap;font-size:1.1rem}
+.free-badge{background:linear-gradient(90deg,var(--green),var(--green2));color:#071f4b;font-weight:800;font-size:.7rem;padding:5px 11px;border-radius:999px;text-transform:uppercase;letter-spacing:.03em}
+.free-note p{margin:0 0 6px;color:var(--muted);font-size:.94rem}
+.free-note ol{margin:10px 0;padding-left:22px;color:var(--ink);font-size:.96rem;display:grid;gap:6px}
+
 .faq details{
   background:#fff;
   border:1px solid var(--line);
@@ -542,7 +592,7 @@ footer a:hover{color:var(--green)}
   body{padding-bottom:74px}
 }
 @media(max-width:600px){
-  .grid-3,.grid-4,.trust-row,.timeline,.product-grid,.form-grid{grid-template-columns:1fr}
+  .grid-3,.grid-4,.trust-row,.timeline,.product-grid,.form-grid,.choice-group,.addon-grid{grid-template-columns:1fr}
   .section{padding:60px 0}
   .hero{min-height:auto}
   .hero h1{font-size:2.7rem}
