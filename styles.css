@@ -204,6 +204,8 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
   color:#fff;
 }
 .green-text{color:var(--green)}
+.hero-name-grey{color:#aab4c2}
+.hero-name-light-green{color:#8fe36a}
 .hero-tagline{
   font-family:Montserrat,sans-serif;
   font-weight:700;
