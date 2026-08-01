@@ -102,10 +102,10 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 .menu-button:active{transform:translateY(1px)}
 
 .menu-panel{
-  display:none;
+  display:flex;
   position:absolute;
   right:0;
-  top:calc(100% + 12px);
+  top:calc(100% + 14px);
   background:var(--navy2);
   padding:14px;
   border-radius:16px;
@@ -116,10 +116,29 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
   font-weight:700;
   font-size:.94rem;
   box-shadow:var(--shadow-lg);
-  min-width:220px;
+  min-width:230px;
   border:1px solid rgba(255,255,255,.08);
+  opacity:0;
+  visibility:hidden;
+  pointer-events:none;
+  transform:translateY(-8px) scale(.97);
+  transform-origin:top right;
+  transition:opacity .2s ease, transform .2s ease, visibility .2s ease;
 }
-.menu-panel.open{display:flex}
+.menu-panel::before{
+  content:'';
+  position:absolute;
+  top:-7px;
+  right:26px;
+  width:14px;
+  height:14px;
+  background:var(--navy2);
+  border-left:1px solid rgba(255,255,255,.08);
+  border-top:1px solid rgba(255,255,255,.08);
+  transform:rotate(45deg);
+}
+.menu-panel.open{opacity:1;visibility:visible;pointer-events:auto;transform:translateY(0) scale(1)}
+@media(max-width:900px){.menu-panel::before{display:none}}
 .menu-panel a{
   padding:12px 14px;
   border-radius:10px;
@@ -679,3 +698,89 @@ footer a:hover{color:var(--green)}
   .product-top{align-items:flex-start}
   .checklist{columns:1}
 }
+
+/* ==========================================================
+   Smart Quote Builder + Pricing Page additions
+   ========================================================== */
+
+/* Live quote summary sidebar */
+.quote-note{position:sticky;top:110px;align-self:start}
+.summary-title{font-family:Montserrat,sans-serif;font-weight:900;font-size:1.05rem;margin:0 0 4px;color:#fff}
+.summary-sub{color:#c9d7e8;font-size:.85rem;margin-bottom:16px}
+.summary-block{margin-bottom:14px;padding-bottom:14px;border-bottom:1px solid rgba(255,255,255,.14)}
+.summary-block:last-of-type{border-bottom:none}
+.summary-label{font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;font-weight:800;color:var(--green);margin-bottom:6px}
+.summary-empty{color:#8fa2b8;font-size:.86rem}
+.summary-list{list-style:none;margin:0;padding:0;font-size:.88rem;color:#e6eef6;display:grid;gap:4px}
+.summary-total{background:rgba(95,184,36,.14);border:1px solid rgba(95,184,36,.4);border-radius:14px;padding:16px;margin-top:6px}
+.summary-total .amount{font-family:Montserrat,sans-serif;font-weight:900;font-size:1.7rem;color:var(--green)}
+.summary-total .meta{font-size:.8rem;color:#c9d7e8;margin-top:2px}
+
+/* Step sections inside the quote form */
+.step-block{margin-bottom:34px}
+.step-block:last-child{margin-bottom:0}
+.step-block-head{display:flex;align-items:center;gap:12px;margin-bottom:16px}
+.step-block-num{
+  width:34px;height:34px;border-radius:50%;flex:0 0 auto;
+  background:linear-gradient(135deg,var(--green),var(--green2));color:#071f4b;
+  display:grid;place-items:center;font-family:Montserrat,sans-serif;font-weight:900;font-size:.95rem;
+}
+.step-block-head h3{font-family:Montserrat,sans-serif;color:var(--navy);margin:0;font-size:1.15rem}
+.step-block-head p{margin:2px 0 0;color:var(--muted);font-size:.86rem}
+.step-hidden{display:none!important}
+
+/* Quantity stepper rows (bedrooms, bathrooms, additional rooms) */
+.qty-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.qty-row{
+  display:flex;align-items:center;justify-content:space-between;gap:10px;
+  border:1.5px solid var(--line);border-radius:14px;padding:12px 14px;background:#fcfdfe;
+}
+.qty-row .qr-label{font-weight:800;color:var(--navy);font-size:.92rem}
+.qty-row .qr-sub{font-weight:600;color:var(--muted);font-size:.76rem;margin-top:1px}
+.qty-controls{display:flex;align-items:center;gap:10px;flex:0 0 auto}
+.qty-btn{
+  width:30px;height:30px;border-radius:50%;border:1.5px solid var(--line);background:#fff;
+  color:var(--navy);font-weight:900;font-size:1rem;cursor:pointer;line-height:1;
+  display:grid;place-items:center;transition:background .15s ease,border-color .15s ease;
+}
+.qty-btn:hover{background:var(--soft);border-color:var(--green)}
+.qty-value{font-family:Montserrat,sans-serif;font-weight:900;min-width:18px;text-align:center;color:var(--navy)}
+
+/* Organization area picker */
+.org-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.org-card{border:1.5px solid var(--line);border-radius:14px;padding:14px;background:#fcfdfe}
+.org-card.active{border-color:var(--green);background:linear-gradient(160deg,rgba(95,184,36,.07),#fff)}
+.org-card-top{display:flex;align-items:center;gap:10px;font-weight:800;color:var(--navy);font-size:.92rem;cursor:pointer}
+.org-card-top input{width:18px;height:18px;accent-color:var(--green)}
+.org-card select{margin-top:10px;display:none}
+.org-card.active select{display:block}
+
+@media(max-width:600px){.qty-grid,.org-grid{grid-template-columns:1fr}}
+
+/* ==========================================================
+   Pricing page
+   ========================================================== */
+.price-tier-card{
+  background:#fff;border:1.5px solid var(--line);border-radius:var(--radius-lg);
+  padding:26px;box-shadow:var(--shadow-sm);transition:transform .18s ease,box-shadow .18s ease;
+}
+.price-tier-card:hover{transform:translateY(-5px);box-shadow:var(--shadow)}
+.price-tier-card .ptc-name{font-family:Montserrat,sans-serif;font-weight:800;color:var(--navy);font-size:1.05rem;display:flex;align-items:center;gap:8px}
+.price-tier-card .ptc-price{font-family:Montserrat,sans-serif;font-weight:900;font-size:1.9rem;color:var(--green);margin:8px 0 4px}
+.price-tier-card .ptc-time{color:var(--muted);font-size:.8rem;font-weight:700;margin-bottom:10px}
+.price-tier-card ul{margin:0;padding-left:0;list-style:none;display:grid;gap:6px}
+.price-tier-card li{color:var(--muted);font-size:.88rem;font-weight:600}
+.price-tier-card li:before{content:'✅ ';}
+.pill-dot{width:10px;height:10px;border-radius:50%;display:inline-block}
+.pd-green{background:var(--green)}.pd-gold{background:var(--gold)}.pd-navy{background:var(--navy3)}.pd-red{background:#c0503f}
+
+.pricing-tabs{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-bottom:36px}
+.pricing-tab-btn{
+  background:#fff;border:2px solid var(--line);border-radius:999px;padding:11px 20px;
+  font-family:Montserrat,sans-serif;font-weight:800;font-size:.86rem;color:var(--navy);cursor:pointer;
+  transition:background .15s ease,border-color .15s ease,color .15s ease;
+}
+.pricing-tab-btn:hover{border-color:var(--green)}
+.pricing-tab-btn.active{background:var(--navy);border-color:var(--navy);color:#fff}
+.pricing-panel{display:none}
+.pricing-panel.active{display:block}
