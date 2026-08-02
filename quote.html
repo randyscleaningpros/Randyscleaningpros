@@ -1,4 +1,4 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Get an instant, personalized cleaning quote from Randy's Premier Cleaning."><title>Free Quote | Randy's Premier Cleaning</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800;900&family=Open+Sans:wght@400;600;700;800&display=swap" rel="stylesheet"><link rel="stylesheet" href="styles.css"></head><body>
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Get an instant, personalized cleaning quote from Randy's Premier Cleaning."><title>Free Quote | Randy's Premier Cleaning</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800;900&family=Open+Sans:wght@400;600;700;800&display=swap" rel="stylesheet"><link rel="stylesheet" href="styles.css"></head><body class="quote-wizard-page">
 <a class="skip-link" href="#main-content">Skip to main content</a>
 <div class="top-strip">Serving Cumberland and York Counties • Prefer texting for a faster response</div>
 <header class="site-header"><div class="container header-row">
@@ -12,36 +12,22 @@
 <section class="page-hero"><div class="container">
 <div class="eyebrow eyebrow-gold">⭐ Free Instant Quote</div>
 <h1>Build Your <span class="gold">Personalized</span> Quote</h1>
-<p>Takes about 2–3 minutes. Answer what applies to you — we'll only ask what's relevant, and your estimate updates live on the right. ✨</p>
+<p>Takes about 2–3 minutes. One quick question at a time — we'll only ask what's relevant to you, and you'll see your price come together as you go. ✨</p>
 </div></section>
 
-<section class="section section-soft"><div class="container quote-wrap">
-
-<aside class="quote-note" id="liveSummary">
-  <p class="summary-title">📊 Live Quote Summary</p>
-  <p class="summary-sub">Updates automatically as you answer</p>
-
-  <div class="summary-block"><div class="summary-label">🧹 Services Selected</div><div class="summary-empty" id="sumServices">Choose a service to begin</div></div>
-  <div class="summary-block"><div class="summary-label">🏡 Home Details</div><div class="summary-empty" id="sumHome">—</div></div>
-  <div class="summary-block"><div class="summary-label">🪨 Special Surfaces</div><div class="summary-empty" id="sumSurfaces">—</div></div>
-  <div class="summary-block"><div class="summary-label">📦 Organization</div><div class="summary-empty" id="sumOrg">—</div></div>
-  <div class="summary-block"><div class="summary-label">➕ Add-Ons</div><div class="summary-empty" id="sumAddons">—</div></div>
-  <div class="summary-block"><div class="summary-label">🧽 Cleaning Preference</div><div class="summary-empty" id="sumPref">Standard Gold Standard Process</div></div>
-
-  <div class="summary-total">
-    <div class="amount" id="sumTotal">$0</div>
-    <div class="meta">💲 Estimated price range</div>
-    <div class="meta" id="sumTime">⏱ Estimated labor: 0 min</div>
-    <div class="meta" id="sumAppt">📅 Estimated appointment length: —</div>
+<div class="wizard-progress" id="wizardProgress">
+  <div class="wizard-progress-inner">
+    <div class="wizard-progress-top"><span id="wizardStepLabel">Step 1 of 6</span><span class="wizard-price-live" id="wizardPriceLive">Estimate: $0</span></div>
+    <div class="wizard-bar"><div class="wizard-bar-fill" id="wizardBarFill" style="width:0%"></div></div>
   </div>
+</div>
 
-  <a class="button button-gold" style="width:100%;margin-top:16px" href="sms:+12074502429">💬 Text Instead</a>
-</aside>
+<section class="section section-soft"><div class="wizard-shell">
 
 <form id="quoteForm">
 
 <!-- STEP 1 -->
-<div class="step-block">
+<div class="step-block" id="blockServices">
   <div class="step-block-head"><div class="step-block-num">1</div><div><h3>What can we help you with today?</h3><p>Select all services that apply — you can combine as many as you need.</p></div></div>
   <div class="choice-group" id="serviceGroup" style="grid-template-columns:repeat(3,1fr)">
     <label class="choice-card small"><input type="checkbox" name="Service" value="Standard House Cleaning" class="svc"><span>🏡 Standard House Cleaning</span></label>
@@ -51,6 +37,7 @@
     <label class="choice-card small"><input type="checkbox" name="Service" value="Office Cleaning" class="svc"><span>🏢 Office Cleaning</span></label>
     <label class="choice-card small"><input type="checkbox" name="Service" value="Airbnb Turnover" class="svc"><span>🏠 Airbnb Turnover</span></label>
   </div>
+  <p class="wizard-error" id="wizardServiceError">👆 Please select at least one service to continue.</p>
 </div>
 
 <!-- STEP 2: HOME DETAILS (any non-org-only service) -->
@@ -206,6 +193,31 @@
   </div>
 </div>
 
+<!-- REVIEW STEP -->
+<div class="step-block" id="blockReview">
+  <div class="step-block-head"><div class="step-block-num">✓</div><div><h3>Here's your estimate</h3><p>Take a look before continuing — tap Back anytime to change an answer.</p></div></div>
+  <div class="quote-note review-note" id="liveSummary">
+    <p class="summary-title">📊 Your Quote Summary</p>
+    <p class="summary-sub">Based on everything you told us</p>
+
+    <div class="summary-block"><div class="summary-label">🧹 Services Selected</div><div class="summary-empty" id="sumServices">Choose a service to begin</div></div>
+    <div class="summary-block"><div class="summary-label">🏡 Home Details</div><div class="summary-empty" id="sumHome">—</div></div>
+    <div class="summary-block"><div class="summary-label">🪨 Special Surfaces</div><div class="summary-empty" id="sumSurfaces">—</div></div>
+    <div class="summary-block"><div class="summary-label">📦 Organization</div><div class="summary-empty" id="sumOrg">—</div></div>
+    <div class="summary-block"><div class="summary-label">➕ Add-Ons</div><div class="summary-empty" id="sumAddons">—</div></div>
+    <div class="summary-block"><div class="summary-label">🧽 Cleaning Preference</div><div class="summary-empty" id="sumPref">Standard Gold Standard Process</div></div>
+
+    <div class="summary-total">
+      <div class="amount" id="sumTotal">$0</div>
+      <div class="meta">💲 Estimated price range</div>
+      <div class="meta" id="sumTime">⏱ Estimated labor: 0 min</div>
+      <div class="meta" id="sumAppt">📅 Estimated appointment length: —</div>
+    </div>
+
+    <a class="button button-gold" style="width:100%;margin-top:16px" href="sms:+12074502429">💬 Prefer to Text Instead?</a>
+  </div>
+</div>
+
 <!-- STEP 12: CONTACT -->
 <div class="step-block" id="blockContact">
   <div class="step-block-head"><div class="step-block-num">12</div><div><h3>Your contact info</h3></div></div>
@@ -221,10 +233,8 @@
     <div class="full"><label>📝 Special Instructions</label><textarea name="Special Instructions" placeholder="Gate codes, access notes, priorities, anything else we should know..."></textarea></div>
     <div class="full"><label>📷 Photos (optional)</label><input type="file" name="Photos" accept="image/*" multiple><p class="form-help">Photos can't attach to the auto-generated email — feel free to text them to us at (207) 450-2429 after you submit.</p></div>
   </div>
-</div>
 
-<div class="step-block" style="margin-top:8px">
-  <div class="notice" style="margin-bottom:20px">
+  <div class="notice" style="margin:20px 0">
   <strong>Our Promise:</strong> ⭐ 100% Gold Standard Satisfaction Guarantee · 👟 Shoe covers worn in your home · 🧼 Professional equipment &amp; premium products · 🪨 Right products matched to every surface · 🪵 Complimentary wood conditioning on eligible surfaces · 🏡 Every home treated with care and respect
   </div>
   <button class="button button-green" type="submit" style="width:100%;justify-content:center;font-size:1.05rem;padding:18px">⭐ Get My Free Quote</button>
@@ -232,6 +242,13 @@
 
 </form>
 </div></section>
+
+<div class="wizard-nav" id="wizardNav">
+  <div class="wizard-nav-inner">
+    <button type="button" class="wizard-btn-back" id="wizardBack">← Back</button>
+    <button type="button" class="wizard-btn-next" id="wizardNext">Next →</button>
+  </div>
+</div>
 </main>
 
 <div class="mobile-action-dock" aria-label="Quick contact actions"><a href="sms:+12074502429">💬 Text</a><a href="tel:+12074502429">📞 Call</a><a class="dock-quote" href="quote.html">✨ Free Quote</a></div>
@@ -440,5 +457,78 @@ document.getElementById('quoteForm').addEventListener('input', updateSummary);
 document.getElementById('quoteForm').addEventListener('change', updateSummary);
 updateVisibility();
 updateSummary();
+
+/* ---------------- WIZARD CONTROLLER ---------------- */
+const WIZARD_STEP_IDS = ['blockServices','blockHome','blockSurfaces','blockFrequency','blockCondition','blockPreference','blockOrgAreas','blockPantryDetail','blockClosetDetail','blockAddons','blockPremiumOrg','blockReview','blockContact'];
+let currentStep = 0;
+
+function getSteps(){
+  return WIZARD_STEP_IDS.map(id=>document.getElementById(id)).filter(el=>el && !el.classList.contains('step-hidden'));
+}
+
+function setHeaderOffset(){
+  const h = document.querySelector('.site-header');
+  if(h) document.documentElement.style.setProperty('--header-h', h.offsetHeight+'px');
+}
+setHeaderOffset();
+window.addEventListener('resize', setHeaderOffset);
+
+function renderWizard(scroll){
+  const steps = getSteps();
+  if(currentStep > steps.length-1) currentStep = steps.length-1;
+  if(currentStep < 0) currentStep = 0;
+
+  document.querySelectorAll('.step-block').forEach(el=>el.classList.remove('wizard-active'));
+  const active = steps[currentStep];
+  if(active) active.classList.add('wizard-active');
+
+  document.getElementById('wizardStepLabel').textContent = `Step ${currentStep+1} of ${steps.length}`;
+  document.getElementById('wizardBarFill').style.width = `${((currentStep+1)/steps.length)*100}%`;
+
+  document.getElementById('wizardBack').style.visibility = currentStep===0 ? 'hidden' : 'visible';
+
+  const isLast = active && active.id === 'blockContact';
+  document.getElementById('wizardNext').style.display = isLast ? 'none' : 'inline-flex';
+
+  updateSummary();
+  const total = document.getElementById('sumTotal').textContent;
+  document.getElementById('wizardPriceLive').textContent = total==='$0' ? 'Estimate: $0' : `Estimate: ${total}`;
+
+  if(scroll!==false) window.scrollTo({top:0, behavior:'smooth'});
+}
+
+function validateStep(el){
+  if(!el) return true;
+  if(el.id==='blockServices'){
+    const ok = anyChecked('.svc');
+    document.getElementById('wizardServiceError').classList.toggle('show', !ok);
+    return ok;
+  }
+  return true;
+}
+
+document.getElementById('wizardNext').addEventListener('click', ()=>{
+  const steps = getSteps();
+  if(!validateStep(steps[currentStep])) return;
+  currentStep++;
+  renderWizard();
+});
+document.getElementById('wizardBack').addEventListener('click', ()=>{
+  currentStep--;
+  renderWizard();
+});
+
+document.getElementById('quoteForm').addEventListener('keydown', e=>{
+  if(e.key==='Enter' && e.target.tagName!=='TEXTAREA'){
+    const steps = getSteps();
+    const active = steps[currentStep];
+    if(!active || active.id!=='blockContact'){
+      e.preventDefault();
+      document.getElementById('wizardNext').click();
+    }
+  }
+});
+
+renderWizard(false);
 </script>
 </body></html>
