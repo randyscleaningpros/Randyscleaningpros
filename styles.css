@@ -773,7 +773,7 @@ footer a:hover{color:var(--green)}
 .price-tier-card li{color:var(--muted);font-size:.88rem;font-weight:600}
 .price-tier-card li:before{content:'✅ ';}
 .pill-dot{width:10px;height:10px;border-radius:50%;display:inline-block}
-.pd-green{background:var(--green)}.pd-gold{background:var(--gold)}.pd-navy{background:var(--navy3)}.pd-red{background:#c0503f}
+.pd-green{background:var(--green)}.pd-black{background:var(--black)}.pd-navy{background:var(--navy3)}.pd-red{background:#c0503f}
 
 .pricing-tabs{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-bottom:36px}
 .pricing-tab-btn{
