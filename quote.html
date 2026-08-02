@@ -496,7 +496,15 @@ function renderWizard(scroll){
   const total = document.getElementById('sumTotal').textContent;
   document.getElementById('wizardPriceLive').textContent = total==='$0' ? 'Estimate: $0' : `Estimate: ${total}`;
 
-  if(scroll!==false) window.scrollTo({top:0, behavior:'smooth'});
+  if(scroll!==false){
+    const headerEl = document.querySelector('.site-header');
+    const headerH = headerEl ? headerEl.offsetHeight : 80;
+    const wp = document.getElementById('wizardProgress');
+    if(wp){
+      const targetY = wp.getBoundingClientRect().top + window.pageYOffset - headerH;
+      window.scrollTo({top: Math.max(targetY, 0), behavior:'smooth'});
+    }
+  }
 }
 
 function validateStep(el){
