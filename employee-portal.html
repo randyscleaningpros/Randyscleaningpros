@@ -1,1 +1,1201 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Randy's Portal">
+<meta name="theme-color" content="#071f4b">
+<title>Employee Portal | Randy's Premier Cleaning</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800;900&family=Open+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#071f4b; --navy2:#0b2f67; --navy3:#0f3d84;
+  --green:#5fb824; --green2:#4da51e;
+  --gold:#d9ad43; --gold2:#c99423;
+  --red:#e0483f; --blue:#2f6fed;
+  --white:#fff; --ink:#142238; --muted:#5c6c80;
+  --card-radius:20px; --btn-radius:18px;
+  --shadow:0 14px 34px rgba(3,12,32,.35);
+  --shadow-sm:0 6px 16px rgba(3,12,32,.22);
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family:'Open Sans',Arial,sans-serif;
+  background:radial-gradient(circle at 15% 0%,#0d2f6e,var(--navy) 55%);
+  color:#fff;
+  min-height:100vh;
+  -webkit-font-smoothing:antialiased;
+  padding-bottom:env(safe-area-inset-bottom);
+}
+h1,h2,h3,h4,button,.mont{font-family:'Montserrat',sans-serif}
+button{font:inherit;cursor:pointer;border:none;background:none;color:inherit}
+input,select,textarea{font:inherit}
+a{color:inherit}
+.hide{display:none!important}
+
+/* ---------- App shell ---------- */
+#appbar{
+  position:sticky;top:0;z-index:50;
+  display:flex;align-items:center;gap:10px;
+  padding:calc(env(safe-area-inset-top) + 14px) 16px 14px;
+  background:rgba(7,31,75,.92);backdrop-filter:blur(14px);
+  border-bottom:1px solid rgba(255,255,255,.08);
+}
+#backBtn{
+  width:42px;height:42px;border-radius:14px;
+  background:rgba(255,255,255,.08);
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.3rem;flex:0 0 auto;
+}
+#appbarTitle{font-weight:800;font-size:1.15rem;flex:1;letter-spacing:-.01em}
+#homeBtn{
+  width:42px;height:42px;border-radius:14px;
+  background:rgba(217,173,67,.18);border:1px solid rgba(217,173,67,.4);
+  display:flex;align-items:center;justify-content:center;font-size:1.15rem;flex:0 0 auto;
+}
+#app{max-width:560px;margin:0 auto;padding:18px 16px 90px}
+
+/* ---------- Cards & buttons ---------- */
+.card{
+  background:#fff;color:var(--ink);
+  border-radius:var(--card-radius);
+  padding:20px;
+  box-shadow:var(--shadow-sm);
+  margin-bottom:14px;
+}
+.big-btn{
+  width:100%;display:flex;align-items:center;gap:14px;
+  padding:20px 20px;border-radius:var(--btn-radius);
+  font-weight:800;font-size:1.08rem;
+  margin-bottom:12px;box-shadow:var(--shadow-sm);
+  transition:transform .12s ease;
+}
+.big-btn:active{transform:scale(.97)}
+.big-btn .ic{font-size:1.6rem}
+.big-btn .arrow{margin-left:auto;opacity:.7;font-size:1.2rem}
+.btn-green{background:linear-gradient(135deg,var(--green),var(--green2));color:#06210a}
+.btn-gold{background:linear-gradient(135deg,var(--gold),var(--gold2));color:#3a2c05}
+.btn-navy{background:#fff;color:var(--navy);border:2px solid rgba(255,255,255,.5)}
+.btn-white{background:rgba(255,255,255,.08);color:#fff;border:1.5px solid rgba(255,255,255,.18)}
+.btn-red{background:linear-gradient(135deg,var(--red),#b6362f);color:#fff}
+.btn-block{width:100%;text-align:center;padding:16px;border-radius:var(--btn-radius);font-weight:800;margin-top:8px}
+
+.greet{font-family:Montserrat;font-weight:900;font-size:1.7rem;line-height:1.15;margin:2px 0 4px}
+.subline{color:#c9d7e8;font-size:.95rem;margin-bottom:18px}
+.chip-row{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px}
+.chip{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);padding:8px 14px;border-radius:999px;font-size:.82rem;font-weight:700}
+
+/* ---------- Job cards ---------- */
+.job-card{border-radius:var(--card-radius);padding:18px;margin-bottom:14px;box-shadow:var(--shadow-sm);color:#fff;position:relative;overflow:hidden}
+.job-card.status-green{background:linear-gradient(135deg,#4da51e,#3c7d17)}
+.job-card.status-yellow{background:linear-gradient(135deg,#d9ad43,#b9862a)}
+.job-card.status-blue{background:linear-gradient(135deg,#2f6fed,#1f4fc4)}
+.job-card.status-red{background:linear-gradient(135deg,#e0483f,#a92e27)}
+.job-tag{display:inline-block;font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.06em;background:rgba(255,255,255,.22);padding:4px 10px;border-radius:999px;margin-bottom:10px}
+.job-name{font-family:Montserrat;font-weight:900;font-size:1.25rem;margin:2px 0 8px}
+.job-line{font-size:.92rem;opacity:.95;margin:3px 0;display:flex;gap:8px;align-items:center}
+.job-card .big-btn{margin-top:12px;margin-bottom:0}
+.day-heading{font-family:Montserrat;font-weight:900;font-size:1.05rem;color:var(--gold);text-transform:uppercase;letter-spacing:.05em;margin:22px 0 10px}
+.day-heading:first-child{margin-top:0}
+
+/* ---------- Calendar ---------- */
+.cal-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.cal-day{background:#fff;color:var(--ink);border-radius:18px;padding:18px;text-align:center;box-shadow:var(--shadow-sm)}
+.cal-day.active{outline:3px solid var(--gold)}
+.cal-day .dname{font-family:Montserrat;font-weight:900;font-size:.95rem;color:var(--navy)}
+.cal-day .dnum{font-size:.78rem;color:var(--muted);margin:2px 0 10px}
+.cal-day .dcount{font-family:Montserrat;font-weight:900;font-size:1.5rem;color:var(--green2)}
+.cal-day .dcount small{display:block;font-size:.68rem;font-weight:700;color:var(--muted);text-transform:uppercase}
+.mini-job{background:#fff;color:var(--ink);border-radius:14px;padding:12px 14px;margin-bottom:8px;display:flex;align-items:center;gap:10px;box-shadow:var(--shadow-sm)}
+.mini-job[draggable="true"]{cursor:grab}
+.mini-job .dot{width:12px;height:12px;border-radius:50%;flex:0 0 auto}
+.mini-job .mtext{flex:1}
+.mini-job .mname{font-weight:800;font-size:.92rem}
+.mini-job .mtime{font-size:.78rem;color:var(--muted)}
+.drop-hint{border:2px dashed rgba(255,255,255,.25);border-radius:14px;padding:10px;text-align:center;font-size:.78rem;color:#c9d7e8;margin-top:6px}
+
+/* ---------- Customer cards ---------- */
+.search-wrap{position:relative;margin-bottom:16px}
+.search-wrap input{
+  width:100%;padding:16px 16px 16px 44px;border-radius:16px;border:none;
+  background:#fff;color:var(--ink);font-weight:700;font-size:.98rem;
+}
+.search-wrap .sicon{position:absolute;left:16px;top:50%;transform:translateY(-50%);font-size:1.1rem}
+.cust-card{background:#fff;color:var(--ink);border-radius:18px;padding:18px;margin-bottom:12px;box-shadow:var(--shadow-sm)}
+.cust-card h3{margin:0 0 4px;font-size:1.1rem;color:var(--navy)}
+.cust-card .addr{color:var(--muted);font-size:.88rem;margin-bottom:8px}
+.cust-meta{display:flex;gap:14px;font-size:.8rem;color:var(--muted);margin-bottom:12px;flex-wrap:wrap}
+.cust-actions{display:flex;gap:8px}
+.mini-btn{flex:1;text-align:center;padding:11px;border-radius:12px;font-weight:800;font-size:.85rem}
+
+/* ---------- Forms ---------- */
+.field{margin-bottom:14px}
+.field label{display:block;font-weight:800;font-size:.82rem;color:var(--muted);margin-bottom:6px;text-transform:uppercase;letter-spacing:.03em}
+.field input,.field select,.field textarea{
+  width:100%;padding:13px 14px;border-radius:12px;border:2px solid #e4e9f0;background:#fbfcfe;color:var(--ink);
+}
+.field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--green)}
+.field-row{display:flex;gap:10px}
+.field-row .field{flex:1}
+.toggle-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.toggle-opt{border:2px solid #e4e9f0;border-radius:12px;padding:12px;text-align:center;font-weight:800;font-size:.85rem;color:var(--ink)}
+.toggle-opt.active{border-color:var(--green);background:rgba(95,184,36,.1);color:var(--green2)}
+
+/* ---------- Collapsible cards (job workspace) ---------- */
+details.section-card{background:#fff;color:var(--ink);border-radius:18px;margin-bottom:12px;box-shadow:var(--shadow-sm);overflow:hidden}
+details.section-card[open] summary{border-bottom:1px solid #eef1f5}
+details.section-card summary{
+  list-style:none;cursor:pointer;padding:18px 20px;display:flex;align-items:center;gap:12px;font-family:Montserrat;font-weight:800;font-size:1rem;color:var(--navy);
+}
+details.section-card summary::-webkit-details-marker{display:none}
+details.section-card summary .schev{margin-left:auto;transition:transform .2s ease;color:var(--muted)}
+details.section-card[open] summary .schev{transform:rotate(180deg)}
+.section-card .inner{padding:16px 20px 20px}
+.done-badge{margin-left:6px;background:rgba(95,184,36,.15);color:var(--green2);font-size:.7rem;font-weight:800;padding:3px 9px;border-radius:999px}
+
+/* checklist */
+.check-group h4{margin:14px 0 8px;color:var(--navy);font-size:.85rem;text-transform:uppercase;letter-spacing:.04em}
+.check-group h4:first-child{margin-top:0}
+.check-row{display:flex;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid #f0f2f6}
+.check-row:last-child{border-bottom:none}
+.check-box{width:30px;height:30px;border-radius:9px;border:2.5px solid #cfd8e3;flex:0 0 auto;display:flex;align-items:center;justify-content:center;font-size:1rem}
+.check-row.checked .check-box{background:var(--green);border-color:var(--green);color:#fff}
+.check-row.checked span.clabel{color:var(--green2);text-decoration:line-through;opacity:.75}
+.clabel{font-weight:700;font-size:.95rem}
+
+/* photos */
+.photo-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.photo-btn{position:relative;border:2px dashed #cfd8e3;border-radius:14px;padding:16px 10px;text-align:center;font-weight:800;font-size:.85rem;color:var(--navy)}
+.photo-btn.done{border-style:solid;border-color:var(--green);background:rgba(95,184,36,.08)}
+.photo-btn .pthumb{width:100%;height:70px;object-fit:cover;border-radius:8px;margin-bottom:8px}
+.photo-btn .pcheck{position:absolute;top:8px;right:8px;color:var(--green2);font-size:1.1rem}
+
+/* payment */
+.pay-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:6px}
+.pay-opt{border:2px solid #e4e9f0;border-radius:14px;padding:16px 8px;text-align:center;font-weight:800;font-size:.88rem;color:var(--ink)}
+.pay-opt.active{border-color:var(--gold);background:rgba(217,173,67,.12)}
+
+/* signature */
+#sigCanvas{width:100%;height:180px;border-radius:14px;border:2px dashed #cfd8e3;touch-action:none;background:#fbfcfe}
+.sig-actions{display:flex;gap:10px;margin-top:10px}
+
+.recommend-list{list-style:none;padding:0;margin:0}
+.recommend-list li{padding:10px 0;border-bottom:1px solid #f0f2f6;font-weight:700;font-size:.92rem}
+.recommend-list li:last-child{border-bottom:none}
+
+.warn-banner{background:#fff5ec;border-left:5px solid var(--red);color:#7a2b25;border-radius:12px;padding:14px 16px;font-weight:700;font-size:.9rem;margin-bottom:16px}
+.ok-banner{background:#f0fbe9;border-left:5px solid var(--green);color:#2c5a10;border-radius:12px;padding:14px 16px;font-weight:700;font-size:.9rem;margin-bottom:16px}
+
+.toast{
+  position:fixed;left:50%;bottom:30px;transform:translateX(-50%) translateY(20px);
+  background:var(--navy);color:#fff;padding:14px 22px;border-radius:999px;
+  font-weight:800;box-shadow:var(--shadow);opacity:0;pointer-events:none;transition:all .25s ease;z-index:99;
+}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+
+.empty-state{text-align:center;padding:40px 20px;color:#c9d7e8}
+.empty-state .eic{font-size:2.6rem;display:block;margin-bottom:10px}
+
+.stat-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:16px}
+.stat-card{background:#fff;color:var(--navy);border-radius:16px;padding:18px;text-align:center;box-shadow:var(--shadow-sm)}
+.stat-card .snum{font-family:Montserrat;font-weight:900;font-size:1.7rem}
+.stat-card .slabel{font-size:.75rem;color:var(--muted);font-weight:700;text-transform:uppercase;margin-top:2px}
+
+.settings-row{display:flex;align-items:center;justify-content:space-between;padding:16px 0;border-bottom:1px solid #f0f2f6}
+.settings-row:last-child{border-bottom:none}
+.settings-row .slabel2{font-weight:800;color:var(--ink)}
+.switch{width:52px;height:30px;border-radius:999px;background:#dfe4ea;position:relative;flex:0 0 auto}
+.switch.on{background:var(--green)}
+.switch::after{content:'';position:absolute;top:3px;left:3px;width:24px;height:24px;border-radius:50%;background:#fff;transition:left .18s ease;box-shadow:0 2px 6px rgba(0,0,0,.25)}
+.switch.on::after{left:25px}
+
+.lock-screen{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:20px}
+.lock-screen img{width:96px;margin-bottom:18px;filter:drop-shadow(0 10px 20px rgba(0,0,0,.4))}
+.lock-screen h1{font-size:1.5rem;margin:0 0 6px}
+.lock-screen p{color:#c9d7e8;margin:0 0 26px}
+
+.gallery-group h4{color:var(--gold);margin:20px 0 10px;font-family:Montserrat}
+.gallery-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.gallery-grid img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:10px}
+
+@media(min-width:601px){
+  .job-card .big-btn{max-width:260px;margin-left:auto;margin-right:auto}
+}
+</style>
+</head>
+<body>
+
+<div id="lockScreen" class="lock-screen hide">
+  <div class="mont" style="font-size:2rem;">🧽</div>
+  <h1 class="mont">Randy's Premier Cleaning</h1>
+  <p>Employee Portal</p>
+  <button class="btn-green big-btn" style="max-width:260px" id="unlockBtn"><span class="ic">🔓</span><span>Unlock</span></button>
+</div>
+
+<div id="shell">
+  <div id="appbar">
+    <button id="backBtn" class="hide">‹</button>
+    <div id="appbarTitle" class="mont">Home</div>
+    <button id="homeBtn">🏠</button>
+  </div>
+  <div id="app"></div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<!-- hidden file input reused for photo capture -->
+<input type="file" id="photoInput" accept="image/*" capture="environment" class="hide">
+
+<script>
+/* =========================================================
+   DATA LAYER — localStorage
+   ========================================================= */
+const STORAGE_KEY = 'randysPortalData_v1';
+
+function seedData(){
+  const today = new Date();
+  const iso = d => d.toISOString().slice(0,10);
+  const day = (n) => { const d = new Date(today); d.setDate(d.getDate()+n); return iso(d); };
+
+  return {
+    business:{
+      name:"Randy's Premier Cleaning",
+      phone:"(207) 450-2429",
+      email:"randyspremiercleaning@gmail.com",
+      reviewLink:"",
+      couponText:"20% off your next cleaning"
+    },
+    settings:{ darkMode:true, notifications:true, pinEnabled:false, pin:"" },
+    session:{ unlocked:true },
+    customers:[
+      {
+        id:"c1", name:"John Smith", phone:"2075551201", email:"john@example.com",
+        address:"123 Main Street, Portland, ME", frequency:"Bi-Weekly", preferredContact:"Text",
+        pets:"1 dog (friendly)", children:"No", doorCode:"4821", alarm:"Disarm at front panel, code 1975",
+        parking:"Driveway on the right", notes:"Prefers unscented products."
+      },
+      {
+        id:"c2", name:"Sarah Jones", phone:"2075551202", email:"sarah@example.com",
+        address:"555 Forest Road, Gorham, ME", frequency:"Monthly", preferredContact:"Call",
+        pets:"2 cats", children:"Yes — please keep cleaning supplies put away", doorCode:"—",
+        alarm:"No alarm", parking:"Street parking only", notes:""
+      }
+    ],
+    jobs:[
+      {
+        id:"j1", customerId:"c1", date:day(0), arriveTime:"09:00", estFinish:"11:00",
+        type:"Standard", addons:[], completed:false,
+        homeInfo:{bedrooms:3,bathrooms:2,kitchen:1,livingRoom:1,laundryRoom:1,basement:"No",garage:"No",
+          surfaces:{kitchenCounter:"Granite",bathroomCounter:"Granite",floorType:"Hardwood",cabinets:"Finished Wood"}},
+        checklist: freshChecklist(),
+        photos:{before:{}, after:{}},
+        payment:{method:null,cashReceived:"",receiptNumber:""},
+        signature:{dataUrl:null, customerNotHome:false},
+        notes:""
+      },
+      {
+        id:"j2", customerId:"c2", date:day(0), arriveTime:"13:00", estFinish:"16:00",
+        type:"Deep Cleaning", addons:["Inside Fridge"], completed:false,
+        homeInfo:{bedrooms:4,bathrooms:2,kitchen:1,livingRoom:1,laundryRoom:1,basement:"Yes",garage:"Yes",
+          surfaces:{kitchenCounter:"Quartz",bathroomCounter:"Marble",floorType:"Tile",cabinets:"Painted"}},
+        checklist: freshChecklist(),
+        photos:{before:{}, after:{}},
+        payment:{method:null,cashReceived:"",receiptNumber:""},
+        signature:{dataUrl:null, customerNotHome:false},
+        notes:"Cats — keep doors closed."
+      },
+      {
+        id:"j3", customerId:"c1", date:day(2), arriveTime:"10:00", estFinish:"12:00",
+        type:"Standard", addons:[], completed:false,
+        homeInfo:{bedrooms:3,bathrooms:2,kitchen:1,livingRoom:1,laundryRoom:1,basement:"No",garage:"No",
+          surfaces:{kitchenCounter:"Granite",bathroomCounter:"Granite",floorType:"Hardwood",cabinets:"Finished Wood"}},
+        checklist: freshChecklist(),
+        photos:{before:{}, after:{}},
+        payment:{method:null,cashReceived:"",receiptNumber:""},
+        signature:{dataUrl:null, customerNotHome:false},
+        notes:""
+      }
+    ]
+  };
+}
+
+function freshChecklist(){
+  return {
+    Kitchen:{Trash:false,Dust:false,Countertops:false,Sink:false,Stove:false,Microwave:false,"Cabinet Fronts":false,"Appliance Fronts":false,Floors:false},
+    Bathroom:{Toilet:false,Shower:false,Tub:false,Sink:false,Mirrors:false,Trash:false,Floors:false},
+    Bedroom:{Dust:false,Furniture:false,Bed:false,Floors:false},
+    "Living Room":{Dust:false,Furniture:false,Baseboards:false,Floors:false}
+  };
+}
+
+let DATA = load();
+function load(){
+  try{
+    const raw = localStorage.getItem(STORAGE_KEY);
+    if(raw) return JSON.parse(raw);
+  }catch(e){}
+  const fresh = seedData();
+  save(fresh);
+  return fresh;
+}
+function save(d){ try{ localStorage.setItem(STORAGE_KEY, JSON.stringify(d||DATA)); }catch(e){} }
+function uid(){ return 'id'+Math.random().toString(36).slice(2,10); }
+
+/* =========================================================
+   ROUTER
+   ========================================================= */
+let stack = [{screen:'home', params:{}}];
+function current(){ return stack[stack.length-1]; }
+
+function navigate(screen, params={}){
+  stack.push({screen, params});
+  render();
+  window.scrollTo({top:0});
+}
+function goBack(){
+  if(stack.length>1){ stack.pop(); render(); window.scrollTo({top:0}); }
+}
+function goHome(){ stack=[{screen:'home',params:{}}]; render(); window.scrollTo({top:0}); }
+
+const TITLES = {
+  home:"Home", jobs:"My Jobs", calendar:"Calendar", customers:"Customers",
+  newCustomer:"New Customer", customerProfile:"Customer", jobWorkspace:"Job", newJobForDay:"Add Job",
+  payments:"Payments", photos:"Photos", business:"Business", settings:"Settings"
+};
+
+function render(){
+  const {screen, params} = current();
+  // remember which collapsible sections were open so they don't
+  // snap shut every time something re-renders (e.g. a checklist tap)
+  const openIdx = Array.from(document.querySelectorAll('#app details.section-card'))
+    .map((d,i)=> d.open ? i : -1).filter(i=>i>-1);
+
+  document.getElementById('appbarTitle').textContent = TITLES[screen] || 'Randy\'s Portal';
+  document.getElementById('backBtn').classList.toggle('hide', stack.length<=1);
+  document.getElementById('homeBtn').classList.toggle('hide', screen==='home');
+  const app = document.getElementById('app');
+  app.innerHTML = RENDERERS[screen](params);
+
+  const newDetails = document.querySelectorAll('#app details.section-card');
+  openIdx.forEach(i=>{ if(newDetails[i]) newDetails[i].open = true; });
+
+  bindDynamic(screen, params);
+}
+
+/* =========================================================
+   HELPERS
+   ========================================================= */
+function todayISO(){ return new Date().toISOString().slice(0,10); }
+function fmtDate(iso){
+  const d = new Date(iso+'T00:00:00');
+  return d.toLocaleDateString('en-US',{weekday:'long', month:'short', day:'numeric'});
+}
+function fmtTime(t){
+  if(!t) return '';
+  const [h,m] = t.split(':').map(Number);
+  const ampm = h>=12?'PM':'AM';
+  const h12 = ((h+11)%12)+1;
+  return `${h12}:${String(m).padStart(2,'0')} ${ampm}`;
+}
+function getCustomer(id){ return DATA.customers.find(c=>c.id===id); }
+function getJob(id){ return DATA.jobs.find(j=>j.id===id); }
+
+function jobStatus(job){
+  if(job.completed) return 'green';
+  const t = todayISO();
+  if(job.date < t) return 'red';
+  const nextJob = [...DATA.jobs].filter(j=>!j.completed && j.date>=t)
+    .sort((a,b)=> (a.date+a.arriveTime).localeCompare(b.date+b.arriveTime))[0];
+  if(nextJob && nextJob.id===job.id) return 'yellow';
+  return 'blue';
+}
+function statusLabel(s){
+  return {green:'✅ Completed', yellow:'🟨 Next Job', blue:'🔵 Upcoming', red:'🔴 Overdue'}[s];
+}
+
+function checklistComplete(job){
+  return Object.values(job.checklist).every(room => Object.values(room).every(v=>v===true));
+}
+function checklistProgress(job){
+  let total=0, done=0;
+  Object.values(job.checklist).forEach(room=>Object.values(room).forEach(v=>{total++; if(v) done++;}));
+  return {done,total};
+}
+const PHOTO_AREAS = ['Front Door','Kitchen','Bathroom','Living Room','Bedroom'];
+function photosComplete(job, phase){
+  return PHOTO_AREAS.every(a => !!job.photos[phase][a]);
+}
+function paymentComplete(job){
+  if(!job.payment.method) return false;
+  if(job.payment.method==='Cash') return !!job.payment.cashReceived && !!job.payment.receiptNumber;
+  return true;
+}
+function signatureComplete(job){
+  return job.signature.customerNotHome || !!job.signature.dataUrl;
+}
+function jobReadyToFinish(job){
+  return checklistComplete(job) && photosComplete(job,'before') && photosComplete(job,'after') && paymentComplete(job) && signatureComplete(job);
+}
+
+function recommendedProducts(job){
+  const s = job.homeInfo.surfaces;
+  const list = [];
+  const stoneCounters = ['Granite','Quartz','Marble'];
+  if(stoneCounters.includes(s.kitchenCounter) || stoneCounters.includes(s.bathroomCounter)) list.push('🪨 StoneTech Stone Cleaner — for granite, quartz & marble counters');
+  if(s.kitchenCounter==='Wood' || s.cabinets==='Finished Wood') list.push('🪵 Howard Feed-N-Wax — finished wood counters & cabinets (free with every visit)');
+  if(s.floorType==='Hardwood') list.push('🪵 Bona Hardwood Floor Solution — for your hardwood floors');
+  if(s.floorType==='Stone') list.push('🪨 StoneTech Stone Cleaner — for stone floors');
+  if(['Tile','Vinyl','Laminate'].includes(s.floorType)) list.push('🧴 Mr. Clean Floor Cleaner — for ' + s.floorType.toLowerCase() + ' floors');
+  if(s.floorType==='Carpet') list.push('🧶 Vacuum + Sticky Lint Roller — carpet & pet hair');
+  if(s.cabinets==='Painted' || s.cabinets==='Natural Wood') list.push('🟢 Simple Green All-Purpose — cabinet fronts');
+  list.push('💧 Dawn Professional Degreaser — kitchen & bathroom');
+  list.push('✨ Sprayway Glass Cleaner — mirrors & glass');
+  return [...new Set(list)];
+}
+
+function toast(msg){
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  clearTimeout(toast._t);
+  toast._t = setTimeout(()=>t.classList.remove('show'), 2200);
+}
+
+/* =========================================================
+   SCREEN RENDERERS
+   ========================================================= */
+const RENDERERS = {
+
+  home(){
+    const hour = new Date().getHours();
+    const greet = hour<12?'Good Morning':hour<18?'Good Afternoon':'Good Evening';
+    const t = todayISO();
+    const todays = DATA.jobs.filter(j=>j.date===t);
+    const next = [...DATA.jobs].filter(j=>!j.completed && j.date>=t).sort((a,b)=>(a.date+a.arriveTime).localeCompare(b.date+b.arriveTime))[0];
+
+    return `
+      <div class="greet">👋 ${greet}, Randy!</div>
+      <div class="subline">${fmtDate(t)} · 📍 Cumberland &amp; York Counties, ME</div>
+      <div class="chip-row">
+        <span class="chip">📅 ${todays.length} job${todays.length===1?'':'s'} today</span>
+        <span class="chip">🌤️ Add your local forecast in Settings</span>
+      </div>
+      ${next ? `
+      <div class="card" style="border:2px solid var(--gold)">
+        <div style="font-weight:800;color:var(--gold2);font-size:.8rem;text-transform:uppercase;letter-spacing:.04em;margin-bottom:8px">🟨 Next Job</div>
+        <div style="font-weight:900;font-size:1.15rem;color:var(--navy)">${getCustomer(next.customerId)?.name || 'Customer'}</div>
+        <div style="color:var(--muted);font-size:.9rem;margin-top:4px">${fmtDate(next.date)} · ${fmtTime(next.arriveTime)} · ${next.type}</div>
+      </div>` : `<div class="card"><div style="color:var(--muted)">No upcoming jobs scheduled. Add one from Calendar.</div></div>`}
+
+      <button class="big-btn btn-green" data-nav="jobs"><span class="ic">📅</span><span>My Jobs</span><span class="arrow">›</span></button>
+      <button class="big-btn btn-white" data-nav="customers"><span class="ic">👥</span><span>Customers</span><span class="arrow">›</span></button>
+      <button class="big-btn btn-white" data-nav="newCustomer"><span class="ic">➕</span><span>New Customer</span><span class="arrow">›</span></button>
+      <button class="big-btn btn-gold" data-nav="calendar"><span class="ic">📆</span><span>Calendar</span><span class="arrow">›</span></button>
+      <button class="big-btn btn-white" data-nav="payments"><span class="ic">💰</span><span>Payments</span><span class="arrow">›</span></button>
+      <button class="big-btn btn-white" data-nav="photos"><span class="ic">📸</span><span>Photos</span><span class="arrow">›</span></button>
+      <button class="big-btn btn-white" data-nav="business"><span class="ic">📊</span><span>Business</span><span class="arrow">›</span></button>
+      <button class="big-btn btn-white" data-nav="settings"><span class="ic">⚙️</span><span>Settings</span><span class="arrow">›</span></button>
+    `;
+  },
+
+  jobs(){
+    const sorted = [...DATA.jobs].sort((a,b)=>(a.date+a.arriveTime).localeCompare(b.date+b.arriveTime));
+    if(!sorted.length) return emptyState('📭','No jobs yet','Add a job from the Calendar screen.');
+    let html = '';
+    let lastDate = null;
+    sorted.forEach(job=>{
+      if(job.date!==lastDate){ html += `<div class="day-heading">${fmtDate(job.date)}</div>`; lastDate=job.date; }
+      html += jobCardHTML(job);
+    });
+    return html;
+  },
+
+  calendar(params){
+    const activeDay = params.day || todayISO();
+    const start = new Date(); start.setDate(start.getDate() - start.getDay()+1); // Monday this week
+    const days = [];
+    for(let i=0;i<7;i++){ const d=new Date(start); d.setDate(start.getDate()+i); days.push(d.toISOString().slice(0,10)); }
+    const names = ['Mon','Tue','Wed','Thu','Fri','Sat','Sun'];
+
+    let grid = '<div class="cal-grid">';
+    days.forEach((iso,i)=>{
+      const count = DATA.jobs.filter(j=>j.date===iso).length;
+      const d = new Date(iso+'T00:00:00');
+      grid += `<button class="cal-day ${iso===activeDay?'active':''}" data-cal-day="${iso}">
+        <div class="dname">${names[i]}</div>
+        <div class="dnum">${d.getMonth()+1}/${d.getDate()}</div>
+        <div class="dcount">${count}<small>Job${count===1?'':'s'}</small></div>
+      </button>`;
+    });
+    grid += '</div>';
+
+    const dayJobs = DATA.jobs.filter(j=>j.date===activeDay).sort((a,b)=>a.arriveTime.localeCompare(b.arriveTime));
+    let dayList = `<div class="day-heading">${fmtDate(activeDay)}</div>`;
+    if(dayJobs.length){
+      dayJobs.forEach(job=>{
+        const cust = getCustomer(job.customerId);
+        const color = {green:'var(--green)',yellow:'var(--gold)',blue:'var(--blue)',red:'var(--red)'}[jobStatus(job)];
+        dayList += `<div class="mini-job" draggable="true" data-drag-job="${job.id}">
+          <span class="dot" style="background:${color}"></span>
+          <span class="mtext"><span class="mname">${cust?.name||'Customer'}</span><br><span class="mtime">${fmtTime(job.arriveTime)} · ${job.type}</span></span>
+          <button data-nav="jobWorkspace" data-params='{"id":"${job.id}"}' style="font-weight:800;color:var(--green2)">Open ›</button>
+        </div>`;
+      });
+      dayList += `<div class="drop-hint">✋ Hold &amp; drag a job onto another day to reschedule it.</div>`;
+    } else {
+      dayList += `<div class="empty-state" style="padding:20px 0"><span class="eic">🗓️</span>No jobs this day.</div>`;
+    }
+    dayList += `<button class="big-btn btn-gold" data-nav="newJobForDay" data-params='{"day":"${activeDay}"}' style="margin-top:14px"><span class="ic">➕</span><span>Add Job This Day</span></button>`;
+
+    return grid + '<div style="margin-top:22px">' + dayList + '</div>';
+  },
+
+  newJobForDay(params){
+    const day = params.day || todayISO();
+    const opts = DATA.customers.map(c=>`<option value="${c.id}">${c.name}</option>`).join('');
+    return `
+      <div class="card">
+        <div class="field"><label>Day</label><input type="text" value="${fmtDate(day)}" disabled></div>
+        <div class="field"><label>Customer</label><select id="njCustomer">${opts || '<option>No customers yet</option>'}</select></div>
+        <div class="field-row">
+          <div class="field"><label>Arrival Time</label><input type="time" id="njTime" value="09:00"></div>
+          <div class="field"><label>Cleaning Type</label>
+            <select id="njType">
+              <option>Standard</option><option>Deep Cleaning</option><option>Move In</option>
+              <option>Move Out</option><option>Organization</option><option>Pantry</option><option>Airbnb</option>
+            </select>
+          </div>
+        </div>
+        <button class="btn-block btn-green" id="njSave" data-day="${day}">✅ Add Job</button>
+      </div>
+    `;
+  },
+
+  customers(params){
+    const q = (params.q||'').toLowerCase();
+    const list = DATA.customers.filter(c=>c.name.toLowerCase().includes(q) || c.address.toLowerCase().includes(q));
+    let html = `<div class="search-wrap"><span class="sicon">🔍</span><input id="custSearch" placeholder="Search customers..." value="${params.q||''}"></div>`;
+    if(!list.length){ html += emptyState('👥','No customers found','Try a different search, or add a new customer.'); return html; }
+    list.forEach(c=>{
+      const jobs = DATA.jobs.filter(j=>j.customerId===c.id);
+      const last = jobs.filter(j=>j.completed).sort((a,b)=>b.date.localeCompare(a.date))[0];
+      const next = jobs.filter(j=>!j.completed).sort((a,b)=>a.date.localeCompare(b.date))[0];
+      html += `<div class="cust-card">
+        <h3>${c.name}</h3>
+        <div class="addr">📍 ${c.address}</div>
+        <div class="cust-meta">
+          <span>🔁 ${c.frequency}</span>
+          <span>🕘 Last: ${last?fmtDate(last.date):'—'}</span>
+          <span>📅 Next: ${next?fmtDate(next.date):'—'}</span>
+        </div>
+        <div class="cust-actions">
+          <a class="mini-btn btn-navy" href="tel:${c.phone}">📞 Call</a>
+          <a class="mini-btn btn-navy" href="sms:${c.phone}">💬 Text</a>
+          <button class="mini-btn btn-green" data-nav="customerProfile" data-params='{"id":"${c.id}"}'>Open</button>
+        </div>
+      </div>`;
+    });
+    return html;
+  },
+
+  newCustomer(){
+    return `
+      <div class="card">
+        <div class="field"><label>Name</label><input id="ncName" placeholder="Full name"></div>
+        <div class="field"><label>Phone</label><input id="ncPhone" type="tel" placeholder="(207) 000-0000"></div>
+        <div class="field"><label>Email</label><input id="ncEmail" type="email" placeholder="name@email.com"></div>
+        <div class="field"><label>Address</label><input id="ncAddress" placeholder="Street, City, State"></div>
+        <div class="field-row">
+          <div class="field"><label>Cleaning Type</label>
+            <select id="ncType"><option>Standard</option><option>Deep Cleaning</option><option>Move In</option><option>Move Out</option><option>Organization</option><option>Pantry</option><option>Airbnb</option></select>
+          </div>
+          <div class="field"><label>Frequency</label>
+            <select id="ncFreq"><option>One-Time</option><option>Weekly</option><option>Bi-Weekly</option><option>Monthly</option></select>
+          </div>
+        </div>
+        <div class="field-row">
+          <div class="field"><label>Preferred Day</label>
+            <select id="ncDay"><option>Monday</option><option>Tuesday</option><option>Wednesday</option><option>Thursday</option><option>Friday</option><option>Saturday</option><option>Sunday</option></select>
+          </div>
+          <div class="field"><label>Preferred Time</label><input id="ncTimePref" type="time" value="09:00"></div>
+        </div>
+        <button class="btn-block btn-green" id="ncSave">✅ Done</button>
+      </div>
+    `;
+  },
+
+  customerProfile(params){
+    const c = getCustomer(params.id);
+    if(!c) return emptyState('❓','Customer not found','');
+    const jobs = DATA.jobs.filter(j=>j.customerId===c.id).sort((a,b)=>b.date.localeCompare(a.date));
+    return `
+      <details class="section-card" open>
+        <summary>🏠 Customer Information <span class="schev">⌄</span></summary>
+        <div class="inner">
+          <div class="field"><label>Name</label><input data-cf="name" value="${c.name}"></div>
+          <div class="field"><label>Phone</label><input data-cf="phone" value="${c.phone}"></div>
+          <div class="field"><label>Email</label><input data-cf="email" value="${c.email}"></div>
+          <div class="field"><label>Address</label><input data-cf="address" value="${c.address}"></div>
+          <div class="cust-actions" style="margin:10px 0 4px">
+            <a class="mini-btn btn-navy" style="border:2px solid #e4e9f0" href="https://maps.google.com/?q=${encodeURIComponent(c.address)}" target="_blank">🗺️ Maps</a>
+            <a class="mini-btn btn-navy" style="border:2px solid #e4e9f0" href="sms:${c.phone}">💬 Text</a>
+            <a class="mini-btn btn-navy" style="border:2px solid #e4e9f0" href="tel:${c.phone}">📞 Call</a>
+          </div>
+          <div class="field"><label>Cleaning Frequency</label><input data-cf="frequency" value="${c.frequency}"></div>
+          <div class="field"><label>Preferred Contact</label><input data-cf="preferredContact" value="${c.preferredContact}"></div>
+          <div class="field"><label>Pets</label><input data-cf="pets" value="${c.pets}"></div>
+          <div class="field"><label>Children</label><input data-cf="children" value="${c.children}"></div>
+          <div class="field"><label>Door Code</label><input data-cf="doorCode" value="${c.doorCode}"></div>
+          <div class="field"><label>Alarm Instructions</label><input data-cf="alarm" value="${c.alarm}"></div>
+          <div class="field"><label>Parking Instructions</label><input data-cf="parking" value="${c.parking}"></div>
+          <div class="field"><label>Special Notes</label><textarea data-cf="notes" rows="3">${c.notes}</textarea></div>
+          <button class="btn-block btn-green" id="custSave" data-id="${c.id}">💾 Save Changes</button>
+        </div>
+      </details>
+
+      <button class="big-btn btn-gold" data-nav="newJobForDay" data-params='{"day":"${todayISO()}"}'><span class="ic">➕</span><span>Schedule a Job</span></button>
+
+      <div class="day-heading">Job History</div>
+      ${jobs.length ? jobs.map(j=>jobCardHTML(j)).join('') : `<div class="card" style="color:var(--muted)">No jobs yet for this customer.</div>`}
+    `;
+  },
+
+  jobWorkspace(params){
+    const job = getJob(params.id);
+    if(!job) return emptyState('❓','Job not found','');
+    const c = getCustomer(job.customerId);
+    const cp = checklistProgress(job);
+    const status = jobStatus(job);
+
+    return `
+      <div class="job-card status-${status}" style="margin-bottom:18px">
+        <div class="job-tag">${statusLabel(status)}</div>
+        <div class="job-name">🏠 ${c?.name||'Customer'}</div>
+        <div class="job-line">🕘 ${fmtTime(job.arriveTime)} – ${fmtTime(job.estFinish)}</div>
+        <div class="job-line">📍 ${c?.address||''}</div>
+        <div class="job-line">🧹 ${job.type}${job.addons?.length?' + '+job.addons.join(', '):''}</div>
+      </div>
+
+      <details class="section-card">
+        <summary>🏠 Customer Information <span class="schev">⌄</span></summary>
+        <div class="inner">
+          <div class="field"><label>Name</label><div>${c?.name||''}</div></div>
+          <div class="field"><label>Address</label><div>${c?.address||''}</div></div>
+          <div class="cust-actions" style="margin-bottom:10px">
+            <a class="mini-btn btn-navy" style="border:2px solid #e4e9f0" href="https://maps.google.com/?q=${encodeURIComponent(c?.address||'')}" target="_blank">🗺️ Maps</a>
+            <a class="mini-btn btn-navy" style="border:2px solid #e4e9f0" href="sms:${c?.phone||''}">💬 Text</a>
+            <a class="mini-btn btn-navy" style="border:2px solid #e4e9f0" href="tel:${c?.phone||''}">📞 Call</a>
+          </div>
+          <div class="field"><label>Pets</label><div>${c?.pets||'—'}</div></div>
+          <div class="field"><label>Children</label><div>${c?.children||'—'}</div></div>
+          <div class="field"><label>Door Code</label><div>${c?.doorCode||'—'}</div></div>
+          <div class="field"><label>Alarm</label><div>${c?.alarm||'—'}</div></div>
+          <div class="field"><label>Parking</label><div>${c?.parking||'—'}</div></div>
+          <div class="field"><label>Special Notes</label><div>${c?.notes||'—'}</div></div>
+        </div>
+      </details>
+
+      <details class="section-card">
+        <summary>📅 Appointment <span class="schev">⌄</span></summary>
+        <div class="inner">
+          <div class="field"><label>Date</label><input type="date" data-jf="date" value="${job.date}"></div>
+          <div class="field-row">
+            <div class="field"><label>Arrival</label><input type="time" data-jf="arriveTime" value="${job.arriveTime}"></div>
+            <div class="field"><label>Est. Finish</label><input type="time" data-jf="estFinish" value="${job.estFinish}"></div>
+          </div>
+          <div class="field"><label>Cleaning Type</label>
+            <select data-jf="type">
+              ${['Standard','Deep Cleaning','Move In','Move Out','Organization','Pantry','Airbnb'].map(t=>`<option ${job.type===t?'selected':''}>${t}</option>`).join('')}
+            </select>
+          </div>
+          <button class="btn-block btn-green" id="apptSave" data-id="${job.id}">💾 Save</button>
+        </div>
+      </details>
+
+      <details class="section-card">
+        <summary>🧹 Cleaning Checklist <span class="schev">⌄</span> ${checklistComplete(job)?'<span class="done-badge">Done</span>':`<span class="done-badge" style="background:rgba(217,173,67,.18);color:var(--gold2)">${cp.done}/${cp.total}</span>`}</summary>
+        <div class="inner">
+          ${Object.entries(job.checklist).map(([room, items])=>`
+            <div class="check-group">
+              <h4>${room}</h4>
+              ${Object.entries(items).map(([item,val])=>`
+                <label class="check-row ${val?'checked':''}" data-check-job="${job.id}" data-check-room="${room}" data-check-item="${item}">
+                  <span class="check-box">${val?'✔':''}</span><span class="clabel">${item}</span>
+                </label>
+              `).join('')}
+            </div>
+          `).join('')}
+        </div>
+      </details>
+
+      <details class="section-card">
+        <summary>🏡 Home Information <span class="schev">⌄</span></summary>
+        <div class="inner">
+          <div class="field-row">
+            <div class="field"><label>Bedrooms</label><input type="number" min="0" data-hf="bedrooms" value="${job.homeInfo.bedrooms}"></div>
+            <div class="field"><label>Bathrooms</label><input type="number" min="0" data-hf="bathrooms" value="${job.homeInfo.bathrooms}"></div>
+          </div>
+          <div class="field"><label>Finished Basement</label><select data-hf="basement"><option ${job.homeInfo.basement==='Yes'?'selected':''}>Yes</option><option ${job.homeInfo.basement==='No'?'selected':''}>No</option></select></div>
+          <div class="field"><label>Garage</label><select data-hf="garage"><option ${job.homeInfo.garage==='Yes'?'selected':''}>Yes</option><option ${job.homeInfo.garage==='No'?'selected':''}>No</option></select></div>
+          <div class="field"><label>Kitchen Counter</label><select data-hf-s="kitchenCounter">${['Granite','Quartz','Marble','Corian','Wood','None'].map(o=>`<option ${job.homeInfo.surfaces.kitchenCounter===o?'selected':''}>${o}</option>`).join('')}</select></div>
+          <div class="field"><label>Bathroom Counter</label><select data-hf-s="bathroomCounter">${['Granite','Quartz','Marble','None'].map(o=>`<option ${job.homeInfo.surfaces.bathroomCounter===o?'selected':''}>${o}</option>`).join('')}</select></div>
+          <div class="field"><label>Floor Type</label><select data-hf-s="floorType">${['Tile','Stone','Vinyl','Hardwood','Laminate','Carpet'].map(o=>`<option ${job.homeInfo.surfaces.floorType===o?'selected':''}>${o}</option>`).join('')}</select></div>
+          <div class="field"><label>Cabinets</label><select data-hf-s="cabinets">${['Finished Wood','Natural Wood','Painted'].map(o=>`<option ${job.homeInfo.surfaces.cabinets===o?'selected':''}>${o}</option>`).join('')}</select></div>
+          <button class="btn-block btn-green" id="homeInfoSave" data-id="${job.id}">💾 Save &amp; Update Products</button>
+        </div>
+      </details>
+
+      <details class="section-card">
+        <summary>🧴 Recommended Products <span class="schev">⌄</span></summary>
+        <div class="inner"><ul class="recommend-list">${recommendedProducts(job).map(p=>`<li>${p}</li>`).join('')}</ul></div>
+      </details>
+
+      <details class="section-card">
+        <summary>📸 Photos <span class="schev">⌄</span> ${photosComplete(job,'before')&&photosComplete(job,'after')?'<span class="done-badge">Done</span>':''}</summary>
+        <div class="inner">
+          <h4 style="color:var(--navy);margin:0 0 10px">Before</h4>
+          <div class="photo-grid">
+            ${PHOTO_AREAS.map(a=>photoBtnHTML(job.id,'before',a)).join('')}
+          </div>
+          <h4 style="color:var(--navy);margin:20px 0 10px">After</h4>
+          <div class="photo-grid">
+            ${PHOTO_AREAS.map(a=>photoBtnHTML(job.id,'after',a)).join('')}
+          </div>
+        </div>
+      </details>
+
+      <details class="section-card">
+        <summary>💰 Payment <span class="schev">⌄</span> ${paymentComplete(job)?'<span class="done-badge">Done</span>':''}</summary>
+        <div class="inner">
+          <div class="pay-grid">
+            ${[['Paid Online','💳'],['Cash','💵'],['Check','✔️'],['Venmo','📱'],['Cash App','📱']].map(([m,ic])=>`
+              <button class="pay-opt ${job.payment.method===m?'active':''}" data-pay-job="${job.id}" data-pay-method="${m}">${ic}<br>${m}</button>
+            `).join('')}
+          </div>
+          ${job.payment.method==='Cash' ? `
+            <div class="field" style="margin-top:12px"><label>Cash Received</label><input type="text" data-pf="cashReceived" value="${job.payment.cashReceived}" placeholder="$0.00"></div>
+            <div class="field"><label>Receipt Number</label><input type="text" data-pf="receiptNumber" value="${job.payment.receiptNumber}" placeholder="e.g. 1042"></div>
+            <button class="btn-block btn-green" id="paySave" data-id="${job.id}">💾 Save Payment Details</button>
+          ` : ''}
+        </div>
+      </details>
+
+      <details class="section-card">
+        <summary>✍️ Customer Signature <span class="schev">⌄</span> ${signatureComplete(job)?'<span class="done-badge">Done</span>':''}</summary>
+        <div class="inner">
+          ${job.signature.customerNotHome ? `
+            <div class="ok-banner">🏠 Marked as Customer Not Home. Receipt, checklist, before/after photos, thank-you email, coupon &amp; review link are queued to send. <br><small>Connect an email service (e.g. a Supabase Edge Function) to actually deliver these automatically.</small></div>
+            <button class="btn-block btn-white" style="color:var(--navy);border:2px solid #e4e9f0" id="undoNotHome" data-id="${job.id}">Undo — Customer Is Home</button>
+          ` : job.signature.dataUrl ? `
+            <img src="${job.signature.dataUrl}" style="width:100%;border-radius:12px;border:2px solid #e4e9f0;background:#fff">
+            <button class="btn-block btn-white" style="color:var(--navy);border:2px solid #e4e9f0" id="clearSig" data-id="${job.id}">✍️ Re-sign</button>
+          ` : `
+            <canvas id="sigCanvas"></canvas>
+            <div class="sig-actions">
+              <button class="btn-block btn-white" style="color:var(--navy);border:2px solid #e4e9f0" id="clearSigPad">Clear</button>
+              <button class="btn-block btn-green" id="saveSig" data-id="${job.id}">Save Signature</button>
+            </div>
+            <button class="btn-block btn-gold" style="margin-top:10px" id="notHomeBtn" data-id="${job.id}">🏠 Customer Not Home</button>
+          `}
+        </div>
+      </details>
+
+      <div class="field"><label style="color:#c9d7e8">Job Notes</label><textarea data-jf="notes" rows="3" placeholder="Anything worth noting about this visit...">${job.notes||''}</textarea></div>
+      <button class="btn-block btn-white" id="notesSave" data-id="${job.id}" style="margin-bottom:16px">💾 Save Notes</button>
+
+      ${!jobReadyToFinish(job) ? `<div class="warn-banner">⚠️ You're almost done! Complete the highlighted sections above (checklist, photos, payment, and signature) before finishing this job.</div>` : ''}
+
+      ${job.completed
+        ? `<button class="big-btn btn-green" disabled style="opacity:.85"><span class="ic">✅</span><span>Job Completed</span></button>`
+        : `<button class="big-btn ${jobReadyToFinish(job)?'btn-green':'btn-white'}" id="finishJobBtn" data-id="${job.id}"><span class="ic">✅</span><span>Finish Job</span></button>`
+      }
+    `;
+  },
+
+  payments(){
+    const paid = DATA.jobs.filter(j=>j.payment.method);
+    if(!paid.length) return emptyState('💰','No payments recorded yet','Payments will appear here once you record them on a job.');
+    let total = 0;
+    paid.forEach(j=>{ if(j.payment.method==='Cash'){ const n = parseFloat((j.payment.cashReceived||'0').replace(/[^0-9.]/g,'')); if(!isNaN(n)) total+=n; } });
+    let html = `<div class="stat-grid"><div class="stat-card"><div class="snum">${paid.length}</div><div class="slabel">Payments Logged</div></div><div class="stat-card"><div class="snum">$${total.toFixed(0)}</div><div class="slabel">Cash Collected</div></div></div>`;
+    paid.sort((a,b)=>b.date.localeCompare(a.date)).forEach(j=>{
+      const c = getCustomer(j.customerId);
+      html += `<div class="cust-card"><h3>${c?.name||'Customer'}</h3><div class="addr">${fmtDate(j.date)} · ${j.payment.method}${j.payment.method==='Cash'&&j.payment.cashReceived?' · '+j.payment.cashReceived:''}</div></div>`;
+    });
+    return html;
+  },
+
+  photos(){
+    const withPhotos = DATA.jobs.filter(j=>Object.keys(j.photos.before).length || Object.keys(j.photos.after).length);
+    if(!withPhotos.length) return emptyState('📸','No photos yet','Before/after photos from job workspaces will show up here.');
+    let html = '';
+    withPhotos.forEach(j=>{
+      const c = getCustomer(j.customerId);
+      html += `<div class="gallery-group"><h4>${c?.name||'Customer'} — ${fmtDate(j.date)}</h4><div class="gallery-grid">`;
+      ['before','after'].forEach(phase=>{
+        Object.values(j.photos[phase]).forEach(src=>{ html += `<img src="${src}">`; });
+      });
+      html += '</div></div>';
+    });
+    return html;
+  },
+
+  business(){
+    const total = DATA.jobs.length;
+    const completed = DATA.jobs.filter(j=>j.completed).length;
+    const upcoming = total-completed;
+    const customers = DATA.customers.length;
+    let cash=0;
+    DATA.jobs.forEach(j=>{ if(j.payment.method==='Cash'){ const n=parseFloat((j.payment.cashReceived||'0').replace(/[^0-9.]/g,'')); if(!isNaN(n)) cash+=n; } });
+    return `
+      <div class="stat-grid">
+        <div class="stat-card"><div class="snum">${total}</div><div class="slabel">Total Jobs</div></div>
+        <div class="stat-card"><div class="snum">${completed}</div><div class="slabel">Completed</div></div>
+        <div class="stat-card"><div class="snum">${upcoming}</div><div class="slabel">Upcoming</div></div>
+        <div class="stat-card"><div class="snum">${customers}</div><div class="slabel">Customers</div></div>
+      </div>
+      <div class="card">
+        <div style="font-weight:800;color:var(--navy);margin-bottom:6px">💵 Cash Collected</div>
+        <div style="font-family:Montserrat;font-weight:900;font-size:1.8rem;color:var(--green2)">$${cash.toFixed(2)}</div>
+        <div style="color:var(--muted);font-size:.85rem;margin-top:4px">From jobs marked as Cash payments.</div>
+      </div>
+    `;
+  },
+
+  settings(){
+    const s = DATA.settings;
+    return `
+      <div class="card">
+        <div class="settings-row"><span class="slabel2">🌙 Dark Mode</span><button class="switch ${s.darkMode?'on':''}" data-toggle="darkMode"></button></div>
+        <div class="settings-row"><span class="slabel2">🔔 Notifications</span><button class="switch ${s.notifications?'on':''}" data-toggle="notifications"></button></div>
+      </div>
+      <div class="card">
+        <div class="field"><label>Business Name</label><input data-bf="name" value="${DATA.business.name}"></div>
+        <div class="field"><label>Phone</label><input data-bf="phone" value="${DATA.business.phone}"></div>
+        <div class="field"><label>Email</label><input data-bf="email" value="${DATA.business.email}"></div>
+        <div class="field"><label>Google Review Link</label><input data-bf="reviewLink" value="${DATA.business.reviewLink}" placeholder="https://g.page/r/..."></div>
+        <div class="field"><label>Coupon Text</label><input data-bf="couponText" value="${DATA.business.couponText}"></div>
+        <button class="btn-block btn-green" id="bizSave">💾 Save Business Info</button>
+      </div>
+      <div class="card">
+        <div style="font-weight:800;color:var(--navy);margin-bottom:6px">📧 Email Settings</div>
+        <div style="color:var(--muted);font-size:.87rem">Automated receipts, thank-you emails, and coupons need an email service connected on the backend (e.g. a Supabase Edge Function). This portal stores everything locally on this device until that's wired up.</div>
+      </div>
+      <button class="big-btn btn-red" id="logoutBtn"><span class="ic">🚪</span><span>Logout</span></button>
+    `;
+  }
+};
+
+function emptyState(ic,title,sub){
+  return `<div class="empty-state"><span class="eic">${ic}</span><div style="font-weight:800;font-size:1.05rem;margin-bottom:4px">${title}</div><div style="font-size:.9rem">${sub||''}</div></div>`;
+}
+
+function jobCardHTML(job){
+  const c = getCustomer(job.customerId);
+  const status = jobStatus(job);
+  return `
+    <div class="job-card status-${status}">
+      <div class="job-tag">${statusLabel(status)}</div>
+      <div class="job-name">🏠 ${c?.name||'Customer'}</div>
+      <div class="job-line">🕘 ${fmtTime(job.arriveTime)}</div>
+      <div class="job-line">📍 ${c?.address||''}</div>
+      <div class="job-line">🧹 ${job.type}</div>
+      ${job.completed
+        ? `<button class="big-btn btn-white" style="opacity:.8" disabled><span class="ic">✅</span><span>Completed</span></button>`
+        : `<button class="big-btn btn-navy" data-nav="jobWorkspace" data-params='{"id":"${job.id}"}'><span class="ic">🟢</span><span>${status==='yellow'?'Start Job':'Open Job'}</span></button>`
+      }
+    </div>
+  `;
+}
+
+function photoBtnHTML(jobId, phase, area){
+  const job = getJob(jobId);
+  const src = job.photos[phase][area];
+  if(src){
+    return `<div class="photo-btn done" data-photo-job="${jobId}" data-photo-phase="${phase}" data-photo-area="${area}">
+      <img class="pthumb" src="${src}"><span class="pcheck">✔</span>${area}</div>`;
+  }
+  return `<button class="photo-btn" data-photo-job="${jobId}" data-photo-phase="${phase}" data-photo-area="${area}">📷<br>${area}</button>`;
+}
+
+/* =========================================================
+   EVENT BINDING
+   ========================================================= */
+let sigPad = null;
+
+function bindDynamic(screen, params){
+  const app = document.getElementById('app');
+
+  // generic nav buttons
+  app.querySelectorAll('[data-nav]').forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      const target = btn.dataset.nav;
+      const p = btn.dataset.params ? JSON.parse(btn.dataset.params) : {};
+      navigate(target, p);
+    });
+  });
+
+  if(screen==='jobs'){ /* nothing extra */ }
+
+  if(screen==='calendar'){
+    app.querySelectorAll('[data-cal-day]').forEach(btn=>{
+      btn.addEventListener('click', ()=> navigate('calendar', {day: btn.dataset.calDay}));
+      btn.addEventListener('dragover', e=> e.preventDefault());
+      btn.addEventListener('drop', e=>{
+        e.preventDefault();
+        const jobId = e.dataTransfer.getData('text/job');
+        const job = getJob(jobId);
+        if(job){ job.date = btn.dataset.calDay; save(); toast('📅 Job moved to '+fmtDate(job.date)); render(); }
+      });
+    });
+    app.querySelectorAll('[data-drag-job]').forEach(el=>{
+      el.addEventListener('dragstart', e=> e.dataTransfer.setData('text/job', el.dataset.dragJob));
+    });
+  }
+
+  if(screen==='newJobForDay'){
+    const saveBtn = document.getElementById('njSave');
+    if(saveBtn) saveBtn.addEventListener('click', ()=>{
+      if(!DATA.customers.length){ toast('Add a customer first'); return; }
+      const custId = document.getElementById('njCustomer').value;
+      if(!custId){ toast('Add a customer first'); return; }
+      const job = {
+        id:uid(), customerId:custId, date:saveBtn.dataset.day,
+        arriveTime:document.getElementById('njTime').value||'09:00', estFinish:'', type:document.getElementById('njType').value,
+        addons:[], completed:false,
+        homeInfo:{bedrooms:0,bathrooms:0,kitchen:1,livingRoom:1,laundryRoom:1,basement:'No',garage:'No',
+          surfaces:{kitchenCounter:'None',bathroomCounter:'None',floorType:'Tile',cabinets:'Painted'}},
+        checklist:freshChecklist(), photos:{before:{},after:{}},
+        payment:{method:null,cashReceived:'',receiptNumber:''},
+        signature:{dataUrl:null,customerNotHome:false}, notes:''
+      };
+      DATA.jobs.push(job); save();
+      toast('✅ Job added');
+      stack.pop(); navigate('jobWorkspace', {id:job.id});
+    });
+  }
+
+  if(screen==='customers'){
+    const search = document.getElementById('custSearch');
+    if(search){
+      search.addEventListener('input', ()=>{
+        current().params.q = search.value;
+        render();
+        document.getElementById('custSearch').focus();
+        const val = document.getElementById('custSearch').value;
+        document.getElementById('custSearch').value='';
+        document.getElementById('custSearch').value = val;
+      });
+    }
+  }
+
+  if(screen==='newCustomer'){
+    const saveBtn = document.getElementById('ncSave');
+    if(saveBtn) saveBtn.addEventListener('click', ()=>{
+      const name = document.getElementById('ncName').value.trim();
+      if(!name){ toast('Name is required'); return; }
+      const c = {
+        id:uid(), name, phone:document.getElementById('ncPhone').value,
+        email:document.getElementById('ncEmail').value, address:document.getElementById('ncAddress').value,
+        frequency:document.getElementById('ncFreq').value, preferredContact:'Text',
+        pets:'', children:'', doorCode:'', alarm:'', parking:'',
+        notes:`Preferred: ${document.getElementById('ncDay').value} at ${document.getElementById('ncTimePref').value}. Type: ${document.getElementById('ncType').value}.`
+      };
+      DATA.customers.push(c); save();
+      toast('✅ Customer added');
+      goBack(); navigate('customerProfile', {id:c.id});
+    });
+  }
+
+  if(screen==='customerProfile'){
+    const saveBtn = document.getElementById('custSave');
+    if(saveBtn) saveBtn.addEventListener('click', ()=>{
+      const c = getCustomer(saveBtn.dataset.id);
+      app.querySelectorAll('[data-cf]').forEach(el=>{ c[el.dataset.cf] = el.value; });
+      save(); toast('💾 Saved');
+    });
+  }
+
+  if(screen==='jobWorkspace'){
+    const job = getJob(params.id);
+    if(!job) return;
+
+    app.querySelectorAll('[data-check-job]').forEach(row=>{
+      row.addEventListener('click', ()=>{
+        const {checkRoom, checkItem} = row.dataset;
+        job.checklist[checkRoom][checkItem] = !job.checklist[checkRoom][checkItem];
+        save(); render();
+      });
+    });
+
+    const apptSave = document.getElementById('apptSave');
+    if(apptSave) apptSave.addEventListener('click', ()=>{
+      app.querySelectorAll('[data-jf]').forEach(el=>{ job[el.dataset.jf] = el.value; });
+      save(); toast('💾 Saved'); render();
+    });
+    const notesSave = document.getElementById('notesSave');
+    if(notesSave) notesSave.addEventListener('click', ()=>{
+      const ta = app.querySelector('textarea[data-jf="notes"]');
+      if(ta) job.notes = ta.value;
+      save(); toast('💾 Notes saved');
+    });
+
+    const homeSave = document.getElementById('homeInfoSave');
+    if(homeSave) homeSave.addEventListener('click', ()=>{
+      app.querySelectorAll('[data-hf]').forEach(el=>{ job.homeInfo[el.dataset.hf] = isNaN(el.value)||el.value===''?el.value:Number(el.value); });
+      app.querySelectorAll('[data-hf-s]').forEach(el=>{ job.homeInfo.surfaces[el.dataset.hfS] = el.value; });
+      save(); toast('🧴 Products updated'); render();
+    });
+
+    app.querySelectorAll('[data-photo-job]').forEach(el=>{
+      el.addEventListener('click', ()=>{
+        const {photoJob, photoPhase, photoArea} = el.dataset;
+        const input = document.getElementById('photoInput');
+        input.onchange = ()=>{
+          const file = input.files[0];
+          if(!file) return;
+          const reader = new FileReader();
+          reader.onload = ()=>{
+            getJob(photoJob).photos[photoPhase][photoArea] = reader.result;
+            save(); render(); toast('📸 Photo added');
+          };
+          reader.readAsDataURL(file);
+          input.value = '';
+        };
+        input.click();
+      });
+    });
+
+    app.querySelectorAll('[data-pay-job]').forEach(el=>{
+      el.addEventListener('click', ()=>{
+        job.payment.method = el.dataset.payMethod;
+        save(); render();
+      });
+    });
+    const paySave = document.getElementById('paySave');
+    if(paySave) paySave.addEventListener('click', ()=>{
+      app.querySelectorAll('[data-pf]').forEach(el=>{ job.payment[el.dataset.pf] = el.value; });
+      save(); toast('💾 Payment saved'); render();
+    });
+
+    // signature pad
+    const canvas = document.getElementById('sigCanvas');
+    if(canvas){
+      const ctx = canvas.getContext('2d');
+      // fixed internal resolution — not measured from layout, so it still
+      // works correctly even if this section starts out collapsed
+      canvas.width = 800; canvas.height = 300;
+      ctx.lineWidth = 3; ctx.lineCap = 'round'; ctx.strokeStyle = '#142238';
+      let drawing=false, last=null;
+      function pos(e){
+        const rect = canvas.getBoundingClientRect();
+        const p = e.touches ? e.touches[0] : e;
+        const scaleX = canvas.width / rect.width;
+        const scaleY = canvas.height / rect.height;
+        return {x:(p.clientX-rect.left)*scaleX, y:(p.clientY-rect.top)*scaleY};
+      }
+      function start(e){ drawing=true; last=pos(e); }
+      function move(e){
+        if(!drawing) return;
+        e.preventDefault();
+        const p = pos(e);
+        ctx.beginPath(); ctx.moveTo(last.x,last.y); ctx.lineTo(p.x,p.y); ctx.stroke();
+        last=p;
+      }
+      function end(){ drawing=false; }
+      canvas.addEventListener('mousedown', start);
+      canvas.addEventListener('mousemove', move);
+      window.addEventListener('mouseup', end);
+      canvas.addEventListener('touchstart', start, {passive:true});
+      canvas.addEventListener('touchmove', move, {passive:false});
+      canvas.addEventListener('touchend', end);
+
+      const clearBtn = document.getElementById('clearSigPad');
+      if(clearBtn) clearBtn.addEventListener('click', ()=> ctx.clearRect(0,0,canvas.width,canvas.height));
+      const saveSigBtn = document.getElementById('saveSig');
+      if(saveSigBtn) saveSigBtn.addEventListener('click', ()=>{
+        job.signature.dataUrl = canvas.toDataURL();
+        save(); render(); toast('✍️ Signature saved');
+      });
+      const notHomeBtn = document.getElementById('notHomeBtn');
+      if(notHomeBtn) notHomeBtn.addEventListener('click', ()=>{
+        job.signature.customerNotHome = true;
+        save(); render(); toast('🏠 Marked customer not home');
+      });
+    }
+    const clearSig = document.getElementById('clearSig');
+    if(clearSig) clearSig.addEventListener('click', ()=>{ job.signature.dataUrl=null; save(); render(); });
+    const undoNotHome = document.getElementById('undoNotHome');
+    if(undoNotHome) undoNotHome.addEventListener('click', ()=>{ job.signature.customerNotHome=false; save(); render(); });
+
+    const finishBtn = document.getElementById('finishJobBtn');
+    if(finishBtn) finishBtn.addEventListener('click', ()=>{
+      if(!jobReadyToFinish(job)){ toast('⚠️ Complete all sections first'); return; }
+      job.completed = true; save();
+      toast('✅ Job completed!');
+      goBack();
+    });
+  }
+
+  if(screen==='payments' || screen==='photos' || screen==='business'){ /* read-only */ }
+
+  if(screen==='settings'){
+    app.querySelectorAll('[data-toggle]').forEach(el=>{
+      el.addEventListener('click', ()=>{
+        DATA.settings[el.dataset.toggle] = !DATA.settings[el.dataset.toggle];
+        save(); render();
+        applyTheme();
+      });
+    });
+    const bizSave = document.getElementById('bizSave');
+    if(bizSave) bizSave.addEventListener('click', ()=>{
+      app.querySelectorAll('[data-bf]').forEach(el=>{ DATA.business[el.dataset.bf] = el.value; });
+      save(); toast('💾 Business info saved');
+    });
+    const logoutBtn = document.getElementById('logoutBtn');
+    if(logoutBtn) logoutBtn.addEventListener('click', ()=>{
+      DATA.session.unlocked = false; save();
+      showLock();
+    });
+  }
+}
+
+function applyTheme(){
+  document.body.style.background = DATA.settings.darkMode
+    ? 'radial-gradient(circle at 15% 0%,#0d2f6e,var(--navy) 55%)'
+    : 'radial-gradient(circle at 15% 0%,#eef3fb,#dbe6f5 55%)';
+  document.body.style.color = DATA.settings.darkMode ? '#fff' : '#142238';
+}
+
+/* =========================================================
+   INIT
+   ========================================================= */
+document.getElementById('backBtn').addEventListener('click', goBack);
+document.getElementById('homeBtn').addEventListener('click', goHome);
+
+function showLock(){
+  document.getElementById('shell').classList.add('hide');
+  document.getElementById('lockScreen').classList.remove('hide');
+}
+function showShell(){
+  document.getElementById('lockScreen').classList.add('hide');
+  document.getElementById('shell').classList.remove('hide');
+  render();
+}
+document.getElementById('unlockBtn').addEventListener('click', ()=>{
+  DATA.session.unlocked = true; save();
+  showShell();
+});
+
+applyTheme();
+if(DATA.session && DATA.session.unlocked===false){ showLock(); } else { showShell(); }
+</script>
+</body>
+</html>
 
