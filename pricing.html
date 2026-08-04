@@ -1,5 +1,20 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Simple, transparent pricing for house cleaning, deep cleaning, Airbnb turnovers, move-in/move-out cleaning, and home organization."><title>Pricing | Randy's Premier Cleaning</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800;900&family=Open+Sans:wght@400;600;700;800&display=swap" rel="stylesheet"><link rel="stylesheet" href="styles.css">
-<style>html body .p-star,html body .ptc-price{color:#111111 !important;}</style>
+<style>
+html body .p-star,html body .ptc-price{color:#0b0b0b !important;font-weight:800}
+.p-name,.p-name b{color:#0b0b0b !important;font-weight:800}
+.chart-table th{color:#0b0b0b;font-weight:800}
+.bold-black{color:#0b0b0b;font-weight:800}
+.min-charge-banner{background:linear-gradient(160deg,var(--navy),var(--navy2));color:#fff;border-radius:var(--radius-lg);padding:22px 28px;text-align:center;box-shadow:var(--shadow);max-width:600px;margin:0 auto 34px}
+.min-charge-banner .amt{font-family:Montserrat,sans-serif;font-weight:900;font-size:2rem;color:var(--gold)}
+.bundle-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:16px;max-width:900px;margin:0 auto}
+.bundle-card{background:#fff;border:2px solid var(--line);border-radius:var(--radius);padding:20px;text-align:center;box-shadow:var(--shadow-sm)}
+.bundle-card.hot{border-color:var(--gold)}
+.bundle-card .pct{font-family:Montserrat,sans-serif;font-weight:900;font-size:1.8rem;color:var(--green)}
+.custom-quote-box{max-width:820px;margin:0 auto;background:#fff;border:1px solid var(--line);border-radius:var(--radius-lg);box-shadow:var(--shadow-sm);padding:34px}
+.custom-quote-box h3{font-family:Montserrat,sans-serif;font-weight:900;color:#0b0b0b;font-size:1.4rem;margin:0 0 14px}
+.custom-quote-box ul{list-style:none;padding:0;margin:0;display:grid;gap:10px}
+.custom-quote-box li{color:var(--ink);font-size:1.02rem}
+</style>
 </head><body>
 <a class="skip-link" href="#main-content">Skip to main content</a>
 <div class="top-strip">Serving Cumberland and York Counties • Prefer texting for a faster response</div>
@@ -7,7 +22,7 @@
 <a class="brand" href="index.html"><span class="brand-main">RANDY'S</span><span class="brand-sub">PREMIER CLEANING</span></a>
 <button class="menu-button" type="button" aria-expanded="false" aria-controls="mainMenu" aria-label="Open navigation menu">☰ Menu</button>
 <nav class="menu-panel" id="mainMenu" aria-label="Main navigation">
-<a href="index.html">Home</a><a href="services.html">Services</a><a href="pricing.html" aria-current="page">Pricing</a><a href="process.html">Our Process</a><a href="promotions.html">Promotions</a><a href="about.html">About</a><a href="promise.html">Premier Promise</a><a href="reviews.html">Reviews</a><a href="contact.html">Contact</a><a class="quote-link" href="quote.html">Free Quote</a>
+<a href="index.html">Home</a><a href="services.html">Services</a><a href="pricing.html" aria-current="page">Pricing</a><a href="process.html">Our Process</a><a href="promotions.html">Promotions</a><a href="about.html">About</a><a href="reviews.html">Reviews</a><a href="contact.html">Contact</a><a class="quote-link" href="quote.html">Free Quote</a>
 </nav></div></header>
 
 <main id="main-content">
@@ -18,6 +33,7 @@
 </div></section>
 
 <section class="section section-white"><div class="container">
+<div class="min-charge-banner">⭐ Minimum Service Charge<br><span class="amt">$90</span></div>
 
 <div class="pricing-tabs" role="tablist" aria-label="Pricing categories">
 <button class="pricing-tab-btn active" data-panel="tasks">🧹 Task-Based Pricing</button>
@@ -29,119 +45,173 @@
 
 <!-- TASK PRICING -->
 <div class="pricing-panel active" id="panel-tasks">
-<div class="section-heading"><h2>📋 Task-Based Pricing</h2><p>Pick exactly what you need — every room is priced on its own.</p></div>
+<div class="section-heading"><h2 class="bold-black">📋 Standard Room-by-Room Pricing</h2><p>Pick exactly what you need — every room is priced on its own. Includes our full Gold Standard process: vacuuming, steaming where appropriate, detailed cleaning, and final disinfection.</p></div>
 <div class="chart-wrap"><table class="chart-table"><thead><tr><th>Room</th><th>Price</th></tr></thead><tbody>
-<tr><td data-label="Room" class="p-name">🛏️ Small Bedroom <span class="p-use">(70–100 sq ft)</span></td><td data-label="Price" class="p-star">$13</td></tr>
-<tr><td data-label="Room" class="p-name">🛏️ Medium Bedroom <span class="p-use">(101–150 sq ft)</span></td><td data-label="Price" class="p-star">$18</td></tr>
-<tr><td data-label="Room" class="p-name">🛏️ Primary Bedroom <span class="p-use">(151+ sq ft)</span></td><td data-label="Price" class="p-star">$28</td></tr>
-<tr><td data-label="Room" class="p-name">🚽 Half Bathroom</td><td data-label="Price" class="p-star">$17</td></tr>
-<tr><td data-label="Room" class="p-name">🚿 Full Bathroom</td><td data-label="Price" class="p-star">$28</td></tr>
-<tr><td data-label="Room" class="p-name">🍽️ Kitchen</td><td data-label="Price" class="p-star">$36</td></tr>
-<tr><td data-label="Room" class="p-name">🛋️ Living Room</td><td data-label="Price" class="p-star">$23</td></tr>
-<tr><td data-label="Room" class="p-name">👨‍👩‍👧 Family Room</td><td data-label="Price" class="p-star">$23</td></tr>
-<tr><td data-label="Room" class="p-name">🍴 Dining Room</td><td data-label="Price" class="p-star">$13</td></tr>
-<tr><td data-label="Room" class="p-name">💼 Office</td><td data-label="Price" class="p-star">$18</td></tr>
+<tr><td data-label="Room" class="p-name">🛏️ Small Bedroom <span class="p-use">(70–100 sq ft)</span></td><td data-label="Price" class="p-star">$15</td></tr>
+<tr><td data-label="Room" class="p-name">🛏️ Medium Bedroom <span class="p-use">(101–150 sq ft)</span></td><td data-label="Price" class="p-star">$20</td></tr>
+<tr><td data-label="Room" class="p-name">👑 Primary Bedroom <span class="p-use">(151+ sq ft)</span></td><td data-label="Price" class="p-star">$30</td></tr>
+<tr><td data-label="Room" class="p-name">🚽 Half Bathroom</td><td data-label="Price" class="p-star">$20</td></tr>
+<tr><td data-label="Room" class="p-name">🚿 Full Bathroom</td><td data-label="Price" class="p-star">$35</td></tr>
+<tr><td data-label="Room" class="p-name">🍽️ Kitchen</td><td data-label="Price" class="p-star">$45</td></tr>
+<tr><td data-label="Room" class="p-name">🛋️ Living Room</td><td data-label="Price" class="p-star">$30</td></tr>
+<tr><td data-label="Room" class="p-name">🍴 Dining Room</td><td data-label="Price" class="p-star">$20</td></tr>
+<tr><td data-label="Room" class="p-name">💼 Office</td><td data-label="Price" class="p-star">$20</td></tr>
 <tr><td data-label="Room" class="p-name">🧺 Laundry Room</td><td data-label="Price" class="p-star">$10</td></tr>
 <tr><td data-label="Room" class="p-name">🚪 Entryway</td><td data-label="Price" class="p-star">$10</td></tr>
-<tr><td data-label="Room" class="p-name">🚶 Hallway</td><td data-label="Price" class="p-star">$10</td></tr>
-<tr><td data-label="Room" class="p-name">🪜 Staircase</td><td data-label="Price" class="p-star">$13</td></tr>
+<tr><td data-label="Room" class="p-name">🪜 Staircase</td><td data-label="Price" class="p-star">$15–25</td></tr>
 </tbody></table></div>
-<div class="notice" style="margin-top:22px">✨ Prices assume an average, ready-to-clean home. Heavy build-up or extra time will always be confirmed with you before we start.</div>
+<div class="notice" style="margin-top:22px">✨ Prices assume an average, ready-to-clean home. A $90 minimum service charge applies to every visit. Heavy build-up or extra time will always be confirmed with you before we start.</div>
 </div>
 
 <!-- DEEP CLEANING DETAIL -->
 <div class="pricing-panel" id="panel-deep">
-<div class="section-heading"><h2>✨ Deep Cleaning Detail</h2><p>A detail restoration service — flat-rate pricing for the rooms that build up the most grime.</p></div>
-<div class="grid-3">
-<div class="price-tier-card"><div class="ptc-name"><span class="pill-dot pd-green"></span>🚿 Full Bathroom</div><div class="ptc-price">$100</div><ul><li>Steam-assisted detail on appropriate surfaces</li><li>Grout, fixtures &amp; hard-to-reach spots</li><li>Full disinfect after clean &amp; dry</li></ul></div>
-<div class="price-tier-card"><div class="ptc-name"><span class="pill-dot pd-gold"></span>🚽 Half Bathroom</div><div class="ptc-price">$50</div><ul><li>Same detail-level care</li><li>Sized for a half bath</li></ul></div>
-<div class="price-tier-card"><div class="ptc-name"><span class="pill-dot pd-navy"></span>🍳 Kitchen Deep Detail</div><div class="ptc-price">$250</div><ul><li>Inside cabinets, vacuumed &amp; deep cleaned</li><li>Fridge &amp; freezer emptied, cleaned &amp; sanitized</li><li>Drawers cleaned out</li><li>Premium wood cleaner &amp; conditioner on wood cabinets</li></ul></div>
+<div class="section-heading"><h2 class="bold-black">⭐ Gold Standard Deep Cleaning Upgrade</h2><p>One-time restoration-level attention for rooms that need extra time — buildup removal, detailed hand cleaning, and steam cleaning where appropriate. Upgrade individual rooms instead of the whole house.</p></div>
+<div class="chart-wrap"><table class="chart-table"><thead><tr><th>Room</th><th>Deep Clean Price</th></tr></thead><tbody>
+<tr><td data-label="Room" class="p-name">🛏️ Small Bedroom</td><td data-label="Price" class="p-star">$60</td></tr>
+<tr><td data-label="Room" class="p-name">🛏️ Medium Bedroom</td><td data-label="Price" class="p-star">$75</td></tr>
+<tr><td data-label="Room" class="p-name">👑 Master Bedroom</td><td data-label="Price" class="p-star">$90</td></tr>
+<tr><td data-label="Room" class="p-name">🚽 Half Bathroom</td><td data-label="Price" class="p-star">$75</td></tr>
+<tr><td data-label="Room" class="p-name">🚿 Full Bathroom</td><td data-label="Price" class="p-star">$125</td></tr>
+<tr><td data-label="Room" class="p-name">🍳 Kitchen Deep Detail</td><td data-label="Price" class="p-star">$275</td></tr>
+<tr><td data-label="Room" class="p-name">🛋️ Living Room</td><td data-label="Price" class="p-star">$90</td></tr>
+<tr><td data-label="Room" class="p-name">🍽️ Dining Room</td><td data-label="Price" class="p-star">$60</td></tr>
+<tr><td data-label="Room" class="p-name">💼 Office</td><td data-label="Price" class="p-star">$65</td></tr>
+<tr><td data-label="Room" class="p-name">🧺 Laundry Room</td><td data-label="Price" class="p-star">$50</td></tr>
+<tr><td data-label="Room" class="p-name">🚪 Entryway</td><td data-label="Price" class="p-star">$40</td></tr>
+<tr><td data-label="Room" class="p-name">🪜 Staircase</td><td data-label="Price" class="p-star">$50–75</td></tr>
+<tr><td data-label="Room" class="p-name">🚶 Hallway</td><td data-label="Price" class="p-star">$35–50</td></tr>
+</tbody></table></div>
+
+<div class="section-heading" style="margin-top:44px"><h2 class="bold-black" style="font-size:1.6rem">🎁 Bundle Discounts</h2><p>Book more rooms for the Deep Cleaning Upgrade, save more.</p></div>
+<div class="bundle-grid">
+<div class="bundle-card"><div class="pct">—</div><p><b>1 Room</b><br>Regular price</p></div>
+<div class="bundle-card hot"><div class="pct">10% off</div><p><b>2–3 Rooms</b></p></div>
+<div class="bundle-card hot"><div class="pct">15% off</div><p><b>4+ Rooms</b></p></div>
+<div class="bundle-card"><div class="pct">Custom</div><p><b>Whole-Home Deep Clean</b><br>Usually less than adding every room</p></div>
 </div>
-<div class="notice" style="margin-top:22px">🪵 <strong>Wood cabinets:</strong> we never steam wood. Instead we vacuum, clean with a premium wood cleaner, then finish with a wood oil restoration protector so cabinets look fresh and cared for. Cabinets can be emptied for you on request.</div>
+
+<div class="notice" style="margin-top:28px">🪵 <strong>Wood cabinets:</strong> we never steam wood. Instead we vacuum, clean with a premium wood cleaner, then finish with a wood oil restoration protector. Cabinets can be emptied for you on request.</div>
 <div class="notice" style="margin-top:14px">🧊 <strong>Fridge &amp; freezer:</strong> everything is removed, the interior is steamed and wiped clean, then items are placed back neatly.</div>
-<div class="section-heading" style="margin-top:44px"><h2 style="font-size:1.7rem">➕ Optional Add-On</h2></div>
+
+<div class="section-heading" style="margin-top:44px"><h2 class="bold-black" style="font-size:1.6rem">➕ Premium Add-Ons</h2></div>
 <div class="chart-wrap"><table class="chart-table"><thead><tr><th>Add-On</th><th>Price</th></tr></thead><tbody>
+<tr><td data-label="Add-On" class="p-name">🧊 Inside Refrigerator</td><td data-label="Price" class="p-star">$50</td></tr>
+<tr><td data-label="Add-On" class="p-name">🔥 Inside Oven</td><td data-label="Price" class="p-star">$50</td></tr>
+<tr><td data-label="Add-On" class="p-name">🪟 Interior Windows</td><td data-label="Price" class="p-star">$10–15 / window</td></tr>
+<tr><td data-label="Add-On" class="p-name">🧹 Baseboards (whole room)</td><td data-label="Price" class="p-star">Included in Deep Clean</td></tr>
+<tr><td data-label="Add-On" class="p-name">🪨 Stone Sealing</td><td data-label="Price" class="p-star">Starting at $75</td></tr>
+<tr><td data-label="Add-On" class="p-name">✨ Shower/Tub Restoration</td><td data-label="Price" class="p-star">$75–150</td></tr>
 <tr><td data-label="Add-On" class="p-name">🗂️ Cabinet &amp; Drawer Grip Liners</td><td data-label="Price" class="p-star">Ask for pricing</td></tr>
 </tbody></table></div>
 </div>
 
 <!-- AIRBNB -->
 <div class="pricing-panel" id="panel-airbnb">
-<div class="section-heading"><h2>🏠 Airbnb Turnover Pricing</h2><p>Same simple, per-room pricing as our standard cleans — flat rate no matter the room size.</p></div>
-<div class="chart-wrap"><table class="chart-table"><thead><tr><th>Room</th><th>Price</th></tr></thead><tbody>
-<tr><td data-label="Room" class="p-name">🛏️ Bedroom <span class="p-use">(any size)</span></td><td data-label="Price" class="p-star">$10</td></tr>
-<tr><td data-label="Room" class="p-name">🚿 Bathroom <span class="p-use">(any size)</span></td><td data-label="Price" class="p-star">$10</td></tr>
-<tr><td data-label="Room" class="p-name">🍽️ Kitchen</td><td data-label="Price" class="p-star">$10</td></tr>
-<tr><td data-label="Room" class="p-name">🛋️ Living Room</td><td data-label="Price" class="p-star">$5</td></tr>
-</tbody></table></div>
-<div class="notice" style="margin-top:22px">✨ Above rates are for a <strong>well-maintained</strong> Airbnb (normal guest use, ready to reset). If the unit is left messy or needs extra work, a <strong>20% surcharge</strong> applies to the total.</div>
-<div class="section-heading" style="margin-top:44px"><h2 style="font-size:1.7rem">➕ Add-Ons</h2></div>
-<div class="chart-wrap"><table class="chart-table"><thead><tr><th>Add-On</th><th>Price</th></tr></thead><tbody>
-<tr><td data-label="Add-On" class="p-name">🛏️ Fresh Linens &amp; Made Beds</td><td data-label="Price" class="p-star">+$15</td></tr>
-<tr><td data-label="Add-On" class="p-name">🧻 Restock Essentials</td><td data-label="Price" class="p-star">+$10</td></tr>
-<tr><td data-label="Add-On" class="p-name">✨ Post-Guest Deep Clean</td><td data-label="Price" class="p-star">+$40</td></tr>
-<tr><td data-label="Add-On" class="p-name">⚡ Same-Day Rush Turnover</td><td data-label="Price" class="p-star">+$20</td></tr>
-</tbody></table></div>
+<div class="section-heading"><h2 class="bold-black">🏠 Airbnb Turnover Service</h2><p>Every Airbnb is unique, so we provide custom pricing based on your property's size, layout, and turnover needs.</p></div>
+<div class="custom-quote-box">
+<h3>✔ Our Airbnb Turnover Service Includes</h3>
+<ul>
+<li>✅ Gold Standard Cleaning throughout the property</li>
+<li>✅ Fresh bed linen changeover</li>
+<li>✅ Fresh towel replacement</li>
+<li>✅ Kitchen and bathroom sanitizing and disinfecting</li>
+<li>✅ Trash removal</li>
+<li>✅ Property inspection for cleanliness and guest readiness</li>
+<li>✅ Restocking of supplies (if provided)</li>
+<li>✅ Before-and-after photos upon request</li>
+</ul>
+<h3 style="margin-top:26px">🧺 Linen &amp; Towel Service</h3>
+<ul>
+<li>We bring clean sheets and towels from our office.</li>
+<li>We ask you to provide at least one extra complete set of linens and towels per bed and bathroom.</li>
+<li>We strip used linens, make beds with fresh sheets, replace towels, and return used items to our office.</li>
+<li>We professionally wash, treat stains, dry, fold, and prepare linens for your next turnover.</li>
+</ul>
+<div style="text-align:center;margin-top:26px"><a class="button button-gold" href="mailto:randyspremiercleaning@gmail.com?subject=Airbnb%20Turnover%20Pricing%20Request">📧 Email Us for Pricing</a></div>
+</div>
 </div>
 
 <!-- MOVE IN/OUT -->
 <div class="pricing-panel" id="panel-moveout">
-<div class="section-heading"><h2>📦 Move In / Move Out Pricing</h2><p>A deep, top-to-bottom clean — inside cabinets, appliances, baseboards, and more.</p></div>
-<div class="grid-3">
-<div class="price-tier-card"><div class="ptc-name"><span class="pill-dot pd-green"></span>Studio / 1 Bedroom</div><div class="ptc-price">$140</div><ul><li>Inside cabinets &amp; closets</li><li>Baseboards &amp; window sills</li><li>Full kitchen &amp; bathroom detail</li></ul></div>
-<div class="price-tier-card"><div class="ptc-name"><span class="pill-dot pd-gold"></span>2 Bedroom</div><div class="ptc-price">$190</div><ul><li>Everything above</li><li>2 bedrooms + 1–2 baths</li></ul></div>
-<div class="price-tier-card"><div class="ptc-name"><span class="pill-dot pd-navy"></span>3 Bedroom</div><div class="ptc-price">$260</div><ul><li>Everything above</li><li>3 bedrooms + 2 baths</li></ul></div>
-<div class="price-tier-card"><div class="ptc-name"><span class="pill-dot pd-red"></span>4 Bedroom</div><div class="ptc-price">$330</div><ul><li>Everything above</li><li>4 bedrooms + 2–3 baths</li></ul></div>
-<div class="price-tier-card"><div class="ptc-name"><span class="pill-dot pd-green"></span>5+ Bedroom / Whole Home</div><div class="ptc-price" style="font-size:1.3rem">Custom Quote</div><ul><li>Free personalized estimate</li></ul></div>
+<div class="section-heading"><h2 class="bold-black">🏡 Gold Standard Move-In / Move-Out Restoration Cleaning</h2><p>Our highest level of cleaning — every home is different, so we provide a personalized quote rather than a fixed price.</p></div>
+<div class="custom-quote-box">
+<p style="color:var(--ink);font-size:1.05rem;margin:0 0 18px">Some homes need only a light move-out cleaning, while others need years of grease, soap scum, hard water deposits, rust, dust, pet hair, and buildup removed. Because every property is unique, we provide a personalized quote based on:</p>
+<ul>
+<li>🏠 Home size</li>
+<li>🛏️ Number of bedrooms and bathrooms</li>
+<li>🔍 Overall condition</li>
+<li>🔌 Appliances requiring interior cleaning</li>
+<li>💨 Steam cleaning requirements</li>
+<li>🛠️ Restoration work needed</li>
+</ul>
+<h3 style="margin-top:26px">✔ Every Move-In / Move-Out Service Includes</h3>
+<ul>
+<li>✔ Inside cabinets and drawers</li>
+<li>✔ Inside refrigerator and freezer</li>
+<li>✔ Inside oven and stovetop</li>
+<li>✔ Baseboards, trim, and doors</li>
+<li>✔ Window sills</li>
+<li>✔ Complete dust removal</li>
+<li>✔ Vacuuming every crack and corner</li>
+<li>✔ Professional steam cleaning of kitchens and bathrooms</li>
+<li>✔ Rust removal</li>
+<li>✔ Hard water stain removal</li>
+<li>✔ Soap scum removal</li>
+<li>✔ Tub and toilet restoration whenever possible</li>
+<li>✔ Floor cleaning</li>
+<li>✔ Final Gold Standard Inspection</li>
+</ul>
+<p class="form-help" style="margin-top:18px">Results depend on the age and condition of the surfaces — we always strive for the best possible outcome, but some stains or damage may not be completely removable.</p>
+<div style="text-align:center;margin-top:26px"><a class="button button-gold" href="mailto:randyspremiercleaning@gmail.com?subject=Move-In%2FMove-Out%20Pricing%20Request">📧 Email Us for Pricing</a> <a class="button button-outline" href="tel:+12074502429">📞 Contact Us Today</a></div>
 </div>
-<div class="section-heading" style="margin-top:44px"><h2 style="font-size:1.7rem">➕ Add-Ons</h2></div>
-<div class="chart-wrap"><table class="chart-table"><thead><tr><th>Add-On</th><th>Price</th></tr></thead><tbody>
-<tr><td data-label="Add-On" class="p-name">🧊 Inside Fridge Deep Clean</td><td data-label="Price" class="p-star">+$25</td></tr>
-<tr><td data-label="Add-On" class="p-name">🔥 Inside Oven Deep Clean</td><td data-label="Price" class="p-star">+$25</td></tr>
-<tr><td data-label="Add-On" class="p-name">📦 Inside Cabinets</td><td data-label="Price" class="p-star">+$20</td></tr>
-<tr><td data-label="Add-On" class="p-name">🧽 Wall Spot Cleaning</td><td data-label="Price" class="p-star">+$15</td></tr>
-<tr><td data-label="Add-On" class="p-name">🚗 Garage Sweep-Out</td><td data-label="Price" class="p-star">+$20</td></tr>
-</tbody></table></div>
 </div>
 
 <!-- ORGANIZATION -->
 <div class="pricing-panel" id="panel-organize">
-<div class="section-heading"><h2>🗂️ Home Organization Pricing</h2><p style="font-style:italic">✨ "Everything Will Have a Home." Every item gets a designated place that's easy to find and easy to maintain.</p></div>
+<div class="section-heading"><h2 class="bold-black">🗂️ Home Organization Pricing</h2><p style="font-style:italic">✨ "Everything Will Have a Home." Every item gets a designated place that's easy to find and easy to maintain.</p></div>
+<div class="notice" style="margin-bottom:22px">🏡 <strong>FREE custom estimates</strong> for any organization project. ⭐ Minimum Service Charge: $90</div>
 
-<h3 style="font-family:Montserrat;color:var(--navy);margin:30px 0 14px">🥫 Pantry Organization</h3>
+<h3 style="font-family:Montserrat;color:#0b0b0b;font-weight:800;margin:30px 0 14px">🥫 Pantry Organization</h3>
 <div class="grid-4">
-<div class="price-tier-card"><div class="ptc-name">Small Pantry</div><div class="ptc-time">Apartment / reach-in</div><div class="ptc-price">$50</div><ul><li>Organize shelves</li><li>Group similar items</li><li>Face labels forward</li><li>Wipe shelves</li></ul></div>
-<div class="price-tier-card"><div class="ptc-name">Medium Pantry</div><div class="ptc-price">$75</div><ul><li>Everything above</li><li>More shelving &amp; sorting</li></ul></div>
-<div class="price-tier-card"><div class="ptc-name">Large Pantry</div><div class="ptc-price">$100</div><ul><li>Multiple shelves</li><li>Complete organization</li></ul></div>
-<div class="price-tier-card"><div class="ptc-name">Walk-In Pantry</div><div class="ptc-price" style="font-size:1.3rem">$150–300+</div><ul><li>Custom quote</li></ul></div>
+<div class="price-tier-card"><div class="ptc-name">Small Pantry <span class="p-use">(Reach-In)</span></div><div class="ptc-price">$75+</div></div>
+<div class="price-tier-card"><div class="ptc-name">Medium Pantry</div><div class="ptc-price">$125+</div></div>
+<div class="price-tier-card"><div class="ptc-name">Large Pantry</div><div class="ptc-price">$175+</div></div>
+<div class="price-tier-card"><div class="ptc-name">Walk-In Pantry</div><div class="ptc-price">$250+</div></div>
 </div>
 
-<h3 style="font-family:Montserrat;color:var(--navy);margin:34px 0 14px">📦 Cabinets &amp; 👕 Closets</h3>
+<h3 style="font-family:Montserrat;color:#0b0b0b;font-weight:800;margin:34px 0 14px">📦 Kitchen Cabinets &amp; 👕 Closets</h3>
 <div class="grid-3">
-<div class="price-tier-card"><div class="ptc-name">Single Cabinet</div><div class="ptc-price">$20</div></div>
-<div class="price-tier-card"><div class="ptc-name">2–4 Cabinets</div><div class="ptc-price">$40</div></div>
-<div class="price-tier-card"><div class="ptc-name">Full Kitchen Cabinets</div><div class="ptc-price" style="font-size:1.4rem">$100–150</div></div>
-<div class="price-tier-card"><div class="ptc-name">Reach-In Closet</div><div class="ptc-price" style="font-size:1.4rem">$50–75</div></div>
-<div class="price-tier-card"><div class="ptc-name">Walk-In Closet</div><div class="ptc-price" style="font-size:1.4rem">$150–300</div></div>
-<div class="price-tier-card"><div class="ptc-name">🧸 Playroom</div><div class="ptc-price" style="font-size:1.2rem">$75 / $125 / Custom</div><ul><li>Small / Medium / Large</li></ul></div>
+<div class="price-tier-card"><div class="ptc-name">Single Cabinet</div><div class="ptc-price">$25+</div></div>
+<div class="price-tier-card"><div class="ptc-name">2–4 Cabinets</div><div class="ptc-price">$75+</div></div>
+<div class="price-tier-card"><div class="ptc-name">Full Kitchen Cabinets</div><div class="ptc-price">$175+</div></div>
+<div class="price-tier-card"><div class="ptc-name">❄️ Refrigerator Organization</div><div class="ptc-price">$75+</div></div>
+<div class="price-tier-card"><div class="ptc-name">Reach-In Closet</div><div class="ptc-price">$100+</div></div>
+<div class="price-tier-card"><div class="ptc-name">Walk-In Closet</div><div class="ptc-price">$250+</div></div>
 </div>
 
-<h3 style="font-family:Montserrat;color:var(--navy);margin:34px 0 14px">🧺 Laundry, 🛁 Bathrooms &amp; 🏠 Whole Rooms</h3>
+<h3 style="font-family:Montserrat;color:#0b0b0b;font-weight:800;margin:34px 0 14px">🛏️ Linen Closet, 🧺 Laundry &amp; 🛁 Bathrooms</h3>
 <div class="grid-4">
-<div class="price-tier-card"><div class="ptc-name">Laundry Room</div><div class="ptc-price" style="font-size:1.3rem">$50–75</div></div>
-<div class="price-tier-card"><div class="ptc-name">Per Bathroom</div><div class="ptc-price">$40</div></div>
-<div class="price-tier-card"><div class="ptc-name">Small Room</div><div class="ptc-price">$75</div></div>
-<div class="price-tier-card"><div class="ptc-name">Medium Room</div><div class="ptc-price">$125</div></div>
+<div class="price-tier-card"><div class="ptc-name">Linen Closet</div><div class="ptc-price">$75+</div></div>
+<div class="price-tier-card"><div class="ptc-name">Laundry Room <span class="p-use">Small</span></div><div class="ptc-price">$75+</div></div>
+<div class="price-tier-card"><div class="ptc-name">Laundry Room <span class="p-use">Large</span></div><div class="ptc-price">$125+</div></div>
+<div class="price-tier-card"><div class="ptc-name">Per Bathroom</div><div class="ptc-price">$50+</div></div>
 </div>
-<div class="notice" style="margin-top:14px">🏠 Large whole-room organization is $175. Whole-home organization always gets a free custom estimate based on home size, number of rooms, amount of belongings, and your desired level of organization.</div>
 
-<h3 style="font-family:Montserrat;color:var(--navy);margin:34px 0 14px">📦 Premium Organizer Products <span style="font-weight:600;color:var(--muted);font-size:.9rem">(optional, priced separately from labor)</span></h3>
-<div class="grid-4">
-<div class="price-tier-card"><div class="ptc-name"><span class="pill-dot pd-green"></span>Basic Package</div><div class="ptc-price" style="font-size:1.3rem">Starting at $25</div></div>
-<div class="price-tier-card"><div class="ptc-name"><span class="pill-dot pd-gold"></span>Standard Package</div><div class="ptc-price" style="font-size:1.3rem">Starting at $50</div></div>
-<div class="price-tier-card"><div class="ptc-name"><span class="pill-dot pd-navy"></span>Premium Package</div><div class="ptc-price" style="font-size:1.3rem">Starting at $100</div></div>
-<div class="price-tier-card"><div class="ptc-name"><span class="pill-dot pd-red"></span>Luxury Custom Package</div><div class="ptc-price" style="font-size:1.3rem">$150+</div></div>
+<h3 style="font-family:Montserrat;color:#0b0b0b;font-weight:800;margin:34px 0 14px">🧸 Playroom &amp; 🏠 Whole Rooms</h3>
+<div class="grid-3">
+<div class="price-tier-card"><div class="ptc-name">Playroom <span class="p-use">Small</span></div><div class="ptc-price">$100+</div></div>
+<div class="price-tier-card"><div class="ptc-name">Playroom <span class="p-use">Medium</span></div><div class="ptc-price">$175+</div></div>
+<div class="price-tier-card"><div class="ptc-name">Playroom <span class="p-use">Large</span></div><div class="ptc-price">$250+</div></div>
+<div class="price-tier-card"><div class="ptc-name">Whole Room <span class="p-use">Small</span></div><div class="ptc-price">$125+</div></div>
+<div class="price-tier-card"><div class="ptc-name">Whole Room <span class="p-use">Medium</span></div><div class="ptc-price">$200+</div></div>
+<div class="price-tier-card"><div class="ptc-name">Whole Room <span class="p-use">Large</span></div><div class="ptc-price">$300+</div></div>
 </div>
+
+<div class="notice" style="margin-top:22px">🏡 <strong>Whole-Home Organization:</strong> every home is unique — we provide a FREE custom estimate based on number of rooms, amount of belongings, organization goals, and time required.</div>
+
+<h3 style="font-family:Montserrat;color:#0b0b0b;font-weight:800;margin:34px 0 14px">📦 Optional Organization Products</h3>
+<p style="color:var(--muted);margin-bottom:14px">Not included in labor pricing — priced separately. We can shop &amp; install for you (recommended), or you can supply your own products.</p>
+<div class="badge-row"><span class="badge-pill">✅ Non-slip liners</span><span class="badge-pill">✅ Pantry containers</span><span class="badge-pill">✅ Fridge bins</span><span class="badge-pill">✅ Drawer dividers</span><span class="badge-pill">✅ Shelf risers</span><span class="badge-pill">✅ Lazy Susans</span><span class="badge-pill">✅ Closet organizers</span><span class="badge-pill">✅ Labels</span></div>
 </div>
 
 </div></section>

@@ -1,33 +1,122 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="The full 10-step Gold Standard cleaning process, explained in detail."><title>The 10-Step Gold Standard Process | Randy's Premier Cleaning</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800;900&family=Open+Sans:wght@400;600;700;800&display=swap" rel="stylesheet"><link rel="stylesheet" href="styles.css"></head><body><a class="skip-link" href="#main-content">Skip to main content</a><div class="top-strip">Serving Cumberland and York Counties • Prefer texting for a faster response</div><header class="site-header"><div class="container header-row"><a class="brand" href="index.html"><span class="brand-main">RANDY'S</span><span class="brand-sub">PREMIER CLEANING</span></a><button class="menu-button" type="button" aria-expanded="false" aria-controls="mainMenu" aria-label="Open navigation menu">☰ Menu</button><nav class="menu-panel" id="mainMenu" aria-label="Main navigation"><a href="index.html">Home</a><a href="services.html">Services</a><a href="process.html">Our Process</a><a href="promotions.html">Promotions</a><a href="about.html">About</a><a href="promise.html">Premier Promise</a><a href="reviews.html">Reviews</a><a href="contact.html">Contact</a><a class="quote-link" href="quote.html">Free Quote</a></nav></div></header><main id="main-content">
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Our Gold Standard 10-step cleaning process, explained simply."><title>The 10-Step Gold Standard Process | Randy's Premier Cleaning</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800;900&family=Open+Sans:wght@400;600;700;800&display=swap" rel="stylesheet"><link rel="stylesheet" href="styles.css">
+<style>
+.gold-hero{
+  position:relative;
+  background:radial-gradient(1100px 500px at 50% -10%,rgba(217,173,67,.35),transparent 60%),linear-gradient(160deg,#0a1830 0%,#0f2a52 55%,#132f5c 100%);
+  padding:76px 0 64px;
+  text-align:center;
+  overflow:hidden;
+  border-bottom:4px solid var(--gold);
+}
+.gold-hero::before{
+  content:"";position:absolute;inset:0;
+  background-image:radial-gradient(rgba(217,173,67,.18) 1px,transparent 1px);
+  background-size:26px 26px;
+  opacity:.5;
+}
+.gold-hero .container{position:relative}
+.gold-hero .medal{font-size:3rem;display:block;margin-bottom:8px;filter:drop-shadow(0 6px 14px rgba(0,0,0,.35))}
+.gold-hero h1{
+  font-family:Montserrat,sans-serif;font-weight:900;
+  font-size:clamp(2.1rem,5.4vw,3.6rem);
+  letter-spacing:.5px;
+  color:var(--gold);
+  text-shadow:0 2px 0 rgba(0,0,0,.25);
+  margin:0 0 14px;
+  line-height:1.15;
+}
+.gold-hero p{color:#dbe7f2;font-size:1.12rem;max-width:640px;margin:0 auto}
+.gold-hero .stars-row{margin-top:18px;font-size:1.3rem;letter-spacing:4px;color:var(--gold)}
 
-<section class="page-hero"><div class="container"><div class="eyebrow eyebrow-gold">⭐ The Full Breakdown ⭐</div><h1>Our 🔟 10-Step Gold Standard Process</h1><p>💚 Same steps. Every room. Every visit. Here's exactly what we do, step by step.</p></div></section>
+.gs-steps{max-width:900px;margin:0 auto;display:grid;gap:18px}
+.gs-step{
+  background:#fff;border:1px solid var(--line);border-radius:var(--radius-lg);
+  box-shadow:var(--shadow-sm);
+  padding:24px 26px;
+  display:grid;grid-template-columns:64px 1fr;gap:20px;align-items:flex-start;
+  transition:box-shadow .2s ease, transform .2s ease;
+}
+.gs-step:hover{box-shadow:var(--shadow-lg);transform:translateY(-3px)}
+.gs-badge{
+  width:64px;height:64px;border-radius:50%;
+  background:linear-gradient(160deg,var(--gold),var(--gold2));
+  color:var(--navy);font-family:Montserrat,sans-serif;font-weight:900;font-size:1.5rem;
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 8px 18px rgba(201,148,35,.35);
+}
+.gs-step h3{
+  font-family:Montserrat,sans-serif;font-weight:800;color:var(--navy);
+  font-size:1.28rem;margin:2px 0 8px;display:flex;align-items:center;gap:8px;flex-wrap:wrap;
+}
+.gs-step p{margin:0;color:var(--ink);font-size:1.03rem;line-height:1.55}
 
-<section class="section section-white"><div class="container">
+.gs-promise{
+  max-width:760px;margin:0 auto;
+  background:linear-gradient(160deg,var(--navy),var(--navy2));
+  border-radius:var(--radius-lg);
+  padding:40px 34px;
+  box-shadow:var(--shadow-lg);
+  text-align:center;
+}
+.gs-promise h2{font-family:Montserrat,sans-serif;color:var(--gold);font-weight:900;font-size:1.9rem;margin:0 0 22px}
+.gs-promise ul{list-style:none;margin:0;padding:0;display:grid;gap:12px;text-align:left;max-width:420px;margin:0 auto}
+.gs-promise li{color:#fff;font-size:1.08rem;display:flex;align-items:center;gap:10px}
+.gs-promise li b{color:var(--gold)}
+@media (max-width:560px){
+  .gs-step{grid-template-columns:1fr;text-align:center}
+  .gs-badge{margin:0 auto}
+  .gs-step h3{justify-content:center}
+  .gs-promise ul{justify-items:center}
+}
+</style>
+</head><body><a class="skip-link" href="#main-content">Skip to main content</a><div class="top-strip">Serving Cumberland and York Counties • Prefer texting for a faster response</div><header class="site-header"><div class="container header-row"><a class="brand" href="index.html"><span class="brand-main">RANDY'S</span><span class="brand-sub">PREMIER CLEANING</span></a><button class="menu-button" type="button" aria-expanded="false" aria-controls="mainMenu" aria-label="Open navigation menu">☰ Menu</button><nav class="menu-panel" id="mainMenu" aria-label="Main navigation"><a href="index.html">Home</a><a href="services.html">Services</a><a href="process.html">Our Process</a><a href="promotions.html">Promotions</a><a href="about.html">About</a><a href="reviews.html">Reviews</a><a href="contact.html">Contact</a><a class="quote-link" href="quote.html">Free Quote</a></nav></div></header><main id="main-content">
 
-<div class="step-card"><div class="step-num">1️⃣</div><div><h3>🧴 Fill the Steamer &amp; Choose Attachments</h3><p>We start by filling the steamer and picking the right attachment for the job. Having everything ready before we start saves time and keeps us moving smoothly through your home.</p></div></div>
-
-<div class="step-card"><div class="step-num">2️⃣</div><div><h3>🧺 Clear &amp; Organize the Counters</h3><p>We remove everything from counters and surfaces and put items together safely in one place — so nothing gets lost and every surface underneath gets fully cleaned.</p></div></div>
-
-<div class="step-card"><div class="step-num">3️⃣</div><div><h3>🧪 Apply the Right Cleaner to the Right Surface</h3><p>We never spray one cleaner on every surface. We identify the material first, then apply a cleaner that's appropriate for it — and let it dwell for a few minutes so the chemistry can do the hard work.</p><div class="step-tags"><span class="step-tag">✅ Fiberglass &amp; acrylic showers</span><span class="step-tag">✅ Ceramic &amp; porcelain tile</span><span class="step-tag">✅ Toilets</span><span class="step-tag">✅ Compatible sink basins</span></div><p class="form-help" style="margin-top:10px">🚫 Never on natural stone, unfinished wood, or delicate finishes.</p></div></div>
-
-<div class="step-card"><div class="step-num">4️⃣</div><div><h3>🌬️ Dust High to Low</h3><p>Dust always falls, so we dust ceilings, fans, and shelves first — before anything below them gets touched.</p></div></div>
-
-<div class="step-card"><div class="step-num">5️⃣</div><div><h3>🌀 Vacuum Loose Dust, Hair &amp; Debris</h3><p>We vacuum baseboards, corners, around the toilet, hair in the shower, the exhaust fan cover, and the floor. Removing loose debris first means less mess and fewer used towels for everything after.</p></div></div>
-
-<div class="step-card"><div class="step-num">6️⃣</div><div><h3>💨 Steam Clean Appropriate Surfaces</h3><p>This is where our signature steam advantage comes in. We steam only where it adds real value — never every square inch.</p><div class="step-tags"><span class="step-tag">🚿 Showers</span><span class="step-tag">🛁 Tubs</span><span class="step-tag">🧱 Grout</span><span class="step-tag">🚰 Around faucets</span><span class="step-tag">🚽 Toilet hinges</span><span class="step-tag">🧼 Sink edges</span><span class="step-tag">🎚️ Knobs</span><span class="step-tag">📏 Tracks</span></div></div></div>
-
-<div class="step-card"><div class="step-num">7️⃣</div><div><h3>✋ Feel Every Surface by Hand</h3><p>Your hand catches what your eyes miss — soap scum, sticky residue, rough mineral deposits, and grime that's still hanging on. If it doesn't feel clean, it isn't clean yet.</p></div></div>
-
-<div class="step-card"><div class="step-num">8️⃣</div><div><h3>🪥 Lightly Scrub Only Where Needed</h3><p>We let the cleaner and steam do the work first, and only scrub the stubborn spots that still need it. Less aggressive scrubbing means better protection for your surfaces.</p></div></div>
-
-<div class="step-card"><div class="step-num">9️⃣</div><div><h3>🧻 Wipe Clean &amp; Dry With Premium Microfiber</h3><p>Premium microfiber traps dirt instead of pushing it around, leaving every surface polished, dry, and streak-free.</p></div></div>
-
-<div class="step-card"><div class="step-num">🔟</div><div><h3>🦠 Disinfect &amp; Final Gold Standard Inspection</h3><p>Once every surface is clean and completely dry, we apply our professional no-residue disinfectant according to the label and allow the full required contact time before it air-dries — so it's not just clean, it's disinfected. Then we do a final walkthrough: flush the toilet, check for drips, check the mirror from different angles, turn on every light, and run a hand over the sink, vanity, and shower one last time.</p></div></div>
-
+<section class="gold-hero"><div class="container">
+<span class="medal">🥇</span>
+<h1>Our Gold Standard<br>Cleaning Process</h1>
+<p>10 simple steps. Every room. Every visit. Here's exactly how we do it.</p>
+<div class="stars-row">⭐⭐⭐⭐⭐</div>
 </div></section>
 
-<section class="section section-soft"><div class="container"><div class="notice">🚫 <strong>A quick note:</strong> some materials should never be steamed — unsealed wood, some delicate finishes, electronics, and other heat-sensitive materials. We always identify the surface first and choose the method that's actually right for it.</div></div></section>
+<section class="section section-white"><div class="container">
+<div class="gs-steps">
 
-<section class="section section-soft"><div class="container cta"><h2>💚 Ready to see it for yourself?</h2><p>Book your Gold Standard cleaning and experience the difference a real system makes.</p><div class="actions" style="justify-content:center"><a class="button button-green" href="quote.html">🟢 Get My Free Quote</a><a class="button button-outline" href="process.html">← Back to Our Process</a></div></div></section>
+<div class="gs-step"><div class="gs-badge">1</div><div><h3>⭐ Step 1: Prepare</h3><p>🛠️ We inspect each room and prepare the right tools, products, and equipment for the job.</p></div></div>
+
+<div class="gs-step"><div class="gs-badge">2</div><div><h3>⭐ Step 2: Clear the Area</h3><p>📦 We remove clutter and trash so every surface can be cleaned properly.</p></div></div>
+
+<div class="gs-step"><div class="gs-badge">3</div><div><h3>⭐ Step 3: Pre-Treat Surfaces</h3><p>🧴 We apply the appropriate cleaners and allow them time to loosen dirt, grease, and grime.</p></div></div>
+
+<div class="gs-step"><div class="gs-badge">4</div><div><h3>⭐ Step 4: Remove High Dust</h3><p>🪶 We dust ceiling fans, vents, light fixtures, cobwebs, and other high areas first.</p></div></div>
+
+<div class="gs-step"><div class="gs-badge">5</div><div><h3>⭐ Step 5: Vacuum All Dry Debris</h3><p>🌪️ We vacuum dust, pet hair, crumbs, lint, loose dirt, floors, furniture, corners, and other appropriate dry surfaces before wet cleaning begins.</p></div></div>
+
+<div class="gs-step"><div class="gs-badge">6</div><div><h3>⭐ Step 6: Steam Clean</h3><p>♨️ When appropriate, we use high-temperature steam to help loosen buildup and clean hard-to-reach areas.</p></div></div>
+
+<div class="gs-step"><div class="gs-badge">7</div><div><h3>⭐ Step 7: Clean &amp; Detail</h3><p>✨ We wipe, scrub when needed, and carefully clean every surface from top to bottom.</p></div></div>
+
+<div class="gs-step"><div class="gs-badge">8</div><div><h3>⭐ Step 8: Disinfect</h3><p>🦠 We disinfect appropriate high-touch surfaces according to the disinfectant manufacturer's directions.</p></div></div>
+
+<div class="gs-step"><div class="gs-badge">9</div><div><h3>⭐ Step 9: Finish the Room</h3><p>🏡 We mop hard floors, replace items neatly, and leave every room looking clean, fresh, and organized.</p></div></div>
+
+<div class="gs-step"><div class="gs-badge">10</div><div><h3>⭐ Step 10: Final Inspection</h3><p>🏆 Before we leave, we inspect every room to make sure it meets our Gold Standard.</p></div></div>
+
+</div>
+</div></section>
+
+<section class="section section-soft"><div class="container">
+<div class="gs-promise">
+<h2>💙 Our Promise</h2>
+<ul>
+<li>✨ <b>Consistent</b> quality.</li>
+<li>✨ <b>Attention</b> to detail.</li>
+<li>✨ <b>Surface-safe</b> cleaning.</li>
+<li>✨ <b>Professional</b> equipment.</li>
+<li>✨ The <b>same Gold Standard</b>—every visit.</li>
+</ul>
+</div>
+</div></section>
+
+<section class="section section-white"><div class="container cta"><h2>💚 Ready to see it for yourself?</h2><p>Book your Gold Standard cleaning and experience the difference a real system makes.</p><div class="actions" style="justify-content:center"><a class="button button-green" href="quote.html">🟢 Get My Free Quote</a><a class="button button-outline" href="process.html">← Back to Our Process</a></div></div></section>
 
 </main><div class="mobile-action-dock" aria-label="Quick contact actions"><a href="sms:+12074502429">💬 Text</a><a href="tel:+12074502429">📞 Call</a><a class="dock-quote" href="quote.html">✨ Free Quote</a></div><footer><div class="container"><p><strong>RANDY'S <span style="color:#72c92f">PREMIER CLEANING</span></strong></p><p>Setting the <span class="gold">Gold Standard</span> in Cleaning.</p><p><a href="sms:+12074502429">Text: (207) 450-2429</a> • <a href="mailto:randyspremiercleaning@gmail.com">randyspremiercleaning@gmail.com</a></p><p class="small">Serving Cumberland and York Counties, Maine • © 2026 Randy's <span style="color:var(--green)">Premier Cleaning</span></p></div></footer><button class="back-to-top" type="button" aria-label="Back to top">↑</button><script src="script.js"></script></body></html>
