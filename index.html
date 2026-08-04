@@ -4,17 +4,27 @@
 .reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease, transform .7s ease}
 .reveal.in{opacity:1;transform:translateY(0)}
 
-.lux-hero{position:relative;overflow:hidden;background:linear-gradient(165deg,#081226 0%,#0c1f42 45%,#0f2a52 100%);padding:110px 0 96px;text-align:center}
+.lux-hero{position:relative;overflow:hidden;background:linear-gradient(165deg,#081226 0%,#0c1f42 45%,#0f2a52 100%);padding:38px 0 34px;min-height:calc(100vh - 130px)}
 .lux-hero::before{content:"";position:absolute;inset:0;background:radial-gradient(900px 420px at 50% 0%,rgba(217,173,67,.22),transparent 65%)}
 .lux-hero::after{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.05) 1px,transparent 1px);background-size:34px 34px;opacity:.4}
 .lux-hero .container{position:relative}
-.lux-kicker{display:inline-block;letter-spacing:3px;text-transform:uppercase;font-size:.78rem;font-weight:700;color:var(--gold);margin-bottom:26px}
-.lux-h1{font-family:Montserrat,sans-serif;font-weight:900;color:#fff;line-height:1.08;font-size:clamp(2.4rem,6vw,4.6rem);margin:0 auto 22px;max-width:920px}
+.lux-hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:36px;align-items:center;height:100%}
+.lux-kicker{display:inline-block;letter-spacing:2.5px;text-transform:uppercase;font-size:.7rem;font-weight:700;color:var(--gold);margin-bottom:14px}
+.lux-h1{font-family:Montserrat,sans-serif;font-weight:900;color:#fff;line-height:1.1;font-size:clamp(2rem,4.6vw,3.6rem);margin:0 0 14px}
 .lux-h1 em{font-style:normal;color:var(--gold)}
-.lux-sub{color:#c9d6e6;font-size:clamp(1.05rem,2vw,1.3rem);max-width:640px;margin:0 auto 40px;font-weight:400;line-height:1.6}
-.lux-cta-row{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
-.lux-cta-row .button{font-size:1.05rem;padding:18px 34px}
-.lux-ribbon{margin-top:34px;display:inline-flex;align-items:center;gap:10px;background:rgba(217,173,67,.12);border:1px solid rgba(217,173,67,.35);color:var(--gold);padding:10px 22px;border-radius:999px;font-weight:700;font-size:.92rem}
+.lux-sub{color:#c9d6e6;font-size:clamp(.92rem,1.4vw,1.05rem);max-width:520px;margin:0 0 22px;font-weight:400;line-height:1.55}
+.lux-cta-row{display:flex;gap:14px;flex-wrap:wrap}
+.lux-cta-row .button{font-size:.98rem;padding:14px 26px}
+.lux-ribbon{margin-top:20px;display:inline-flex;align-items:center;gap:10px;background:rgba(217,173,67,.12);border:1px solid rgba(217,173,67,.35);color:var(--gold);padding:8px 18px;border-radius:999px;font-weight:700;font-size:.82rem}
+.lux-hero-mascot{display:flex;justify-content:center;align-items:center}
+.lux-hero-mascot img{max-width:100%;width:260px;filter:drop-shadow(0 20px 40px rgba(0,0,0,.35))}
+@media (max-width:900px){
+  .lux-hero{min-height:0;padding:64px 0 48px;text-align:center}
+  .lux-hero-grid{grid-template-columns:1fr;gap:24px}
+  .lux-cta-row{justify-content:center}
+  .lux-sub{margin-left:auto;margin-right:auto}
+  .lux-hero-mascot img{width:150px}
+}
 
 .lux-section{padding:96px 0}
 .lux-heading{text-align:center;max-width:720px;margin:0 auto 56px}
@@ -33,17 +43,13 @@
 .compare-cell.no{color:#8a6a6a;background:#fdfaf7}
 .compare-cell.yes{color:var(--navy);font-weight:700;background:#f4faf1}
 
-/* Wood */
-.wood-shell{max-width:1000px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:0;background:linear-gradient(160deg,#1b1204,#2b1d08);border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-lg)}
-.wood-visual{background:radial-gradient(circle at 30% 20%,rgba(217,173,67,.35),transparent 60%),linear-gradient(160deg,#3a2810,#1b1204);display:flex;align-items:center;justify-content:center;min-height:320px;font-size:5rem}
-.wood-copy{padding:48px 44px;color:#f2e9d8}
-.wood-copy .lux-eyebrow{color:var(--gold)}
-.wood-copy h2{font-family:Montserrat,sans-serif;font-weight:900;font-size:clamp(1.6rem,3vw,2.2rem);color:#fff;margin:10px 0 16px;line-height:1.2}
-.wood-copy p{color:#d9c9a8;line-height:1.65;margin-bottom:10px}
-.wood-badge{display:inline-block;background:rgba(217,173,67,.18);border:1px solid rgba(217,173,67,.4);color:var(--gold);font-size:.8rem;font-weight:700;padding:6px 14px;border-radius:999px;margin-bottom:18px}
-.wood-benefits{list-style:none;padding:0;margin:18px 0 24px;display:grid;gap:10px}
-.wood-benefits li{color:#f2e9d8;font-size:.98rem}
-.wood-benefits li b{color:var(--gold)}
+/* Wood — compact restore & protect */
+.wood-compact{max-width:760px;margin:0 auto;text-align:center;background:#fff;border:1px solid var(--line);border-radius:var(--radius-lg);box-shadow:var(--shadow);padding:38px 40px}
+.wood-compact-ic{font-size:2rem;margin-bottom:6px}
+.wood-compact-h2{font-family:Montserrat,sans-serif;font-weight:900;color:var(--navy);font-size:clamp(1.3rem,2.6vw,1.7rem);margin:8px 0 14px;line-height:1.25}
+.wood-compact-p{color:var(--muted);font-size:.98rem;line-height:1.6;max-width:600px;margin:0 auto 16px}
+.wood-compact-tag{font-family:Montserrat,sans-serif;font-weight:800;color:var(--green);font-size:1.02rem;margin:0}
+.wood-compact-sub{color:var(--gold2);font-weight:700;font-size:.88rem;margin:4px 0 0}
 
 /* Steam icons */
 .steam-row{display:grid;grid-template-columns:repeat(5,1fr);gap:18px;max-width:1000px;margin:0 auto}
@@ -83,19 +89,23 @@
 @media (max-width:820px){
   .compare-cell{font-size:.9rem;padding:14px}
   .steam-row{grid-template-columns:repeat(2,1fr)}
-  .wood-shell{grid-template-columns:1fr}
-  .wood-visual{min-height:200px}
+  .wood-compact{padding:28px 24px}
 }
 </style>
 </head><body><div class="top-strip" style="background:var(--gold2);color:#0b0b0b;font-weight:800">🎉 Our Grand Opening is August 21st! Book now to be one of our first customers. <a href="quote.html" style="color:#0b0b0b;text-decoration:underline">Get on the schedule →</a></div><a class="skip-link" href="#main-content">Skip to main content</a><div class="top-strip">Serving Cumberland and York Counties • Prefer texting for a faster response</div><header class="site-header"><div class="container header-row"><a class="brand" href="index.html"><span class="brand-main">RANDY'S</span><span class="brand-sub">PREMIER CLEANING</span></a><button class="menu-button" type="button" aria-expanded="false" aria-controls="mainMenu" aria-label="Open navigation menu">☰ Menu</button><nav class="menu-panel" id="mainMenu" aria-label="Main navigation"><a href="index.html">Home</a><a href="services.html">Services</a><a href="pricing.html">Pricing</a><a href="process.html">Our Process</a><a href="promotions.html">Promotions</a><a href="about.html">About</a><a href="reviews.html">Reviews</a><a href="contact.html">Contact</a><a class="quote-link" href="quote.html">Free Quote</a></nav></div></header><main id="main-content">
 
 <!-- HERO -->
 <section class="lux-hero"><div class="container">
+<div class="lux-hero-grid">
+<div>
 <div class="lux-kicker">Randy's Premier Cleaning · Southern Maine</div>
 <h1 class="lux-h1">The <em>Gold Standard</em> in Home Care.<br>We Don't Just Clean Homes.<br>We Restore. Protect. Organize.</h1>
 <p class="lux-sub">Surface-specific science, professional steam technology, and genuine care — built for homeowners who expect more than a spray bottle and a rag.</p>
 <div class="lux-cta-row"><a class="button button-gold" href="quote.html">✨ Get My Free Quote</a><a class="button button-outline" style="color:#fff;border-color:rgba(255,255,255,.4)" href="process.html">🏆 See Our Gold Standard</a></div>
 <div class="lux-ribbon">🎉 25% Off Your First Cleaning — Grand Opening August 21st</div>
+</div>
+<div class="lux-hero-mascot"><img src="mascot.png" alt="Randy's Premier Cleaning mascot"></div>
+</div>
 </div></section>
 
 <!-- WHY WE'RE DIFFERENT -->
@@ -111,26 +121,15 @@
 </div>
 </div></section>
 
-<!-- WOOD CONDITIONING -->
-<section class="lux-section section-soft"><div class="container">
-<div class="wood-shell reveal">
-<div class="wood-visual">🌳</div>
-<div class="wood-copy">
-<div class="wood-badge">✨ Optional Premium Add-On</div>
-<div class="lux-eyebrow">Signature Service</div>
-<h2>We Don't Just Clean Wood… We Help Bring It Back To Life.</h2>
-<p>Most cleaning companies simply wipe cabinets. We go one step further. Our optional Wood Conditioning &amp; Protection service helps restore the appearance of compatible finished wood while helping protect the finish.</p>
-<ul class="wood-benefits">
-<li><b>🌳 Restore</b> — natural beauty</li>
-<li><b>✨ Bring</b> — dull wood back to life</li>
-<li><b>🛡️ Protect</b> — help protect the finish</li>
-<li><b>🏡 Achieve</b> — a beautiful, natural appearance</li>
-</ul>
-<p style="font-size:.86rem;color:var(--gold);font-weight:700;text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px">Perfect For</p>
-<p style="font-size:.92rem;color:#d9c9a8;line-height:1.7">Kitchen Cabinets · Bathroom Vanities · Wood Furniture · Interior Doors · Trim &amp; Moldings · Built-In Shelving</p>
-<p style="font-size:.88rem;color:#b8a878;margin-top:10px">Available as an optional premium add-on — not included with standard cleaning.</p>
-<a class="button button-gold" href="pricing.html" style="margin-top:10px">See Pricing</a>
-</div>
+<!-- WOOD RESTORE & PROTECT -->
+<section class="lux-section section-soft" style="padding:56px 0"><div class="container">
+<div class="wood-compact reveal">
+<div class="wood-compact-ic">🌳</div>
+<div class="lux-eyebrow" style="color:var(--gold2)">🌟 The Gold Standard in Home Care</div>
+<h2 class="wood-compact-h2">We Don't Just Clean—We Restore &amp; Protect.</h2>
+<p class="wood-compact-p">Our premium cleaning process goes beyond making your home look spotless. We carefully restore and protect your finished wood surfaces using a professional wood conditioning oil that helps revive natural beauty, enrich color, and leave wood looking healthy and refreshed.</p>
+<p class="wood-compact-tag">✨ Cleaner. Restored. Protected.</p>
+<p class="wood-compact-sub">That's the Randy's Premier Cleaning difference.</p>
 </div>
 </div></section>
 
