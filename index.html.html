@@ -1,0 +1,239 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Premium residential and small office cleaning in Cumberland and York Counties, Maine."><title>Home | Randy's Premier Cleaning</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800;900&family=Open+Sans:wght@400;600;700;800&display=swap" rel="stylesheet"><link rel="stylesheet" href="styles.css">
+<style>
+/* ---- Homepage-only luxury layer, built on top of existing tokens ---- */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease, transform .7s ease}
+.reveal.in{opacity:1;transform:translateY(0)}
+
+.lux-hero{position:relative;overflow:hidden;background:linear-gradient(165deg,#081226 0%,#0c1f42 45%,#0f2a52 100%);padding:110px 0 96px;text-align:center}
+.lux-hero::before{content:"";position:absolute;inset:0;background:radial-gradient(900px 420px at 50% 0%,rgba(217,173,67,.22),transparent 65%)}
+.lux-hero::after{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.05) 1px,transparent 1px);background-size:34px 34px;opacity:.4}
+.lux-hero .container{position:relative}
+.lux-kicker{display:inline-block;letter-spacing:3px;text-transform:uppercase;font-size:.78rem;font-weight:700;color:var(--gold);margin-bottom:26px}
+.lux-h1{font-family:Montserrat,sans-serif;font-weight:900;color:#fff;line-height:1.08;font-size:clamp(2.4rem,6vw,4.6rem);margin:0 auto 22px;max-width:920px}
+.lux-h1 em{font-style:normal;color:var(--gold)}
+.lux-sub{color:#c9d6e6;font-size:clamp(1.05rem,2vw,1.3rem);max-width:640px;margin:0 auto 40px;font-weight:400;line-height:1.6}
+.lux-cta-row{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+.lux-cta-row .button{font-size:1.05rem;padding:18px 34px}
+.lux-ribbon{margin-top:34px;display:inline-flex;align-items:center;gap:10px;background:rgba(217,173,67,.12);border:1px solid rgba(217,173,67,.35);color:var(--gold);padding:10px 22px;border-radius:999px;font-weight:700;font-size:.92rem}
+
+.lux-section{padding:96px 0}
+.lux-heading{text-align:center;max-width:720px;margin:0 auto 56px}
+.lux-eyebrow{letter-spacing:2.5px;text-transform:uppercase;font-size:.78rem;font-weight:800;color:var(--gold2)}
+.lux-h2{font-family:Montserrat,sans-serif;font-weight:900;color:var(--navy);font-size:clamp(1.9rem,3.6vw,2.7rem);margin:10px 0 14px;line-height:1.15}
+.lux-p{color:var(--muted);font-size:1.08rem;line-height:1.65}
+
+/* Comparison */
+.compare-shell{max-width:820px;margin:0 auto;background:#fff;border-radius:var(--radius-lg);box-shadow:var(--shadow-lg);overflow:hidden;border:1px solid var(--line)}
+.compare-head{display:grid;grid-template-columns:1fr 1fr}
+.compare-head div{padding:20px;text-align:center;font-family:Montserrat,sans-serif;font-weight:800;font-size:1.02rem}
+.compare-head .typical{background:#f4f1ea;color:#8a7b5a}
+.compare-head .premier{background:linear-gradient(160deg,var(--navy),var(--navy2));color:var(--gold)}
+.compare-row{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--line)}
+.compare-cell{padding:18px 22px;font-size:1rem;display:flex;align-items:center;gap:10px}
+.compare-cell.no{color:#8a6a6a;background:#fdfaf7}
+.compare-cell.yes{color:var(--navy);font-weight:700;background:#f4faf1}
+
+/* Wood */
+.wood-shell{max-width:1000px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:0;background:linear-gradient(160deg,#1b1204,#2b1d08);border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-lg)}
+.wood-visual{background:radial-gradient(circle at 30% 20%,rgba(217,173,67,.35),transparent 60%),linear-gradient(160deg,#3a2810,#1b1204);display:flex;align-items:center;justify-content:center;min-height:320px;font-size:5rem}
+.wood-copy{padding:48px 44px;color:#f2e9d8}
+.wood-copy .lux-eyebrow{color:var(--gold)}
+.wood-copy h2{font-family:Montserrat,sans-serif;font-weight:900;font-size:clamp(1.6rem,3vw,2.2rem);color:#fff;margin:10px 0 16px;line-height:1.2}
+.wood-copy p{color:#d9c9a8;line-height:1.65;margin-bottom:10px}
+.wood-badge{display:inline-block;background:rgba(217,173,67,.18);border:1px solid rgba(217,173,67,.4);color:var(--gold);font-size:.8rem;font-weight:700;padding:6px 14px;border-radius:999px;margin-bottom:18px}
+.wood-benefits{list-style:none;padding:0;margin:18px 0 24px;display:grid;gap:10px}
+.wood-benefits li{color:#f2e9d8;font-size:.98rem}
+.wood-benefits li b{color:var(--gold)}
+
+/* Steam icons */
+.steam-row{display:grid;grid-template-columns:repeat(5,1fr);gap:18px;max-width:1000px;margin:0 auto}
+.steam-pillar{text-align:center;background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:28px 14px;box-shadow:var(--shadow-sm);transition:transform .25s ease, box-shadow .25s ease}
+.steam-pillar:hover{transform:translateY(-6px);box-shadow:var(--shadow-lg)}
+.steam-pillar .ic{font-size:2.1rem;margin-bottom:12px}
+.steam-pillar h4{font-family:Montserrat,sans-serif;font-weight:800;color:var(--navy);font-size:.98rem;margin:0}
+
+/* Surface cards */
+.surface-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:18px;max-width:1100px;margin:0 auto}
+.surface-card{position:relative;background:linear-gradient(160deg,#fff,#f7f5ef);border:1px solid var(--line);border-radius:var(--radius-lg);padding:34px 20px;text-align:center;overflow:hidden;transition:transform .25s ease, box-shadow .25s ease}
+.surface-card:hover{transform:translateY(-8px) scale(1.02);box-shadow:var(--shadow-lg);border-color:var(--gold)}
+.surface-card .ic{font-size:2.4rem;margin-bottom:14px;display:block}
+.surface-card h4{font-family:Montserrat,sans-serif;font-weight:800;color:var(--navy);font-size:1.05rem;margin:0}
+
+/* Promise */
+.promise-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px;max-width:1100px;margin:0 auto}
+.promise-card{background:linear-gradient(160deg,var(--navy),var(--navy2));border-radius:var(--radius-lg);padding:34px 24px;text-align:center;box-shadow:var(--shadow);border:1px solid rgba(217,173,67,.2)}
+.promise-card .ic{font-size:2.3rem;margin-bottom:14px}
+.promise-card h4{font-family:Montserrat,sans-serif;font-weight:800;color:var(--gold);font-size:1.02rem;margin:0 0 6px}
+.promise-card p{color:#c9d6e6;font-size:.88rem;margin:0;line-height:1.5}
+
+/* Gallery */
+.gallery-scroll{display:flex;gap:20px;overflow-x:auto;scroll-snap-type:x mandatory;padding:10px 4px 20px;max-width:1100px;margin:0 auto}
+.gallery-card{flex:0 0 auto;width:min(80vw,340px);scroll-snap-align:start;background:#fff;border:1px solid var(--line);border-radius:var(--radius-lg);box-shadow:var(--shadow-sm);overflow:hidden}
+.gallery-split{display:grid;grid-template-columns:1fr 1fr;height:200px}
+.gallery-split .before,.gallery-split .after{display:flex;align-items:center;justify-content:center;font-size:2.4rem;color:#fff;position:relative}
+.gallery-split .before{background:linear-gradient(160deg,#3a3a3a,#1c1c1c)}
+.gallery-split .after{background:linear-gradient(160deg,var(--green),var(--green2))}
+.gallery-split .tag{position:absolute;top:8px;left:8px;background:rgba(0,0,0,.5);color:#fff;font-size:.7rem;font-weight:800;padding:3px 9px;border-radius:999px;letter-spacing:.5px}
+.gallery-card .cap{padding:16px 18px;font-weight:700;color:var(--navy);font-family:Montserrat,sans-serif}
+
+/* Reviews */
+.reviews-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;max-width:1100px;margin:0 auto}
+.review-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius-lg);padding:28px;box-shadow:var(--shadow-sm)}
+.review-card .stars{color:var(--gold);font-size:1.1rem;margin-bottom:12px}
+.review-card p{color:var(--ink);font-style:italic;line-height:1.6;margin:0 0 14px}
+.review-card .who{font-weight:700;color:var(--navy);font-size:.92rem}
+
+/* Final CTA */
+.lux-final{background:linear-gradient(150deg,var(--navy) 0%,#0c1f42 60%,#132f5c 100%);padding:100px 0;text-align:center;position:relative;overflow:hidden}
+.lux-final::before{content:"";position:absolute;inset:0;background:radial-gradient(700px 340px at 50% 100%,rgba(217,173,67,.2),transparent 65%)}
+.lux-final .container{position:relative}
+.lux-final h2{font-family:Montserrat,sans-serif;font-weight:900;color:#fff;font-size:clamp(2rem,4.5vw,3.2rem);margin:0 0 34px}
+
+@media (max-width:820px){
+  .compare-cell{font-size:.9rem;padding:14px}
+  .steam-row{grid-template-columns:repeat(2,1fr)}
+  .wood-shell{grid-template-columns:1fr}
+  .wood-visual{min-height:200px}
+}
+</style>
+</head><body><div class="top-strip" style="background:var(--gold2);color:#0b0b0b;font-weight:800">🎉 Our Grand Opening is August 21st! Book now to be one of our first customers. <a href="quote.html" style="color:#0b0b0b;text-decoration:underline">Get on the schedule →</a></div><a class="skip-link" href="#main-content">Skip to main content</a><div class="top-strip">Serving Cumberland and York Counties • Prefer texting for a faster response</div><header class="site-header"><div class="container header-row"><a class="brand" href="index.html"><span class="brand-main">RANDY'S</span><span class="brand-sub">PREMIER CLEANING</span></a><button class="menu-button" type="button" aria-expanded="false" aria-controls="mainMenu" aria-label="Open navigation menu">☰ Menu</button><nav class="menu-panel" id="mainMenu" aria-label="Main navigation"><a href="index.html">Home</a><a href="services.html">Services</a><a href="pricing.html">Pricing</a><a href="process.html">Our Process</a><a href="promotions.html">Promotions</a><a href="about.html">About</a><a href="reviews.html">Reviews</a><a href="contact.html">Contact</a><a class="quote-link" href="quote.html">Free Quote</a></nav></div></header><main id="main-content">
+
+<!-- HERO -->
+<section class="lux-hero"><div class="container">
+<div class="lux-kicker">Randy's Premier Cleaning · Southern Maine</div>
+<h1 class="lux-h1">The <em>Gold Standard</em> in Home Care.<br>We Don't Just Clean Homes.<br>We Restore. Protect. Organize.</h1>
+<p class="lux-sub">Surface-specific science, professional steam technology, and genuine care — built for homeowners who expect more than a spray bottle and a rag.</p>
+<div class="lux-cta-row"><a class="button button-gold" href="quote.html">✨ Get My Free Quote</a><a class="button button-outline" style="color:#fff;border-color:rgba(255,255,255,.4)" href="process.html">🏆 See Our Gold Standard</a></div>
+<div class="lux-ribbon">🎉 25% Off Your First Cleaning — Grand Opening August 21st</div>
+</div></section>
+
+<!-- WHY WE'RE DIFFERENT -->
+<section class="lux-section section-white"><div class="container">
+<div class="lux-heading reveal"><div class="lux-eyebrow">Why We're Different</div><h2 class="lux-h2">We Don't Just Tell You. We Show You.</h2><p class="lux-p">Most cleaning companies use one bottle for everything. We don't.</p></div>
+<div class="compare-shell reveal">
+<div class="compare-head"><div class="typical">Typical Cleaning Company</div><div class="premier">Randy's Premier Cleaning</div></div>
+<div class="compare-row"><div class="compare-cell no">❌ One cleaner for everything</div><div class="compare-cell yes">✅ Surface-specific cleaning</div></div>
+<div class="compare-row"><div class="compare-cell no">❌ Spray and wipe</div><div class="compare-cell yes">✅ Steam cleaning</div></div>
+<div class="compare-row"><div class="compare-cell no">❌ Just cleaning</div><div class="compare-cell yes">✅ Cleaning + Protection</div></div>
+<div class="compare-row"><div class="compare-cell no">❌ No organization</div><div class="compare-cell yes">✅ Home organization</div></div>
+<div class="compare-row"><div class="compare-cell no">❌ No wood care</div><div class="compare-cell yes">✅ Wood conditioning</div></div>
+</div>
+</div></section>
+
+<!-- WOOD CONDITIONING -->
+<section class="lux-section section-soft"><div class="container">
+<div class="wood-shell reveal">
+<div class="wood-visual">🌳</div>
+<div class="wood-copy">
+<div class="wood-badge">✨ Optional Premium Add-On</div>
+<div class="lux-eyebrow">Signature Service</div>
+<h2>We Don't Just Clean Wood… We Help Bring It Back To Life.</h2>
+<p>We professionally condition compatible sealed wood cabinets, furniture, trim, and doors — restoring the beauty that everyday wear dulls over time.</p>
+<ul class="wood-benefits">
+<li><b>✨ Restore</b> — bring dull, tired wood back to life</li>
+<li><b>🛡️ Protect</b> — help protect the existing finish</li>
+<li><b>🌟 Shine</b> — a beautiful, natural, non-greasy shine</li>
+</ul>
+<p style="font-size:.88rem;color:#b8a878">Not included with standard cleaning — ask about adding it to your next visit.</p>
+<a class="button button-gold" href="pricing.html" style="margin-top:10px">See Pricing</a>
+</div>
+</div>
+</div></section>
+
+<!-- STEAM -->
+<section class="lux-section section-white"><div class="container">
+<div class="lux-heading reveal"><div class="lux-eyebrow">Steam Technology</div><h2 class="lux-h2">One Process. Five Advantages.</h2><p class="lux-p">Our high-temperature steamer does more than a typical cleaning company's whole routine — all in one pass, on the surfaces it's right for.</p></div>
+<div class="steam-row reveal">
+<div class="steam-pillar"><div class="ic">💨</div><h4>Steam</h4></div>
+<div class="steam-pillar"><div class="ic">🦠</div><h4>Sanitize</h4></div>
+<div class="steam-pillar"><div class="ic">🧴</div><h4>Disinfect</h4></div>
+<div class="steam-pillar"><div class="ic">🪥</div><h4>Less Scrubbing</h4></div>
+<div class="steam-pillar"><div class="ic">🎯</div><h4>Surface-Specific</h4></div>
+</div>
+<div style="text-align:center;margin-top:36px"><a class="button button-outline" href="science.html">🧪 The Science Behind Steam</a></div>
+</div></section>
+
+<!-- SURFACE SPECIFIC -->
+<section class="lux-section section-soft"><div class="container">
+<div class="lux-heading reveal"><div class="lux-eyebrow">Surface-Specific Cleaning</div><h2 class="lux-h2">We Identify the Surface First. Every Time.</h2><p class="lux-p">The wrong product on the right surface can dull a finish in seconds. We never guess.</p></div>
+<div class="surface-grid reveal">
+<div class="surface-card"><span class="ic">🪨</span><h4>Stone</h4></div>
+<div class="surface-card"><span class="ic">🪵</span><h4>Hardwood</h4></div>
+<div class="surface-card"><span class="ic">🏠</span><h4>Laminate</h4></div>
+<div class="surface-card"><span class="ic">🧱</span><h4>Tile</h4></div>
+<div class="surface-card"><span class="ic">🪟</span><h4>Glass</h4></div>
+<div class="surface-card"><span class="ic">⚫</span><h4>Granite</h4></div>
+<div class="surface-card"><span class="ic">💎</span><h4>Quartz</h4></div>
+</div>
+</div></section>
+
+<!-- COMPLETE HOME CARE -->
+<section class="lux-section section-navy"><div class="container">
+<div class="lux-heading reveal"><div class="lux-eyebrow" style="color:var(--gold)">Complete Home Care</div><h2 class="lux-h2" style="color:#fff">Not Just Cleaning. Complete Care.</h2><p class="lux-p" style="color:#c9d6e6">Everything your home needs, from one trusted team.</p></div>
+<div class="grid-4 reveal">
+<a class="card equipment-card" href="services.html"><div class="icon">🏠</div><h3>Cleaning</h3></a>
+<a class="card equipment-card" href="pricing.html"><div class="icon">🗂️</div><h3>Organization</h3></a>
+<a class="card equipment-card" href="science.html"><div class="icon">💨</div><h3>Steam</h3></a>
+<a class="card equipment-card" href="pricing.html"><div class="icon">🌳</div><h3>Wood Protection</h3></a>
+<a class="card equipment-card" href="cleaning-products.html"><div class="icon">🪨</div><h3>Stone Care</h3></a>
+<a class="card equipment-card" href="pricing.html"><div class="icon">📦</div><h3>Move Out</h3></a>
+<a class="card equipment-card" href="pricing.html"><div class="icon">🏡</div><h3>Airbnb</h3></a>
+<a class="card equipment-card" href="pricing.html"><div class="icon">✨</div><h3>Deep Cleaning</h3></a>
+</div>
+</div></section>
+
+<!-- GOLD STANDARD PROMISE -->
+<section class="lux-section section-white"><div class="container">
+<div class="lux-heading reveal"><div class="lux-eyebrow">Our Promise</div><h2 class="lux-h2">The Gold Standard Promise</h2></div>
+<div class="promise-grid reveal">
+<div class="promise-card"><div class="ic">💯</div><h4>100% Satisfaction</h4><p>We make it right if something's missed.</p></div>
+<div class="promise-card"><div class="ic">🧽</div><h4>Professional Equipment</h4><p>Commercial-grade tools, not big-box basics.</p></div>
+<div class="promise-card"><div class="ic">🎯</div><h4>Surface Experts</h4><p>We identify before we ever clean.</p></div>
+<div class="promise-card"><div class="ic">💨</div><h4>Steam Technology</h4><p>Cleans, sanitizes &amp; disinfects at once.</p></div>
+<div class="promise-card"><div class="ic">🐾</div><h4>Pet Friendly</h4><p>Your pets are family here too.</p></div>
+</div>
+</div></section>
+
+<!-- BEFORE & AFTER -->
+<section class="lux-section section-soft"><div class="container">
+<div class="lux-heading reveal"><div class="lux-eyebrow">Real Results</div><h2 class="lux-h2">Before &amp; After</h2><p class="lux-p">Swipe through a few recent transformations.</p></div>
+<div class="gallery-scroll reveal">
+<div class="gallery-card"><div class="gallery-split"><div class="before"><span class="tag">BEFORE</span>🚿</div><div class="after"><span class="tag">AFTER</span>✨</div></div><div class="cap">Shower &amp; Grout Restoration</div></div>
+<div class="gallery-card"><div class="gallery-split"><div class="before"><span class="tag">BEFORE</span>🍳</div><div class="after"><span class="tag">AFTER</span>✨</div></div><div class="cap">Kitchen Deep Detail</div></div>
+<div class="gallery-card"><div class="gallery-split"><div class="before"><span class="tag">BEFORE</span>🪵</div><div class="after"><span class="tag">AFTER</span>✨</div></div><div class="cap">Wood Cabinet Conditioning</div></div>
+<div class="gallery-card"><div class="gallery-split"><div class="before"><span class="tag">BEFORE</span>🧊</div><div class="after"><span class="tag">AFTER</span>✨</div></div><div class="cap">Refrigerator Deep Clean</div></div>
+</div>
+<p style="text-align:center;color:var(--muted);font-size:.85rem;margin-top:6px">📸 Placeholder gallery — swap in your real before/after photos anytime.</p>
+</div></section>
+
+<!-- REVIEWS -->
+<section class="lux-section section-white"><div class="container">
+<div class="lux-heading reveal"><div class="lux-eyebrow">Reviews</div><h2 class="lux-h2">What Customers Are Saying</h2></div>
+<div class="reviews-grid reveal">
+<div class="review-card"><div class="stars">★★★★★</div><p>"[Add your review here]"</p><div class="who">— Customer Name</div></div>
+<div class="review-card"><div class="stars">★★★★★</div><p>"[Add your review here]"</p><div class="who">— Customer Name</div></div>
+<div class="review-card"><div class="stars">★★★★★</div><p>"[Add your review here]"</p><div class="who">— Customer Name</div></div>
+</div>
+<p style="text-align:center;color:var(--muted);font-size:.85rem;margin-top:18px">⭐ Placeholder cards — once you have real Google/Facebook reviews, send them over and I'll drop them in.</p>
+</div></section>
+
+<!-- FINAL CTA -->
+<section class="lux-final"><div class="container">
+<h2>Ready To Experience The Gold Standard?</h2>
+<div class="lux-cta-row"><a class="button button-gold" href="quote.html" style="font-size:1.15rem;padding:20px 40px">✨ Free Quote</a><a class="button button-outline" style="color:#fff;border-color:rgba(255,255,255,.4);font-size:1.15rem;padding:20px 40px" href="sms:+12074502429">💬 Text Randy</a></div>
+</div></section>
+
+</main><div class="mobile-action-dock" aria-label="Quick contact actions"><a href="sms:+12074502429">💬 Text</a><a href="tel:+12074502429">📞 Call</a><a class="dock-quote" href="quote.html">✨ Free Quote</a></div><footer><div class="container"><p><strong>RANDY'S <span style="color:#72c92f">PREMIER CLEANING</span></strong></p><p>Setting the <span class="gold">Gold Standard</span> in Cleaning.</p><p><a href="sms:+12074502429">Text: (207) 450-2429</a> • <a href="mailto:randyspremiercleaning@gmail.com">randyspremiercleaning@gmail.com</a></p><p class="small">Serving Cumberland and York Counties, Maine • © 2026 Randy's <span style="color:var(--green)">Premier Cleaning</span></p></div></footer><button class="back-to-top" type="button" aria-label="Back to top">↑</button><script src="script.js"></script>
+<script>
+(function(){
+  var els = document.querySelectorAll('.reveal');
+  if(!('IntersectionObserver' in window)){ els.forEach(function(el){el.classList.add('in');}); return; }
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if(entry.isIntersecting){ entry.target.classList.add('in'); io.unobserve(entry.target); }
+    });
+  }, {threshold:.15});
+  els.forEach(function(el){ io.observe(el); });
+})();
+</script>
+</body></html>
