@@ -66,15 +66,6 @@
 .promise-card h4{font-family:Montserrat,sans-serif;font-weight:800;color:var(--gold);font-size:1.02rem;margin:0 0 6px}
 .promise-card p{color:#c9d6e6;font-size:.88rem;margin:0;line-height:1.5}
 
-/* Gallery */
-.gallery-scroll{display:flex;gap:20px;overflow-x:auto;scroll-snap-type:x mandatory;padding:10px 4px 20px;max-width:1100px;margin:0 auto}
-.gallery-card{flex:0 0 auto;width:min(80vw,340px);scroll-snap-align:start;background:#fff;border:1px solid var(--line);border-radius:var(--radius-lg);box-shadow:var(--shadow-sm);overflow:hidden}
-.gallery-split{display:grid;grid-template-columns:1fr 1fr;height:200px}
-.gallery-split .before,.gallery-split .after{display:flex;align-items:center;justify-content:center;font-size:2.4rem;color:#fff;position:relative}
-.gallery-split .before{background:linear-gradient(160deg,#3a3a3a,#1c1c1c)}
-.gallery-split .after{background:linear-gradient(160deg,var(--green),var(--green2))}
-.gallery-split .tag{position:absolute;top:8px;left:8px;background:rgba(0,0,0,.5);color:#fff;font-size:.7rem;font-weight:800;padding:3px 9px;border-radius:999px;letter-spacing:.5px}
-.gallery-card .cap{padding:16px 18px;font-weight:700;color:var(--navy);font-family:Montserrat,sans-serif}
 
 /* Reviews */
 .reviews-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;max-width:1100px;margin:0 auto}
@@ -128,15 +119,33 @@
 <div class="wood-badge">✨ Optional Premium Add-On</div>
 <div class="lux-eyebrow">Signature Service</div>
 <h2>We Don't Just Clean Wood… We Help Bring It Back To Life.</h2>
-<p>We professionally condition compatible sealed wood cabinets, furniture, trim, and doors — restoring the beauty that everyday wear dulls over time.</p>
+<p>Most cleaning companies simply wipe cabinets. We go one step further. Our optional Wood Conditioning &amp; Protection service helps restore the appearance of compatible finished wood while helping protect the finish.</p>
 <ul class="wood-benefits">
-<li><b>✨ Restore</b> — bring dull, tired wood back to life</li>
-<li><b>🛡️ Protect</b> — help protect the existing finish</li>
-<li><b>🌟 Shine</b> — a beautiful, natural, non-greasy shine</li>
+<li><b>🌳 Restore</b> — natural beauty</li>
+<li><b>✨ Bring</b> — dull wood back to life</li>
+<li><b>🛡️ Protect</b> — help protect the finish</li>
+<li><b>🏡 Achieve</b> — a beautiful, natural appearance</li>
 </ul>
-<p style="font-size:.88rem;color:#b8a878">Not included with standard cleaning — ask about adding it to your next visit.</p>
+<p style="font-size:.86rem;color:var(--gold);font-weight:700;text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px">Perfect For</p>
+<p style="font-size:.92rem;color:#d9c9a8;line-height:1.7">Kitchen Cabinets · Bathroom Vanities · Wood Furniture · Interior Doors · Trim &amp; Moldings · Built-In Shelving</p>
+<p style="font-size:.88rem;color:#b8a878;margin-top:10px">Available as an optional premium add-on — not included with standard cleaning.</p>
 <a class="button button-gold" href="pricing.html" style="margin-top:10px">See Pricing</a>
 </div>
+</div>
+</div></section>
+
+<!-- WHY HOMEOWNERS CHOOSE US -->
+<section class="lux-section section-white"><div class="container">
+<div class="lux-heading reveal"><div class="lux-eyebrow">The Difference</div><h2 class="lux-h2">⭐ Why Homeowners Choose Us</h2></div>
+<div class="promise-grid reveal" style="max-width:1200px">
+<div class="promise-card" style="background:linear-gradient(160deg,#fff,#f7f5ef);border-color:var(--line)"><div class="ic">💨</div><h4 style="color:var(--navy)">Steam Cleaning Technology</h4></div>
+<div class="promise-card" style="background:linear-gradient(160deg,#fff,#f7f5ef);border-color:var(--line)"><div class="ic">🪨</div><h4 style="color:var(--navy)">Surface-Specific Cleaning</h4></div>
+<div class="promise-card" style="background:linear-gradient(160deg,#fff,#f7f5ef);border-color:var(--line)"><div class="ic">🌳</div><h4 style="color:var(--navy)">Wood Conditioning &amp; Protection</h4></div>
+<div class="promise-card" style="background:linear-gradient(160deg,#fff,#f7f5ef);border-color:var(--line)"><div class="ic">🧺</div><h4 style="color:var(--navy)">Home Organization</h4></div>
+<div class="promise-card" style="background:linear-gradient(160deg,#fff,#f7f5ef);border-color:var(--line)"><div class="ic">🧪</div><h4 style="color:var(--navy)">Professional Products</h4></div>
+<div class="promise-card" style="background:linear-gradient(160deg,#fff,#f7f5ef);border-color:var(--line)"><div class="ic">🏆</div><h4 style="color:var(--navy)">Gold Standard Cleaning System</h4></div>
+<div class="promise-card" style="background:linear-gradient(160deg,#fff,#f7f5ef);border-color:var(--line)"><div class="ic">🛡️</div><h4 style="color:var(--navy)">100% Satisfaction Promise</h4></div>
+<div class="promise-card" style="background:linear-gradient(160deg,#fff,#f7f5ef);border-color:var(--line)"><div class="ic">🐾</div><h4 style="color:var(--navy)">Pet Friendly</h4></div>
 </div>
 </div></section>
 
@@ -194,18 +203,6 @@
 </div>
 </div></section>
 
-<!-- BEFORE & AFTER -->
-<section class="lux-section section-soft"><div class="container">
-<div class="lux-heading reveal"><div class="lux-eyebrow">Real Results</div><h2 class="lux-h2">Before &amp; After</h2><p class="lux-p">Swipe through a few recent transformations.</p></div>
-<div class="gallery-scroll reveal">
-<div class="gallery-card"><div class="gallery-split"><div class="before"><span class="tag">BEFORE</span>🚿</div><div class="after"><span class="tag">AFTER</span>✨</div></div><div class="cap">Shower &amp; Grout Restoration</div></div>
-<div class="gallery-card"><div class="gallery-split"><div class="before"><span class="tag">BEFORE</span>🍳</div><div class="after"><span class="tag">AFTER</span>✨</div></div><div class="cap">Kitchen Deep Detail</div></div>
-<div class="gallery-card"><div class="gallery-split"><div class="before"><span class="tag">BEFORE</span>🪵</div><div class="after"><span class="tag">AFTER</span>✨</div></div><div class="cap">Wood Cabinet Conditioning</div></div>
-<div class="gallery-card"><div class="gallery-split"><div class="before"><span class="tag">BEFORE</span>🧊</div><div class="after"><span class="tag">AFTER</span>✨</div></div><div class="cap">Refrigerator Deep Clean</div></div>
-</div>
-<p style="text-align:center;color:var(--muted);font-size:.85rem;margin-top:6px">📸 Placeholder gallery — swap in your real before/after photos anytime.</p>
-</div></section>
-
 <!-- REVIEWS -->
 <section class="lux-section section-white"><div class="container">
 <div class="lux-heading reveal"><div class="lux-eyebrow">Reviews</div><h2 class="lux-h2">What Customers Are Saying</h2></div>
@@ -223,7 +220,7 @@
 <div class="lux-cta-row"><a class="button button-gold" href="quote.html" style="font-size:1.15rem;padding:20px 40px">✨ Free Quote</a><a class="button button-outline" style="color:#fff;border-color:rgba(255,255,255,.4);font-size:1.15rem;padding:20px 40px" href="sms:+12074502429">💬 Text Randy</a></div>
 </div></section>
 
-</main><div class="mobile-action-dock" aria-label="Quick contact actions"><a href="sms:+12074502429">💬 Text</a><a href="tel:+12074502429">📞 Call</a><a class="dock-quote" href="quote.html">✨ Free Quote</a></div><footer><div class="container"><p><strong>RANDY'S <span style="color:#72c92f">PREMIER CLEANING</span></strong></p><p>Setting the <span class="gold">Gold Standard</span> in Cleaning.</p><p><a href="sms:+12074502429">Text: (207) 450-2429</a> • <a href="mailto:randyspremiercleaning@gmail.com">randyspremiercleaning@gmail.com</a></p><p class="small">Serving Cumberland and York Counties, Maine • © 2026 Randy's <span style="color:var(--green)">Premier Cleaning</span></p></div></footer><button class="back-to-top" type="button" aria-label="Back to top">↑</button><script src="script.js"></script>
+</main><div class="mobile-action-dock" aria-label="Quick contact actions"><a href="sms:+12074502429">💬 Text</a><a href="tel:+12074502429">📞 Call</a><a class="dock-quote" href="quote.html">✨ Free Quote</a></div><footer><div class="container"><p><strong>RANDY'S <span style="color:#72c92f">PREMIER CLEANING</span></strong></p><p>Setting the <span class="gold">Gold Standard</span> in Cleaning.</p><p><a href="sms:+12074502429">Text: (207) 450-2429</a> • <a href="mailto:randyspremiercleaning@gmail.com">randyspremiercleaning@gmail.com</a></p><p class="small">Serving Cumberland and York Counties, Maine • © 2026 Randy's <span style="color:var(--green)">Premier Cleaning</span></p><p class="small"><a href="terms.html">Terms &amp; Conditions</a></p></div></footer><button class="back-to-top" type="button" aria-label="Back to top">↑</button><script src="script.js"></script>
 <script>
 (function(){
   var els = document.querySelectorAll('.reveal');
