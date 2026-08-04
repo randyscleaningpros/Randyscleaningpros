@@ -1,1 +1,197 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Customer reviews for Randy’s Premier Cleaning."><title>Reviews | Randy's Premier Cleaning</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800;900&family=Open+Sans:wght@400;600;700;800&display=swap" rel="stylesheet"><link rel="stylesheet" href="styles.css"></head><body><a class="skip-link" href="#main-content">Skip to main content</a><div class="top-strip">Serving Cumberland and York Counties • Prefer texting for a faster response</div><header class="site-header"><div class="container header-row"><a class="brand" href="index.html"><span class="brand-main">RANDY'S</span><span class="brand-sub">PREMIER CLEANING</span></a><button class="menu-button" type="button" aria-expanded="false" aria-controls="mainMenu" aria-label="Open navigation menu">☰ Menu</button><nav class="menu-panel" id="mainMenu" aria-label="Main navigation"><a href="index.html">Home</a><a href="services.html">Services</a><a href="pricing.html">Pricing</a><a href="process.html">Our Process</a><a href="about.html">About</a><a href="promise.html">Premier Promise</a><a href="reviews.html" aria-current="page">Reviews</a><a href="contact.html">Contact</a><a class="quote-link" href="quote.html">Free Quote</a></nav></div></header><main id="main-content"><section class="page-hero"><div class="container"><h1>Customer Reviews</h1><p>We're building a local reputation one carefully cleaned home at a time.</p></div></section><section class="section section-soft"><div class="container"><div class="section-heading"><div class="kicker">Coming Soon</div><h2>Real feedback from real customers.</h2><p>Verified customer reviews will appear here as the business launches and grows.</p></div><div class="grid-3"><article class="card"><div class="stars">★★★★★</div><h3>Detail-focused care</h3><p>Future verified customer review.</p></article><article class="card"><div class="stars">★★★★★</div><h3>Professional communication</h3><p>Future verified customer review.</p></article><article class="card"><div class="stars">★★★★★</div><h3>Gold Standard results</h3><p>Future verified customer review.</p></article></div></div></section></main><div class="mobile-action-dock" aria-label="Quick contact actions"><a href="sms:+12074502429">💬 Text</a><a href="tel:+12074502429">📞 Call</a><a class="dock-quote" href="quote.html">✨ Free Quote</a></div><footer><div class="container"><p><strong>RANDY'S <span style="color:#72c92f">PREMIER CLEANING</span></strong></p><p>Setting the <span class="gold">Gold Standard</span> in Cleaning.</p><p><a href="sms:+12074502429">Text: (207) 450-2429</a> • <a href="mailto:randyspremiercleaning@gmail.com">randyspremiercleaning@gmail.com</a></p><p class="small">Serving Cumberland and York Counties, Maine • © 2026 Randy's <span style="color:var(--green)">Premier Cleaning</span></p></div></footer><button class="back-to-top" type="button" aria-label="Back to top">↑</button><script src="script.js"></script></body></html>
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Read customer reviews and share your own experience with Randy's Premier Cleaning."><title>Reviews | Randy's Premier Cleaning</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800;900&family=Open+Sans:wght@400;600;700;800&display=swap" rel="stylesheet"><link rel="stylesheet" href="styles.css">
+<style>
+.star-picker{display:flex;gap:8px;font-size:2rem;justify-content:center;margin:6px 0 4px}
+.star-picker button{background:none;border:none;cursor:pointer;color:var(--line);padding:0;line-height:1;transition:color .15s ease, transform .15s ease}
+.star-picker button:hover{transform:scale(1.12)}
+.star-picker button.active,.star-picker button.hovered{color:var(--gold)}
+.review-form-shell{max-width:560px;margin:0 auto;background:#fff;border-radius:var(--radius-lg);box-shadow:var(--shadow-lg);padding:36px 32px}
+.review-form-shell h3{font-family:Montserrat,sans-serif;font-weight:800;color:var(--navy);text-align:center;margin:0 0 4px}
+.review-form-shell .sub{text-align:center;color:var(--muted);font-size:.92rem;margin:0 0 22px}
+.review-success{display:none;text-align:center;padding:30px 10px}
+.review-success .ic{font-size:2.6rem;margin-bottom:10px}
+.review-success h4{font-family:Montserrat,sans-serif;font-weight:800;color:var(--navy);margin:0 0 8px}
+.wall-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;max-width:1100px;margin:0 auto}
+.wall-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius-lg);padding:26px;box-shadow:var(--shadow-sm)}
+.wall-card .stars{color:var(--gold);font-size:1.05rem;margin-bottom:10px}
+.wall-card p{color:var(--ink);font-style:italic;line-height:1.6;margin:0 0 12px}
+.wall-card .who{font-weight:700;color:var(--navy);font-size:.9rem}
+.wall-empty{text-align:center;color:var(--muted);max-width:480px;margin:0 auto}
+</style>
+</head><body><div class="top-strip" style="background:var(--gold2);color:#0b0b0b;font-weight:800">🎉 Our Grand Opening is August 21st! Book now to be one of our first customers. <a href="quote.html" style="color:#0b0b0b;text-decoration:underline">Get on the schedule →</a></div><a class="skip-link" href="#main-content">Skip to main content</a><div class="top-strip">Serving Cumberland and York Counties • Prefer texting for a faster response</div><header class="site-header"><div class="container header-row"><a class="brand" href="index.html"><span class="brand-main">RANDY'S</span><span class="brand-sub">PREMIER CLEANING</span></a><button class="menu-button" type="button" aria-expanded="false" aria-controls="mainMenu" aria-label="Open navigation menu">☰ Menu</button><nav class="menu-panel" id="mainMenu" aria-label="Main navigation"><a href="index.html">Home</a><a href="services.html">Services</a><a href="pricing.html">Pricing</a><a href="process.html">Our Process</a><a href="promotions.html">Promotions</a><a href="about.html">About</a><a href="reviews.html" aria-current="page">Reviews</a><a href="contact.html">Contact</a><a class="quote-link" href="quote.html">Free Quote</a></nav></div></header><main id="main-content">
+
+<section class="page-hero"><div class="container"><div class="eyebrow eyebrow-gold">⭐ Customer Reviews</div><h1>What Customers Are Saying</h1><p>Real feedback from real homes — and a place to share your own experience.</p></div></section>
+
+<section class="section section-white"><div class="container">
+<div class="review-form-shell">
+<div id="reviewFormWrap">
+<h3>✍️ Write a Review</h3>
+<p class="sub">Just cleaned with us? We'd love to hear about it.</p>
+<form id="reviewForm">
+  <div class="full" style="margin-bottom:16px">
+    <label style="text-align:center">Your Rating</label>
+    <div class="star-picker" id="starPicker">
+      <button type="button" data-val="1">★</button>
+      <button type="button" data-val="2">★</button>
+      <button type="button" data-val="3">★</button>
+      <button type="button" data-val="4">★</button>
+      <button type="button" data-val="5">★</button>
+    </div>
+    <input type="hidden" name="rating" id="ratingInput" required>
+  </div>
+  <div class="full" style="margin-bottom:16px"><label>Your Name</label><input name="Name" required placeholder="First name or First + Last initial"></div>
+  <div class="full" style="margin-bottom:16px"><label>Service You Received</label>
+    <select name="Service">
+      <option>Standard Cleaning</option>
+      <option>Deep Cleaning</option>
+      <option>Move-In / Move-Out</option>
+      <option>Airbnb Turnover</option>
+      <option>Home Organization</option>
+      <option>Wood Conditioning &amp; Protection</option>
+      <option>Other</option>
+    </select>
+  </div>
+  <div class="full" style="margin-bottom:20px"><label>Your Review</label><textarea name="Review" required placeholder="Tell us how it went..."></textarea></div>
+  <button class="button button-gold" type="submit" style="width:100%;justify-content:center">✨ Submit My Review</button>
+  <p class="form-help" style="text-align:center;margin-top:12px" id="reviewFormNote">Reviews are briefly checked before appearing publicly.</p>
+</form>
+</div>
+<div class="review-success" id="reviewSuccess">
+<div class="ic">🎉</div>
+<h4>Thank you!</h4>
+<p style="color:var(--muted)">Your review has been submitted and will appear here soon. We really appreciate you taking the time.</p>
+</div>
+</div>
+</div></section>
+
+<section class="section section-soft"><div class="container">
+<div class="section-heading"><div class="kicker kicker-gold">⭐⭐⭐⭐⭐</div><h2>Customer Reviews</h2></div>
+<div class="wall-grid" id="reviewWall">
+<div class="wall-empty">Loading reviews…</div>
+</div>
+</div></section>
+
+<section class="section section-white"><div class="container cta"><h2>Love our work? Refer a friend too.</h2><p>Earn $5–$10 per referral, redeemable as credit or cash.</p><div class="actions" style="justify-content:center"><a class="button button-gold" href="promotions.html">🎉 See Promotions</a><a class="button button-outline" href="quote.html">✨ Get My Free Quote</a></div></div></section>
+
+</main><div class="mobile-action-dock" aria-label="Quick contact actions"><a href="sms:+12074502429">💬 Text</a><a href="tel:+12074502429">📞 Call</a><a class="dock-quote" href="quote.html">✨ Free Quote</a></div><footer><div class="container"><p><strong>RANDY'S <span style="color:#72c92f">PREMIER CLEANING</span></strong></p><p>Setting the <span class="gold">Gold Standard</span> in Cleaning.</p><p><a href="sms:+12074502429">Text: (207) 450-2429</a> • <a href="mailto:randyspremiercleaning@gmail.com">randyspremiercleaning@gmail.com</a></p><p class="small">Serving Cumberland and York Counties, Maine • © 2026 Randy's <span style="color:var(--green)">Premier Cleaning</span></p><p class="small"><a href="terms.html">Terms &amp; Conditions</a></p></div></footer><button class="back-to-top" type="button" aria-label="Back to top">↑</button><script src="script.js"></script>
+
+<!-- ============================================================
+     SUPABASE CONNECTION
+     Paste your Supabase Project URL below (Project Settings > API).
+     The publishable/anon key is already filled in — same project
+     as your job-checklist page. Run the SQL below once in the
+     Supabase SQL editor to create the reviews table.
+
+     create table reviews (
+       id bigint generated always as identity primary key,
+       name text not null,
+       rating int not null check (rating between 1 and 5),
+       service text,
+       review_text text not null,
+       published boolean default false,
+       created_at timestamptz default now()
+     );
+     alter table reviews enable row level security;
+     create policy "Anyone can submit a review" on reviews
+       for insert with check (true);
+     create policy "Anyone can read published reviews" on reviews
+       for select using (published = true);
+
+     New reviews save with published = false. Open the "reviews"
+     table in your Supabase dashboard and flip published to true
+     for any review you want to show publicly on this page.
+     ============================================================ -->
+<script>
+  const SUPABASE_URL = "PASTE_YOUR_SUPABASE_PROJECT_URL_HERE"; // e.g. "https://xxxxxxxx.supabase.co"
+  const SUPABASE_KEY = "sb_publishable_kUyBNcjdgQQ4l7qgX36H0w_NYCazDf5";
+</script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script>
+  let supabaseClient = null;
+  if (SUPABASE_URL && SUPABASE_URL.indexOf("PASTE_YOUR") === -1 && window.supabase) {
+    supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+  }
+
+  // ---- Star picker ----
+  let selectedRating = 0;
+  const starBtns = document.querySelectorAll('#starPicker button');
+  const ratingInput = document.getElementById('ratingInput');
+  function paintStars(val){
+    starBtns.forEach(b=>{
+      const on = parseInt(b.dataset.val,10) <= val;
+      b.classList.toggle('active', on);
+    });
+  }
+  starBtns.forEach(btn=>{
+    btn.addEventListener('mouseenter', ()=> paintStars(parseInt(btn.dataset.val,10)));
+    btn.addEventListener('mouseleave', ()=> paintStars(selectedRating));
+    btn.addEventListener('click', ()=>{
+      selectedRating = parseInt(btn.dataset.val,10);
+      ratingInput.value = selectedRating;
+      paintStars(selectedRating);
+    });
+  });
+
+  // ---- Submit review ----
+  document.getElementById('reviewForm').addEventListener('submit', async (e)=>{
+    e.preventDefault();
+    if(!selectedRating){
+      alert('Please select a star rating.');
+      return;
+    }
+    const form = e.target;
+    const data = {
+      name: form.Name.value,
+      rating: selectedRating,
+      service: form.Service.value,
+      review_text: form.Review.value,
+      published: false
+    };
+
+    if (supabaseClient) {
+      const { error } = await supabaseClient.from('reviews').insert([data]);
+      if (error) {
+        alert('Something went wrong submitting your review. Please try texting us instead: (207) 450-2429');
+        return;
+      }
+    } else {
+      // Supabase not yet connected — save locally as a fallback so nothing is lost
+      const pending = JSON.parse(localStorage.getItem('randysPendingReviews') || '[]');
+      pending.push({ ...data, savedAt: new Date().toISOString() });
+      localStorage.setItem('randysPendingReviews', JSON.stringify(pending));
+    }
+
+    document.getElementById('reviewFormWrap').style.display = 'none';
+    document.getElementById('reviewSuccess').style.display = 'block';
+  });
+
+  // ---- Load published reviews ----
+  async function loadReviews(){
+    const wall = document.getElementById('reviewWall');
+    if (!supabaseClient){
+      wall.innerHTML = '<div class="wall-empty">Reviews are being set up — check back soon, or be the first to write one above!</div>';
+      return;
+    }
+    const { data, error } = await supabaseClient
+      .from('reviews')
+      .select('*')
+      .eq('published', true)
+      .order('created_at', { ascending: false })
+      .limit(24);
+
+    if (error || !data || data.length === 0){
+      wall.innerHTML = '<div class="wall-empty">No reviews yet — be the first to share your experience!</div>';
+      return;
+    }
+
+    wall.innerHTML = data.map(r => `
+      <div class="wall-card">
+        <div class="stars">${'★'.repeat(r.rating)}${'☆'.repeat(5-r.rating)}</div>
+        <p>"${r.review_text.replace(/</g,'&lt;')}"</p>
+        <div class="who">— ${r.name.replace(/</g,'&lt;')}${r.service ? ' · ' + r.service.replace(/</g,'&lt;') : ''}</div>
+      </div>
+    `).join('');
+  }
+  loadReviews();
+</script>
+</body></html>
