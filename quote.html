@@ -1,11 +1,17 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Get an instant, personalized cleaning quote from Randy's Premier Cleaning."><title>Free Quote | Randy's Premier Cleaning</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800;900&family=Open+Sans:wght@400;600;700;800&display=swap" rel="stylesheet"><link rel="stylesheet" href="styles.css"></head><body class="quote-wizard-page">
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Get an instant, personalized cleaning quote from Randy's Premier Cleaning."><title>Free Quote | Randy's Premier Cleaning</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800;900&family=Open+Sans:wght@400;600;700;800&display=swap" rel="stylesheet"><link rel="stylesheet" href="styles.css">
+<style>
+.deep-toggle-label{display:flex;align-items:center;gap:6px;margin-top:6px;font-size:.82rem;font-weight:700;color:var(--gold2);cursor:pointer}
+.deep-toggle-label input{width:16px;height:16px;accent-color:var(--gold2)}
+.qty-row{flex-wrap:wrap}
+</style>
+</head><body class="quote-wizard-page">
 <a class="skip-link" href="#main-content">Skip to main content</a>
 <div class="top-strip">Serving Cumberland and York Counties • Prefer texting for a faster response</div>
 <header class="site-header"><div class="container header-row">
 <a class="brand" href="index.html"><span class="brand-main">RANDY'S</span><span class="brand-sub">PREMIER CLEANING</span></a>
 <button class="menu-button" type="button" aria-expanded="false" aria-controls="mainMenu" aria-label="Open navigation menu">☰ Menu</button>
 <nav class="menu-panel" id="mainMenu" aria-label="Main navigation">
-<a href="index.html">Home</a><a href="services.html">Services</a><a href="pricing.html">Pricing</a><a href="process.html">Our Process</a><a href="about.html">About</a><a href="promise.html">Premier Promise</a><a href="reviews.html">Reviews</a><a href="contact.html">Contact</a><a class="quote-link" href="quote.html" aria-current="page">Free Quote</a>
+<a href="index.html">Home</a><a href="services.html">Services</a><a href="pricing.html">Pricing</a><a href="process.html">Our Process</a><a href="about.html">About</a><a href="reviews.html">Reviews</a><a href="contact.html">Contact</a><a class="quote-link" href="quote.html" aria-current="page">Free Quote</a>
 </nav></div></header>
 
 <main id="main-content">
@@ -40,6 +46,7 @@
     <label class="choice-card small"><input type="checkbox" name="Service" value="Airbnb Turnover" class="svc"><span>🏠 Airbnb Turnover</span></label>
   </div>
   <p class="wizard-error" id="wizardServiceError">👆 Please select at least one service to continue.</p>
+  <p class="form-help">✨ Want deep cleaning on just a few rooms? Pick "Standard House Cleaning" and use the ✨ Deep Clean toggle next to each room in the next step — only the rooms you upgrade are priced at the deep-clean rate.</p>
 </div>
 
 <!-- STEP 2: HOME DETAILS (any non-org-only service) -->
@@ -53,16 +60,16 @@
 
   <h4 style="font-family:Montserrat;color:var(--navy);margin:22px 0 10px">🛏 Bedrooms</h4>
   <div class="qty-grid">
-    <div class="qty-row"><div><div class="qr-label">🟢 Small Bedrooms</div><div class="qr-sub">70–100 sq ft</div></div><div class="qty-controls"><button type="button" class="qty-btn" data-name="Small Bedrooms" data-dir="-1">−</button><span class="qty-value" id="val-Small Bedrooms">0</span><button type="button" class="qty-btn" data-name="Small Bedrooms" data-dir="1">+</button></div><input type="hidden" name="Small Bedrooms" value="0"></div>
-    <div class="qty-row"><div><div class="qr-label">🔵 Medium Bedrooms</div><div class="qr-sub">101–150 sq ft</div></div><div class="qty-controls"><button type="button" class="qty-btn" data-name="Medium Bedrooms" data-dir="-1">−</button><span class="qty-value" id="val-Medium Bedrooms">0</span><button type="button" class="qty-btn" data-name="Medium Bedrooms" data-dir="1">+</button></div><input type="hidden" name="Medium Bedrooms" value="0"></div>
-    <div class="qty-row"><div><div class="qr-label">⭐ Large / Master Bedrooms</div><div class="qr-sub">151+ sq ft</div></div><div class="qty-controls"><button type="button" class="qty-btn" data-name="Large Bedrooms" data-dir="-1">−</button><span class="qty-value" id="val-Large Bedrooms">0</span><button type="button" class="qty-btn" data-name="Large Bedrooms" data-dir="1">+</button></div><input type="hidden" name="Large Bedrooms" value="0"></div>
+    <div class="qty-row"><div><div class="qr-label">🟢 Small Bedrooms</div><div class="qr-sub">70–100 sq ft</div><label class="deep-toggle-label"><input type="checkbox" class="deep-toggle" data-name="Small Bedrooms"> ✨ Deep Clean (+$45/room)</label></div><div class="qty-controls"><button type="button" class="qty-btn" data-name="Small Bedrooms" data-dir="-1">−</button><span class="qty-value" id="val-Small Bedrooms">0</span><button type="button" class="qty-btn" data-name="Small Bedrooms" data-dir="1">+</button></div><input type="hidden" name="Small Bedrooms" value="0"></div>
+    <div class="qty-row"><div><div class="qr-label">🔵 Medium Bedrooms</div><div class="qr-sub">101–150 sq ft</div><label class="deep-toggle-label"><input type="checkbox" class="deep-toggle" data-name="Medium Bedrooms"> ✨ Deep Clean (+$55/room)</label></div><div class="qty-controls"><button type="button" class="qty-btn" data-name="Medium Bedrooms" data-dir="-1">−</button><span class="qty-value" id="val-Medium Bedrooms">0</span><button type="button" class="qty-btn" data-name="Medium Bedrooms" data-dir="1">+</button></div><input type="hidden" name="Medium Bedrooms" value="0"></div>
+    <div class="qty-row"><div><div class="qr-label">⭐ Large / Master Bedrooms</div><div class="qr-sub">151+ sq ft</div><label class="deep-toggle-label"><input type="checkbox" class="deep-toggle" data-name="Large Bedrooms"> ✨ Deep Clean (+$60/room)</label></div><div class="qty-controls"><button type="button" class="qty-btn" data-name="Large Bedrooms" data-dir="-1">−</button><span class="qty-value" id="val-Large Bedrooms">0</span><button type="button" class="qty-btn" data-name="Large Bedrooms" data-dir="1">+</button></div><input type="hidden" name="Large Bedrooms" value="0"></div>
   </div>
 
   <h4 style="font-family:Montserrat;color:var(--navy);margin:22px 0 10px">🛁 Bathrooms</h4>
   <div class="qty-grid">
-    <div class="qty-row"><div><div class="qr-label">🚿 Full Bathrooms</div></div><div class="qty-controls"><button type="button" class="qty-btn" data-name="Full Bathrooms" data-dir="-1">−</button><span class="qty-value" id="val-Full Bathrooms">0</span><button type="button" class="qty-btn" data-name="Full Bathrooms" data-dir="1">+</button></div><input type="hidden" name="Full Bathrooms" value="0"></div>
-    <div class="qty-row"><div><div class="qr-label">🚻 Half Bathrooms</div></div><div class="qty-controls"><button type="button" class="qty-btn" data-name="Half Bathrooms" data-dir="-1">−</button><span class="qty-value" id="val-Half Bathrooms">0</span><button type="button" class="qty-btn" data-name="Half Bathrooms" data-dir="1">+</button></div><input type="hidden" name="Half Bathrooms" value="0"></div>
-    <div class="qty-row"><div><div class="qr-label">✨ Large / Master Bathrooms</div></div><div class="qty-controls"><button type="button" class="qty-btn" data-name="Large Bathrooms" data-dir="-1">−</button><span class="qty-value" id="val-Large Bathrooms">0</span><button type="button" class="qty-btn" data-name="Large Bathrooms" data-dir="1">+</button></div><input type="hidden" name="Large Bathrooms" value="0"></div>
+    <div class="qty-row"><div><div class="qr-label">🚿 Full Bathrooms</div><label class="deep-toggle-label"><input type="checkbox" class="deep-toggle" data-name="Full Bathrooms"> ✨ Deep Clean (+$90/room)</label></div><div class="qty-controls"><button type="button" class="qty-btn" data-name="Full Bathrooms" data-dir="-1">−</button><span class="qty-value" id="val-Full Bathrooms">0</span><button type="button" class="qty-btn" data-name="Full Bathrooms" data-dir="1">+</button></div><input type="hidden" name="Full Bathrooms" value="0"></div>
+    <div class="qty-row"><div><div class="qr-label">🚻 Half Bathrooms</div><label class="deep-toggle-label"><input type="checkbox" class="deep-toggle" data-name="Half Bathrooms"> ✨ Deep Clean (+$55/room)</label></div><div class="qty-controls"><button type="button" class="qty-btn" data-name="Half Bathrooms" data-dir="-1">−</button><span class="qty-value" id="val-Half Bathrooms">0</span><button type="button" class="qty-btn" data-name="Half Bathrooms" data-dir="1">+</button></div><input type="hidden" name="Half Bathrooms" value="0"></div>
+    <div class="qty-row"><div><div class="qr-label">✨ Large / Master Bathrooms</div><label class="deep-toggle-label"><input type="checkbox" class="deep-toggle" data-name="Large Bathrooms"> ✨ Deep Clean (+$105/room)</label></div><div class="qty-controls"><button type="button" class="qty-btn" data-name="Large Bathrooms" data-dir="-1">−</button><span class="qty-value" id="val-Large Bathrooms">0</span><button type="button" class="qty-btn" data-name="Large Bathrooms" data-dir="1">+</button></div><input type="hidden" name="Large Bathrooms" value="0"></div>
   </div>
 
   <h4 style="font-family:Montserrat;color:var(--navy);margin:22px 0 10px">🍽 Kitchen Size</h4>
@@ -71,6 +78,7 @@
     <label class="choice-card small"><input type="radio" name="Kitchen Size" value="Medium" class="kitchen" checked><span>Medium</span></label>
     <label class="choice-card small"><input type="radio" name="Kitchen Size" value="Large" class="kitchen"><span>Large</span></label>
   </div>
+  <label class="deep-toggle-label" style="margin-top:10px;display:inline-flex"><input type="checkbox" class="deep-toggle" id="kitchenDeepToggle"> ✨ Upgrade Kitchen to Gold Standard Deep Cleaning</label>
 
   <h4 style="font-family:Montserrat;color:var(--navy);margin:22px 0 10px">🛋 Additional Rooms</h4>
   <div class="qty-grid" id="extraRoomsGrid"></div>
@@ -260,22 +268,33 @@
 <script>
 /* ---------------- DATA ---------------- */
 const ROOM_PRICES = {
-  "Small Bedrooms":{price:13,time:15}, "Medium Bedrooms":{price:18,time:20}, "Large Bedrooms":{price:28,time:30},
-  "Full Bathrooms":{price:28,time:30}, "Half Bathrooms":{price:17,time:18}, "Large Bathrooms":{price:35,time:35}
+  "Small Bedrooms":{price:15,time:15}, "Medium Bedrooms":{price:20,time:20}, "Large Bedrooms":{price:30,time:30},
+  "Full Bathrooms":{price:35,time:30}, "Half Bathrooms":{price:20,time:18}, "Large Bathrooms":{price:45,time:35}
 };
-const KITCHEN_PRICES = {Small:{price:28,time:30}, Medium:{price:36,time:40}, Large:{price:46,time:50}};
+const DEEP_ROOM_PRICES = {
+  "Small Bedrooms":{price:60,time:35}, "Medium Bedrooms":{price:75,time:45}, "Large Bedrooms":{price:90,time:55},
+  "Full Bathrooms":{price:125,time:60}, "Half Bathrooms":{price:75,time:40}, "Large Bathrooms":{price:150,time:70}
+};
+const KITCHEN_PRICES = {Small:{price:35,time:30}, Medium:{price:45,time:40}, Large:{price:60,time:50}};
+const DEEP_KITCHEN_PRICES = {Small:{price:220,time:90}, Medium:{price:275,time:110}, Large:{price:330,time:130}};
 const EXTRA_ROOMS = [
-  {name:"Living Room", price:23, time:25},
-  {name:"Family Room", price:23, time:25},
-  {name:"Dining Room", price:13, time:15},
-  {name:"Office", price:18, time:20},
+  {name:"Living Room", price:30, time:25},
+  {name:"Family Room", price:30, time:25},
+  {name:"Dining Room", price:20, time:15},
+  {name:"Office", price:20, time:20},
   {name:"Laundry Room", price:10, time:10},
   {name:"Mudroom", price:10, time:10},
   {name:"Finished Basement", price:30, time:35},
   {name:"Garage", price:20, time:25},
   {name:"Attic", price:20, time:25},
-  {name:"Staircases", price:13, time:15},
+  {name:"Staircases", price:20, time:15},
 ];
+const DEEP_EXTRA_ROOMS = {
+  "Living Room":{price:90,time:50}, "Family Room":{price:90,time:50}, "Dining Room":{price:60,time:35},
+  "Office":{price:65,time:35}, "Laundry Room":{price:50,time:25}, "Mudroom":{price:40,time:20},
+  "Finished Basement":{price:130,time:65}, "Garage":{price:90,time:45}, "Attic":{price:90,time:45},
+  "Staircases":{price:60,time:30}
+};
 const ADDONS = [
   {name:"Refrigerator Interior", price:15}, {name:"Oven Interior", price:15}, {name:"Interior Windows", price:20},
   {name:"Inside Cabinets", price:20}, {name:"Dishwasher Interior", price:10}, {name:"Microwave Interior", price:8},
@@ -298,7 +317,8 @@ const extraGrid = document.getElementById('extraRoomsGrid');
 EXTRA_ROOMS.forEach(r=>{
   const row = document.createElement('div');
   row.className = 'qty-row';
-  row.innerHTML = `<div><div class="qr-label">${r.name}</div></div>
+  const deepPrice = DEEP_EXTRA_ROOMS[r.name] ? DEEP_EXTRA_ROOMS[r.name].price - r.price : 0;
+  row.innerHTML = `<div><div class="qr-label">${r.name}</div><label class="deep-toggle-label"><input type="checkbox" class="deep-toggle" data-name="${r.name}"> ✨ Deep Clean (+$${deepPrice}/room)</label></div>
     <div class="qty-controls"><button type="button" class="qty-btn" data-name="${r.name}" data-dir="-1">−</button><span class="qty-value" id="val-${r.name}">0</span><button type="button" class="qty-btn" data-name="${r.name}" data-dir="1">+</button></div>
     <input type="hidden" name="${r.name}" value="0">`;
   extraGrid.appendChild(row);
@@ -374,22 +394,73 @@ function updateSummary(){
   document.getElementById('sumServices').className = services.length ? 'summary-list' : 'summary-empty';
   document.getElementById('sumServices').innerHTML = services.length ? services.map(s=>`<li>• ${s}</li>`).join('') : 'Choose a service to begin';
 
-  let roomsSubtotal = 0, timeMin = 0;
+  let roomsSubtotal = 0, timeMin = 0, deepRoomCount = 0, totalRoomCount = 0;
   const homeLines = [];
   Object.keys(ROOM_PRICES).forEach(key=>{
     const qty = parseInt((document.querySelector(`input[type=hidden][name="${key}"]`)||{value:0}).value,10)||0;
-    if(qty>0){ roomsSubtotal += ROOM_PRICES[key].price*qty; timeMin += ROOM_PRICES[key].time*qty; homeLines.push(`${qty}× ${key}`); }
+    if(qty>0){
+      const toggle = document.querySelector(`.deep-toggle[data-name="${CSS.escape(key)}"]`);
+      const isDeep = toggle && toggle.checked;
+      const table = isDeep ? DEEP_ROOM_PRICES : ROOM_PRICES;
+      roomsSubtotal += table[key].price*qty; timeMin += table[key].time*qty;
+      totalRoomCount += qty;
+      if(isDeep) deepRoomCount += qty;
+      homeLines.push(`${qty}× ${key}${isDeep?' ✨(Deep Clean)':''}`);
+    }
   });
   const kitchenSel = document.querySelector('.kitchen:checked');
   if(kitchenSel && anyChecked('.svc:not(.svc-org)')){
-    const k = KITCHEN_PRICES[kitchenSel.value];
+    const kitchenDeep = document.getElementById('kitchenDeepToggle').checked;
+    const table = kitchenDeep ? DEEP_KITCHEN_PRICES : KITCHEN_PRICES;
+    const k = table[kitchenSel.value];
     roomsSubtotal += k.price; timeMin += k.time;
-    homeLines.push(`${kitchenSel.value} Kitchen`);
+    totalRoomCount += 1;
+    if(kitchenDeep) deepRoomCount += 1;
+    homeLines.push(`${kitchenSel.value} Kitchen${kitchenDeep?' ✨(Deep Clean)':''}`);
   }
   EXTRA_ROOMS.forEach(r=>{
     const qty = parseInt((document.querySelector(`input[type=hidden][name="${r.name}"]`)||{value:0}).value,10)||0;
-    if(qty>0){ roomsSubtotal += r.price*qty; timeMin += r.time*qty; homeLines.push(`${qty}× ${r.name}`); }
+    if(qty>0){
+      const toggle = document.querySelector(`.deep-toggle[data-name="${CSS.escape(r.name)}"]`);
+      const isDeep = toggle && toggle.checked;
+      const rr = isDeep ? DEEP_EXTRA_ROOMS[r.name] : r;
+      roomsSubtotal += rr.price*qty; timeMin += rr.time*qty;
+      totalRoomCount += qty;
+      if(isDeep) deepRoomCount += qty;
+      homeLines.push(`${qty}× ${r.name}${isDeep?' ✨(Deep Clean)':''}`);
+    }
   });
+  // Bundle discount applies only when 2+ rooms are upgraded to Deep Clean
+  let bundleDiscount = 0, bundleLabel = '';
+  if(deepRoomCount>=4){ bundleDiscount = 0.15; bundleLabel = '🎁 4+ Room Deep Clean Bundle — 15% off upgraded rooms'; }
+  else if(deepRoomCount>=2){ bundleDiscount = 0.10; bundleLabel = '🎁 2–3 Room Deep Clean Bundle — 10% off upgraded rooms'; }
+  if(bundleDiscount>0){
+    // recompute: discount only applies to the deep-upgrade portion (approximate by discounting whole subtotal proportionally is inaccurate,
+    // so we recompute standard vs deep split for an accurate discount on the deep dollars only)
+    let standardPortion = 0, deepPortion = 0;
+    Object.keys(ROOM_PRICES).forEach(key=>{
+      const qty = parseInt((document.querySelector(`input[type=hidden][name="${key}"]`)||{value:0}).value,10)||0;
+      if(qty>0){
+        const toggle = document.querySelector(`.deep-toggle[data-name="${CSS.escape(key)}"]`);
+        const isDeep = toggle && toggle.checked;
+        if(isDeep) deepPortion += DEEP_ROOM_PRICES[key].price*qty; else standardPortion += ROOM_PRICES[key].price*qty;
+      }
+    });
+    if(kitchenSel && anyChecked('.svc:not(.svc-org)')){
+      const kitchenDeep = document.getElementById('kitchenDeepToggle').checked;
+      if(kitchenDeep) deepPortion += DEEP_KITCHEN_PRICES[kitchenSel.value].price; else standardPortion += KITCHEN_PRICES[kitchenSel.value].price;
+    }
+    EXTRA_ROOMS.forEach(r=>{
+      const qty = parseInt((document.querySelector(`input[type=hidden][name="${r.name}"]`)||{value:0}).value,10)||0;
+      if(qty>0){
+        const toggle = document.querySelector(`.deep-toggle[data-name="${CSS.escape(r.name)}"]`);
+        const isDeep = toggle && toggle.checked;
+        if(isDeep) deepPortion += DEEP_EXTRA_ROOMS[r.name].price*qty; else standardPortion += r.price*qty;
+      }
+    });
+    roomsSubtotal = standardPortion + (deepPortion*(1-bundleDiscount));
+    homeLines.push(bundleLabel);
+  }
   document.getElementById('sumHome').className = homeLines.length ? 'summary-list' : 'summary-empty';
   document.getElementById('sumHome').innerHTML = homeLines.length ? homeLines.map(l=>`<li>• ${l}</li>`).join('') : '—';
 
@@ -419,10 +490,10 @@ function updateSummary(){
   // multipliers
   const cond = document.querySelector('.cond:checked') ? document.querySelector('.cond:checked').value : 'Average';
   const freq = document.querySelector('.freq:checked') ? document.querySelector('.freq:checked').value : 'One-Time';
+  const moveOutSelected = services.includes('Move-In / Move-Out Cleaning');
+  const airbnbSelected = services.includes('Airbnb Turnover');
   let svcMult = 1;
-  if(services.includes('Move-In / Move-Out Cleaning')) svcMult = 1.25;
-  else if(services.includes('Deep Cleaning')) svcMult = 1.2;
-  else if(services.includes('Airbnb Turnover')) svcMult = 0.9;
+  if(airbnbSelected) svcMult = 0.9;
 
   const cleaningAdjusted = roomsSubtotal * (CONDITION_MULT[cond]||1) * (FREQ_MULT[freq]||1) * svcMult;
   const cleaningTotal = cleaningAdjusted + addonsSubtotal;
@@ -449,7 +520,17 @@ function updateSummary(){
 
   const low = Math.round((cleaningTotal*0.95)+(orgSubtotal*0.95));
   const high = Math.round((cleaningTotal*1.1)+(orgSubtotal*1.1));
-  document.getElementById('sumTotal').textContent = (low||high) ? `$${low} – $${high}` : '$0';
+  const totalEl = document.getElementById('sumTotal');
+  if(moveOutSelected || airbnbSelected){
+    totalEl.textContent = '📧 Custom Quote';
+    totalEl.style.fontSize = '1.6rem';
+  } else {
+    totalEl.style.fontSize = '';
+    const minCharge = 90;
+    const finalLow = Math.max(low, low>0 ? Math.max(low, minCharge) : 0);
+    const finalHigh = Math.max(high, high>0 ? Math.max(high, minCharge) : 0);
+    totalEl.textContent = (low||high) ? `$${finalLow} – $${finalHigh}` : '$0';
+  }
   document.getElementById('sumTime').textContent = `⏱ Estimated labor: ${timeMin} min`;
   const hrs = Math.floor(timeMin/60), mins = timeMin%60;
   document.getElementById('sumAppt').textContent = timeMin>0 ? `📅 Estimated appointment length: ${hrs>0?hrs+'h ':''}${mins}min` : '📅 Estimated appointment length: —';
