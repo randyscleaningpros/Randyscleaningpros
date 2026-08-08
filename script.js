@@ -1,37 +1,9 @@
 document.addEventListener('DOMContentLoaded',()=>{
-  const button=document.querySelector('.menu-button');
-  const panel=document.querySelector('.menu-panel');
-  if(button&&panel){
-    const closeMenu=()=>{panel.classList.remove('open');button.setAttribute('aria-expanded','false');button.setAttribute('aria-label','Open navigation menu')};
-    button.addEventListener('click',()=>{const open=panel.classList.toggle('open');button.setAttribute('aria-expanded',String(open));button.setAttribute('aria-label',open?'Close navigation menu':'Open navigation menu')});
-    panel.querySelectorAll('a').forEach(link=>link.addEventListener('click',closeMenu));
-    document.addEventListener('click',e=>{if(!panel.contains(e.target)&&!button.contains(e.target))closeMenu()});
-    document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeMenu();button.focus()}});
-  }
-
-  const current=(location.pathname.split('/').pop()||'index.html').toLowerCase();
-  document.querySelectorAll('.menu-panel a').forEach(link=>{
-    const target=(link.getAttribute('href')||'').split('#')[0].toLowerCase();
-    if(target===current)link.setAttribute('aria-current','page');
-  });
-
-  const topButton=document.querySelector('.back-to-top');
-  if(topButton){
-    const update=()=>topButton.classList.toggle('show',window.scrollY>650);
-    window.addEventListener('scroll',update,{passive:true});update();
-    topButton.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
-  }
-
-  const form=document.getElementById('quoteForm');
-  if(form){
-    form.addEventListener('submit',event=>{
-      event.preventDefault();
-      if(!form.reportValidity())return;
-      const data=new FormData(form),lines=[];
-      for(const [key,value] of data.entries())if(String(value).trim())lines.push(`${key}: ${value}`);
-      const subject=encodeURIComponent("Free Quote Request - Randy's Premier Cleaning");
-      const body=encodeURIComponent(lines.join('\n'));
-      location.href=`mailto:randyspremiercleaning@gmail.com?subject=${subject}&body=${body}`;
-    });
-  }
+ const btn=document.querySelector('.menu-button'), panel=document.querySelector('.menu-panel');
+ if(btn&&panel){const close=()=>{panel.classList.remove('open');btn.setAttribute('aria-expanded','false')};btn.addEventListener('click',e=>{e.stopPropagation();const o=panel.classList.toggle('open');btn.setAttribute('aria-expanded',String(o))});document.addEventListener('click',e=>{if(!panel.contains(e.target))close()});document.addEventListener('keydown',e=>{if(e.key==='Escape')close()});}
+ const current=(location.pathname.split('/').pop()||'index.html').toLowerCase();document.querySelectorAll('.menu-panel a').forEach(a=>{if((a.getAttribute('href')||'').toLowerCase()===current)a.setAttribute('aria-current','page')});
+ const rows=[...document.querySelectorAll('[data-room]')], estimate=document.getElementById('estimate'), detail=document.getElementById('estimateDetail');
+ function calc(){if(!estimate)return;let total=0,lines=[];rows.forEach(r=>{const qty=Number(r.querySelector('input[type=number]')?.value||0),deep=r.querySelector('input[type=checkbox]')?.checked;const price=Number(deep?r.dataset.deep:r.dataset.standard);if(qty>0){total+=qty*price;lines.push(`${qty} × ${r.dataset.room}${deep?' (deep)':''}`)}});const minimum=total>0?Math.max(90,total):0;estimate.textContent=`$${minimum.toFixed(0)}`;detail.textContent=lines.length?lines.join(' • '):'Add rooms to build your estimate.';}
+ rows.forEach(r=>r.querySelectorAll('input').forEach(i=>i.addEventListener('input',calc)));calc();
+ const form=document.getElementById('quoteForm');if(form){form.addEventListener('submit',e=>{e.preventDefault();if(!form.reportValidity())return;const data=new FormData(form),lines=[];for(const [k,v] of data.entries())if(String(v).trim())lines.push(`${k}: ${v}`);if(estimate)lines.unshift(`Estimated room-based price: ${estimate.textContent}`);location.href=`mailto:randyspremiercleaning@gmail.com?subject=${encodeURIComponent('Free Quote Request - Randy Premier Cleaning')}&body=${encodeURIComponent(lines.join('\n'))}`})}
 });
