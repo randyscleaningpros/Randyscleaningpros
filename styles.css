@@ -10,3 +10,45 @@
 .cta-band{background:linear-gradient(130deg,#0b2748,#07182f);color:#fff;border-radius:28px;padding:42px}.cta-band h2{color:#fff;margin-top:0}.footer{background:#061326;color:#d4dfeb;padding:42px 0 90px}.footer-grid{display:grid;grid-template-columns:1.2fr .8fr .8fr;gap:28px}.footer h3{color:#fff;font-family:Montserrat}.footer a{color:#dce9f5}.mobile-dock{display:none}.muted{color:var(--muted)}.small{font-size:.88rem}.center{text-align:center}
 @media(max-width:900px){.hero-grid,.split,.quote-shell{grid-template-columns:1fr}.hero-grid{min-height:auto;padding-top:62px}.hero-mascot{max-height:410px}.hero-mascot img{width:min(360px,78vw)}.trust-row,.grid-4{grid-template-columns:repeat(2,1fr)}.grid-3,.price-grid{grid-template-columns:1fr 1fr}.summary-box{position:static}.footer-grid{grid-template-columns:1fr 1fr}}
 @media(max-width:620px){.top-strip{font-size:.78rem}.header-row{min-height:66px}.brand-text b{font-size:.9rem}.brand-text span{font-size:.75rem}.menu-button{padding:10px 14px}.hero-grid{padding-top:42px}.hero h1{font-size:2.55rem}.hero-copy{font-size:1rem}.hero-mascot{max-height:330px}.trust-row,.grid-3,.grid-4,.price-grid,.form-grid,.footer-grid{grid-template-columns:1fr}.section{padding:58px 0}.page-hero{padding:58px 0 50px}.room-row{grid-template-columns:1fr 82px}.room-row .check{grid-column:1/-1}.cta-band{padding:30px 22px}.mobile-dock{position:fixed;z-index:1001;left:10px;right:10px;bottom:10px;display:grid;grid-template-columns:1fr 1fr 1.2fr;background:#fff;border:1px solid var(--line);border-radius:16px;box-shadow:0 12px 35px rgba(0,0,0,.2);padding:7px}.mobile-dock a{text-align:center;padding:10px 5px;font-size:.82rem;font-weight:800;color:var(--navy)}.mobile-dock .primary{background:var(--green);color:#fff;border-radius:11px}.footer{padding-bottom:105px}}
+
+
+/* ===== Premium homepage brand-first hero ===== */
+.home-header{position:absolute;top:0;left:0;right:0;background:transparent;box-shadow:none;backdrop-filter:none;border:0;z-index:1100}
+.home-header-row{min-height:78px}
+.header-spacer{width:1px;height:1px}
+.home-header .menu-button{margin-left:auto;background:rgba(103,184,45,.96);border:1px solid rgba(255,255,255,.32);box-shadow:0 10px 28px rgba(0,0,0,.22)}
+.home-header .menu-panel{top:68px}
+.home-hero{padding:88px 0 70px;background:radial-gradient(circle at 50% 8%,rgba(255,255,255,.08),transparent 24%),radial-gradient(circle at 50% 42%,rgba(103,184,45,.12),transparent 32%),linear-gradient(155deg,#061326 0%,#0a2341 54%,#113359 100%)}
+.home-hero-inner{min-height:760px;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;text-align:center}
+.hero-mascot-first{width:100%;max-height:none;overflow:visible;align-self:auto;display:flex;justify-content:center;margin:0 auto -8px}
+.hero-mascot-first img{width:min(390px,72vw);max-height:365px;object-fit:contain;object-position:center bottom;filter:drop-shadow(0 22px 30px rgba(0,0,0,.30))}
+.hero-brand-lockup{font-family:Montserrat,sans-serif;text-align:center;line-height:.9;margin-top:0;text-transform:uppercase;font-style:italic}
+.hero-brand-randy{font-size:clamp(3.3rem,9vw,6.7rem);font-weight:900;letter-spacing:-.055em;color:#fff;text-shadow:0 6px 20px rgba(0,0,0,.25)}
+.hero-brand-premier{font-size:clamp(1.45rem,4.5vw,3.15rem);font-weight:900;letter-spacing:.025em;color:var(--green);margin-top:8px}
+.hero-brand-line{height:4px;width:min(520px,78vw);margin:16px auto 22px;border-radius:99px;background:linear-gradient(90deg,transparent,var(--gold),var(--green),var(--gold),transparent)}
+.home-eyebrow{margin-top:2px}
+.home-hero-title{font-size:clamp(2rem,4.4vw,3.7rem)!important;max-width:900px;margin:14px auto 16px!important}
+.home-hero-copy{max-width:790px;margin:0 auto;color:#dbe6f1}
+.home-hero-actions{justify-content:center}
+.home-trust-row{width:min(900px,100%);margin-left:auto;margin-right:auto}
+
+@media(max-width:900px){
+  .home-hero{padding-top:76px}
+  .home-hero-inner{min-height:auto}
+  .hero-mascot-first{max-height:none}
+  .hero-mascot-first img{width:min(350px,72vw);max-height:330px}
+}
+@media(max-width:620px){
+  .home-header-row{min-height:64px}
+  .home-header .menu-button{padding:10px 14px}
+  .home-header .menu-panel{top:58px}
+  .home-hero{padding:64px 0 52px}
+  .hero-mascot-first img{width:min(285px,72vw);max-height:265px}
+  .hero-brand-randy{font-size:clamp(3rem,17vw,4.7rem)}
+  .hero-brand-premier{font-size:clamp(1.28rem,7vw,2rem);margin-top:6px}
+  .hero-brand-line{margin:12px auto 18px}
+  .home-hero-title{font-size:clamp(1.85rem,9vw,2.6rem)!important}
+  .home-hero-actions{width:100%}
+  .home-hero-actions .btn{width:100%}
+  .home-trust-row{grid-template-columns:1fr 1fr}
+}
