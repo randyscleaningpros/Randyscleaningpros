@@ -170,3 +170,13 @@ body{font-size:16px}.site-header{border-bottom:1px solid rgba(255,255,255,.08)}
 :focus-visible{outline:3px solid #d8b64b;outline-offset:3px}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto!important}*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
 @media(max-width:800px){.master-org-grid{grid-template-columns:1fr}.master-mini-flow{grid-template-columns:1fr}.master-next-grid{grid-template-columns:1fr}}
+
+/* Simplified convincing homepage */
+.hero-offer-badge{display:inline-flex;flex-direction:column;align-items:center;justify-content:center;min-width:138px;padding:13px 18px;border-radius:18px;text-decoration:none;background:linear-gradient(145deg,#0a2234,#0f3148);border:1px solid rgba(232,199,90,.7);box-shadow:0 12px 30px rgba(7,31,49,.18),0 0 22px rgba(232,199,90,.08);color:#fff;margin:0 0 20px}
+.hero-offer-small{font:800 9px/1 Montserrat,sans-serif;letter-spacing:.16em;color:#f0d36b}
+.hero-offer-badge strong{font:900 30px/1 Montserrat,sans-serif;color:#f0d36b;margin:5px 0 4px;letter-spacing:-.03em}
+.hero-offer-cta{font-size:11px;color:#e7edf0;font-weight:700}
+.hero-offer-badge:hover{transform:translateY(-2px);box-shadow:0 16px 34px rgba(7,31,49,.22),0 0 28px rgba(232,199,90,.12)}
+.home-page .section-heading{margin-bottom:30px}
+.home-page .master-next-steps,.home-page .master-org-preview{padding-top:64px;padding-bottom:64px}
+@media(max-width:700px){.hero-offer-badge{min-width:126px;padding:11px 16px;margin-bottom:16px}.hero-offer-badge strong{font-size:27px}}
