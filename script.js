@@ -7,3 +7,5 @@ document.addEventListener('DOMContentLoaded',()=>{
  rows.forEach(r=>r.querySelectorAll('input').forEach(i=>i.addEventListener('input',calc)));calc();
  const form=document.getElementById('quoteForm');if(form){form.addEventListener('submit',e=>{e.preventDefault();if(!form.reportValidity())return;const data=new FormData(form),lines=[];for(const [k,v] of data.entries())if(String(v).trim())lines.push(`${k}: ${v}`);if(estimate)lines.unshift(`Estimated room-based price: ${estimate.textContent}`);location.href=`mailto:randyspremiercleaning@gmail.com?subject=${encodeURIComponent('Free Quote Request - Randy Premier Cleaning')}&body=${encodeURIComponent(lines.join('\n'))}`})}
 });
+
+(()=>{const h=document.querySelector('.home-header');if(!h)return;const sync=()=>h.classList.toggle('scrolled',window.scrollY>32);sync();addEventListener('scroll',sync,{passive:true});})();
