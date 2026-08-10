@@ -793,7 +793,7 @@ const RENDERERS = {
             <div class="ok-banner">🏠 Marked as Customer Not Home. Receipt, checklist, before/after photos, thank-you email, coupon &amp; review link are queued to send. <br><small>Connect an email service (e.g. a Supabase Edge Function) to actually deliver these automatically.</small></div>
             <button class="btn-block btn-white" style="color:var(--navy);border:2px solid #e4e9f0" id="undoNotHome" data-id="${job.id}">Undo — Customer Is Home</button>
           ` : job.signature.dataUrl ? `
-            <img src="${job.signature.dataUrl}" style="width:100%;border-radius:12px;border:2px solid #e4e9f0;background:#fff">
+            <img src="${job.signature.dataUrl}" style="width:100%;border-radius:12px;border:2px solid #e4e9f0;background:#fff" loading="lazy" decoding="async">
             <button class="btn-block btn-white" style="color:var(--navy);border:2px solid #e4e9f0" id="clearSig" data-id="${job.id}">✍️ Re-sign</button>
           ` : `
             <canvas id="sigCanvas"></canvas>
@@ -839,7 +839,7 @@ const RENDERERS = {
       const c = getCustomer(j.customerId);
       html += `<div class="gallery-group"><h4>${c?.name||'Customer'} — ${fmtDate(j.date)}</h4><div class="gallery-grid">`;
       ['before','after'].forEach(phase=>{
-        Object.values(j.photos[phase]).forEach(src=>{ html += `<img src="${src}">`; });
+        Object.values(j.photos[phase]).forEach(src=>{ html += `<img src="${src}" loading="lazy" decoding="async">`; });
       });
       html += '</div></div>';
     });
@@ -919,7 +919,7 @@ function photoBtnHTML(jobId, phase, area){
   const src = job.photos[phase][area];
   if(src){
     return `<div class="photo-btn done" data-photo-job="${jobId}" data-photo-phase="${phase}" data-photo-area="${area}">
-      <img class="pthumb" src="${src}"><span class="pcheck">✔</span>${area}</div>`;
+      <img class="pthumb" src="${src}" loading="lazy" decoding="async"><span class="pcheck">✔</span>${area}</div>`;
   }
   return `<button class="photo-btn" data-photo-job="${jobId}" data-photo-phase="${phase}" data-photo-area="${area}">📷<br>${area}</button>`;
 }
