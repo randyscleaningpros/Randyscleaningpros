@@ -116,3 +116,43 @@ body{font-size:16px}.site-header{border-bottom:1px solid rgba(255,255,255,.08)}
 @media(max-width:900px){.lux-hero-proof{flex-direction:column}.lux-proof-grid{grid-template-columns:1fr}.lux-review-ready{flex-direction:column;text-align:center}.lux-area-grid{grid-template-columns:1fr}.premium-footer-grid{grid-template-columns:1fr 1fr}.gold-standard-seal{width:126px;height:126px;flex-basis:126px}}
 @media(max-width:620px){.lux-hero-proof{gap:18px}.premium-footer-grid{grid-template-columns:1fr}.premium-footer-bottom{flex-direction:column}.area-map-card{min-height:210px}.gold-standard-seal{width:120px;height:120px;flex-basis:120px}.lux-review-ready{padding:22px}.lux-proof-grid article{padding:24px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.gold-standard-seal,.home-luxury .home-header{transition:none!important}}
+
+/* Premium organization process */
+.organization-process-premium{background:linear-gradient(180deg,#fff 0%,#f7f9f8 100%)}
+.organization-process-premium .section-heading{max-width:800px;margin:0 auto 42px;text-align:center}
+.org-process-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.premium-step{position:relative;background:#fff;border:1px solid rgba(10,34,52,.1);border-radius:22px;padding:30px 26px;box-shadow:0 12px 34px rgba(10,34,52,.07)}
+.premium-step .step-number{display:inline-flex;color:#b98a19;font:800 13px/1 Montserrat,sans-serif;letter-spacing:.14em;margin-bottom:20px}
+.premium-step h3{margin:0 0 10px;color:#0a2234}
+.premium-step p{margin:0;color:#52616b;line-height:1.7}
+.org-offer-card{margin-top:28px;background:#071f31;color:#fff;border:1px solid rgba(212,175,55,.55);border-radius:26px;padding:30px;display:grid;grid-template-columns:1.7fr .7fr;gap:30px;align-items:center;box-shadow:0 20px 50px rgba(7,31,49,.16)}
+.org-offer-card h3{color:#fff;margin:7px 0 8px;font-size:clamp(24px,3vw,36px)}
+.org-offer-card p{color:#d8e0e5;margin:0;line-height:1.65}
+.gold-kicker{color:#e8c75a;font:800 12px/1 Montserrat,sans-serif;letter-spacing:.15em}
+.referral-credit{border-left:1px solid rgba(232,199,90,.35);padding-left:30px;text-align:center}
+.referral-credit strong{display:block;color:#f2d56b;font:900 clamp(42px,6vw,64px)/1 Montserrat,sans-serif}
+.referral-credit span{display:block;color:#fff;font-weight:800;margin:7px 0}
+.referral-credit p{font-size:14px}
+.offer-fine-print{text-align:center;color:#68757d;font-size:12px;margin:14px auto 0;max-width:760px}
+.organization-process-premium .section-actions{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-top:28px}
+@media(max-width:900px){.org-process-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:620px){.org-process-grid{grid-template-columns:1fr}.org-offer-card{grid-template-columns:1fr;padding:24px}.referral-credit{border-left:0;border-top:1px solid rgba(232,199,90,.35);padding:24px 0 0}}
+
+
+/* Homepage conversion offers */
+.home-offers{background:#f7f9f8}
+.promo-heading{max-width:760px;margin:0 auto 38px;text-align:center}
+.home-offer-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;align-items:stretch}
+.home-offer{background:#fff;border:1px solid rgba(10,34,52,.1);border-radius:24px;padding:28px;box-shadow:0 14px 36px rgba(10,34,52,.07);display:flex;flex-direction:column}
+.home-offer.featured-offer{background:linear-gradient(145deg,#071f31,#0c3048);border-color:rgba(224,190,73,.6);box-shadow:0 18px 46px rgba(7,31,49,.18)}
+.offer-label{font:800 11px/1 Montserrat,sans-serif;letter-spacing:.16em;color:#a67810;margin-bottom:18px}
+.featured-offer .offer-label{color:#efd56f}
+.offer-number{font:900 clamp(38px,5vw,58px)/1 Montserrat,sans-serif;color:#0b6d45;letter-spacing:-.04em}
+.featured-offer .offer-number{color:#f0d36b;text-shadow:0 0 20px rgba(240,211,107,.14)}
+.home-offer h3{font-size:21px;margin:10px 0 10px;color:#0a2234}
+.home-offer p{color:#5c6870;line-height:1.65;margin:0 0 22px;flex:1}
+.featured-offer h3{color:#fff}.featured-offer p{color:#dce5e9}
+.home-offer .btn{align-self:flex-start}
+.text-link{font-weight:800;color:#0b6d45;text-decoration:none}
+.promo-trust-line{max-width:900px;margin:24px auto 0;text-align:center;color:#33454f}
+@media(max-width:820px){.home-offer-grid{grid-template-columns:1fr}.home-offer{padding:24px}.offer-number{font-size:44px}}
