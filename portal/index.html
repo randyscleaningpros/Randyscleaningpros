@@ -1,1 +1,622 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#08264d" />
+  <title>Randy's Premier Cleaning | Property Assessment & Employee Portal</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="app-header no-print">
+    <div>
+      <p class="eyebrow">Randy's Premier Cleaning</p>
+      <h1>Property Assessment & Employee Portal</h1>
+      <p>Walk through a property, build a cleaning and organization assessment, generate a smart flat-price quote, then turn it into a clear employee work order.</p>
+    </div>
+    <button id="newJobBtn" class="secondary-btn" type="button">+ New Job</button>
+  </header>
 
+  <div class="portal-mode no-print">
+    <button class="mode-btn active" type="button" data-mode="assessment">🧠 Property Assessment & Quote</button>
+    <button class="mode-btn" type="button" data-mode="workorder">🧹 Employee Work Order</button>
+  </div>
+
+  <main class="app-shell">
+
+    <section class="panel editor no-print assessment-mode" id="assessmentPanel">
+      <div class="assessment-intro">
+        <span class="smart-badge">SMART WALK-THROUGH</span>
+        <h2>Build the quote while you inspect the property</h2>
+        <p>Choose cleaning, organization, or both. Enter the property condition, rooms, surfaces, clutter, special work, and organization needs. The quote builder combines everything into one flat-price estimate.</p>
+      </div>
+
+      <div class="section-heading">
+        <span class="step-number">1</span>
+        <div>
+          <h2>Customer and property</h2>
+          <p>Start with the basic information you will need for the quote and future job.</p>
+        </div>
+      </div>
+
+      <div class="form-grid two">
+        <label>Customer name <input id="aCustomerName" type="text" placeholder="Customer name" /></label>
+        <label>Customer phone <input id="aCustomerPhone" type="tel" placeholder="(207) 555-0123" /></label>
+        <label class="full">Property address <input id="aAddress" type="text" placeholder="Street, city, state, ZIP" /></label>
+        <label>Approx. square feet <input id="aSqft" type="number" min="0" value="1500" /></label>
+        <label>Property status
+          <select id="aOccupied">
+            <option>Occupied</option>
+            <option>Empty</option>
+          </select>
+        </label>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="section-heading">
+        <span class="step-number">2</span>
+        <div>
+          <h2>What are we quoting?</h2>
+          <p>You can quote cleaning, organization, or both together.</p>
+        </div>
+      </div>
+
+      <div class="service-choice-grid">
+        <label class="service-choice">
+          <input id="quoteCleaning" type="checkbox" checked />
+          <span>🧹 <strong>Cleaning</strong><small>Standard, deep, move-in/out, restoration and add-ons</small></span>
+        </label>
+        <label class="service-choice">
+          <input id="quoteOrganization" type="checkbox" />
+          <span>🗂️ <strong>Organization</strong><small>Pantry, closets, cabinets, rooms, basement, garage and more</small></span>
+        </label>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="section-heading">
+        <span class="step-number">3</span>
+        <div>
+          <h2>Room count and layout</h2>
+          <p>Count every area that will be cleaned or assessed.</p>
+        </div>
+      </div>
+
+      <div class="room-grid">
+        <label>Bedrooms <select id="aBedrooms"></select></label>
+        <label>Full bathrooms <select id="aFullBaths"></select></label>
+        <label>Half bathrooms <select id="aHalfBaths"></select></label>
+        <label>Kitchens <select id="aKitchens"></select></label>
+        <label>Living / family rooms <select id="aLiving"></select></label>
+        <label>Dining rooms <select id="aDining"></select></label>
+        <label>Home offices <select id="aOffice"></select></label>
+        <label>Laundry rooms <select id="aLaundry"></select></label>
+        <label>Basement areas <select id="aBasement"></select></label>
+        <label>Garage areas <select id="aGarage"></select></label>
+      </div>
+
+      <div id="cleaningAssessment">
+        <div class="divider"></div>
+        <div class="section-heading">
+          <span class="step-number">4</span>
+          <div>
+            <h2>Cleaning assessment</h2>
+            <p>Use what you see during the walk-through so the price reflects the actual scope.</p>
+          </div>
+        </div>
+
+        <div class="form-grid two">
+          <label>Cleaning level
+            <select id="aCleaningType">
+              <option>Standard</option>
+              <option>Deep Cleaning</option>
+              <option>Ultra Deep</option>
+              <option>Move In</option>
+              <option>Move Out</option>
+              <option>Post-Construction</option>
+            </select>
+          </label>
+          <label>Frequency
+            <select id="aFrequency">
+              <option>One-Time</option>
+              <option>Weekly</option>
+              <option>Bi-Weekly</option>
+              <option>Monthly</option>
+            </select>
+          </label>
+          <label>Overall condition
+            <select id="aCondition">
+              <option>Very Clean</option>
+              <option selected>Average</option>
+              <option>Needs Attention</option>
+              <option>Heavy</option>
+              <option>Restoration Level</option>
+            </select>
+          </label>
+          <label>Clutter level
+            <select id="aClutter">
+              <option>None</option>
+              <option selected>Light</option>
+              <option>Moderate</option>
+              <option>Heavy</option>
+            </select>
+          </label>
+          <label>Pet hair
+            <select id="aPetHair">
+              <option selected>None</option>
+              <option>Light</option>
+              <option>Moderate</option>
+              <option>Heavy</option>
+            </select>
+          </label>
+          <label>Floors / stairs
+            <select id="aFloors">
+              <option>One floor</option>
+              <option>Two+ floors</option>
+            </select>
+          </label>
+        </div>
+
+        <h3 class="mini-section-title">Surfaces and special care</h3>
+        <div class="check-grid compact-checks">
+          <label><input class="aSurface" value="Hardwood" type="checkbox" /> Hardwood</label>
+          <label><input class="aSurface" value="Finished Wood" type="checkbox" /> Finished wood</label>
+          <label><input class="aSurface" value="Unfinished Wood" type="checkbox" /> Unfinished wood</label>
+          <label><input class="aSurface" value="Natural Stone / Marble" type="checkbox" /> Natural stone / marble</label>
+          <label><input class="aSurface" value="Tile" type="checkbox" /> Tile</label>
+          <label><input class="aSurface" value="Vinyl / Laminate" type="checkbox" /> Vinyl / laminate</label>
+          <label><input class="aSurface" value="Carpet" type="checkbox" /> Carpet</label>
+          <label><input class="aSurface" value="Stainless Steel" type="checkbox" /> Stainless steel</label>
+        </div>
+
+        <h3 class="mini-section-title">Cleaning add-ons</h3>
+        <div class="check-grid compact-checks">
+          <label><input class="aCleaningAddon" data-price="35" value="Inside Fridge" type="checkbox" /> Inside fridge</label>
+          <label><input class="aCleaningAddon" data-price="45" value="Inside Oven" type="checkbox" /> Inside oven</label>
+          <label><input class="aCleaningAddon" data-price="55" value="Inside Cabinets" type="checkbox" /> Inside cabinets</label>
+          <label><input class="aCleaningAddon" data-price="50" value="Interior Windows" type="checkbox" /> Interior windows</label>
+          <label><input class="aCleaningAddon" data-price="45" value="Wood Protect & Condition" type="checkbox" /> Wood protect & condition</label>
+          <label><input class="aCleaningAddon" data-price="65" value="Shower/Tub Restoration" type="checkbox" /> Shower / tub restoration</label>
+          <label><input class="aCleaningAddon" data-price="90" value="Basement Detail" type="checkbox" /> Basement detail</label>
+          <label><input class="aCleaningAddon" data-price="85" value="Garage Detail" type="checkbox" /> Garage detail</label>
+        </div>
+
+        <label class="block-label compact-top">
+          Cleaning notes
+          <textarea id="aCleaningNotes" rows="4" placeholder="Rust, soap scum, stains, cracks, delicate surfaces, unfinished wood, priority areas, pet concerns..."></textarea>
+        </label>
+      </div>
+
+      <div id="organizationAssessment" class="hidden-section">
+        <div class="divider"></div>
+        <div class="section-heading">
+          <span class="step-number">5</span>
+          <div>
+            <h2>Organization assessment</h2>
+            <p>Select every area that needs a home, sorting, containers, labeling, or a larger reset.</p>
+          </div>
+        </div>
+
+        <div class="check-grid compact-checks org-grid">
+          <label><input class="aOrgArea" data-price="95" value="Pantry" type="checkbox" /> Pantry</label>
+          <label><input class="aOrgArea" data-price="75" value="Reach-In Closet" type="checkbox" /> Reach-in closet</label>
+          <label><input class="aOrgArea" data-price="185" value="Walk-In Closet" type="checkbox" /> Walk-in closet</label>
+          <label><input class="aOrgArea" data-price="130" value="Kitchen Cabinets" type="checkbox" /> Kitchen cabinets</label>
+          <label><input class="aOrgArea" data-price="65" value="Bathroom Storage" type="checkbox" /> Bathroom storage</label>
+          <label><input class="aOrgArea" data-price="80" value="Laundry Room" type="checkbox" /> Laundry room</label>
+          <label><input class="aOrgArea" data-price="135" value="Bedroom" type="checkbox" /> Bedroom</label>
+          <label><input class="aOrgArea" data-price="145" value="Playroom" type="checkbox" /> Playroom</label>
+          <label><input class="aOrgArea" data-price="125" value="Home Office" type="checkbox" /> Home office</label>
+          <label><input class="aOrgArea" data-price="220" value="Basement" type="checkbox" /> Basement</label>
+          <label><input class="aOrgArea" data-price="235" value="Garage" type="checkbox" /> Garage</label>
+          <label><input class="aOrgArea" data-price="165" value="Whole Room" type="checkbox" /> Whole room</label>
+        </div>
+
+        <div class="form-grid two compact-top">
+          <label>Organization level
+            <select id="aOrgLevel">
+              <option>Light</option>
+              <option selected>Moderate</option>
+              <option>Heavy</option>
+              <option>Major Reset</option>
+            </select>
+          </label>
+          <label>Containers / bins
+            <select id="aContainers">
+              <option>Customer has containers</option>
+              <option>Customer will purchase</option>
+              <option>We supply basic containers</option>
+            </select>
+          </label>
+        </div>
+
+        <div class="check-grid compact-checks compact-top">
+          <label><input id="aDonationSort" type="checkbox" /> Donation / keep / relocate sorting</label>
+          <label><input id="aHaulAway" type="checkbox" /> Light haul-away allowance</label>
+          <label><input id="aLabeling" type="checkbox" /> Labeling and category setup</label>
+          <label><input id="aDrawerLiners" type="checkbox" /> Drawer / cabinet liner installation</label>
+        </div>
+
+        <label class="block-label compact-top">
+          Organization notes
+          <textarea id="aOrgNotes" rows="4" placeholder="What needs a home? What should be kept, donated, moved, labeled, grouped, or contained?"></textarea>
+        </label>
+      </div>
+
+      <div class="divider"></div>
+      <div class="section-heading">
+        <span class="step-number">6</span>
+        <div>
+          <h2>Access and job difficulty</h2>
+          <p>Account for anything that changes the actual effort needed.</p>
+        </div>
+      </div>
+
+      <div class="form-grid two">
+        <label>Parking / carry-in
+          <select id="aParking">
+            <option>Easy</option>
+            <option>Difficult</option>
+          </select>
+        </label>
+        <label>Entry / key / code
+          <input id="aEntry" type="text" placeholder="Optional" />
+        </label>
+      </div>
+
+      <label class="block-label compact-top">
+        Other assessment notes
+        <textarea id="aOtherNotes" rows="4" placeholder="Anything else that could affect the scope or price..."></textarea>
+      </label>
+
+      <div class="action-bar">
+        <button id="generateQuoteBtn" class="primary-btn" type="button">✨ Generate Smart Quote</button>
+        <button id="saveQuoteBtn" class="secondary-btn" type="button">Save Quote</button>
+        <button id="newAssessmentBtn" class="dark-btn" type="button">New Assessment</button>
+      </div>
+      <div id="quoteSaveMessage" class="save-message" aria-live="polite"></div>
+
+      <div class="saved-section">
+        <div class="saved-heading">
+          <h2>Saved quotes on this device</h2>
+          <button id="clearQuotesBtn" class="text-btn" type="button">Clear all</button>
+        </div>
+        <div id="savedQuotes" class="saved-jobs"></div>
+      </div>
+    </section>
+
+    <aside class="panel preview assessment-mode" id="assessmentPreview">
+      <div class="print-brand">
+        <div class="brand-mark">RPC</div>
+        <div>
+          <p>Randy's Premier Cleaning</p>
+          <strong>Property Assessment Quote</strong>
+        </div>
+      </div>
+
+      <div class="quote-preview-head">
+        <p class="mini-label">Customer / Property</p>
+        <h2 id="qCustomer">Customer name</h2>
+        <p id="qAddress">Property address</p>
+      </div>
+
+      <div class="quote-price-card">
+        <p>Recommended flat quote</p>
+        <strong id="qRecommended">$0</strong>
+        <span id="qRange">Estimated range: $0–$0</span>
+      </div>
+
+      <div class="quote-split">
+        <div><span>🧹 Cleaning</span><strong id="qCleaning">$0</strong></div>
+        <div><span>🗂️ Organization</span><strong id="qOrganization">$0</strong></div>
+      </div>
+
+      <div class="work-order-grid">
+        <section>
+          <h3>Property</h3>
+          <div id="qProperty" class="detail-list"><p>No assessment entered yet.</p></div>
+        </section>
+        <section>
+          <h3>Services</h3>
+          <div id="qServices" class="detail-list"><p>Cleaning</p></div>
+        </section>
+        <section class="full-width">
+          <h3>Assessment details</h3>
+          <div id="qDetails" class="detail-list"><p>Complete the walk-through to build the quote.</p></div>
+        </section>
+        <section class="full-width">
+          <h3>Customer-ready quote</h3>
+          <p id="qSummary" class="notes-box">Generate a quote to create a customer-ready summary.</p>
+          <div class="quote-actions no-print">
+            <button id="copyQuoteBtn" class="secondary-btn" type="button">📋 Copy Quote</button>
+            <button id="textQuoteBtn" class="primary-btn" type="button">💬 Text Customer</button>
+            <button id="turnIntoJobBtn" class="dark-btn" type="button">🧹 Turn Into Job</button>
+          </div>
+        </section>
+      </div>
+      <footer class="print-footer">
+        <p>Simple. Honest. Flat-Price Quoting.</p>
+        <p>Cleaning + Organization</p>
+      </footer>
+    </aside>
+    <section class="panel editor no-print workorder-mode hidden-mode" aria-labelledby="job-builder-title">
+      <div class="section-heading">
+        <span class="step-number">1</span>
+        <div>
+          <h2 id="job-builder-title">Job and customer details</h2>
+          <p>Enter the information employees need before arriving.</p>
+        </div>
+      </div>
+
+      <div class="form-grid two">
+        <label>
+          Customer name
+          <input id="customerName" type="text" placeholder="Customer name" />
+        </label>
+        <label>
+          Service date
+          <input id="serviceDate" type="date" />
+        </label>
+        <label class="full">
+          Street address
+          <input id="streetAddress" type="text" placeholder="123 Main Street" />
+        </label>
+        <label>
+          City
+          <input id="city" type="text" placeholder="Portland" />
+        </label>
+        <label>
+          State
+          <input id="state" type="text" value="ME" maxlength="2" />
+        </label>
+        <label>
+          ZIP code
+          <input id="zip" type="text" inputmode="numeric" placeholder="04101" />
+        </label>
+        <label>
+          Employee / crew
+          <input id="employeeName" type="text" placeholder="Assigned cleaner or team" />
+        </label>
+        <label>
+          Arrival window
+          <input id="arrivalWindow" type="text" placeholder="9:00–9:30 AM" />
+        </label>
+        <label>
+          Customer phone
+          <input id="customerPhone" type="tel" placeholder="(207) 555-0123" />
+        </label>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="section-heading">
+        <span class="step-number">2</span>
+        <div>
+          <h2>Rooms and areas</h2>
+          <p>Baseboards are included in the standard room time and are not treated as an extra.</p>
+        </div>
+      </div>
+
+      <div class="room-grid">
+        <label>Small bedrooms <select id="smallBedrooms"></select></label>
+        <label>Medium bedrooms <select id="mediumBedrooms"></select></label>
+        <label>Large bedrooms <select id="largeBedrooms"></select></label>
+        <label>Half bathrooms <select id="halfBathrooms"></select></label>
+        <label>Full bathrooms <select id="fullBathrooms"></select></label>
+        <label>Large primary bathrooms <select id="primaryBathrooms"></select></label>
+
+        <label>
+          Kitchen size
+          <select id="kitchenSize">
+            <option value="0">None</option>
+            <option value="25">Apartment / small</option>
+            <option value="35" selected>Average</option>
+            <option value="45">Large</option>
+          </select>
+        </label>
+
+        <label>Living / family rooms <select id="livingRooms"></select></label>
+        <label>Dining rooms <select id="diningRooms"></select></label>
+        <label>Home offices <select id="homeOffices"></select></label>
+        <label>Laundry rooms <select id="laundryRooms"></select></label>
+        <label>Flights of stairs <select id="stairs"></select></label>
+        <label>Basements <select id="basements"></select></label>
+        <label>Attics <select id="attics"></select></label>
+        <label>Garages <select id="garages"></select></label>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="section-heading">
+        <span class="step-number">3</span>
+        <div>
+          <h2>Current condition</h2>
+          <p>Select the closest condition so the labor estimate is realistic.</p>
+        </div>
+      </div>
+
+      <div class="condition-grid" role="radiogroup" aria-label="Current condition">
+        <label class="condition-card">
+          <input type="radio" name="condition" value="0.85" />
+          <strong>🟢 Excellent</strong>
+          <span>Very tidy or professionally cleaned recently</span>
+        </label>
+        <label class="condition-card">
+          <input type="radio" name="condition" value="1" checked />
+          <strong>🔵 Good</strong>
+          <span>Regularly cleaned and maintained</span>
+        </label>
+        <label class="condition-card">
+          <input type="radio" name="condition" value="1.2" />
+          <strong>🟡 Needs attention</strong>
+          <span>Dust, fingerprints, or buildup in some areas</span>
+        </label>
+        <label class="condition-card">
+          <input type="radio" name="condition" value="1.45" />
+          <strong>🟠 Heavy cleaning</strong>
+          <span>Significant buildup, pet hair, or a long time since cleaning</span>
+        </label>
+        <label class="condition-card">
+          <input type="radio" name="condition" value="1.75" />
+          <strong>🔴 Move-out / deep clean</strong>
+          <span>Extensive cleaning is required</span>
+        </label>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="section-heading">
+        <span class="step-number">4</span>
+        <div>
+          <h2>Included tasks and extras</h2>
+          <p>Baseboards are included automatically. Check only the additional tasks requested.</p>
+        </div>
+      </div>
+
+      <div class="included-banner">✓ Standard baseboard cleaning is included</div>
+
+      <div class="check-grid">
+        <label><input class="extra" data-label="Inside refrigerator" data-minutes="20" type="checkbox" /> Inside refrigerator</label>
+        <label><input class="extra" data-label="Inside oven" data-minutes="25" type="checkbox" /> Inside oven</label>
+        <label><input class="extra" data-label="Dishes" data-minutes="20" type="checkbox" /> Dishes</label>
+        <label><input class="extra" data-label="One load of laundry" data-minutes="15" type="checkbox" /> One load of laundry</label>
+        <label><input class="extra" data-label="Extra cobweb removal" data-minutes="15" type="checkbox" /> Extra cobweb removal</label>
+      </div>
+
+      <div class="form-grid two compact-top">
+        <label>
+          Interior windows
+          <select id="windows">
+            <option value="0">None</option>
+            <option value="15">1–3 windows</option>
+            <option value="30">4–6 windows</option>
+            <option value="50">7–10 windows</option>
+            <option value="75">11–15 windows</option>
+          </select>
+        </label>
+        <label>
+          Ceiling fans
+          <select id="fans">
+            <option value="0">None</option>
+            <option value="10">1 fan</option>
+            <option value="20">2 fans</option>
+            <option value="30">3 fans</option>
+            <option value="40">4 fans</option>
+            <option value="50">5 fans</option>
+          </select>
+        </label>
+      </div>
+
+      <label class="block-label compact-top">
+        Special instructions, pets, parking, entry, or priority areas
+        <textarea id="specialNotes" rows="5" placeholder="Example: Dog will be crated. Park in the driveway. Focus on kitchen floors and upstairs bathroom."></textarea>
+      </label>
+
+      <div class="action-bar">
+        <button id="calculateBtn" class="primary-btn" type="button">Calculate Work Order</button>
+        <button id="saveBtn" class="secondary-btn" type="button">Save Job</button>
+        <button id="printBtn" class="dark-btn" type="button">Print Form</button>
+      </div>
+
+      <div id="saveMessage" class="save-message" aria-live="polite"></div>
+
+      <div class="saved-section">
+        <div class="saved-heading">
+          <h2>Saved jobs on this device</h2>
+          <button id="clearSavedBtn" class="text-btn" type="button">Clear all</button>
+        </div>
+        <div id="savedJobs" class="saved-jobs"></div>
+      </div>
+    </section>
+
+    <aside class="panel preview workorder-mode hidden-mode" aria-labelledby="work-order-title">
+      <div class="print-brand">
+        <div class="brand-mark">RPC</div>
+        <div>
+          <p>Randy's Premier Cleaning</p>
+          <strong>Gold Standard Work Order</strong>
+        </div>
+      </div>
+
+      <div class="work-order-header">
+        <div>
+          <p class="mini-label">Service address</p>
+          <h2 id="previewAddress">Address will appear here</h2>
+          <p id="previewCustomer">Customer name</p>
+        </div>
+        <div class="job-meta">
+          <p><span>Date</span><strong id="previewDate">Not set</strong></p>
+          <p><span>Crew</span><strong id="previewEmployee">Not assigned</strong></p>
+          <p><span>Arrival</span><strong id="previewArrival">Not set</strong></p>
+        </div>
+      </div>
+
+      <div class="time-summary">
+        <p>Estimated labor time</p>
+        <strong id="previewTime">0 hours</strong>
+        <span id="previewRange">Estimated range: 0–0 hours</span>
+      </div>
+
+      <div class="work-order-grid">
+        <section>
+          <h3>Property details</h3>
+          <div id="previewRooms" class="detail-list"><p>No rooms entered yet.</p></div>
+        </section>
+
+        <section>
+          <h3>Cleaning condition</h3>
+          <p id="previewCondition" class="condition-output">Good</p>
+        </section>
+
+        <section>
+          <h3>Included every visit</h3>
+          <ul class="clean-list">
+            <li>Dust reachable surfaces</li>
+            <li>Wipe counters and exterior surfaces</li>
+            <li>Clean bathrooms and kitchen</li>
+            <li>Vacuum and mop applicable floors</li>
+            <li><strong>Clean standard baseboards</strong></li>
+            <li>Empty normal household trash</li>
+          </ul>
+        </section>
+
+        <section>
+          <h3>Requested extras</h3>
+          <div id="previewExtras" class="detail-list"><p>No extras selected.</p></div>
+        </section>
+
+        <section class="full-width">
+          <h3>Special instructions</h3>
+          <p id="previewNotes" class="notes-box">No special instructions.</p>
+        </section>
+
+        <section class="full-width">
+          <h3>Employee completion checklist</h3>
+          <div class="completion-grid">
+            <label>☐ Walk-through completed</label>
+            <label>☐ Priority areas completed</label>
+            <label>☐ Baseboards completed</label>
+            <label>☐ Floors completed</label>
+            <label>☐ Extras completed</label>
+            <label>☐ Final quality check completed</label>
+          </div>
+        </section>
+
+        <section class="full-width signatures">
+          <div><span>Employee signature</span></div>
+          <div><span>Completion time</span></div>
+          <div><span>Customer notes</span></div>
+        </section>
+      </div>
+
+      <footer class="print-footer">
+        <p>Setting the Gold Standard in Cleaning</p>
+        <p>Employee portal work order</p>
+      </footer>
+    </aside>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
